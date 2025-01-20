@@ -301,3 +301,41 @@ button:active {
    padding-top: 5%;
    padding-bottom: 5%;
 }
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+ 
+}
+
+.aixenprovence h2 {
+  text-align: center;
+  padding: 3%;
+}
+
+.chiffrescleimg{
+  background: url(./living-room-8368673_1280.webp);
+  background-position: center;
+  background-size: cover;
+}
+.lieuxvisiterimg{
+  background: url(./living-room-8368673_1280.webp);
+  background-position: center;
+  background-size: cover;
+}
+.evenementsimg{
+  background: url(./living-room-8368673_1280.webp);
+  background-position: center;
+  background-size: cover;
+}
+.gastronomieimg{
+  background: url(./living-room-8368673_1280.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+.aixenprovence img {
+  background-position: center;
+  background-size: cover;
+}
