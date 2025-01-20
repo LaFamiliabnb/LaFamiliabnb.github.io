@@ -22,7 +22,6 @@
 
 *{
   list-style: none;
-  margin: 0px;
   padding: 0px;
 }
 
@@ -35,7 +34,7 @@ body{
 nav{
   display: grid;
   grid-template-columns: 10% 20% 70%;
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0px;
   background-color: var(--color1);
   color: var(--color2);
@@ -43,8 +42,11 @@ nav{
 }
 
 .logo-accueil{
+  height: auto;
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin: 5%;
 }
 
 .denomination{
@@ -58,7 +60,7 @@ nav{
 }
 
 .menu{
-  padding: 20px 40px;
+  padding: 0 2% 0 2%;
   font-size: 1rem;
 }
 
@@ -93,7 +95,7 @@ nav li:hover{
   background-position: center;
   background-size: cover;
   padding: 50px;
-  max-width: 2000px;
+  max-width: 100%;
   margin: 0 auto;
 
 }
@@ -109,17 +111,17 @@ nav li:hover{
 
 .container-h1{
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 .container-h2{
   text-align: center;
   font-size: 1.3rem;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 .container-h3{
   text-align: center;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 
 .e-mail {
@@ -158,7 +160,7 @@ button {
   font-size: 1.3rem;
   padding: 10px 20px;
   border-radius: 150px;
-  margin: 0 auto;
+  margin: 5% auto 5% auto;
   display: block;
   transition: 0.1s;
 }
@@ -175,46 +177,63 @@ button:active {
 
 .containerPresentation {
   background-color: var(--color4);
+  width: 100%;
 }
 
 .containerPresentation1 {
   text-align: center;
-  padding: 40px 40px 0px 40px;
+  padding: 3% 3% 0% 3%;
   font-size: 1.5rem;
   width: calc(100% - 100px);
 }
 
 .containerPresentation2 {
   text-align: center;
-  padding: 40px 40px 0px 40px;
+  padding: 3% 3% 0% 3%;
   font-size: 1.2rem;
   width: calc(100% - 100px);
 }
 
 .containerPresentation3 {
   text-align: center;
-  padding: 40px 40px 40px 0px;
+  padding: 3% 3% 0% 3%;
   font-size: 1.2rem;
   width: calc(100% - 100px);
 }
 
 .containerPresentation4 {
   text-align: center;
-  padding: 0px 40px 40px 40px;
+  padding: 3% 3% 3% 3%;
   font-size: 1.2rem;
   width: calc(100% - 100px);
   text-align: center;
 }
 
-.containerproprietairesheader h2 {
+.containerproprietairesheader  {
+  padding: 3% 30% 0 3%;
+}
+
+.tarifgrid {
+  display: grid;
+  grid-template-columns: 60% 40%;
   padding: 3% 3% 0 3%;
+}
+
+.tarifcontainer {
+  background: var(--color4);
+  border-radius: 15px;
   text-align: center;
+}
+
+
+.services-part{
+  width: 100%;
 }
 
 .services {
   display: flex;
   justify-content: space-between;
-  max-width: 1100px;
+  width: 100%;
    padding: 3%;
 }
 
@@ -235,7 +254,7 @@ button:active {
 .containerprice { 
   background: var(--color4);
   text-align: center;
-  margin: 0 10% 3% 10%;
+  margin: 0 5% 3% 5%;
   min-height: 100px;
   border-radius: 20px;
 }
@@ -309,8 +328,21 @@ button:active {
  
 }
 
+.grid {
+  margin: 5%;
+}
+
 .aixenprovence h2 {
   text-align: center;
+  padding: 3%;
+}
+
+.aixenprovence h3 {
+  text-align: center;
+  padding: 3%;
+}
+
+.aixenprovence p {
   padding: 3%;
 }
 
@@ -318,6 +350,7 @@ button:active {
   background: url(./living-room-8368673_1280.webp);
   background-position: center;
   background-size: cover;
+
 }
 .lieuxvisiterimg{
   background: url(./living-room-8368673_1280.webp);
@@ -338,4 +371,13 @@ button:active {
 .aixenprovence img {
   background-position: center;
   background-size: cover;
+}
+
+.contact  {
+  background: var(--color4);
+}
+
+.nouscontactertitre {
+  text-align: center;
+  padding: 5%;
 }
