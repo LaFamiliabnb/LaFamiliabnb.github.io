@@ -7,15 +7,25 @@
 
 @font-face {
   font-family: "PlayfairDisplay";
-  src: url(/PlayfairDisplay-VariableFont_wght.ttf);
+  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: "Cabin";
+  src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+  font-family: "Abril";
+  src: url(./fonts/AbrilFatface-Regular.ttf);
+}
 
 *{
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
+
 
 body{
   background-color: var(--color1);
@@ -172,9 +182,8 @@ button:active {
   padding: 40px 40px 0px 40px;
   font-size: 1.5rem;
   width: calc(100% - 100px);
-
-
 }
+
 .containerPresentation2 {
   text-align: center;
   padding: 40px 40px 0px 40px;
@@ -195,4 +204,100 @@ button:active {
   font-size: 1.2rem;
   width: calc(100% - 100px);
   text-align: center;
+}
+
+.containerproprietairesheader h2 {
+  padding: 3% 3% 0 3%;
+  text-align: center;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+   padding: 3%;
+}
+
+.accueil {
+   padding: 3%;
+}
+.gestion {
+   padding: 3%;
+}
+.assitance {
+   padding: 3%;
+}
+
+.services li {
+ padding: 3%;
+}
+
+.containerprice { 
+  background: var(--color4);
+  text-align: center;
+  margin: 0 10% 3% 10%;
+  min-height: 100px;
+  border-radius: 20px;
+}
+
+.containerprice p {
+  font-size: 2rem;
+}
+
+.Pourquoilafamilia {
+  padding: 3% 10% 10% 10%;
+  background: var(--color4);
+}
+
+
+.Pourquoilafamiliaintro {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.Pourquoilafamiliaintroimg{
+  background: url(./living-room-8368673_1280.webp);
+  background-position: center;
+  background-size: cover;
+  min-height: 200Px;
+  margin: 5%;
+}
+
+.Pourquoilafamiliaintrotext {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
+}
+
+.Pourquoilafamiliaavantages {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+   padding: 3%;
+}
+
+.avantagesfinanciers{
+  padding: 1.5%;
+}
+
+.avantagesoperationnels {
+  padding: 1.5%;
+}
+
+.avantageslocaux{
+  padding: 1.5%;
+}
+
+.avantagespropriétaires{
+  padding: 1.5%;
+}
+
+.Pourquoilafamiliaavantages li {
+   padding: 1.5%;
+   padding-top: 5%;
+   padding-bottom: 5%;
 }
