@@ -93,7 +93,7 @@ img {
 .body-estimation {
   background-color: var(--color4);
   width: 100%;
-  height: 900px;
+
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
@@ -211,7 +211,86 @@ form {
 }
 
 
+footer {
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 40px 0 0 0;
+  text-align: center;
+  font-family: "Cabin", sans-serif;
+}
 
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: var(--color2);
+  margin-bottom: 15px;
+  font-size: 1.25em;
+  font-family: "PlayfairDisplay", serif;
+}
+
+.footer-section p,
+.footer-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  color: var(--color2);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-section.social ul {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-section.social ul li {
+  margin: 0 10px;
+}
+
+.footer-section.social ul li a {
+  font-size: 1.5em;
+  color: var(--color2);
+  transition: color 0.3s;
+}
+
+.footer-section.social ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: var(--color1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9em;
+  font-family: "Cabin", sans-serif;
+}
 
 
 
@@ -222,6 +301,7 @@ form {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding-bottom: 5%;
   }
 
   .logo-denomination {
