@@ -1,0 +1,231 @@
+:root {
+  --color1: #FFFFFF;
+  --color2: #000000;
+  --color3: #FFBB98;
+  --color4: #fce5cc;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+  font-family: "Abril";
+  src: url(./fonts/AbrilFatface-Regular.ttf);
+}
+
+
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--color1);
+  color: var(--color2);
+  flex-wrap: wrap;
+  
+}
+
+.logo-denomination {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.denomination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "PlayfairDisplay";
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+
+.menu-list-estimation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list-estimation li {
+  margin: 0;
+}
+
+
+
+img {
+  height: 100px;
+}
+
+
+.contact-button {
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 10%;
+  text-transform: uppercase;
+  font-weight: 900;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+
+}
+
+.contact-button:hover {
+  background-color: var(--color3);
+  color: var(--color2);
+}
+
+
+.body-estimation {
+  background-color: var(--color4);
+  width: 100%;
+  height: 900px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 500px; /* Largeur maximale du formulaire */
+  width: 100%; /* Prend toute la largeur disponible */
+  padding: 20px;
+  box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur totale */
+}
+
+
+.no-underline {
+  text-decoration: none; /* Enlève le soulignement */
+  color: black;          /* Change la couleur du texte en noir */
+}
+
+.no-underline:visited {
+  color: black;          /* Garde la couleur noire même après la visite */
+}
+
+
+/* Style pour le formulaire */
+.body-estimation {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+
+}
+
+.body-estimation h2 {
+  margin: 5%;
+  font-size: 2rem;
+ 
+}
+
+form {
+  margin: 10%;
+  max-width: 500px;
+  text-align: center;
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ajoutez cette ligne pour inclure le padding et la bordure dans la largeur totale */
+
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+.phone-input .country-code {
+  margin-right: 10px;
+}
+
+.form-group .checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.form-group_checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color:var(--color3);
+  color:var(--color2);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10%;
+}
+
+.submit-button:hover {
+  background-color: var(--color1);
+}
+
+
+
+
+
+
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-denomination {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .menu-list-estimation {
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+
+  }
+  
+  .contact-button {
+    margin-bottom: 100px;
+
+  }
+}
