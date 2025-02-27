@@ -53,11 +53,13 @@ nav {
 }
 
 
-.menu-list-estimation ul {
+.menu-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+
 
 .menu-list-estimation li {
   margin: 0;
@@ -97,6 +99,10 @@ img {
 
 .no-underline:visited {
   color: black;          /* Garde la couleur noire même après la visite */
+}
+
+h1{
+  text-align: center;
 }
 
 .ifram {

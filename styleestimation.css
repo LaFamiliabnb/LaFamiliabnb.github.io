@@ -53,7 +53,7 @@ nav {
 }
 
 
-.menu-list-estimation ul {
+.menu-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -157,7 +157,7 @@ form {
 .form-group input[type="tel"] {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
+  
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box; /* Ajoutez cette ligne pour inclure le padding et la bordure dans la largeur totale */
@@ -177,6 +177,20 @@ form {
   display: flex;
   align-items: center;
 }
+
+.phone-input, .address-input {
+  border: 1px solid #ccc; /* Bordure légère pour la zone de texte */
+  border-radius: 5px; /* Coins arrondis */
+  overflow: hidden; /* Pour cacher le débordement éventuel de la bordure */
+}
+
+.phone-input input, .address-input input {
+  width: 100%; /* La zone de texte prend toute la largeur du conteneur */
+  padding: 10px; /* Espace interne pour le texte dans la zone de texte */
+  border: none; /* Pas de bordure sur la zone de texte elle-même */
+  box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur */
+}
+
 
 .form-group_checkbox-label input[type="checkbox"] {
   margin-right: 10px;
