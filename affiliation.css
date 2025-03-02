@@ -1,0 +1,448 @@
+:root {
+  --color1: #FFFFFF;
+  --color2: #000000;
+  --color3: #FFBB98;
+  --color4: #fce5cc;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+  font-family: "Abril";
+  src: url(./fonts/AbrilFatface-Regular.ttf);
+}
+
+
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--color1);
+  color: var(--color2);
+  flex-wrap: wrap;
+  
+}
+
+.logo-denomination {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.denomination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "PlayfairDisplay";
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+
+.menu-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list-estimation li {
+  margin: 0;
+}
+
+
+
+img {
+  height: 100px;
+}
+
+
+.contact-button {
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 10%;
+  text-transform: uppercase;
+  font-weight: 900;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+
+}
+
+.contact-button:hover {
+  background-color: var(--color3);
+  color: var(--color2);
+}
+
+
+.body-estimation {
+  background-color: var(--color4);
+  width: 100%;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 500px; /* Largeur maximale du formulaire */
+  width: 100%; /* Prend toute la largeur disponible */
+  padding: 20px;
+  box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur totale */
+}
+
+
+.no-underline {
+  text-decoration: none; /* Enlève le soulignement */
+  color: black;          /* Change la couleur du texte en noir */
+}
+
+.no-underline:visited {
+  color: black;          /* Garde la couleur noire même après la visite */
+}
+
+
+/* Style pour le formulaire */
+.body-estimation {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+
+}
+
+.body-estimation h2 {
+  margin: 5%;
+  font-size: 2rem;
+ 
+}
+
+
+.affiliation-container {
+  padding: 3% 5%;
+  background-color: var(--color1); /* ou une autre couleur si vous préférez */
+  color: var(--color2);
+}
+
+.affiliation-header {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.affiliation-header h1 {
+  font-family: "PlayfairDisplay", serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  ont-weight: 600; /* Slightly bolder */
+  text-transform: uppercase; /* All in uppercase */
+  footer {
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 40px 0 0 0;
+  text-align: center;
+  font-family: "Cabin", sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: var(--color2);
+  margin-bottom: 15px;
+  font-size: 1.25em;
+  font-family: "PlayfairDisplay", serif;
+}
+
+.footer-section p,
+.footer-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  color: var(--color2);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-section.social ul {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-section.social ul li {
+  margin: 0 10px;
+}
+
+.footer-section.social ul li a {
+  font-size: 1.5em;
+  color: var(--color2);
+  transition: color 0.3s;
+}
+
+.footer-section.social ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: var(--color1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9em;
+  font-family: "Cabin", sans-serif;
+}
+}
+
+.affiliation-header p {
+  font-family: "Cabin", sans-serif;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.affiliation-benefits {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 3%;
+}
+
+.affiliation-benefit {
+  flex: 1;
+  min-width: 250px;
+  margin: 1%;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: var(--color4);
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3);
+  text-align: center;
+}
+
+.affiliation-benefit h3 {
+  font-family: "PlayfairDisplay", serif;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.affiliation-benefit p {
+  font-family: "Cabin", sans-serif;
+  font-size: 1rem;
+}
+
+.affiliation-cta {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.affiliation-cta a.contact-button {
+  /* Utilise la classe contact-button pour une cohérence visuelle */
+  font-size: 1.1rem;
+  padding: 15px 30px;
+}
+
+.affiliation-steps {
+  margin-bottom: 3%;
+}
+
+.affiliation-steps h2 {
+  text-align: center;
+  font-family: "PlayfairDisplay", serif;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.affiliation-steps ol {
+  list-style-type: decimal;
+  font-family: "Cabin", sans-serif;
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.affiliation-steps li {
+  margin-bottom: 10px;
+}
+
+.affiliation-requirements {
+  text-align: center;
+}
+
+.affiliation-requirements h2 {
+  font-family: "PlayfairDisplay", serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.affiliation-requirements ul {
+  list-style: none;
+  padding: 0;
+  font-family: "Cabin", sans-serif;
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.affiliation-requirements ul li{
+    margin-bottom: 10px;
+}
+
+.affiliation-requirements ul li::before{
+    content: "✓ ";
+    color: var(--color3);
+    font-weight: bold;
+}
+.affiliation-details{
+  text-align: center;
+}
+.affiliation-details h2{
+  font-family: "PlayfairDisplay", serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.affiliation-details p{
+  font-family: "Cabin", sans-serif;
+  font-size: 1.1rem;
+  max-width: 800px
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+footer {
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 40px 0 0 0;
+  text-align: center;
+  font-family: "Cabin", sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: var(--color2);
+  margin-bottom: 15px;
+  font-size: 1.25em;
+  font-family: "PlayfairDisplay", serif;
+}
+
+.footer-section p,
+.footer-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  color: var(--color2);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-section.social ul {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-section.social ul li {
+  margin: 0 10px;
+}
+
+.footer-section.social ul li a {
+  font-size: 1.5em;
+  color: var(--color2);
+  transition: color 0.3s;
+}
+
+.footer-section.social ul li a:hover {
+  color: var(--color3);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: var(--color1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9em;
+  font-family: "Cabin", sans-serif;
+}
+
+/* Media Queries pour la page Affiliation */
+@media (max-width: 768px) {
+    .affiliation-benefit{
+        min-width: 100%;
+    }
+    .affiliation-header p {
+        font-size: 1rem;
+    }
+    .affiliation-steps ol{
+      padding: 0;
+    }
+    .affiliation-requirements ul{
+      padding: 0;
+    }
+}
