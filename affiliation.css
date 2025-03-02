@@ -308,6 +308,8 @@ img {
 
 .affiliation-requirements {
   text-align: center;
+  margin-bottom: 3%;
+
 }
 
 .affiliation-requirements h2 {
@@ -335,6 +337,9 @@ img {
 }
 .affiliation-details{
   text-align: center;
+  margin-bottom: 3%;
+  margin-top: 3%;
+
 }
 .affiliation-details h2{
   font-family: "PlayfairDisplay", serif;
