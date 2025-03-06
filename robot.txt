@@ -1,0 +1,44 @@
+# Règles générales pour tous les robots
+User-agent: *
+
+# Directives de crawling
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://lafamiliabnb.fr/sitemap.xml
+
+# Règles spécifiques pour différents robots
+User-agent: Googlebot
+Allow: /index.html
+Allow: /estimation.html
+Allow: /affiliation.html
+Allow: /reservation.html
+
+User-agent: Bingbot
+Allow: /index.html
+Allow: /estimation.html
+Allow: /affiliation.html
+Allow: /reservation.html
+
+# Limitations de crawl pour économiser la bande passante
+Crawl-delay: 10
+
+# Protection des données sensibles
+Disallow: /*?*
+Disallow: /*?id=
+Disallow: /scriptestimation.js
+Disallow: /script.js
+
+# Conseils pour les images
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.gif
+
+# Instructions supplémentaires de sécurité
+User-agent: Yandex
+Disallow: /
+
+User-agent: Mail.Ru
+Disallow: /
