@@ -8,16 +8,19 @@
 @font-face {
   font-family: "PlayfairDisplay";
   src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+  font-display: swap; /* Added */
 }
 
 @font-face {
   font-family: "Cabin";
   src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf);
+  font-display: swap; /* Added */
 }
 
 @font-face {
   font-family: "Abril";
   src: url(./fonts/AbrilFatface-Regular.ttf);
+  font-display: swap; /* Added */
 }
 
 * {
@@ -79,12 +82,9 @@ nav {
 .menu-list ul {
   display: flex;
   list-style: none;
-  padding: 0;
-  margin: 0;
   width: 100%;
   justify-content: space-around;
 }
-
 
 img {
   height: 100px;
@@ -109,10 +109,12 @@ nav li a:hover {
 .contact-button {
   background-color: var(--color4);
   color: var(--color2);
-  padding: 10px 20px;
+  padding: 15px 25px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ; /* Add shadow */
+  font-size: 1.1rem; /* Increase font-size */
+  cursor: pointer; /* Make the cursor a pointer */
 }
 
 .contact-button:hover {
@@ -163,7 +165,7 @@ nav li a:hover {
   border-radius: 10px;
   padding: 10px;
   backdrop-filter: blur(10px);
-  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3);
 
 }
 
@@ -184,36 +186,6 @@ nav li a:hover {
   margin-bottom: 15%;
 }
 
-.e-mail {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.e-mail input {
-  padding: 10px;
-  border-radius: 5px;
-  outline: none;
-  border: 3px solid transparent;
-  transition: 0.3s;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--color2);
-  min-width: 180px;
-  width: 10%;
-  max-width: 300px;
-}
-
-input[type="email"]:focus {
-  background: transparent;
-  border: 3px solid var(--color2);
-  border-radius: 150px;
-}
-
-input[type="email"]::placeholder {
-  color: var(--color2);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
 button {
   cursor: pointer;
   background: var(--color1);
@@ -224,7 +196,6 @@ button {
   margin: 5% auto;
   display: block;
   transition: 0.1s;
-
 }
 
 button:hover {
@@ -366,7 +337,7 @@ button:active {
   border-radius: 15px;
   text-align: center;
   padding: 5% 5% 0% 5%;
-  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ;
 }
 
 .tarifcontainer h2 {
@@ -458,27 +429,6 @@ button:active {
   font-size: 0.9;
 }
 
-
-
-
-
-
-.accueil {
-  padding: 3%;
-}
-
-.gestion {
-  padding: 3%;
-}
-
-.assistance {
-  padding: 3%;
-}
-
-.services li {
-  padding: 3%;
-}
-
 .containerprice {
   background: var(--color4);
   text-align: center;
@@ -510,14 +460,6 @@ text-align: center;
   text-align: center;
   margin-bottom: 5%;
   margin-top: 5%;
-}
-
-.Pourquoilafamiliaintroimg {
-  background: url(./img/living-room-8368673_1280.webp);
-  background-position: center;
-  background-size: cover;
-  min-height: 200px;
-  margin: 5%;
 }
 
 .Pourquoilafamiliaintrotext {
@@ -655,7 +597,7 @@ text-align: center;
   padding: 2%;
   border-radius: 10px;
   background-color: var(--color1);
-  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+  box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ;
   box-sizing: border-box;
 
 }
@@ -711,11 +653,6 @@ text-align: center;
   display: block;
 }
 
-
-
-
-
-
 .aixenprovence h2 {
   text-align: center;
   padding: 3%;
@@ -746,28 +683,27 @@ text-align: center;
 
 }
 
-
 .chiffrescleimg {
-  background: url(./img/Batiments\ Aix.jpg);
+  background: url(./img/Batiments\ Aix.webp);
   background-position: center;
   background-size: cover;
 }
 
 .lieuxvisiterimg {
-  background: url(./img/saintevictoire.jpg);
+  background: url(./img/saintevictoire.webp);
   background-position: center;
   background-size: cover;
 }
 
 
 .evenementsimg {
-  background: url(./img/festival.jpg);
+  background: url(./img/festival.webp);
   background-position: center;
   background-size: cover;
 }
 
 .gastronomieimg {
-  background: url(./img/Calissons.jpg);
+  background: url(./img/Calissons.avif);
   background-position: center;
   background-size: cover;
 }
@@ -785,7 +721,6 @@ text-align: center;
   text-align: center;
   padding: 5%;
 }
-
 
 
 footer {
@@ -892,7 +827,7 @@ footer {
     right: 20px; /* Positionnez-le à droite */
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) !important;
+    box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ;
     z-index: 500;
     transition: all 0.3s ease; /* Animation douce */
     width: max-content; /* Ajuste la largeur en fonction du contenu */
@@ -959,8 +894,6 @@ footer {
   .Pourquoilafamiliaintro {
     grid-template-columns: 1fr;
   }
-
-
 
   .Pourquoilafamiliaavantages {
     flex-direction: column;
