@@ -15,12 +15,14 @@ Allow: /index.html
 Allow: /estimation.html
 Allow: /affiliation.html
 Allow: /reservation.html
+Allow: /carteinteractive.html
 
 User-agent: Bingbot
 Allow: /index.html
 Allow: /estimation.html
 Allow: /affiliation.html
 Allow: /reservation.html
+Allow: /carteinteractive.html
 
 # Limitations de crawl pour économiser la bande passante
 Crawl-delay: 10
