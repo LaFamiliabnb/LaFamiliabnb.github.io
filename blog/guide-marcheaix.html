@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) - Load as deferred-->
+  <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-T5JV1M1NK3');
+  </script>
+
+  <!-- Google Tag Manager - Load as deferred-->
+  <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marché d'Aix-en-Provence - La Familia</title>
+  
+  <link rel="stylesheet" href="../carteinteractive.css">
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Article container */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header de l'article */
+    .article-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #2b5797;
+    }
+    
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .category-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      background-color: #eaeaea;
+      border-radius: 3px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+    
+    .article-featured-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    
+    /* Contenu de l'article */
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .article-content h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #2b5797;
+    }
+    
+    .article-content h3 {
+      font-size: 1.4rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+    }
+    
+    .article-content img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+    
+    .article-content li {
+      margin-bottom: 10px;
+    }
+    
+    /* Infobox */
+    .info-box {
+      background-color: #f5f9ff;
+      border-left: 4px solid #2b5797;
+      padding: 15px 20px;
+      margin: 30px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    
+    .info-box-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2b5797;
+    }
+    
+    /* Map container */
+    .location-map {
+      height: 300px;
+      margin: 30px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Section reliée */
+    .related-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #eaeaea;
+    }
+    
+    .related-title {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .related-guides {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    
+    .guide-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: white;
+    }
+    
+    .guide-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .guide-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    
+    .guide-content {
+      padding: 15px;
+    }
+    
+    .guide-title {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #2b5797;
+    }
+    
+    .guide-excerpt {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: #666;
+    }
+    
+    .guide-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .guide-date {
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .guide-time {
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #2b5797;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 5px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .btn:hover {
+      background-color: #1e3c6a;
+    }
+    
+    /* Photo gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+    
+    .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+    
+    .gallery-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 2rem;
+      }
+      
+      .article-featured-image {
+        height: 250px;
+      }
+      
+      .related-guides {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+  <!-- Leaflet CSS pour la carte -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css" />
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD"
+   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <nav>
+      <div class="logo-denomination">
+        <div class="logo-accueil">
+          <a href="index.html" class="no-underline">
+            <img src="../img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia">
+          </a>
+        </div>
+        <div class="denomination">
+          <a href="index.html" class="no-underline">
+            <p>La Familia</p>
+          </a>
+        </div>
+      </div>
+      <div class="menu-list">
+        <ul>
+          <li><a href="../carteinteractive.html" class="contact-button">Retour carte intéractive</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="article-container">
+    <article>
+      <div class="article-header">
+        <h1 class="article-title">Le Marché d'Aix-en-Provence : Saveurs et Couleurs de la Provence</h1>
+        
+        <div class="article-meta">
+          <span>Publié le 10 mai 2025</span>
+          <span>|</span>
+          <span>7 min de lecture</span>
+        </div>
+        
+        <div class="article-categories">
+          <span class="category-tag">Gastronomie</span>
+          <span class="category-tag">Tradition</span>
+          <span class="category-tag">Shopping</span>
+        </div>
+        
+        <img src="../img/marcheaix.jpg" alt="Marché d'Aix-en-Provence" class="article-featured-image">
+      </div>
+      
+      <div class="article-content">
+        <p>Au cœur de la cité du Roi René, le marché d'Aix-en-Provence est bien plus qu'un simple lieu de commerce – c'est une véritable institution, un rendez-vous incontournable qui rythme la vie de la ville depuis des siècles. Avec ses étals colorés, ses odeurs envoûtantes et son ambiance typiquement provençale, il offre une immersion complète dans l'art de vivre local et constitue une expérience sensorielle inoubliable pour les visiteurs.</p>
+        
+        <h2>Histoire et Tradition</h2>
+        
+        <p>La tradition du marché à Aix-en-Provence remonte à l'Antiquité, quand la ville s'appelait encore Aquae Sextiae. Au Moyen Âge, les marchés se tenaient déjà sur les places qui les accueillent aujourd'hui. Le droit de tenir marché fut officiellement accordé à la ville par les comtes de Provence au XIIIe siècle, faisant d'Aix un centre commercial important de la région.</p>
+        
+        <p>Au fil des siècles, le marché s'est développé et spécialisé, devenant un symbole de l'identité aixoise et provençale. Aujourd'hui, il perpétue cette longue tradition tout en s'adaptant aux attentes contemporaines, attirant aussi bien les habitants que les touristes en quête d'authenticité.</p>
+        
+        <div class="info-box">
+          <div class="info-box-title">Anecdote historique</div>
+          <p>Au XIXe siècle, le célèbre peintre Paul Cézanne, natif d'Aix, venait souvent s'inspirer au marché. Les couleurs vives des fruits et légumes, ainsi que l'animation des lieux, ont influencé plusieurs de ses natures mortes et scènes de marché, aujourd'hui exposées dans les plus grands musées du monde.</p>
+        </div>
+        
+        <h2>Les Différents Marchés d'Aix</h2>
+        
+        <p>Ce qu'on appelle communément "le marché d'Aix" est en réalité un ensemble de marchés distincts qui se déploient dans différents quartiers du centre-ville, chacun avec sa spécialité et son ambiance propre :</p>
+        
+        <h3>Le Marché aux Fleurs - Place de l'Hôtel de Ville</h3>
+        <p>Véritable tableau vivant, ce marché parfume et colore la place de l'Hôtel de Ville tous les matins, du mardi au dimanche. Les fleuristes y proposent des bouquets champêtres, des fleurs coupées, des plantes aromatiques et décoratives. Au printemps, les étals débordent de lavande, de tournesols et de mimosas, créant un spectacle visuel et olfactif enchanteur.</p>
+        
+        <h3>Le Marché Alimentaire - Place Richelme</h3>
+        <p>C'est le marché quotidien par excellence (tous les jours de 8h à 13h), où les Aixois viennent s'approvisionner en produits frais. Cette place ombragée accueille principalement des producteurs locaux proposant fruits, légumes, fromages, miels, huiles d'olive, tapenades et autres spécialités provençales. L'ambiance y est conviviale, avec ses habitués qui discutent avec les commerçants et prennent le temps de choisir méticuleusement leurs produits.</p>
+        
+        <h3>Le Grand Marché - Place des Prêcheurs et Place de la Madeleine</h3>
+        <p>Le mardi, jeudi et samedi matin, ce vaste marché s'étend sur les places des Prêcheurs et de la Madeleine, ainsi que dans les rues adjacentes. On y trouve de tout : alimentaire, vêtements, artisanat, produits provençaux, articles ménagers... C'est le marché le plus important et le plus fréquenté, particulièrement le samedi où il attire des visiteurs de toute la région.</p>
+        
+        <h3>Le Marché des Producteurs - Place Jeanne d'Arc</h3>
+        <p>Organisé le samedi matin, ce marché est exclusivement réservé aux producteurs locaux. L'accent y est mis sur la qualité et la traçabilité des produits, avec une sélection rigoureuse des exposants. C'est le lieu idéal pour dialoguer directement avec ceux qui cultivent, élèvent ou fabriquent ce que vous achetez.</p>
+        
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="/api/placeholder/400/300" alt="Étal de fruits et légumes" class="gallery-image">
+          </div>
+          <div class="gallery-item">
+            <img src="/api/placeholder/400/300" alt="Marché aux fleurs" class="gallery-image">
+          </div>
+          <div class="gallery-item">
+            <img src="/api/placeholder/400/300" alt="Olives et épices" class="gallery-image">
+          </div>
+        </div>
+        
+        <h2>Les Trésors du Marché</h2>
+        
+        <h3>Produits emblématiques</h3>
+        <p>Le marché d'Aix-en-Provence est une vitrine exceptionnelle des produits du terroir provençal. Parmi les spécialités à ne pas manquer :</p>
+        
+        <ul>
+          <li><strong>L'huile d'olive</strong> : souvent proposée en dégustation, elle varie selon les producteurs et les variétés d'olives utilisées</li>
+          <li><strong>Le calisson</strong> : confiserie emblématique d'Aix, à base d'amandes, de melon confit et de pâte d'agrumes</li>
+          <li><strong>Les herbes de Provence</strong> : thym, romarin, sarriette, origan et autres aromates qui parfument la cuisine méditerranéenne</li>
+          <li><strong>La tapenade</strong> : pâte d'olives noires ou vertes traditionnelle, idéale pour l'apéritif</li>
+          <li><strong>Les fruits et légumes de saison</strong> : tomates, courgettes, aubergines, pêches, melons de Cavaillon...</li>
+          <li><strong>Le miel de lavande</strong> : récolté sur les plateaux environnants</li>
+        </ul>
+        
+        <h3>Artisanat local</h3>
+        <p>Au-delà des produits alimentaires, le marché d'Aix propose également un large choix d'artisanat local :</p>
+        
+        <ul>
+          <li>Tissus provençaux aux motifs traditionnels</li>
+          <li>Savons de Marseille et produits cosmétiques à base de lavande ou d'olive</li>
+          <li>Céramiques et poteries aux couleurs du Sud</li>
+          <li>Produits dérivés de la lavande (sachets, huiles essentielles)</li>
+          <li>Santons, ces petites figurines en argile typiques de la Provence</li>
+        </ul>
+        
+        <div class="info-box">
+          <div class="info-box-title">Conseil shopping</div>
+          <p>Pour profiter pleinement de votre visite au marché, prévoyez un panier ou un sac réutilisable solide. N'hésitez pas à demander aux vendeurs leurs conseils sur la manière de consommer leurs produits – ils partagent souvent volontiers des recettes traditionnelles ou des astuces de préparation.</p>
+        </div>
+        
+        <h2>Visiter le Marché : Conseils Pratiques</h2>
+        
+        <h3>Meilleur moment pour visiter</h3>
+        <p>Pour vivre une expérience authentique tout en évitant la foule, privilégiez une visite en fin de matinée un jour de semaine. Si vous souhaitez découvrir le marché dans toute son ampleur, optez plutôt pour le samedi matin, particulièrement animé, mais attendez-vous à plus de monde.</p>
+        
+        <p>Chaque saison offre des produits et une ambiance différents :</p>
+        
+        <ul>
+          <li><strong>Printemps</strong> : premières fraises, asperges, artichauts et explosion de fleurs</li>
+          <li><strong>Été</strong> : abondance de fruits (pêches, abricots, melons), légumes méditerranéens et affluence touristique</li>
+          <li><strong>Automne</strong> : champignons, raisins, figues et châtaignes dans une ambiance plus calme</li>
+          <li><strong>Hiver</strong> : agrumes, courges, truffes et marchés de Noël pour une expérience plus intimiste</li>
+        </ul>
+        
+        <h3>Se restaurer sur place</h3>
+        <p>Le marché est aussi un lieu idéal pour se restaurer sur le pouce. Plusieurs options s'offrent à vous :</p>
+        
+        <ul>
+          <li>Achetez des produits à picorer en déambulant (fromage, pain, fruits)</li>
+          <li>Optez pour des préparations à emporter proposées par certains traiteurs du marché (socca, pissaladière, fougasse)</li>
+          <li>Installez-vous aux terrasses des cafés qui bordent les places du marché pour observer l'animation tout en déjeunant</li>
+        </ul>
+        
+        <h3>Bon à savoir</h3>
+        <p>Quelques informations pratiques pour optimiser votre visite :</p>
+        
+        <ul>
+          <li>Les marchés se tiennent généralement de 8h à 13h</li>
+          <li>Les prix ne sont pas toujours affichés – n'hésitez pas à demander avant d'acheter</li>
+          <li>La pratique du marchandage n'est pas courante pour l'alimentaire, mais peut se faire pour l'artisanat</li>
+          <li>La plupart des vendeurs acceptent uniquement les espèces, prévoyez donc suffisamment de monnaie</li>
+          <li>Pour les produits frais, privilégiez un achat en fin de visite pour éviter qu'ils ne s'abîment</li>
+        </ul>
+        
+        <div id="location-map" class="location-map"></div>
+        
+        <h2>Au-delà du Marché</h2>
+        
+        <p>Votre visite du marché d'Aix peut s'intégrer dans un circuit plus large à travers le centre historique. Après avoir fait vos emplettes, pourquoi ne pas :</p>
+        
+        <h3>Prolonger l'expérience culinaire</h3>
+        <p>Plusieurs restaurants autour du marché proposent une cuisine du marché, élaborée avec les produits frais de la journée. C'est l'occasion de goûter aux plats provençaux préparés dans les règles de l'art.</p>
+        
+        <h3>Explorer le patrimoine architectural</h3>
+        <p>Les places qui accueillent les marchés sont entourées de bâtiments historiques remarquables. La place de l'Hôtel de Ville, avec son édifice du XVIIe siècle et sa tour de l'Horloge, mérite qu'on s'y attarde une fois les étals démontés.</p>
+        
+        <h3>Visiter le quartier des antiquaires</h3>
+        <p>Le quartier Mazarin, à deux pas du marché, abrite de nombreuses boutiques d'antiquités et de décoration, parfaites pour prolonger votre shopping dans un registre différent.</p>
+        
+        <h2>Événements Spéciaux</h2>
+        
+        <p>À certaines périodes de l'année, des événements particuliers viennent enrichir l'expérience du marché :</p>
+        
+        <h3>Le Marché de Noël</h3>
+        <p>De fin novembre à fin décembre, un marché de Noël s'installe cours Mirabeau, proposant artisanat, décorations et spécialités festives dans de charmants chalets en bois.</p>
+        
+        <h3>Les Marchés Nocturnes en Été</h3>
+        <p>Durant la saison estivale, des marchés nocturnes sont organisés en soirée, offrant une ambiance différente et plus fraîche pour découvrir produits locaux et artisanat.</p>
+        
+        <h3>La Foire aux Santons</h3>
+        <p>En novembre et décembre, cette foire traditionnelle réunit les meilleurs santonniers de la région, proposant ces figurines d'argile typiques des crèches provençales.</p>
+      </div>
+    </article>
+    
+    <section class="related-section">
+      <h2 class="related-title">Autres guides qui pourraient vous intéresser</h2>
+      
+      <div class="related-guides">
+        <div class="guide-card">
+          <img src="../img/cardeurs.jpg" alt="Place des Cardeurs" class="guide-image">
+          <div class="guide-content">
+            <h3 class="guide-title">Place des Cardeurs</h3>
+            <span class="category-tag">Gastronomie</span>
+            <p class="guide-excerpt">Découvrez le cœur battant d'Aix, ses restaurants et son ambiance festive.</p>
+            <div class="guide-meta">
+              <span class="guide-date">3 mai 2025</span>
+              <span class="guide-time">8 min de lecture</span>
+            </div>
+            <a href="place-des-cardeurs.html" class="btn">Lire le guide</a>
+          </div>
+        </div>
+        
+        <div class="guide-card">
+          <img src="../img/cours.jpg" alt="Cours Mirabeau" class="guide-image">
+          <div class="guide-content">
+            <h3 class="guide-title">Le Cours Mirabeau</h3>
+            <span class="category-tag">Tourisme</span>
+            <p class="guide-excerpt">Découvrez l'artère emblématique d'Aix-en-Provence, ses fontaines et ses terrasses.</p>
+            <div class="guide-meta">
+              <span class="guide-date">15 mars 2025</span>
+              <span class="guide-time">10 min de lecture</span>
+            </div>
+            <a href="cours-mirabeau.html" class="btn">Lire le guide</a>
+          </div>
+        </div>
+        
+        <div class="guide-card">
+          <img src="../img/vieilaix.jpg" alt="Vieil Aix" class="guide-image">
+          <div class="guide-content">
+            <h3 class="guide-title">Guide du Vieil Aix</h3>
+            <span class="category-tag">Patrimoine</span>
+            <p class="guide-excerpt">Découvrez le centre historique d'Aix-en-Provence, ses monuments et son histoire.</p>
+            <div class="guide-meta">
+              <span class="guide-date">22 mars 2025</span>
+              <span class="guide-time">12 min de lecture</span>
+            </div>
+            <a href="vieil-aix.html" class="btn">Lire le guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>La Familia</h3>
+        <img src="../img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo">
+
+        <p>La Familia est votre partenaire de confiance pour la gestion locative à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.</p>
+      </div>
+      <div class="footer-section links">
+        <h3>Liens rapides</h3>
+        <ul>
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="./reservation.html">Réserver un logement</a></li>
+          <li><a href="./estimation.html">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <p>Adresse : 50 Cours Mirabeau, 13100 Aix-en-Provence</p>
+        <p>Téléphone : 06.51.09.49.66</p>
+        <p>Email : aurore.pageard@hotmail.com</p>
+      </div>
+      <div class="footer-section social">
+        <h3>Suivez-nous</h3>
+        <ul>
+          <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 La Familia. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.js"></script>
+  
+  <script>
+    // Initialiser la carte pour montrer l'emplacement
+    const map = L.map('location-map').setView([43.5295, 5.4474], 17);
+    
+    // Ajouter le fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    // Ajouter des marqueurs pour les différents marchés
+    const marketRichelme = L.marker([43.5295, 5.4474]).addTo(map);
+    marketRichelme.bindPopup("<b>Marché Place Richelme</b><br>Marché alimentaire quotidien").openPopup();
+    
+    const marketPrecheurs = L.marker([43.5307, 5.4456]).addTo(map);
+    marketPrecheurs.bindPopup("<b>Grand Marché</b><br>Place des Prêcheurs - Mardi, Jeudi, Samedi");
+    
+    const marketFleurs = L.marker([43.5299, 5.4465]).addTo(map);
+    marketFleurs.bindPopup("<b>Marché aux Fleurs</b><br>Place de l'Hôtel de Ville");
+  </script>
+</body>
+</html>
