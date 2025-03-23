@@ -74,7 +74,7 @@
 <link rel="shortcut icon" href="./img/LogoLF.png" />
 
   <!-- Preload tags - Place them here, after the meta tags but before the <style> or the <link rel="stylesheet">  -->
-    <link rel="preload" href="./img/living-room-8368673_1280.webp" as="image">
+    <link rel="preload" href="./img/living-room-8368673_1280.webp" as="image" fetchpriority="high">
     <link rel="preload" href="./style.css" as="style">
     <link rel="preload" href="./fonts/PlayfairDisplay-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="./fonts/Cabin-VariableFont_wdth\,wght.ttf" as="font" type="font/ttf" crossorigin>
@@ -87,8 +87,246 @@
         background-color: var(--color1);
         color: var(--color2);
         font-family: "Cabin", sans-serif;
+        margin: 0;
       }
       /* Autres styles critiques */
+      
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: var(--color1);
+        color: var(--color2);
+        width: 100%;
+      }
+
+      .logo-denomination {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .logo-accueil {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0px;
+      }
+
+      .denomination {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: "PlayfairDisplay";
+        font-weight: bolder;
+        font-size: 1.5rem;
+        width: 250px;
+      }
+
+      .menu-list {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-grow: 1; /* Permet au menu de s'étendre et d'occuper l'espace restant */
+
+      }
+
+      .menu-list ul {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      img {
+        height: 100px;
+      }
+
+      nav li a {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+        padding: 20px 0;
+        color: var(--color2);
+        text-decoration: none;
+
+      }
+
+      nav li a:hover {
+        color: var(--color3);
+      }
+
+      .contact-button {
+        background-color: var(--color4);
+        color: var(--color2);
+        padding: 15px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ; /* Add shadow */
+        font-size: 1.1rem; /* Increase font-size */
+        cursor: pointer; /* Make the cursor a pointer */
+      }
+
+      .contact-button:hover {
+        background-color: var(--color3);
+        color: var(--color2);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        background-color: var(--color2);
+        margin: 4px 0;
+        height: 3px;
+        width: 25px;
+        transition: 0.3s;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .main-header {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        background: url(./img/living-room-8368673_1280.webp);
+        background-position: center;
+        background-size: cover;
+        padding: 50px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .box {
+        background-color: #fbe0c367;
+        color: var(--color2);
+        border-radius: 10px;
+        padding: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3);
+
+      }
+
+      .container-h1 {
+        text-align: center;
+        margin-bottom: 10%;
+      }
+
+      .container-h2 {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: 10%;
+      }
+
+      .container-h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 15%;
+      }
+
+      button {
+        cursor: pointer;
+        background: var(--color1);
+        border: none;
+        font-size: 1.3rem;
+        padding: 10px 20px;
+        border-radius: 150px;
+        margin: 5% auto;
+        display: block;
+        transition: 0.1s;
+      }
+
+      button:hover {
+        letter-spacing: 3px;
+        background: transparent;
+        border: 3px solid var(--color2);
+        border-radius: 150px;
+      }
+
+      button:active {
+        transform: scale(1.2);
+      }
+
+      .no-underline {
+        text-decoration: none; /* Enlève le soulignement */
+        color: black;          /* Change la couleur du texte en noir */
+      }
+
+      .no-underline:visited {
+        color: black;          /* Garde la couleur noire même après la visite */
+      }
+
+
+      @media (max-width: 939px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-denomination {
+        width: 100%;
+      }
+
+      .menu-list {
+        display: none;
+        background-color: var(--color1);
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        top: 80px; /* Ajustez selon la position du hamburger */
+        right: 20px; /* Positionnez-le à droite */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ;
+        z-index: 500;
+        transition: all 0.3s ease; /* Animation douce */
+        width: max-content; /* Ajuste la largeur en fonction du contenu */
+      }
+
+      .menu-list.active {
+        display: flex; /* Affiche la liste lorsqu'elle est active */
+      }
+
+      .menu-list ul {
+        flex-direction: column; /* Affiche les éléments de la liste verticalement */
+      }
+
+      .menu-list ul li {
+        padding: 10px 20px; /* Ajoute un padding pour espacer les éléments */
+        text-align: center;
+
+      }
+
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+
+
+      .main-header {
+        grid-template-columns: 1fr;
+      }
+
+
+      }
     </style>
 
 <script src="./schema.js" defer></script>
