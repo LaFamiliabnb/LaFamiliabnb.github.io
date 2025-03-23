@@ -7,19 +7,22 @@
 
 @font-face {
   font-family: "PlayfairDisplay";
-  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf) format('truetype');
+  font-weight: 100 900;
   font-display: swap; /* Added */
 }
 
 @font-face {
   font-family: "Cabin";
-  src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf);
+  src: url(./fonts/Cabin-VariableFont_wdth\,wght.ttf) format('truetype');
+  font-weight: 100 900;
   font-display: swap; /* Added */
 }
 
 @font-face {
   font-family: "Abril";
-  src: url(./fonts/AbrilFatface-Regular.ttf);
+  src: url(./fonts/AbrilFatface-Regular.ttf) format('truetype');
+  font-weight: 400;
   font-display: swap; /* Added */
 }
 
