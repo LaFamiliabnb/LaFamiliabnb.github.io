@@ -1,61 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-  <!-- Google tag (gtag.js) - Load as deferred-->
-  <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
-  <script defer>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-T5JV1M1NK3');
-  </script>
-
-  <!-- Google Tag Manager - Load as deferred-->
-  <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
-    <script>
-      // Helper function to report conversion when user clicks a link or button
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof url === 'string') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion_event_contact', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-          // <event_parameters>
-        });
-        return false;
-      }
-    </script>
-  
-    <script>
-      // Helper function to delay opening a URL until a gtag event is sent.
-      // Call it in response to an action that should navigate to a URL.
-      function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion_event_contact', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-          // <event_parameters>
-        });
-        return false;
-      }
-    </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="La Familia : Conciergerie location saisonnière à Aix en Provence">
@@ -64,13 +9,27 @@
   <link rel="stylesheet" href="./styleestimation.css">
   <link rel="shortcut icon" href="./img/LogoLF.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T5JV1M1NK3');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
 </head>
 <body>
-
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <nav>
@@ -88,7 +47,7 @@
       </div>
       <div class="menu-list">
         <ul>
-          <li><a href="./affiliation.html"class="contact-button">Affiliation</a></li>
+          <li><a href="./affiliation.html" class="contact-button">Affiliation</a></li>
         </ul>
       </div>
     </nav>
@@ -97,12 +56,15 @@
   <div class="body-estimation">
     <div class="form-container">
       <h1>Renseignez vos coordonnées pour faire estimer vos revenus</h1>
+
+      <!-- ✅ formulaire corrigé -->
       <form id="estimationForm" action="https://formspree.io/f/meoeyqqk" method="POST"> 
         <div class="form-group">
           <label for="email">Votre e-mail</label>
           <input type="email" id="email" name="email" required placeholder="Entrez une adresse e-mail valide s'il vous plaît">
           <span id="emailError" class="error-message"></span>
         </div>
+
         <div class="form-group">
           <label for="phone">Votre téléphone</label>
           <div class="phone-input">
@@ -110,6 +72,7 @@
           </div>
           <span id="phoneError" class="error-message"></span>
         </div>
+
         <div class="form-group">
           <label for="address">Adresse du bien</label>
           <div class="address-input">
@@ -117,13 +80,19 @@
           </div>
           <span id="addressError" class="error-message"></span>
         </div>
+
         <div class="form-group_checkbox-label">
           <input type="checkbox" id="conditions" name="conditions" required>
-          <label for="conditions">J'accepte les conditions générales d'utilisation, que mes coordonnées soient transmises à La Familia et de recevoir des communications commerciales.</label>
+          <label for="conditions">
+            J'accepte les conditions générales d'utilisation, que mes coordonnées soient transmises à La Familia et de recevoir des communications commerciales.
+          </label>
+          <span id="conditionsError" class="error-message"></span> <!-- ✅ ajouté -->
         </div>
+
+        <!-- ✅ bouton bien à l'intérieur du formulaire -->
         <button type="submit" class="submit-button">Faire estimer mes revenus</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 
   <footer>
@@ -131,7 +100,6 @@
       <div class="footer-section about">
         <h3>La Familia</h3>
         <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo">
-
         <p>La Familia est votre partenaire de confiance pour la gestion locative à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.</p>
       </div>
       <div class="footer-section links">
@@ -159,9 +127,10 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 La Familia. Tous droits réservés.</p>
-    </div>  </footer>
+    </div>
+  </footer>
 
+  <!-- ✅ ton JS corrigé -->
   <script src="./scriptestimation.js"></script>
-
 </body>
 </html>

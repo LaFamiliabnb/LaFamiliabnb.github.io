@@ -1,62 +1,68 @@
-// Votre fonction de validation existante
+// Fonction de validation
 function validateForm() {
-  // Récupérer les valeurs des champs
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
   const conditionsChecked = document.getElementById("conditions").checked;
 
-  // Expressions régulières pour la validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phonePattern = /^[0-9]{10}$/;
+
+  let valid = true;
 
   // Validation de l'e-mail
   if (!emailPattern.test(email)) {
     document.getElementById("emailError").textContent =
       "Veuillez entrer une adresse e-mail valide.";
-    return false;
+    valid = false;
   } else {
     document.getElementById("emailError").textContent = "";
   }
 
-  // Validation du numéro de téléphone
+  // Validation du téléphone
   if (!phonePattern.test(phone)) {
     document.getElementById("phoneError").textContent =
       "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
-    return false;
+    valid = false;
   } else {
     document.getElementById("phoneError").textContent = "";
   }
 
-  // Validation de la case à cocher
+  // Validation des conditions
   if (!conditionsChecked) {
     document.getElementById("conditionsError").textContent =
       "Vous devez accepter les conditions générales.";
-    return false;
+    valid = false;
   } else {
     document.getElementById("conditionsError").textContent = "";
   }
 
-  // Si toutes les validations passent, le formulaire peut être soumis
-  return true;
+  return valid;
 }
 
-// Ajoutez cette partie pour gérer la soumission du formulaire et déclencher l'événement de conversion
+// Fonction d’envoi de l’événement Google
+function sendConversionEvent(callback) {
+  if (typeof gtag === "function") {
+    gtag("event", "conversion_event_contact", {
+      event_callback: callback,
+      event_timeout: 2000,
+    });
+  } else {
+    // Si gtag n’est pas encore chargé, on appelle quand même le callback
+    callback();
+  }
+}
+
+// Gestion de la soumission du formulaire
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("estimationForm");
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Empêcher la soumission normale du formulaire
+    e.preventDefault();
 
-    // Vérifiez d'abord si le formulaire est valide
     if (validateForm()) {
-      // Appeler gtag_report_conversion pour envoyer l'événement de conversion
-      gtag_report_conversion();
-
-      // Soumettre le formulaire après un court délai pour permettre à l'événement d'être envoyé
-      setTimeout(function () {
+      sendConversionEvent(() => {
         form.submit();
-      }, 500);
+      });
     }
-    // Si le formulaire n'est pas valide, il ne sera pas soumis
   });
 });
