@@ -638,6 +638,22 @@ footer {
   font-family: "Cabin", sans-serif;
 }
 
+/* Ajustement spécifique de la refonte homepage */
+main .section.dark.compact-bottom {
+  min-height: auto !important;
+  height: auto !important;
+  padding-top: 68px !important;
+  padding-bottom: 58px !important;
+}
+
+main .section.dark.compact-bottom .grid.four {
+  margin-bottom: 0 !important;
+}
+
+main .section.dark.compact-bottom + .section.alt {
+  padding-top: 58px !important;
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 939px) {
   
