@@ -280,10 +280,55 @@ main .proof-layout .grid.two > .card {
   grid-row: auto !important;
 }
 
+main #services.section {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding-bottom: 50px !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+main #services .container {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+main #services .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-rows: none !important;
+  grid-auto-rows: auto !important;
+  grid-auto-flow: row !important;
+  gap: 22px !important;
+  margin: 32px 0 0 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  align-items: stretch !important;
+}
+
+main #services .grid > .card {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  grid-row: auto !important;
+}
+
+main #services + .section.alt {
+  padding-top: 54px !important;
+  margin-top: 0 !important;
+}
+
 @media (max-width: 980px) {
   main .section.alt.compact-bottom .grid.four,
   main .section.dark.compact-bottom .grid.four,
-  main .proof-layout .grid.two {
+  main .proof-layout .grid.two,
+  main #services .grid {
     grid-template-columns: 1fr !important;
   }
 }
