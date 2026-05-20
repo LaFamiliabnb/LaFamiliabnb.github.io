@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Le Carnot | La Familia</title>
+  <meta name="description" content="Reservez votre sejour au Carnot a Aix-en-Provence depuis la page de reservation dediee La Familia.">
+  <link rel="stylesheet" href="./reservation.css">
+  <link rel="stylesheet" href="./appartement.css">
+  <link rel="shortcut icon" href="./img/LogoLF.png">
+  <style>
+    .reservation-page {
+      width: min(1440px, calc(100% - 24px));
+      margin-bottom: 40px;
+    }
+
+    .reservation-intro,
+    .reservation-module {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(243, 223, 207, 0.95);
+      border-radius: 30px;
+      box-shadow: 0 20px 45px rgba(84, 53, 18, 0.08);
+      padding: 24px;
+      margin: 24px 0 0;
+    }
+
+    .reservation-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reservation-module {
+      min-height: calc(100vh - 200px);
+    }
+
+    .reservation-module .widget-shell {
+      margin-top: 0;
+      min-height: calc(100vh - 280px);
+      background: #fffaf4;
+      border: 1px solid #efdfd2;
+    }
+
+    #nowistay-booking {
+      min-height: calc(100vh - 320px);
+    }
+
+    @media (max-width: 720px) {
+      .reservation-page {
+        width: min(100% - 16px, 1440px);
+      }
+
+      .reservation-intro,
+      .reservation-module {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-denomination">
+        <div class="logo-accueil"><a href="index.html" class="no-underline"><img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia"></a></div>
+        <div class="denomination"><a href="index.html" class="no-underline"><p>La Familia</p></a></div>
+      </div>
+      <div class="menu-list"><ul><li><a href="appartement-le-carnot.html" class="contact-button">Retour au Carnot</a></li></ul></div>
+    </nav>
+  </header>
+
+  <main class="page-shell reservation-page">
+    <section class="reservation-intro">
+      <div>
+        <span class="hero-label">Reservation directe</span>
+        <h1 class="hero-title">Le Carnot</h1>
+        <p class="hero-subtitle">Choisissez vos dates pour reserver votre sejour.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button-secondary" href="appartement-le-carnot.html">Retour a la fiche appartement</a>
+      </div>
+    </section>
+
+    <section class="reservation-module">
+      <div class="widget-shell">
+        <div id="nowistay-booking"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-bar">
+      <p>La Familia - Reservation directe d'appartements a Aix-en-Provence.</p>
+      <div class="site-footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="appartement-le-carnot.html">Le Carnot</a>
+        <a href="reservation-studios.html">Tous les studios</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://traveler.nowistay.com/embed.js" data-token="29ihs9l4" data-lang="fr"></script>
+</body>
+</html>

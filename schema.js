@@ -1,116 +1,130 @@
-// Scripts JSON-LD pour La Familia
-
-// Fonction pour ajouter dynamiquement les scripts JSON-LD au document
+// JSON-LD for La Familia.
 function addJsonLdScripts() {
-  // Script pour l'organisation
   const organizationScript = document.createElement("script");
   organizationScript.type = "application/ld+json";
   organizationScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "RealEstateAgency",
+    "@type": "RealEstateAgent",
+    "@id": "https://lafamiliabnb.fr/#organization",
     name: "La Familia",
+    url: "https://lafamiliabnb.fr",
+    image: "https://lafamiliabnb.fr/img/banniere-aix-provence.jpg",
+    logo: "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
     description:
-      "Conciergerie spécialisée dans la gestion de locations saisonnières à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.",
+      "Conciergerie Airbnb a Aix-en-Provence specialisee dans la gestion locative saisonniere pour proprietaires.",
+    telephone: "+33651094966",
+    email: "aurore.pageard@hotmail.fr",
+    priceRange: "20% de commission",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "50 Cours Mirabeau",
-      addressLocality: "Aix-en-Provence",
+      streetAddress: "6 rue Gibelin",
       postalCode: "13100",
+      addressLocality: "Aix-en-Provence",
       addressCountry: "FR",
     },
-    telephone: "+33651094966",
-    email: "aurore.pageard@hotmail.com",
-    url: "https://lafamiliabnb.fr",
-    logo: "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Aix-en-Provence",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Bouches-du-Rhone",
+      },
+    ],
     contactPoint: {
       "@type": "ContactPoint",
+      contactType: "customer service",
       telephone: "+33651094966",
-      contactType: "Customer Service",
-      availableLanguage: ["French", "English"],
+      email: "aurore.pageard@hotmail.fr",
+      areaServed: "FR",
+      availableLanguage: ["fr", "en"],
     },
-    serviceArea: {
-      "@type": "Place",
-      name: "Aix-en-Provence et ses environs",
-    },
-    areaServed: "Aix-en-Provence",
-    founder: {
-      "@type": "Person",
-      name: "Aurore Pageard",
-    },
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61562890765862",
+      "https://www.instagram.com/lafamiliabnb/?hl=fr",
+    ],
   });
 
-  // Script pour les services de location saisonnière
-  const servicesScript = document.createElement("script");
-  servicesScript.type = "application/ld+json";
-  servicesScript.textContent = JSON.stringify({
+  const serviceScript = document.createElement("script");
+  serviceScript.type = "application/ld+json";
+  serviceScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Gestion de Location Saisonnière La Familia",
+    "@id": "https://lafamiliabnb.fr/#service",
+    name: "Conciergerie Airbnb et gestion locative saisonniere a Aix-en-Provence",
+    serviceType: "Gestion locative saisonniere",
     description:
-      "Service complet de gestion de locations saisonnières à Aix-en-Provence. Optimisation des revenus, accueil des voyageurs, maintenance et entretien.",
+      "Service complet de conciergerie Airbnb a Aix-en-Provence : annonces, tarification, accueil voyageurs, menage, linge et maintenance.",
     provider: {
-      "@type": "RealEstateAgency",
-      name: "La Familia",
+      "@id": "https://lafamiliabnb.fr/#organization",
     },
-    serviceType: "Location saisonnière",
-    areaServed: "Aix-en-Provence",
+    areaServed: {
+      "@type": "City",
+      name: "Aix-en-Provence",
+    },
     offers: {
       "@type": "Offer",
       price: "20",
       priceCurrency: "EUR",
-      description: "20% de commission sur les revenus générés",
+      description:
+        "20% de commission sur les revenus generes pour la gestion locative saisonniere.",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Services de Conciergerie",
+      name: "Services de conciergerie",
       itemListElement: [
         {
           "@type": "Offer",
-          name: "Gestion complète des locations",
+          itemOffered: {
+            "@type": "Service",
+            name: "Creation et optimisation des annonces",
+          },
         },
         {
           "@type": "Offer",
-          name: "Optimisation des prix",
+          itemOffered: {
+            "@type": "Service",
+            name: "Tarification dynamique",
+          },
         },
         {
           "@type": "Offer",
-          name: "Accueil des voyageurs",
+          itemOffered: {
+            "@type": "Service",
+            name: "Accueil voyageurs et check-in/check-out",
+          },
         },
         {
           "@type": "Offer",
-          name: "Maintenance et nettoyage",
+          itemOffered: {
+            "@type": "Service",
+            name: "Menage, linge et maintenance",
+          },
         },
       ],
     },
   });
 
-  // Script pour le site web
   const websiteScript = document.createElement("script");
   websiteScript.type = "application/ld+json";
   websiteScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "La Familia - Conciergerie Locations Saisonnières",
+    "@id": "https://lafamiliabnb.fr/#website",
     url: "https://lafamiliabnb.fr",
+    name: "La Familia",
     description:
-      "Conciergerie à Aix-en-Provence spécialisée dans la gestion de locations saisonnières. Optimisez vos revenus locatifs avec nos services professionnels.",
+      "Site officiel de La Familia, conciergerie Airbnb a Aix-en-Provence pour proprietaires.",
     publisher: {
-      "@type": "Organization",
-      name: "La Familia",
-      logo: "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
+      "@id": "https://lafamiliabnb.fr/#organization",
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://lafamiliabnb.fr/estimation.html",
-      "query-input": "required name=search_term_string",
-    },
+    inLanguage: "fr-FR",
   });
 
-  // Ajout des scripts au document
   document.head.appendChild(organizationScript);
-  document.head.appendChild(servicesScript);
+  document.head.appendChild(serviceScript);
   document.head.appendChild(websiteScript);
 }
 
-// Exécution de la fonction lors du chargement du document
 document.addEventListener("DOMContentLoaded", addJsonLdScripts);

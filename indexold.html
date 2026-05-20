@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+ 
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Conciergerie Airbnb à Aix-en-Provence | Gestion locative saisonnière - La Familia
+  </title>
+  <meta
+   name="description"
+   content="La Familia est une conciergerie Airbnb à Aix-en-Provence. Gestion locative saisonnière complète, optimisation des revenus, accueil voyageurs, ménage et assistance locale."
+    />
+  <meta
+      name="keywords"
+      content="conciergerie Aix-en-Provence, location saisonnière Aix-en-Provence, gestion locative Aix-en-Provence, La Familia, revenus locatifs, voyageurs, locations vacances Aix, gestion locative courte durée, gérance saisonnière, Airbnb Aix, location saisonnière luxe, proprietaire Aix, vacance Aix, , gestion location courte durée, gestion location saisonnière"
+  />
+
+  <link rel="canonical" href="https://www.lafamiliabnb.fr">
+
+
+  
+<!-- Open Graph - Balises de base -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Balises principales -->
+<meta property="og:title" content="La Familia : Conciergerie de location saisonnière à Aix-en-Provence | +30% de revenus locatifs">
+<meta property="og:description" content="🏠 Conciergerie experte à Aix-en-Provence. Augmentez vos revenus locatifs de 30%, zéro stress garanti. Gestion complète de vos locations Airbnb, Booking, Abritel.">
+<meta property="og:url" content="https://www.lafamiliabnb.fr">
+<meta property="og:site_name" content="La Familia - Conciergerie Locations Saisonnières">
+
+<!-- Image principale optimisée pour les partages -->
+<meta property="og:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
+<meta property="og:image:alt" content="Vue panoramique d'Aix-en-Provence - Destination de location saisonnière">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Image secondaire (logo) -->
+<meta property="og:image" content="https://www.lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png">
+<meta property="og:image:alt" content="Logo La Familia - Experts en location saisonnière à Aix-en-Provence">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:image:type" content="image/png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Familia : +30% de revenus locatifs à Aix-en-Provence">
+<meta name="twitter:description" content="Conciergerie professionnelle pour vos locations. Gestion 360° sur Airbnb, Booking, Abritel.">
+<meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
+
+<!-- Mots-clés standards (SEO limité) -->
+<link rel="shortcut icon" href="./img/LogoLF.png" />
+
+  <!-- Preload tags - Place them here, after the meta tags but before the <style> or the <link rel="stylesheet">  -->
+    <link rel="preload" href="./img/living-room-8368673_1280.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="./fonts/PlayfairDisplay-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./fonts/Cabin-VariableFont_wdth\,wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./fonts/AbrilFatface-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  
+    <!-- Your inlined critical CSS, it must be after the preload-->
+    <style>
+      /* CSS critique ici */
+      body {
+        background-color: var(--color1);
+        color: var(--color2);
+        font-family: "Cabin", sans-serif;
+        margin: 0;
+      }
+      /* Autres styles critiques */
+      
+      nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: var(--color1);
+      color: var(--color2);
+      width: 100%;
+      }
+
+      .logo-denomination {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .logo-accueil {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0px;
+      }
+
+      .denomination {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: "PlayfairDisplay";
+        font-weight: bolder;
+        font-size: 1.5rem;
+        width: 250px;
+      }
+
+      .menu-list {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-grow: 1; /* Permet au menu de s'étendre et d'occuper l'espace restant */
+
+      }
+
+      .menu-list ul {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      img {
+        height: 100px;
+      }
+
+      nav li a {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+        padding: 20px 0;
+        color: var(--color2);
+        text-decoration: none;
+
+      }
+
+      nav li a:hover {
+        color: var(--color3);
+      }
+
+      .contact-button {
+        background-color: var(--color4);
+        color: var(--color2);
+        padding: 15px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ; /* Add shadow */
+        font-size: 1.1rem; /* Increase font-size */
+        cursor: pointer; /* Make the cursor a pointer */
+      }
+
+      .contact-button:hover {
+        background-color: var(--color3);
+        color: var(--color2);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        background-color: var(--color2);
+        margin: 4px 0;
+        height: 3px;
+        width: 25px;
+        transition: 0.3s;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .main-header {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        background: url(./img/living-room-8368673_1280.webp);
+        background-position: center;
+        background-size: cover;
+        padding: 50px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .box {
+        background-color: #fbe0c367;
+        color: var(--color2);
+        border-radius: 10px;
+        padding: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3);
+
+      }
+
+      .container-h1 {
+        text-align: center;
+        margin-bottom: 10%;
+      }
+
+      .container-h2 {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: 10%;
+      }
+
+      .container-h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 15%;
+      }
+
+      button {
+        cursor: pointer;
+        background: var(--color1);
+        border: none;
+        font-size: 1.3rem;
+        padding: 10px 20px;
+        border-radius: 150px;
+        margin: 5% auto;
+        display: block;
+        transition: 0.1s;
+      }
+
+      button:hover {
+        letter-spacing: 3px;
+        background: transparent;
+        border: 3px solid var(--color2);
+        border-radius: 150px;
+      }
+
+      button:active {
+        transform: scale(1.2);
+      }
+
+      .no-underline {
+        text-decoration: none; /* Enlève le soulignement */
+        color: black;          /* Change la couleur du texte en noir */
+      }
+
+      .no-underline:visited {
+        color: black;          /* Garde la couleur noire même après la visite */
+      }
+
+
+      @media (max-width: 939px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-denomination {
+        width: 100%;
+      }
+
+      .menu-list {
+        display: none;
+        background-color: var(--color1);
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        position: absolute;
+        top: 80px; /* Ajustez selon la position du hamburger */
+        right: 20px; /* Positionnez-le à droite */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3) ;
+        z-index: 500;
+        transition: all 0.3s ease; /* Animation douce */
+        width: max-content; /* Ajuste la largeur en fonction du contenu */
+      }
+
+      .menu-list.active {
+        display: flex; /* Affiche la liste lorsqu'elle est active */
+      }
+
+      .menu-list ul {
+        flex-direction: column; /* Affiche les éléments de la liste verticalement */
+      }
+
+      .menu-list ul li {
+        padding: 10px 20px; /* Ajoute un padding pour espacer les éléments */
+        text-align: center;
+
+      }
+
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+
+
+      .main-header {
+        grid-template-columns: 1fr;
+      }
+
+
+      }
+    </style>
+
+<script src="./schema.js" defer></script>
+<link rel="stylesheet" href="./style.css" media="print" onload="this.media='all'; this.onload=null;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <nav>
+      <div class="logo-denomination">
+        <div class="logo-accueil">
+          <a href="./index.html"
+            ><img
+              src="./img/LogoLF__3_-removebg-preview.png"
+              alt="Logo La Familia, Conciergerie Aix-en-Provence"
+              class="logo"
+          /></a>
+        </div>
+        <div class="denomination">
+          <a href="./index.html" class="no-underline"><p class="no-underline">La Familia</p></a>
+        </div>
+       <div class="menu-list">
+          <ul>
+            <li>
+             <a href="./reservation.html">Réserver un logement</a>
+            </li>
+            <li>
+              <a href="./carteinteractive.html">Livret d'accueil</a>
+             </li>
+            <li><a href="./tarifs.html">Tarifs</a></li>
+            <li><a href="./affiliation.html">Affiliation</a></li>
+            <li>
+              <a href="./estimation.html" class="contact-button"
+               >Estimer mes revenus</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Bandeau de tête -->
+  <section class="main-header">
+    <div class="box">
+      <div class="container-h1">
+        <h1>
+          Conciergerie Airbnb à Aix-en-Provence pour propriétaires
+        </h1>
+      </div>
+      <div class="container-h2">
+        <p>Louez plus, gagnez plus, stressez moins. On gère tout, vraiment tout !</p>
+      </div>
+      <div class="container-h3">
+        <p>Augmentez vos revenus et découvrez combien vous pourriez gagner avec <strong>La Familia</strong></p>
+      </div>
+      <a href="./estimation.html" class="no-underline"><button>Estimer mes revenus</button></a>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Section suivante -->
+  
+  
+  
+  <section class="section-how-do-we-work jumbotron text-center">
+    <div class="containerPresentation1">
+      <h2>Avec la conciergerie <strong>La Familia</strong> optimisez vos revenus, on s'occupe de tout</h2>
+    </div >
+    <div class="containerPresentation4"
+      <p><strong>La Familia, votre conciergerie spécialisée en location courte durée à Aix en Provence</strong>, gère votre bien de A à Z pour maximiser vos revenus et simplifier votre quotidien. </p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 mb-3">
+          <div class="icon-wrapper">
+            <img src="./img/make-more-money.webp" alt="Icone Rentabilité" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3 class="text-danger mb-3">RENTABILITÉ</h6>
+          <p>Nos hôtes constatent en moyenne une augmentation de 30% de leurs revenus locatifs grâce à notre mise à jour quotidienne du prix par nuit.</p>
+        </div>
+        <div class="col-lg-4 col-sm-12 mb-3">
+          <div class="icon-wrapper">
+            <img src="./img/stress-free.webp" alt="Icone Stress" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3 class="text-danger mb-3">ZÉRO STRESS</h6>
+          <p>Réservation, accueil, ménage, maintenance, réponses à toutes leurs questions 24h/24 et 7j/7. Notre priorité est de proposer aux voyageurs la meilleure expérience.</p>
+        </div>
+        <div class="col-lg-4 col-sm-12 mb-3">
+          <div class="icon-wrapper">
+            <img src="./img/flexible.webp" alt="Icone Flexible" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3 class="text-danger mb-3">FLEXIBILITÉ</h6>
+          <p>La Familia permet aux propriétaires de réserver leur bien quand bon leur semble à des fins personnelles. Après tout, vous êtes chez vous !</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="containerPresentation">
+  
+    <div class="containerPresentation5">
+      <p>Nous créons des annonces optimisées sur des plateformes comme Airbnb, Booking et Abritel, accueillons vos voyageurs, assurons le check-in/check-out, le nettoyage, la gestion du linge et la maintenance.</p>
+    </div>
+  </section>
+
+
+
+
+  <section class="tarif">
+    <div class="tarifgrid">
+      <div class="containerproprietairesheader">
+        <h2>Vous permettre d'optimiser vos revenus sans efforts</h2>
+        <p>Grâce à notre expertise en tarification dynamique, nous augmentons vos profits tout en garantissant une expérience client 5 étoiles. <br><br>Avec <strong>La Familia</strong>, oubliez les contraintes de la gestion locative et transformez votre bien en une source de revenus rentable et performante.</p>
+      </div>
+      <div class="tarifcontainer">
+        <h2>Service gestion complète</h2>
+        <br><p><strong>20% de commission sur les revenus générés</strong></p>
+        <br>Sans engagement de durée
+        <br>Pas de frais d’inscription
+        <button><a href="./estimation.html" class="no-underline">Estimer mes revenus</button></a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="services-part">
+    <div class="services">
+      <div class="service-column">
+        <h3 class="column-title">Service Conciergerie Voyageurs</h3>
+        <div class="service-category">
+          <h4 class="service-title">Accueil des locataires</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Remise des clés, accès au manuel de la maison, recommandations touristiques locales.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Disponibilité 24/7</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Réponse aux questions et demandes des voyageurs par téléphone, SMS, ou messagerie instantanée.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Gestion des arrivées et des départs</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Enregistrement des voyageurs, état des lieux de sortie.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Communication fluide et réactive</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Maintien d'un contact régulier avec les voyageurs pour assurer un séjour agréable.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-column">
+        <h3 class="column-title">Entretien & Maintenance Logement</h3>
+        <div class="service-category">
+          <h4 class="service-title">Ménage et entretien</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Nettoyage professionnel du logement après chaque départ, fourniture et nettoyage du linge de maison et des serviettes.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Maintenance du logement</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Réalisation de petites réparations et de travaux d'entretien, organisation d'interventions de professionnels si nécessaire.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Gestion des fournitures</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Approvisionnement en produits d'accueil (savon, gel douche, papier toilette, etc.), mise à disposition de linge de maison.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Contrôle qualité</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Vérification régulière du bon fonctionnement des appareils électroménagers et des équipements du logement.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-column">
+        <h3 class="column-title">Assistance & Support Voyageurs</h3>
+        <div class="service-category">
+          <h4 class="service-title">Résolution des problèmes techniques</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Prise en charge des pannes et dysfonctionnements du logement, organisation d'interventions de dépannage si nécessaire.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Gestion des situations d'urgence</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Assistance aux voyageurs en cas de problèmes médicaux, d'accidents ou d'autres incidents.</li>
+          </ul>
+        </div>
+        <div class="service-category">
+          <h4 class="service-title">Mise en relation avec des prestataires de services</h4>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Recommandation de restaurants, activités touristiques, services de transport, etc.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <section class="Pourquoilafamilia">
+    <div class="pourquoilafamiliatitle">
+      <h2>Pourquoi choisir la conciergerie La Familia ?</h2>
+      <div class="Pourquoilafamiliaintro">
+        <div class="Pourquoilafamiliaintrotext">
+          <h3>"Confier votre bien à La Familia, c'est faire le choix d'une conciergerie locale à Aix-en-Provence, experte en location saisonnière. <br> <br>Nous transformons votre propriété en un véritable succès locatif tout en vous offrant une tranquillité totale."</h3>
+        </div>
+      </div>
+    </div>
+      <div class="Pourquoilafamiliaavantages">
+        <div class="avantagesfinanciers">
+          <div class="icon-wrapper">
+            <img src="./img/ill-graph.webp" alt="avantagesfinanciers" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3>Avantages financiers :</h3>
+          <ul>
+            <li>Maximisation des revenus locatifs grâce à une optimisation des prix selon la demande.</li>
+            <li>Stratégies de réservation intelligentes pour réduire les périodes creuses.</li>
+            <li>Gestion multi-plateformes (Airbnb, Booking, Abritel, etc.) pour augmenter votre visibilité.</li>
+          </ul>
+        </div>
+        <div class="avantagesoperationnels">
+          <div class="icon-wrapper">
+            <img src="./img/ill-notes.webp" alt="avantagesfinanciers" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3>Avantages opérationnels :</h3>
+          <ul>
+            <li>Gestion complète et sans stress : accueil des locataires, ménage, maintenance, check-in et check-out.</li>
+            <li>Suivi professionnel des avis clients pour maintenir une excellente réputation en ligne.</li>
+            <li>Disponibilité 7j/7 pour répondre aux besoins des locataires.</li>
+          </ul>
+        </div>
+        
+        <div class="avantagespropriétaires">
+          <div class="icon-wrapper">
+            <img src="./img/ill-phone2.webp" alt="avantagesfinanciers" class="icon" loading="lazy" class="icon make-more-money">
+          </div>
+          <h3>Avantages propriétaires :</h3>
+          <ul>
+            <li>Tranquillité d'esprit : Vous êtes informé en temps réel de l'état de votre bien et des réservations.</li>
+            <li>Rapports réguliers sur les performances locatives.</li>
+            <li>Flexibilité totale : Vous choisissez vos périodes d’occupation personnelle.</li>
+          </ul>
+        </div>
+      </div>
+  </section>
+
+
+  <section class="faq">
+    <div class="faq-header">
+      <h2>Foire Aux Questions (FAQ)</h2>
+    </div>
+    <div class="faq-content">
+      <div class="faq-category">
+        <h3 class="faq-category-title">L'essentiel</h3>
+        <div class="faq-item">
+          <h4 class="faq-question">Que fait La Familia ?</h4>
+          <div class="faq-answer">
+            <p>La Familia est une conciergerie spécialisée dans la gestion de locations saisonnières à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Où opère La Familia actuellement ?</h4>
+          <div class="faq-answer">
+            <p>La Familia opère principalement à Aix-en-Provence et ses environs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Sur quelles plateformes listez-vous mon bien ?</h4>
+          <div class="faq-answer">
+            <p>Nous listons votre bien sur des plateformes populaires comme Airbnb, Booking, et Abritel.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-category-title">Payment et tarifs</h3>
+        <div class="faq-item">
+          <h4 class="faq-question">Comment puis-je gagner plus de revenus locatifs grâce à La Familia ?</h4>
+          <div class="faq-answer">
+            <p>Grâce à notre expertise en tarification dynamique et à notre gestion complète, nous augmentons vos revenus locatifs tout en garantissant une expérience client 5 étoiles.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Dois-je payer des frais d'inscription ou d’entrée pour commencer ?</h4>
+          <div class="faq-answer">
+            <p>Non, il n'y a pas de frais d'inscription ou d’entrée pour commencer avec La Familia.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Combien coûte le service de gestion immobilière de La Familia ?</h4>
+          <div class="faq-answer">
+            <p>Nous prenons une commission de 20% sur les revenus générés.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-category-title">Sécurité</h3>
+        <div class="faq-item">
+          <h4 class="faq-question">Quelles sont les mesures prises pour assurer la sécurité de mon bien ?</h4>
+          <div class="faq-answer">
+            <p>Nous prenons des mesures strictes pour assurer la sécurité de votre bien, y compris des vérifications d'identité des voyageurs et des inspections régulières.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Que se passe-t-il si des voyageurs endommagent ou volent mes biens ?</h4>
+          <div class="faq-answer">
+            <p>Nous avons une assurance qui couvre les dommages et les vols causés par les voyageurs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">De quels certificats ai-je besoin pour commencer à héberger avec La Familia ?</h4>
+          <div class="faq-answer">
+            <p>Vous aurez besoin de certificats de sécurité et de conformité selon les réglementations locales.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3 class="faq-category-title">Support et assistance</h3>
+        <div class="faq-item">
+          <h4 class="faq-question">Comment puis-je contacter le support de La Familia ?</h4>
+          <div class="faq-answer">
+            <p>Vous pouvez nous contacter par email à aurore.pageard@hotmail.com ou par téléphone au +33 6 51 09 49 66.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Quels services d'assistance sont inclus ?</h4>
+          <div class="faq-answer">
+            <p>Nous offrons une assistance 24/7 pour répondre à toutes vos questions et résoudre les problèmes éventuels.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-question">Comment puis-je suivre les performances de mon bien ?</h4>
+          <div class="faq-answer">
+            <p>Vous recevrez des rapports réguliers sur les performances locatives de votre bien.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+
+
+  <section class="aixenprovence">
+    <h2>Location saisonnière à Aix-en-Provence : une destination prisée toute l’année</h2>
+    <div class="grid">
+      <div class="chiffrescles">
+        <h3>Un marché en pleine expansion</h3>
+        <ul>
+          <li>Aix-en-Provence séduit chaque année des milliers de visiteurs grâce à son patrimoine, son climat ensoleillé et sa proximité avec la Méditerranée.</li>
+          <li>En 2023, le tourisme a enregistré une forte progression, notamment avec une hausse de 14 % des visiteurs étrangers, parmi lesquels les Allemands, Britanniques et Néerlandais sont les plus nombreux.</li>
+          <li>Entre tourisme culturel et voyages d’affaires, la location saisonnière à Aix-en-Provence bénéficie d’une demande soutenue toute l’année, portée par une offre variée d’hébergements adaptés à tous les budgets.</li>
+      </ul>
+      </div>
+      <img src="./img/Batiments Aix.webp" alt="Batiments Aix" class="chiffrescleimg" loading="lazy">
+      <div class="lieuxvisiter">
+        <h3>Les lieux incontournables à visiter à Aix-en-Provence</h3>
+        <p>Aix-en-Provence regorge de sites emblématiques à découvrir :</p>
+        
+        <ul>
+          <li>Le Cours Mirabeau, avenue bordée de platanes et animée par ses cafés typiques.</li>
+          <li>La Cathédrale Saint-Sauveur, joyau architectural et spirituel.</li>
+          <li>L’Atelier de Cézanne, immersion dans l’univers du célèbre peintre.</li>
+          <li>La Montagne Sainte-Victoire, paradis des randonneurs offrant des panoramas à couper le souffle.</li>
+          <li>Le Musée Granet, où sont exposées des œuvres de Cézanne, Picasso et d’autres maîtres.</li>
+        </ul>
+        
+        <p>Avec ses marchés provençaux colorés et son ambiance chaleureuse, Aix attire un flot constant de voyageurs en quête d’authenticité et de culture.</p>
+      </div>
+      <img src="./img/saintevictoire.webp" alt="Sainte Victoire" class="lieuxvisiterimg" loading="lazy">
+      <div class="evenements">
+        <h3>Les événements majeurs à ne pas manquer</h3>
+        <p>Aix-en-Provence est un haut lieu de la culture avec des événements phares tout au long de l’année :</p>
+        <ul>
+            <li>Festival d’Art Lyrique (été) : opéra et concerts prestigieux.</li>
+            <li>Festival de Pâques (printemps) : rendez-vous incontournable des mélomanes.</li>
+            <li>Rencontres du 9e Art (automne) : festival dédié à la bande dessinée.</li>
+            <li>Marché de Noël (décembre) : ambiance féérique sur le Cours Mirabeau.</li>
+        </ul>
+
+        <p>Ces manifestations de renommée internationale participent au dynamisme et à l’attractivité de la ville.</p>
+      </div>
+      <img src="./img/festival.webp" alt="Festival" class="evenementsimg" loading="lazy">
+      <div class="gastronomie">
+        <h3>La gastronomie à Aix-en-Provence</h3>
+        <p>Aix-en-Provence est aussi une destination prisée des gourmets grâce à sa cuisine provençale authentique :</p>
+        <ul>
+          <li>Les calissons d’Aix, douceur emblématique à base d’amandes et de melon confit.</li>
+          <li>Les plats traditionnels comme la daube provençale ou la ratatouille, élaborés avec des produits locaux.</li>
+          <li>Les vins des Coteaux d’Aix-en-Provence, appréciés pour leurs rosés frais et fruités.</li>
+        </ul>
+        <p>Entre marchés typiques, restaurants étoilés et circuits courts, Aix-en-Provence offre une expérience gastronomique unique aux amateurs de saveurs méditerranéennes.</p>
+      </div>
+      <img src="./img/Calissons.avif" alt="Calissons" class="gastronomieimg" loading="lazy">
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="nouscontacter">
+      <div class="nouscontactercarte"></div>
+      <div class="nouscontacterformulaire"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>La Familia</h3>
+        <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia - Conciergerie Locations Saisonnières Aix-en-Provence" class="footer-logo">
+
+        <p>La Familia est votre partenaire de confiance pour la gestion locative à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.</p>
+      </div>
+      <div class="footer-section links">
+        <h3>Liens rapides</h3>
+        <ul>
+          <li><a href="./reservation.html">Réserver un logement</a></li>
+          <li><a href="./carteinteractive.html">Livret d'accueil</a></li>
+          <li><a href="./tarifs.html">Tarifs</a></li>
+          <li><a href="./affiliation.html">Affiliation</a></li>
+          <li><a href="./estimation.html">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <p>Adresse : 6 rue Gibelin, 13100 Aix-en-Provence</p>
+        <p>Téléphone : 06.51.09.49.66</p>
+        <p>Email : aurore.pageard@hotmail.fr</p>
+      </div>
+      <div class="footer-section social">
+        <h3>Suivez-nous</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/profile.php?id=61562890765862" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 La Familia. Tous droits réservés.</p>
+    </div>  </footer>
+
+  <script src="./script.js"></script>
+  <!-- Google tag (gtag.js) - Load as deferred-->
+  <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-T5JV1M1NK3');
+  </script>
+
+  <!-- Google Tag Manager - Load as deferred-->
+  <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
+    <!-- End Google Tag Manager -->
+</body>
+</html>

@@ -5,7 +5,7 @@
         <loc>https://lafamiliabnb.fr/index.html</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <lastmod>2025-03-04</lastmod>
+        <lastmod>2026-04-15</lastmod>
     </url>
 
     <url>
@@ -20,6 +20,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://lafamiliabnb.fr/tarifs.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <lastmod>2026-02-17</lastmod>
     </url>
 
     <url>
@@ -37,103 +43,87 @@
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-ateliercezanne.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-ateliercezanne.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
    
     <url>
-        <loc>https://lafamiliabnb.fr/guide-cardeurs.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-cardeurs.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-cours-mirabeau.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-cours-mirabeau.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-fondationvasarely.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-fondationvasarely.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-hotelcaumont.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-hotelcaumont.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-marcheaix.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-marcheaix.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-saint-sauveur.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-saint-sauveur.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-saintevictoire.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-saintevictoire.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-vieilaix.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-vieilaix.html</loc>
         <lastmod>2025-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://lafamiliabnb.fr/guide-parkingcarnot.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-parkingcarnot.html</loc>
         <lastmod>2025-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://lafamiliabnb.fr/guide-parkingrotonde.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-parkingrotonde.html</loc>
         <lastmod>2025-03-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
       <url>
-        <loc>https://lafamiliabnb.fr/guide-propositionparking.html</loc>
+        <loc>https://lafamiliabnb.fr/blog/guide-propositionparking.html</loc>
         <lastmod>2025-04-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Sections spécifiques indexables -->
-    <url>
-        <loc>https://lafamiliabnb.fr/index.html#services</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://lafamiliabnb.fr/index.html#faq</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://lafamiliabnb.fr/index.html#aix-en-provence</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.4</priority>
-    </url>
 </urlset>
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Familia - Appartements familiaux</title>
+  <link rel="stylesheet" href="./reservation.css">
+  <style>
+    body { margin: 0; background: linear-gradient(180deg, #fffaf6 0%, #ffffff 100%); color: #1e1a17; font-family: "Cabin", Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; margin: 0; }
+    .shell { width: min(1200px, calc(100% - 32px)); margin: 0 auto 48px; }
+    .hero, .listing-card { background: rgba(255,255,255,0.96); border: 1px solid #f3dfcf; border-radius: 28px; box-shadow: 0 18px 40px rgba(84,53,18,0.08); }
+    .hero { padding: 28px; margin: 24px 0; }
+    .kicker { display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #fce5cc; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; font-weight: 700; }
+    .hero p, .muted { color: #6d5d50; line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 18px; border-radius: 18px; text-decoration: none; font-weight: 700; }
+    .btn-primary { background: #000; color: #fff; }
+    .btn-secondary { background: #fce5cc; color: #1e1a17; border: 1px solid #efcfac; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .listing-card { overflow: hidden; }
+    .listing-card img { width: 100%; height: 230px; object-fit: cover; display: block; }
+    .card-body { padding: 18px; }
+    .tag { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #fce5cc; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+    .meta, .price-row, .highlights { display: flex; gap: 10px; flex-wrap: wrap; }
+    .meta { justify-content: space-between; align-items: center; margin-top: 14px; }
+    .pill { background: #fff8f1; border: 1px solid #f2dcc4; border-radius: 999px; padding: 7px 10px; font-size: 0.78rem; }
+    .highlights { margin: 16px 0; }
+    .highlights span { background: #fff; border: 1px solid #efe1d2; border-radius: 999px; padding: 8px 10px; font-size: 0.84rem; }
+    .eyebrow { display: block; color: #9f8770; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; margin-bottom: 6px; font-weight: 700; }
+    .price-row { justify-content: space-between; align-items: center; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 680px) { .shell { width: min(100% - 20px, 1200px); } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo-denomination">
+        <div class="logo-accueil"><a href="index.html" class="no-underline"><img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia"></a></div>
+        <div class="denomination"><a href="index.html" class="no-underline"><p>La Familia</p></a></div>
+      </div>
+      <div class="menu-list"><ul><li><a href="reservation - Copie.html" class="contact-button">Retour aux logements</a></li></ul></div>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <span class="kicker">Appartements familiaux</span>
+      <h1 style="margin-top:14px;">Tous nos appartements familiaux</h1>
+      <p style="margin-top:14px;">Des logements plus spacieux pour les familles, les petits groupes et les sejours ou le confort prime. Ces fiches permettent de comparer rapidement les capacites, les quartiers et les points forts.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="reservation - Copie.html#booking-engine">Aller au module de reservation</a>
+        <a class="btn btn-secondary" href="reservation - Copie.html">Retour a la page principale</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="listing-card">
+        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80" alt="La Rotonde Family">
+        <div class="card-body">
+          <span class="tag">Famille</span>
+          <div class="meta"><h2 style="font-size:1.5rem;">La Rotonde Family</h2><span class="pill">6 voyageurs</span></div>
+          <p class="muted">Une adresse pratique en centre-ville pour les sejours en famille avec de beaux volumes et une localisation tres efficace.</p>
+          <div class="highlights"><span>Centre-ville</span><span>6 voyageurs</span><span>Salle a manger</span></div>
+          <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>145€/nuit</strong></div><a class="btn btn-primary" href="appartement-rotonde-family.html">Detail du logement</a></div>
+        </div>
+      </article>
+
+      <article class="listing-card">
+        <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80" alt="Le Jas de Bouffan">
+        <div class="card-body">
+          <span class="tag">Grand sejour</span>
+          <div class="meta"><h2 style="font-size:1.5rem;">Le Jas de Bouffan</h2><span class="pill">5 voyageurs</span></div>
+          <p class="muted">Un logement adapte aux sejours plus longs ou aux familles qui cherchent un bon compromis entre espace, calme et acces a Aix.</p>
+          <div class="highlights"><span>Aix ouest</span><span>Grand sejour</span><span>Confort famille</span></div>
+          <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>135€/nuit</strong></div><a class="btn btn-primary" href="appartement-jas-de-bouffan.html">Detail du logement</a></div>
+        </div>
+      </article>
+
+      <article class="listing-card">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Le Mirabeau Family">
+        <div class="card-body">
+          <span class="tag">Top emplacement</span>
+          <div class="meta"><h2 style="font-size:1.5rem;">Le Mirabeau Family</h2><span class="pill">4 voyageurs</span></div>
+          <p class="muted">Une option centrale pour profiter du Cours Mirabeau tout en gardant un logement adapte a plusieurs voyageurs.</p>
+          <div class="highlights"><span>Cours Mirabeau</span><span>4 voyageurs</span><span>Emplacement premium</span></div>
+          <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>152€/nuit</strong></div><a class="btn btn-primary" href="appartement-mirabeau-family.html">Detail du logement</a></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
