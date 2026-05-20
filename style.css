@@ -217,9 +217,66 @@ main .section.dark.compact-bottom + .section.alt {
   margin-top: 0 !important;
 }
 
+main .section:has(.proof-layout) {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding-top: 58px !important;
+  padding-bottom: 46px !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+main .section:has(.proof-layout) .container {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+main .proof-layout {
+  align-items: start !important;
+  margin-top: 28px !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+main .proof-layout .photo-block {
+  align-self: start !important;
+  margin-top: 0 !important;
+  min-height: 360px !important;
+}
+
+main .proof-layout .grid.two {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: none !important;
+  grid-auto-rows: auto !important;
+  grid-auto-flow: row !important;
+  gap: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  align-self: start !important;
+  align-items: stretch !important;
+}
+
+main .proof-layout .grid.two > .card {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  grid-row: auto !important;
+}
+
 @media (max-width: 980px) {
   main .section.alt.compact-bottom .grid.four,
-  main .section.dark.compact-bottom .grid.four {
+  main .section.dark.compact-bottom .grid.four,
+  main .proof-layout .grid.two {
     grid-template-columns: 1fr !important;
   }
 }
