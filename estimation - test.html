@@ -144,6 +144,51 @@
     .link-grid a { display: block; background: var(--white); border-radius: 16px; padding: 20px; text-decoration: none; font-weight: 900; box-shadow: 0 6px 18px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); }
     .cta-band { background: var(--beige); border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1.2fr auto; gap: 28px; align-items: center; box-shadow: var(--shadow); }
 
+    .section.alt.compact {
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      padding-top: 58px !important;
+      padding-bottom: 46px !important;
+      margin-bottom: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .section.alt.compact .container {
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .section.alt.compact .grid.four {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-rows: none !important;
+      grid-auto-rows: auto !important;
+      grid-auto-flow: row !important;
+      gap: 22px !important;
+      margin: 32px 0 0 0 !important;
+      padding: 0 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      align-items: stretch !important;
+    }
+
+    .section.alt.compact .grid.four > .card {
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      grid-row: auto !important;
+    }
+
+    .section.alt.compact + .section {
+      padding-top: 54px !important;
+      margin-top: 0 !important;
+    }
+
     footer { background: var(--dark); color: var(--cream); padding: 54px 6% 24px; }
     footer h3 { color: var(--cream); }
     footer p, footer li { color: #f7dfcf; }
@@ -165,6 +210,7 @@
       .menu-list ul { flex-direction: column; align-items: flex-start; }
       .hero, .criteria-box, .cta-band, .photo-split { grid-template-columns: 1fr; }
       .trust-strip, .grid, .grid.two, .grid.four, .footer-grid, .form-grid { grid-template-columns: 1fr; }
+      .section.alt.compact .grid.four { grid-template-columns: 1fr !important; }
       .actions { flex-direction: column; }
       .button, .submit-button { width: 100%; }
       .revenue-table { display: block; overflow-x: auto; }
