@@ -40,7 +40,6 @@
 .containerPresentation2 h3, .containerPresentation3 h3, .containerPresentation4 p, .containerPresentation5 p { font-size: 1.2rem; }
 .containerproprietairesheader { padding: 3% 10% 0 10%; text-align: center; }
 .containerproprietairesheader h2 { margin:0% 5% 5% 5%; }
-
 .section-how-do-we-work { background-color: var(--color1); padding: 5% 3% 1% 3%; text-align: center; }
 .section-how-do-we-work .container { max-width: 1200px; margin: 0 auto; }
 .section-how-do-we-work .row { display: flex; flex-wrap: wrap; justify-content: space-around; }
@@ -49,12 +48,10 @@
 .section-how-do-we-work .icon { width: 60px; height: 60px; background-size: cover; background-position: center; }
 .section-how-do-we-work h6 { font-size: 1.2rem; margin-bottom: 10px; font-family: "PlayfairDisplay", serif; color: var(--color2); }
 .section-how-do-we-work p { font-size: 1rem; color: var(--color2); font-family: "Cabin", sans-serif; }
-
 .tarifgrid { display: grid; grid-template-columns: 60% 40%; padding: 3% 3% 0 3%; }
 .tarifcontainer { background: var(--color4); border-radius: 15px; text-align: center; padding: 5% 5% 0% 5%; box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3); }
 .tarifcontainer h2 { font-size: 2rem; }
 .tarifcontainer p { font-size: 1.3rem; }
-
 .services-part { width: 100%; padding: 3%; }
 .services { display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; }
 .service-column { flex: 1; min-width: 30%; margin: 1%; display: flex; flex-direction: column; }
@@ -69,7 +66,6 @@
 .service-list li i { margin-right: 10px; color: var(--color3); font-size: 0.9; }
 .containerprice { background: var(--color4); text-align: center; margin: 0 5% 3% 5%; min-height: 100px; border-radius: 20px; }
 .containerprice p { font-size: 2rem; }
-
 .pourquoilafamiliatitle { background: var(--color4); font-size: 1rem; margin: 3% 3% 0 3%; padding: 3% 3% 1% 3%; text-align: center; border-radius: 15px; box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3); }
 .Pourquoilafamilia h2 { text-align: center; }
 .Pourquoilafamiliaintro { text-align: center; margin-bottom: 5%; margin-top: 5%; }
@@ -80,7 +76,6 @@
 .Pourquoilafamiliaavantages .icon-wrapper { width: 100px; height: 100px; margin: 0 auto 20px; background-color: var(--color1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .Pourquoilafamiliaavantages .icon { width: 60px; height: 60px; background-size: cover; background-position: center; }
 .Pourquoilafamiliaavantages li { padding: 1.5%; padding-top: 5%; padding-bottom: 5%; }
-
 .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr 1fr; margin: 5%; gap: 20px; }
 .chiffrescles { grid-column: 1 / 2; grid-row: 1 / 2; }
 .chiffrescleimg, .lieuxvisiterimg, .evenementsimg, .gastronomieimg { width: 100%; height: 100%; object-fit: cover; object-position: center; }
@@ -91,7 +86,6 @@
 .evenementsimg { grid-column: 2 / 3; grid-row: 3 / 4; background: url(./img/festival.webp); background-position: center; background-size: cover; }
 .gastronomie { grid-column: 2 / 2; grid-row: 4 / 5; }
 .gastronomieimg { grid-column: 1 / 2; grid-row: 4 / 5; background: url(./img/Calissons.avif); background-position: center; background-size: cover; }
-
 .faq { background-color: var(--color4); padding: 3% 3%; text-align: center; }
 .faq-header h2 { font-size: 1.5rem; margin-bottom: 3%; font-family: "PlayfairDisplay", serif; }
 .faq-content { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; gap: 2%; }
@@ -104,14 +98,12 @@
 .faq-question.active::after { content: '-'; }
 .faq-answer { font-size: 0.9rem; color: var(--color2); font-family: "Cabin", sans-serif; display: none; padding-top: 1%; text-align: left; }
 .faq-answer.active { display: block; }
-
 .aixenprovence h2, .aixenprovence h3 { text-align: center; padding: 3%; }
 .aixenprovence p, .aixenprovence ul { padding: 3%; }
 .aixenprovence li { display: list-item; font-size: 1REM; margin-bottom: 8px; color: #333; font-weight: 500; list-style-type: disc; list-style-position: inside; }
 .aixenprovence img { background-position: center; background-size: cover; box-shadow: 0px 3px 30px rgba(33, 34, 35, 0.3); }
 .contact { background: var(--color4); }
 .nouscontactertitre { text-align: center; padding: 5%; }
-
 footer { background-color: var(--color4); color: var(--color2); padding: 40px 0 0 0; text-align: center; font-family: "Cabin", sans-serif; }
 .footer-content { display: flex; flex-wrap: wrap; justify-content: space-around; margin: 0 auto; max-width: 1200px; }
 .footer-section { flex: 1; margin: 10px; min-width: 200px; }
@@ -127,272 +119,25 @@ footer { background-color: var(--color4); color: var(--color2); padding: 40px 0 
 .footer-bottom { margin-top: 20px; padding: 10px 0; background-color: var(--color1); }
 .footer-bottom p { margin: 0; font-size: 0.9em; font-family: "Cabin", sans-serif; }
 
-/* Ajustements spécifiques de la refonte homepage */
-main .hero {
-  width: min(88%, 1180px) !important;
-  max-width: 1180px !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-main .section.alt.compact-bottom {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-bottom: 46px !important;
-  margin-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-main .section.alt.compact-bottom .container {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-main .section.alt.compact-bottom .grid.four {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  grid-template-rows: none !important;
-  grid-auto-rows: auto !important;
-  grid-auto-flow: row !important;
-  gap: 22px !important;
-  margin: 32px 0 0 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  align-items: stretch !important;
-}
-
-main .section.alt.compact-bottom .grid.four > .card {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-row: auto !important;
-}
-
-main .section.alt.compact-bottom + .section {
-  padding-top: 54px !important;
-  margin-top: 0 !important;
-}
-
-main .section.dark.compact-bottom {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-top: 68px !important;
-  padding-bottom: 46px !important;
-  margin-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-main .section.dark.compact-bottom .container {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-main .section.dark.compact-bottom .grid.four {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  grid-template-rows: none !important;
-  grid-auto-rows: auto !important;
-  grid-auto-flow: row !important;
-  gap: 22px !important;
-  margin: 32px 0 0 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  align-items: stretch !important;
-}
-
-main .section.dark.compact-bottom .grid.four > .card {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-row: auto !important;
-}
-
-main .section.dark.compact-bottom + .section.alt {
-  padding-top: 54px !important;
-  margin-top: 0 !important;
-}
-
-main .section:has(.proof-layout) {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-top: 58px !important;
-  padding-bottom: 46px !important;
-  margin-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-main .section:has(.proof-layout) .container {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-main .proof-layout {
-  align-items: start !important;
-  margin-top: 28px !important;
-  margin-bottom: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-}
-
-main .proof-layout .photo-block {
-  align-self: start !important;
-  margin-top: 0 !important;
-  min-height: 360px !important;
-}
-
-main .proof-layout .grid.two {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-template-rows: none !important;
-  grid-auto-rows: auto !important;
-  grid-auto-flow: row !important;
-  gap: 22px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  align-self: start !important;
-  align-items: stretch !important;
-}
-
-main .proof-layout .grid.two > .card {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-row: auto !important;
-}
-
-main #services.section {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-bottom: 50px !important;
-  margin-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-main #services .container {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-main #services .grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  grid-template-rows: none !important;
-  grid-auto-rows: auto !important;
-  grid-auto-flow: row !important;
-  gap: 22px !important;
-  margin: 32px 0 0 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  align-items: stretch !important;
-}
-
-main #services .grid > .card {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-row: auto !important;
-}
-
-main #services + .section.alt {
-  padding-top: 54px !important;
-  margin-top: 0 !important;
-}
-
-main .section.alt:has(.photo-block) {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-top: 58px !important;
-  padding-bottom: 46px !important;
-  margin-bottom: 0 !important;
-  overflow: hidden !important;
-}
-
-main .section.alt:has(.photo-block) .container {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-main .section.alt:has(.photo-block) .split {
-  align-items: start !important;
-  margin-top: 28px !important;
-  margin-bottom: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-}
-
-main .section.alt:has(.photo-block) .photo-block {
-  align-self: start !important;
-  margin-top: 0 !important;
-  min-height: 360px !important;
-}
-
-main .section.alt:has(.photo-block) .grid.two {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-template-rows: none !important;
-  grid-auto-rows: auto !important;
-  grid-auto-flow: row !important;
-  gap: 22px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  align-self: start !important;
-  align-items: stretch !important;
-}
-
-main .section.alt:has(.photo-block) .grid.two > .card {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-  grid-row: auto !important;
-}
-
-main .section.alt:has(.photo-block) + .section {
-  padding-top: 54px !important;
-  margin-top: 0 !important;
-}
+/* Ajustements spécifiques de la refonte */
+main .hero { width: min(88%, 1180px) !important; max-width: 1180px !important; padding-left: 0 !important; padding-right: 0 !important; }
+main .section.alt.compact-bottom, main .section.dark.compact-bottom, main .section:has(.proof-layout), main #services.section, main #zones.section, main .section.dark:has(.grid) { min-height: 0 !important; height: auto !important; max-height: none !important; margin-bottom: 0 !important; overflow: hidden !important; }
+main .section.alt.compact-bottom { padding-bottom: 46px !important; }
+main .section.dark.compact-bottom { padding-top: 68px !important; padding-bottom: 46px !important; }
+main .section:has(.proof-layout), main .section.alt:has(.photo-block), main #zones.section, main .section.dark:has(.grid) { padding-top: 58px !important; padding-bottom: 46px !important; }
+main #services.section { padding-bottom: 50px !important; }
+main .section.alt.compact-bottom .container, main .section.dark.compact-bottom .container, main .section:has(.proof-layout) .container, main #services .container, main #zones .container, main .section.dark:has(.grid) .container, main .section.alt:has(.photo-block) .container { min-height: 0 !important; height: auto !important; max-height: none !important; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+main .section.alt.compact-bottom .grid.four, main .section.dark.compact-bottom .grid.four { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; grid-template-rows: none !important; grid-auto-rows: auto !important; grid-auto-flow: row !important; gap: 22px !important; margin: 32px 0 0 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; align-items: stretch !important; }
+main .proof-layout, main .section.alt:has(.photo-block) .split { align-items: start !important; margin-top: 28px !important; margin-bottom: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; }
+main .proof-layout .photo-block, main .section.alt:has(.photo-block) .photo-block { align-self: start !important; margin-top: 0 !important; min-height: 360px !important; }
+main .proof-layout .grid.two, main .section.alt:has(.photo-block) .grid.two { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-template-rows: none !important; grid-auto-rows: auto !important; grid-auto-flow: row !important; gap: 22px !important; margin: 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; align-self: start !important; align-items: stretch !important; }
+main #services .grid, main #zones .grid, main .section.dark:has(.grid) .grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; grid-template-rows: none !important; grid-auto-rows: auto !important; grid-auto-flow: row !important; gap: 22px !important; margin: 32px 0 0 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; align-items: stretch !important; }
+main .section.alt.compact-bottom .grid.four > .card, main .section.dark.compact-bottom .grid.four > .card, main .proof-layout .grid.two > .card, main #services .grid > .card, main .section.alt:has(.photo-block) .grid.two > .card, main #zones .grid > .card, main .section.dark:has(.grid) .grid > .card { min-height: 0 !important; height: auto !important; max-height: none !important; grid-row: auto !important; }
+main .section.alt.compact-bottom + .section, main .section.dark.compact-bottom + .section.alt, main #services + .section.alt, main .section.alt:has(.photo-block) + .section, main #zones + .section.alt, main .section.dark:has(.grid) + .section { padding-top: 54px !important; margin-top: 0 !important; }
+main .section.dark:has(.grid) .note { margin-top: 18px !important; }
 
 @media (max-width: 980px) {
-  main .section.alt.compact-bottom .grid.four,
-  main .section.dark.compact-bottom .grid.four,
-  main .proof-layout .grid.two,
-  main #services .grid,
-  main .section.alt:has(.photo-block) .grid.two {
-    grid-template-columns: 1fr !important;
-  }
+  main .section.alt.compact-bottom .grid.four, main .section.dark.compact-bottom .grid.four, main .proof-layout .grid.two, main #services .grid, main .section.alt:has(.photo-block) .grid.two, main #zones .grid, main .section.dark:has(.grid) .grid { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 939px) {
