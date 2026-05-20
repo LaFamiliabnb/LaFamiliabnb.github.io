@@ -1,714 +1,214 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Conciergerie Airbnb Aix-en-Provence | Gestion location saisonnière - La Familia</title>
-  <meta
-    name="description"
-    content="Conciergerie Airbnb à Aix-en-Provence : gestion complète de votre location saisonnière, optimisation des revenus, ménage, voyageurs, avis clients et assistance locale 7j/7."
-  />
-
-  <link rel="canonical" href="https://lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/" />
+  <title>Conciergerie Airbnb Aix-en-Provence | La Familia</title>
+  <meta name="description" content="Conciergerie Airbnb à Aix-en-Provence pour propriétaires : gestion complète, annonce, voyageurs, ménage, linge, check-in, optimisation des prix et suivi local." />
+  <link rel="canonical" href="https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence.html" />
   <link rel="shortcut icon" href="/img/LogoLF.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:title" content="Conciergerie Airbnb à Aix-en-Provence | La Familia" />
-  <meta property="og:description" content="Gestion complète de votre location saisonnière à Aix-en-Provence : annonce, voyageurs, ménage, linge, prix, suivi propriétaire et avis clients." />
-  <meta property="og:url" content="https://lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/" />
-  <meta property="og:site_name" content="La Familia BnB" />
-  <meta property="og:image" content="https://lafamiliabnb.fr/img/banniere-aix-provence.jpg" />
-  <meta property="og:image:alt" content="Conciergerie Airbnb à Aix-en-Provence - La Familia BnB" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Gestion complète de votre location courte durée à Aix-en-Provence : annonce, voyageurs, ménage, linge, check-in, prix et suivi propriétaire." />
+  <meta property="og:url" content="https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence.html" />
+  <meta property="og:site_name" content="La Familia" />
+  <meta property="og:image" content="https://www.lafamiliabnb.fr/img/living-room-8368673_1280.webp" />
+  <meta property="og:image:alt" content="Conciergerie Airbnb La Familia à Aix-en-Provence" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Conciergerie Airbnb Aix-en-Provence - La Familia" />
-  <meta name="twitter:description" content="Gestion complète pour propriétaires Airbnb à Aix-en-Provence : revenus, ménage, voyageurs, check-in, linge et suivi local." />
-  <meta name="twitter:image" content="https://lafamiliabnb.fr/img/banniere-aix-provence.jpg" />
+  <meta name="twitter:title" content="Conciergerie Airbnb Aix-en-Provence | La Familia" />
+  <meta name="twitter:description" content="Conciergerie locale pour propriétaires Airbnb à Aix-en-Provence : gestion complète, voyageurs, ménage, linge, check-in et revenus." />
+  <meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/living-room-8368673_1280.webp" />
 
-  <!-- Performance -->
   <link rel="preload" href="/img/living-room-8368673_1280.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="/style.css" as="style" />
-  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'; this.onload=null;" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
   <noscript><link rel="stylesheet" href="/style.css" /></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <style>
     :root {
-      --color1: #fffaf4;
-      --color2: #202020;
-      --color3: #b86b3d;
-      --color4: #fbe0c3;
-      --muted: #5f5f5f;
-      --card: #ffffff;
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
       --soft: #fff3e8;
       --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
     }
 
     * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--color1);
-      color: var(--color2);
-      font-family: "Cabin", Arial, sans-serif;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "Cabin", Arial, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 6vw, 5.9rem); margin: 22px 0; letter-spacing: -0.045em; }
+    h2 { font-size: clamp(2.1rem, 4.3vw, 3.8rem); margin: 0 0 22px; letter-spacing: -0.035em; }
+    h3 { font-size: 1.45rem; margin: 0 0 12px; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
 
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 12px;
-      background: var(--color2);
-      color: var(--color1);
-      padding: 10px 14px;
-      z-index: 999;
-    }
-
+    .skip-link { position: absolute; left: -999px; top: 12px; background: var(--dark); color: var(--cream); padding: 10px 14px; z-index: 9999; }
     .skip-link:focus { left: 12px; }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 12px 6%;
-      background: var(--color1);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255, 250, 244, .94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 12px 6%; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: uppercase; font-family: "PlayfairDisplay", Georgia, serif; font-weight: 900; letter-spacing: .06em; color: var(--dark); }
     .brand img { width: 72px; }
+    .menu-list ul { display: flex; align-items: center; gap: 24px; list-style: none; padding: 0; margin: 0; }
+    .menu-list a { text-decoration: none; text-transform: uppercase; font-size: .84rem; font-weight: 900; color: var(--dark); }
+    .menu-list a:hover { color: var(--accent); }
+    .nav-cta { background: var(--dark); color: var(--cream) !important; padding: 14px 19px; border-radius: 999px; box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: var(--dark); }
 
-    .menu-list ul {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+    .breadcrumb { width: min(88%, 1180px); margin: 0 auto; padding-top: 22px; color: var(--muted); font-size: .95rem; }
+    .breadcrumb a { text-decoration: none; font-weight: 900; }
 
-    .menu-list a {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: .88rem;
-      font-weight: 900;
-    }
+    .hero { min-height: calc(92vh - 90px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr); gap: 46px; align-items: center; width: min(88%, 1180px); max-width: 1180px; margin: 0 auto; padding: 58px 0 44px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 10px 16px; border-radius: 999px; background: var(--beige); font-weight: 900; color: var(--dark); }
+    .hero-lead { max-width: 760px; font-size: 1.22rem; margin-bottom: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 15px 25px; border-radius: 14px; border: 2px solid var(--dark); background: var(--dark); color: var(--cream); text-decoration: none; font-weight: 900; box-shadow: 0 12px 28px rgba(0,0,0,.18); transition: .2s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+    .button.secondary { background: transparent; color: var(--dark); box-shadow: none; }
+    .section.dark .button.secondary { color: var(--cream); border-color: var(--cream); }
+    .micro-proof { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; color: var(--muted); font-weight: 800; }
+    .micro-proof span { display: inline-flex; align-items: center; gap: 7px; }
+    .micro-proof i { color: var(--accent); }
 
-    .menu-list a:hover { color: var(--color3); }
+    .hero-card { position: relative; border-radius: 28px; overflow: hidden; background: var(--soft); box-shadow: 0 24px 54px rgba(0,0,0,.16); border: 1px solid var(--line); min-height: 560px; }
+    .hero-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.38)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; }
+    .hero-card-content { position: absolute; left: 22px; right: 22px; bottom: 22px; background: rgba(255,250,244,.91); backdrop-filter: blur(14px); border-radius: 20px; padding: 24px; }
+    .hero-card-content strong { display: block; color: var(--accent); font-size: 2rem; margin-bottom: 4px; }
 
-    .nav-cta {
-      background: var(--color2);
-      color: var(--color1) !important;
-      padding: 14px 18px;
-      border-radius: 999px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.12);
-    }
+    .trust-strip { width: min(88%, 1180px); margin: 0 auto; padding: 0 0 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .trust-item { background: var(--white); border-radius: 18px; padding: 22px; box-shadow: 0 8px 22px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); text-align: center; }
+    .trust-item strong { display: block; font-size: 1.65rem; color: var(--accent); margin-bottom: 6px; }
+    .trust-item small { display: block; color: var(--muted); margin-top: 6px; line-height: 1.45; }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 26px;
-      height: 3px;
-      background: var(--color2);
-    }
-
-    .breadcrumb {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 22px 6% 0;
-      font-size: .95rem;
-      color: var(--muted);
-    }
-
-    .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 64px 6% 54px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color4);
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-weight: 900;
-    }
-
-    h1, h2, h3 {
-      font-family: "PlayfairDisplay", Georgia, serif;
-      line-height: 1.08;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 6vw, 5.4rem);
-      margin: 24px 0 18px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.55rem);
-      margin: 0 0 20px;
-    }
-
-    h3 {
-      font-size: 1.45rem;
-      margin: 0 0 12px;
-    }
-
-    p, li {
-      line-height: 1.72;
-      color: #3e3e3e;
-    }
-
-    .lead {
-      font-size: 1.22rem;
-      max-width: 720px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 54px;
-      padding: 14px 24px;
-      border-radius: 14px;
-      border: 2px solid var(--color2);
-      background: var(--color2);
-      color: var(--color1);
-      text-decoration: none;
-      font-weight: 900;
-      box-shadow: 0 12px 26px rgba(0,0,0,.16);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--color2);
-      box-shadow: none;
-    }
-
-    .hero-card {
-      background: #fff8f2;
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 18px 42px rgba(0,0,0,.13);
-    }
-
-    .check-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .check-item {
-      display: flex;
-      gap: 12px;
-      padding: 15px;
-      background: var(--card);
-      border-radius: 12px;
-      font-weight: 800;
-      box-shadow: 0 5px 16px rgba(0,0,0,.07);
-    }
-
-    .check-item i,
-    .icon {
-      color: var(--color3);
-    }
-
-    .section {
-      padding: 78px 6%;
-    }
-
+    .section { padding: 74px 6%; }
+    .section.compact { padding-top: 58px; padding-bottom: 50px; }
     .section.alt { background: var(--soft); }
-    .section.dark { background: var(--dark); color: var(--color1); }
-    .section.dark p, .section.dark li { color: #f6dfcf; }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .section-copy {
-      max-width: 860px;
-      font-size: 1.12rem;
-    }
-
-    .stats {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 6% 60px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,.09);
-      border: 1px solid rgba(0,0,0,.06);
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--color3);
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-    }
-
-    .stat-card span {
-      font-weight: 900;
-    }
-
-    .note {
-      display: block;
-      margin-top: 10px;
-      font-size: .86rem;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 36px;
-    }
-
+    .section.dark { background: var(--dark); color: var(--cream); }
+    .section.dark h2, .section.dark h3 { color: var(--cream); }
+    .section.dark p, .section.dark li { color: #f7dfcf; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .section-intro { max-width: 860px; font-size: 1.15rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 32px; }
     .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 20px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .card i { color: var(--accent); font-size: 1.45rem; margin-bottom: 14px; }
+    .section.dark .card { background: rgba(255,250,244,.09); border-color: rgba(255,255,255,.2); box-shadow: 0 14px 34px rgba(0,0,0,.18); }
 
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 7px 24px rgba(0,0,0,.08);
-    }
+    .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 30px; align-items: center; margin-top: 34px; }
+    .panel { background: var(--beige); border-radius: 26px; padding: 34px; box-shadow: var(--shadow); }
+    .list-check { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .list-check li { background: var(--cream); border-radius: 14px; padding: 16px; font-weight: 900; display: flex; gap: 10px; align-items: flex-start; }
+    .list-check i { color: var(--accent); margin-top: 4px; }
 
-    .card i {
-      font-size: 1.35rem;
-      color: var(--color3);
-      margin-bottom: 14px;
-    }
+    .photo-block { min-height: 420px; border-radius: 26px; background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.32)), url("/img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg"); background-size: cover; background-position: center; box-shadow: 0 18px 44px rgba(0,0,0,.16); position: relative; overflow: hidden; }
+    .photo-caption { position: absolute; left: 20px; right: 20px; bottom: 20px; background: rgba(255,250,244,.92); border-radius: 18px; padding: 18px; font-weight: 900; }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr .8fr;
-      gap: 18px;
-      margin-top: 36px;
-    }
+    .revenue-table { width: 100%; border-collapse: collapse; margin-top: 28px; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .revenue-table th, .revenue-table td { padding: 18px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.07); vertical-align: top; }
+    .revenue-table th { background: var(--dark); color: var(--cream); }
+    .note { display: block; margin-top: 14px; color: var(--muted); font-size: .95rem; }
 
-    .photo-card {
-      position: relative;
-      min-height: 240px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #e7d7c8;
-      box-shadow: 0 12px 26px rgba(0,0,0,.12);
-    }
+    .team { display: grid; grid-template-columns: 285px 1fr; gap: 34px; align-items: center; margin-top: 32px; background: var(--white); border-radius: 28px; padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+    .team-photo { min-height: 285px; border-radius: 24px; overflow: hidden; background: #ead7c7; }
+    .team-photo img { width: 100%; height: 100%; min-height: 285px; object-fit: cover; }
+    .quote { border-left: 4px solid var(--accent); padding-left: 18px; font-size: 1.15rem; font-style: italic; margin: 18px 0; }
 
-    .photo-card.large {
-      grid-row: span 2;
-      min-height: 500px;
-    }
+    .faq details { background: var(--white); border-radius: 18px; border: 1px solid rgba(0,0,0,.08); padding: 22px; margin-top: 14px; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+    .faq summary { cursor: pointer; font-weight: 900; }
+    .link-grid a { display: block; background: var(--white); border-radius: 16px; padding: 20px; text-decoration: none; font-weight: 900; box-shadow: 0 6px 18px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); }
 
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    footer { background: var(--dark); color: var(--cream); padding: 54px 6% 24px; }
+    footer h3 { color: var(--cream); }
+    footer p, footer li { color: #f7dfcf; }
+    footer a { color: #f7dfcf; text-decoration: none; }
+    .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin: 0 auto 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+    .footer-logo { width: 94px; margin: 0 auto; }
+    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; align-items: center; text-align: center; background: var(--dark); }
+    .footer-bottom p { width: 100%; margin: 0; color: #f7dfcf; text-align: center; }
+    .legal-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-weight: 900; width: 100%; }
+    .legal-links a { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
 
-    .photo-placeholder {
-      height: 100%;
-      min-height: inherit;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      text-align: center;
-      font-weight: 900;
-      color: #604532;
-    }
-
-    .photo-caption {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,.86);
-      border-radius: 12px;
-      font-weight: 900;
-    }
-
-    .revenue-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 28px;
-      background: var(--card);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
-    }
-
-    .revenue-table th,
-    .revenue-table td {
-      padding: 18px;
-      text-align: left;
-      border-bottom: 1px solid rgba(0,0,0,.07);
-    }
-
-    .revenue-table th {
-      background: var(--color2);
-      color: var(--color1);
-    }
-
-    .case-study {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
-      margin-top: 34px;
-    }
-
-    .case-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .case-metric {
-      background: var(--soft);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: center;
-      font-weight: 900;
-    }
-
-    .case-metric strong {
-      display: block;
-      color: var(--color3);
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-
-    .team-card {
-      display: grid;
-      grid-template-columns: 190px 1fr;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .avatar {
-      min-height: 190px;
-      border-radius: 22px;
-      background: #e7d7c8;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 20px;
-      font-weight: 900;
-      color: #604532;
-    }
-
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 36px;
-    }
-
-    .review-card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 26px;
-      border: 1px solid rgba(0,0,0,.08);
-      box-shadow: 0 7px 22px rgba(0,0,0,.08);
-    }
-
-    .stars {
-      color: #d8943d;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .review-source {
-      font-size: .9rem;
-      color: var(--muted);
-      font-weight: 900;
-    }
-
-    .faq-details {
-      display: grid;
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .faq-details details {
-      background: var(--card);
-      border: 1px solid rgba(0,0,0,.1);
-      border-radius: 16px;
-      padding: 22px;
-    }
-
-    .faq-details summary {
-      cursor: pointer;
-      font-weight: 900;
-    }
-
-    .internal-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .internal-links a {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 14px 18px;
-      text-decoration: none;
-      font-weight: 900;
-      box-shadow: 0 5px 16px rgba(0,0,0,.08);
-    }
-
-    footer {
-      background: var(--color2);
-      color: var(--color1);
-      padding: 54px 6% 24px;
-    }
-
-    footer p, footer li { color: #f6dfcf; }
-    footer a { color: #f6dfcf; text-decoration: none; }
-
-    .footer-grid {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 28px;
-    }
-
-    .footer-logo { width: 92px; margin-bottom: 14px; }
-
-    .footer-bottom {
-      max-width: 1180px;
-      margin: 32px auto 0;
-      border-top: 1px solid rgba(255,255,255,.16);
-      padding-top: 22px;
-      font-size: .9rem;
-    }
-
-    @media (max-width: 940px) {
+    @media (max-width: 980px) {
       nav { align-items: flex-start; }
       .hamburger { display: flex; }
-      .menu-list {
-        display: none;
-        position: absolute;
-        top: 84px;
-        right: 6%;
-        background: var(--color1);
-        border: 1px solid rgba(0,0,0,.1);
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 16px 34px rgba(0,0,0,.14);
-      }
+      .menu-list { display: none; position: absolute; top: 84px; right: 6%; background: var(--cream); border-radius: 18px; border: 1px solid rgba(0,0,0,.1); padding: 18px; box-shadow: 0 18px 38px rgba(0,0,0,.16); }
       .menu-list.active { display: block; }
       .menu-list ul { flex-direction: column; align-items: flex-start; }
-
-      .hero,
-      .case-study,
-      .team-card {
-        grid-template-columns: 1fr;
-      }
-
-      .stats,
-      .grid,
-      .grid.two,
-      .grid.four,
-      .reviews,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .photo-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .photo-card.large {
-        min-height: 320px;
-      }
-
-      .case-metrics {
-        grid-template-columns: 1fr;
-      }
-
+      .hero, .split, .team { grid-template-columns: 1fr; }
+      .hero-card { min-height: 430px; }
+      .trust-strip, .grid, .grid.two, .grid.four, .footer-grid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
       .button { width: 100%; }
+      .revenue-table { display: block; overflow-x: auto; }
     }
   </style>
 
-  <!-- Schema ProfessionalService / LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
-    "@id": "https://lafamiliabnb.fr/#business",
-    "name": "La Familia BnB",
-    "url": "https://lafamiliabnb.fr/",
-    "image": "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
+    "@id": "https://www.lafamiliabnb.fr/#business",
+    "name": "La Familia",
+    "url": "https://www.lafamiliabnb.fr/",
+    "image": "https://www.lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
     "description": "Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.",
     "telephone": "+33651094966",
     "email": "aurore.pageard@hotmail.fr",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6 rue Gibelin",
-      "postalCode": "13100",
-      "addressLocality": "Aix-en-Provence",
-      "addressCountry": "FR"
-    },
-    "areaServed": [
-      "Aix-en-Provence",
-      "Centre historique d'Aix-en-Provence",
-      "Quartier Mazarin",
-      "Cours Mirabeau",
-      "Luynes",
-      "Puyricard",
-      "Les Milles"
-    ],
+    "address": { "@type": "PostalAddress", "streetAddress": "6 rue Gibelin", "postalCode": "13100", "addressLocality": "Aix-en-Provence", "addressCountry": "FR" },
+    "areaServed": ["Aix-en-Provence", "Centre historique d'Aix-en-Provence", "Quartier Mazarin", "Cours Mirabeau", "Rotonde", "Luynes", "Puyricard", "Les Milles"],
     "priceRange": "Commission sur revenus générés",
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61562890765862",
-      "https://www.instagram.com/lafamiliabnb/?hl=fr"
-    ]
+    "sameAs": ["https://www.instagram.com/lafamiliabnb/?hl=fr", "https://www.facebook.com/profile.php?id=61562890765862"]
   }
   </script>
 
-  <!-- Schema BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Conciergerie Airbnb à Aix-en-Provence",
+    "serviceType": "Gestion de location courte durée et conciergerie Airbnb",
+    "provider": { "@id": "https://www.lafamiliabnb.fr/#business" },
+    "areaServed": { "@type": "City", "name": "Aix-en-Provence" },
+    "description": "Gestion complète de locations Airbnb à Aix-en-Provence : annonce, voyageurs, ménage, linge, check-in, check-out, optimisation des prix et suivi propriétaire."
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Accueil",
-        "item": "https://lafamiliabnb.fr/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Conciergerie Airbnb Aix-en-Provence",
-        "item": "https://lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lafamiliabnb.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Conciergerie Airbnb Aix-en-Provence", "item": "https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence.html" }
     ]
   }
   </script>
 
-  <!-- Schema FAQPage : garder synchronisé avec la FAQ visible -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Pourquoi faire appel à une conciergerie Airbnb à Aix-en-Provence ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Une conciergerie locale prend en charge les annonces, les voyageurs, le ménage, le linge, les arrivées, les départs et l'optimisation des prix pour aider le propriétaire à louer plus sereinement."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Combien rapporte un Airbnb à Aix-en-Provence ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le revenu dépend de la localisation, de la surface, du standing, du nombre de couchages, des équipements, de la saisonnalité et du calendrier disponible. Une estimation personnalisée reste nécessaire."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quel est le tarif d'une conciergerie Airbnb ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La Familia fonctionne avec une commission sur les revenus générés. Le modèle exact est présenté sur la page tarifs et peut dépendre des services inclus."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "La Familia gère-t-elle le ménage et le linge ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, la gestion peut inclure la coordination du ménage, du linge, des consommables et du contrôle qualité avant chaque arrivée."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Puis-je garder la main sur mon logement ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui. Le propriétaire peut conserver une visibilité sur les réservations, bloquer des dates personnelles et suivre les performances de son logement."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Faut-il mettre les avis Google sur la page ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, les avis Google authentiques renforcent la confiance et le SEO local. Ils doivent être réels, vérifiables et idéalement intégrés avec un lien vers la fiche Google."
-        }
-      }
+      { "@type": "Question", "name": "Pourquoi faire appel à une conciergerie Airbnb à Aix-en-Provence ?", "acceptedAnswer": { "@type": "Answer", "text": "Une conciergerie Airbnb locale prend en charge les annonces, les voyageurs, le ménage, le linge, les arrivées, les départs et l'optimisation des prix afin de louer plus sereinement." } },
+      { "@type": "Question", "name": "Quels services sont inclus dans une conciergerie Airbnb ?", "acceptedAnswer": { "@type": "Answer", "text": "Les services peuvent inclure la création d'annonce, la gestion voyageurs, le ménage, le linge, le check-in, le check-out, l'ajustement des prix, le suivi des avis et le reporting propriétaire." } },
+      { "@type": "Question", "name": "Combien peut rapporter un Airbnb à Aix-en-Provence ?", "acceptedAnswer": { "@type": "Answer", "text": "Le revenu dépend du quartier, de la surface, du nombre de couchages, du standing, des équipements, de la qualité des photos, de la saisonnalité et du calendrier disponible." } },
+      { "@type": "Question", "name": "La Familia intervient-elle dans le centre-ville d'Aix-en-Provence ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, La Familia intervient notamment dans le centre historique, le quartier Mazarin, autour du Cours Mirabeau, de la Rotonde, ainsi que dans plusieurs secteurs autour d'Aix-en-Provence." } },
+      { "@type": "Question", "name": "Puis-je garder des dates pour mon usage personnel ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, le propriétaire peut bloquer des dates d'usage personnel et conserver une visibilité sur son calendrier de réservation." } }
     ]
   }
   </script>
@@ -717,7 +217,6 @@
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
 
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD" height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
@@ -725,462 +224,211 @@
   <header>
     <nav aria-label="Navigation principale">
       <a class="brand" href="/">
-        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia BnB - conciergerie Airbnb Aix-en-Provence" />
+        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia - conciergerie Airbnb Aix-en-Provence" />
         <span>La Familia</span>
       </a>
 
       <div class="menu-list" id="menu-list">
         <ul>
-          <li><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie Airbnb</a></li>
-          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Services</a></li>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie</a></li>
           <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
-          <li><a href="/nos-logements/">Nos logements</a></li>
-          <li><a href="/blog/">Blog propriétaires</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
         </ul>
       </div>
 
-      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
   </header>
 
   <main id="contenu">
-    <div class="breadcrumb">
-      <a href="/">Accueil</a> / Conciergerie Airbnb à Aix-en-Provence
-    </div>
+    <div class="breadcrumb"><a href="/">Accueil</a> / Conciergerie Airbnb Aix-en-Provence</div>
 
     <section class="hero">
       <div>
-        <span class="eyebrow"><i class="fas fa-map-marker-alt"></i> Aix-en-Provence, centre-ville et alentours</span>
-        <h1>Conciergerie Airbnb à Aix-en-Provence</h1>
-        <p class="lead">
-          La Familia accompagne les propriétaires qui veulent louer leur logement en courte durée sans gérer les annonces,
-          les voyageurs, le ménage, le linge, les arrivées, les départs et l’optimisation des prix.
+        <span class="eyebrow"><i class="fas fa-map-marker-alt"></i> Conciergerie locale à Aix-en-Provence</span>
+        <h1>Conciergerie Airbnb à Aix-en-Provence pour propriétaires</h1>
+        <p class="hero-lead">
+          La Familia accompagne les propriétaires qui veulent déléguer la gestion de leur Airbnb à Aix-en-Provence : création d’annonce, voyageurs, ménage, linge, check-in, check-out, optimisation des prix et suivi local.
         </p>
-
         <div class="actions">
           <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
-          <a href="#avis" class="button secondary">Voir les avis clients</a>
+          <a href="#services" class="button secondary">Voir nos services</a>
         </div>
-
-        <small class="note">
-          Les revenus affichés sur cette page sont des estimations indicatives. Une analyse personnalisée est nécessaire pour chaque logement.
-        </small>
+        <div class="micro-proof" aria-label="Signaux de confiance">
+          <span><i class="fas fa-check-circle"></i> Gestion Airbnb & Booking</span>
+          <span><i class="fas fa-check-circle"></i> Ménage et linge coordonnés</span>
+          <span><i class="fas fa-check-circle"></i> Présence locale à Aix</span>
+        </div>
       </div>
 
-      <aside class="hero-card">
-        <h2>Pourquoi confier votre Airbnb ?</h2>
-        <div class="check-list">
-          <div class="check-item"><i class="fas fa-check-circle icon"></i><span>Gagner du temps sur la gestion quotidienne</span></div>
-          <div class="check-item"><i class="fas fa-check-circle icon"></i><span>Améliorer l’expérience voyageurs et les avis</span></div>
-          <div class="check-item"><i class="fas fa-check-circle icon"></i><span>Adapter les prix selon la saisonnalité à Aix</span></div>
-          <div class="check-item"><i class="fas fa-check-circle icon"></i><span>Préparer le logement entre chaque séjour</span></div>
-          <div class="check-item"><i class="fas fa-check-circle icon"></i><span>Bénéficier d’un interlocuteur local</span></div>
+      <aside class="hero-card" aria-label="Location courte durée à Aix-en-Provence">
+        <div class="hero-card-content">
+          <strong>Gérer moins, louer mieux</strong>
+          <p>Une conciergerie locale pour transformer votre logement en location courte durée fiable, soignée et suivie.</p>
         </div>
       </aside>
     </section>
 
-    <section class="stats" aria-label="Indicateurs de confiance">
-      <div class="stat-card">
-        <strong>7j/7</strong>
-        <span>assistance voyageurs</span>
-      </div>
-      <div class="stat-card">
-        <strong>20%</strong>
-        <span>commission annoncée</span>
-        <small class="note">À ajuster si ton offre évolue.</small>
-      </div>
-      <div class="stat-card">
-        <strong>Airbnb + Booking</strong>
-        <span>diffusion multi-plateformes</span>
-      </div>
-      <div class="stat-card">
-        <strong>Aix</strong>
-        <span>gestion locale terrain</span>
-      </div>
+    <section class="trust-strip" aria-label="Indicateurs de confiance">
+      <div class="trust-item"><strong>7j/7</strong><span>assistance voyageurs</span></div>
+      <div class="trust-item"><strong>Airbnb + Booking</strong><span>diffusion multi-plateformes</span></div>
+      <div class="trust-item"><strong>Aix-en-Provence</strong><span>gestion locale terrain</span></div>
+      <div class="trust-item"><strong>20%</strong><span>commission de gestion</span><small>Tarification claire à confirmer selon l’offre validée.</small></div>
     </section>
 
-    <section class="section alt">
+    <section class="section alt compact">
       <div class="container">
-        <h2>Une conciergerie locale pour votre location saisonnière à Aix-en-Provence</h2>
-        <p class="section-copy">
-          Gérer une location courte durée à Aix-en-Provence demande une présence régulière, une communication rapide,
-          des logements parfaitement préparés et une tarification adaptée aux périodes fortes. Notre rôle est de prendre
-          en charge l’opérationnel pour vous aider à louer plus sereinement.
+        <h2>Une conciergerie Airbnb pensée pour les propriétaires aixois</h2>
+        <p class="section-intro">
+          Louer un logement en courte durée à Aix-en-Provence demande plus qu’une simple annonce en ligne. Il faut une présentation soignée, une réponse rapide aux voyageurs, une tarification adaptée aux saisons, une préparation impeccable du logement et une présence locale capable de gérer les imprévus.
         </p>
-        <p class="section-copy">
-          Nous accompagnons les propriétaires d’appartements, studios, maisons et résidences secondaires à Aix-en-Provence
-          et dans les secteurs à fort potentiel locatif : centre historique, quartier Mazarin, Cours Mirabeau, Rotonde,
-          Luynes, Puyricard et Les Milles.
+        <p class="section-intro">
+          La Familia accompagne les propriétaires d’appartements, studios, maisons et résidences secondaires qui souhaitent développer leur location saisonnière sans porter seuls la charge opérationnelle quotidienne.
         </p>
       </div>
     </section>
 
     <section class="section" id="services">
       <div class="container">
-        <h2>Nos services de gestion Airbnb</h2>
-        <p class="section-copy">
-          L’objectif : rendre votre logement plus visible, plus simple à gérer et plus fiable pour les voyageurs.
-        </p>
+        <h2>Nos services de conciergerie Airbnb à Aix-en-Provence</h2>
+        <p class="section-intro">Nous prenons en charge les étapes clés de la gestion locative courte durée afin d’améliorer l’expérience voyageurs, la qualité du logement et le suivi propriétaire.</p>
 
         <div class="grid">
-          <article class="card">
-            <i class="fas fa-home"></i>
-            <h3>Création et optimisation d’annonce</h3>
-            <p>Rédaction du titre, description, équipements, photos, règles du logement et positionnement sur Airbnb, Booking ou d’autres plateformes pertinentes.</p>
-          </article>
-
-          <article class="card">
-            <i class="fas fa-comments"></i>
-            <h3>Gestion voyageurs</h3>
-            <p>Réponses aux messages, informations d’arrivée, assistance pendant le séjour, suivi des demandes et accompagnement jusqu’au départ.</p>
-          </article>
-
-          <article class="card">
-            <i class="fas fa-key"></i>
-            <h3>Check-in / check-out</h3>
-            <p>Instructions d’accès, boîte à clés, accueil selon les logements, vérification après départ et coordination terrain.</p>
-          </article>
-
-          <article class="card">
-            <i class="fas fa-magic"></i>
-            <h3>Ménage et linge</h3>
-            <p>Coordination du ménage, préparation du logement, linge, consommables et contrôle qualité entre deux réservations.</p>
-          </article>
-
-          <article class="card">
-            <i class="fas fa-chart-line"></i>
-            <h3>Optimisation des revenus</h3>
-            <p>Ajustement des prix selon la demande, la saison, les événements locaux, le taux d’occupation et les performances de l’annonce.</p>
-          </article>
-
-          <article class="card">
-            <i class="fas fa-shield-alt"></i>
-            <h3>Suivi propriétaire</h3>
-            <p>Reporting, conseils d’amélioration, transparence sur les réservations et suivi des points importants pour votre logement.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="photos">
-      <div class="container">
-        <h2>Photos réelles : logements, préparation et expérience voyageurs</h2>
-        <p class="section-copy">
-          Les photos sont un signal de confiance très fort pour les propriétaires. Remplace les blocs ci-dessous par tes vraies photos :
-          logements gérés, détails de préparation, linge, équipements, équipe terrain et avant/après.
-        </p>
-
-        <div class="photo-grid">
-          <figure class="photo-card large">
-            <!-- Remplacer par une vraie photo -->
-            <!-- <img src="/img/logement-airbnb-aix-centre.webp" alt="Appartement Airbnb géré par La Familia à Aix-en-Provence" loading="lazy"> -->
-            <div class="photo-placeholder">Photo réelle d’un logement géré à Aix-en-Provence</div>
-            <figcaption class="photo-caption">Logement préparé pour la location courte durée</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <!-- <img src="/img/menage-airbnb-aix.webp" alt="Préparation ménage Airbnb à Aix-en-Provence par La Familia" loading="lazy"> -->
-            <div class="photo-placeholder">Photo ménage / linge</div>
-            <figcaption class="photo-caption">Ménage, linge et contrôle qualité</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <!-- <img src="/img/detail-logement-airbnb-aix.webp" alt="Détail premium dans un logement Airbnb à Aix-en-Provence" loading="lazy"> -->
-            <div class="photo-placeholder">Photo détails premium</div>
-            <figcaption class="photo-caption">Détails qui améliorent les avis voyageurs</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <!-- <img src="/img/equipe-la-familia-aix.webp" alt="Équipe La Familia BnB conciergerie Airbnb Aix-en-Provence" loading="lazy"> -->
-            <div class="photo-placeholder">Photo de l’équipe</div>
-            <figcaption class="photo-caption">Une équipe locale à Aix-en-Provence</figcaption>
-          </figure>
-
-          <figure class="photo-card">
-            <!-- <img src="/img/check-in-airbnb-aix.webp" alt="Check-in Airbnb à Aix-en-Provence géré par La Familia" loading="lazy"> -->
-            <div class="photo-placeholder">Photo check-in / accès</div>
-            <figcaption class="photo-caption">Arrivées fluides et informations claires</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="revenus">
-      <div class="container">
-        <h2>Combien peut rapporter un Airbnb à Aix-en-Provence ?</h2>
-        <p class="section-copy">
-          Les gains potentiels dépendent de la localisation, du standing, de la surface, du nombre de couchages,
-          des équipements, de la qualité des photos, de la saisonnalité et du calendrier disponible. Le tableau ci-dessous
-          sert de base indicative avant estimation personnalisée.
-        </p>
-
-        <table class="revenue-table">
-          <thead>
-            <tr>
-              <th>Type de bien</th>
-              <th>Revenus mensuels potentiels</th>
-              <th>Facteurs clés</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Studio / T1</td>
-              <td>À estimer selon quartier et standing</td>
-              <td>Centre-ville, équipements, accès autonome, photos</td>
-            </tr>
-            <tr>
-              <td>T2</td>
-              <td>À estimer selon saisonnalité et calendrier</td>
-              <td>Nombre de couchages, décoration, proximité centre</td>
-            </tr>
-            <tr>
-              <td>T3 / logement familial</td>
-              <td>À estimer selon capacité et demande</td>
-              <td>Familles, séjours longs, stationnement, terrasse</td>
-            </tr>
-            <tr>
-              <td>Résidence secondaire</td>
-              <td>À estimer selon disponibilité annuelle</td>
-              <td>Périodes bloquées, événements, saison haute</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="note">
-          Conseil : évite d’afficher des montants trop précis sans données vérifiables. Remplace cette version par tes chiffres réels dès que tu as assez d’historique.
-        </p>
-
-        <div class="actions">
-          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Demander une estimation personnalisée</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="cas-client">
-      <div class="container">
-        <h2>Exemple de projet accompagné</h2>
-        <p class="section-copy">
-          Un cas concret aide beaucoup le SEO et la conversion. Utilise uniquement des données réelles ou anonymisées.
-        </p>
-
-        <div class="case-study">
-          <div class="photo-card">
-            <!-- <img src="/img/cas-client-t2-aix-centre.webp" alt="Exemple de logement Airbnb accompagné par La Familia à Aix-en-Provence" loading="lazy"> -->
-            <div class="photo-placeholder">Photo du logement ou avant/après</div>
-          </div>
-
-          <article class="card">
-            <h3>Appartement T2 — Aix-en-Provence</h3>
-            <p>
-              Exemple à personnaliser : logement situé proche du centre, optimisation de l’annonce, amélioration des photos,
-              mise en place d’un process ménage, informations d’arrivée plus claires et stratégie de prix adaptée aux périodes fortes.
-            </p>
-
-            <div class="case-metrics">
-              <div class="case-metric">
-                <strong>Avant</strong>
-                Gestion seule ou partielle
-              </div>
-              <div class="case-metric">
-                <strong>Après</strong>
-                Process complet
-              </div>
-              <div class="case-metric">
-                <strong>Suivi</strong>
-                Revenus, avis et taux d’occupation
-              </div>
-            </div>
-
-            <p class="note">
-              Remplace ce bloc par un vrai cas client : type de bien, quartier, actions réalisées, résultats obtenus, période analysée.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="equipe">
-      <div class="container">
-        <h2>Une équipe locale pour gérer votre logement à Aix-en-Provence</h2>
-        <p class="section-copy">
-          La présentation de l’équipe est essentielle pour l’EEAT : Google et les propriétaires doivent comprendre qui est derrière La Familia,
-          pourquoi vous êtes légitimes et comment vous travaillez sur le terrain.
-        </p>
-
-        <div class="grid two">
-          <article class="card team-card">
-            <div class="avatar">
-              <!-- <img src="/img/aurore-la-familia.webp" alt="Aurore, La Familia BnB conciergerie Airbnb Aix-en-Provence" loading="lazy"> -->
-              Photo Aurore
-            </div>
-            <div>
-              <h3>Aurore — Fondatrice / Responsable propriétaires</h3>
-              <p>
-                À personnaliser : présente ton rôle, ton expérience, ta connaissance d’Aix-en-Provence, ton lien avec les propriétaires
-                et ta vision de la gestion courte durée.
-              </p>
-              <p>
-                Exemple : “J’accompagne les propriétaires dans la mise en location, le suivi des performances, la qualité de l’expérience voyageurs
-                et les décisions d’optimisation.”
-              </p>
-            </div>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar">
-              <!-- <img src="/img/equipe-terrain-la-familia.webp" alt="Équipe terrain La Familia BnB à Aix-en-Provence" loading="lazy"> -->
-              Photo équipe terrain
-            </div>
-            <div>
-              <h3>Équipe terrain — Ménage, linge et qualité</h3>
-              <p>
-                À personnaliser : explique comment vous contrôlez les logements, comment les ménages sont organisés,
-                comment les imprévus sont gérés et pourquoi votre présence locale est un avantage.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark">
-      <div class="container">
-        <h2>Réglementation Airbnb à Aix-en-Provence</h2>
-        <p class="section-copy">
-          La location courte durée peut impliquer des obligations : déclaration, fiscalité, taxe de séjour, règles de copropriété,
-          assurance, résidence principale ou résidence secondaire. Chaque situation doit être vérifiée selon le logement et l’usage prévu.
-        </p>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Résidence principale</h3>
-            <p>Les règles peuvent différer selon que le logement est votre résidence principale ou un bien destiné à la location saisonnière.</p>
-          </article>
-          <article class="card">
-            <h3>Taxe de séjour</h3>
-            <p>Les plateformes peuvent collecter certaines taxes, mais le propriétaire doit garder une vision claire de ses obligations.</p>
-          </article>
-          <article class="card">
-            <h3>Copropriété et assurance</h3>
-            <p>Avant de louer, il est utile de vérifier le règlement de copropriété, l’assurance et les conditions d’usage du logement.</p>
-          </article>
-        </div>
-
-        <p class="note">
-          Ce bloc est informatif et ne remplace pas un conseil juridique ou fiscal personnalisé.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="zones">
-      <div class="container">
-        <h2>Zones d’intervention à Aix-en-Provence</h2>
-        <p class="section-copy">
-          La Familia intervient sur les secteurs où une gestion locale apporte une vraie valeur : rapidité d’intervention,
-          connaissance du marché, qualité de préparation et meilleure expérience voyageurs.
-        </p>
-
-        <div class="grid">
-          <div class="card"><h3>Centre historique</h3><p>Idéal pour les courts séjours, week-ends, voyageurs sans voiture et séjours culturels.</p></div>
-          <div class="card"><h3>Quartier Mazarin</h3><p>Secteur recherché, esthétique et central, intéressant pour une offre plus premium.</p></div>
-          <div class="card"><h3>Rotonde / Cours Mirabeau</h3><p>Très forte attractivité pour les voyageurs qui veulent être proches des restaurants et commerces.</p></div>
-          <div class="card"><h3>Luynes</h3><p>Potentiel pour les logements familiaux, séjours plus calmes ou accès rapide aux axes routiers.</p></div>
-          <div class="card"><h3>Puyricard</h3><p>Intéressant pour maisons, résidences secondaires et séjours autour d’Aix.</p></div>
-          <div class="card"><h3>Les Milles</h3><p>Potentiel professionnel, séjours courts et logements proches des zones d’activité.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="avis">
-      <div class="container">
-        <h2>Avis clients et preuve sociale</h2>
-        <p class="section-copy">
-          Oui, il faut afficher tes avis Google : c’est excellent pour la confiance, le SEO local et la conversion.
-          Utilise des avis réels, vérifiables, idéalement intégrés depuis Google ou avec un lien vers ta fiche.
-        </p>
-
-        <div class="reviews">
-          <article class="review-card">
-            <div class="stars" aria-label="Avis 5 étoiles">★★★★★</div>
-            <p>“Remplacer par un vrai avis Google ou propriétaire. Ne jamais inventer d’avis : utilise uniquement des témoignages vérifiables.”</p>
-            <p class="review-source">Nom client — Source : Google</p>
-          </article>
-
-          <article class="review-card">
-            <div class="stars" aria-label="Avis 5 étoiles">★★★★★</div>
-            <p>“Ajouter ici un avis qui parle de la qualité du ménage, de la réactivité ou de la gestion du logement.”</p>
-            <p class="review-source">Nom client — Source : Google</p>
-          </article>
-
-          <article class="review-card">
-            <div class="stars" aria-label="Avis 5 étoiles">★★★★★</div>
-            <p>“Ajouter ici un avis propriétaire si possible : c’est encore plus puissant pour signer de nouveaux clients.”</p>
-            <p class="review-source">Nom client — Source : Google</p>
-          </article>
-        </div>
-
-        <div class="actions">
-          <a href="https://www.google.com/search?q=La+Familia+BnB+Aix-en-Provence+avis" class="button secondary" rel="noopener" target="_blank">
-            Voir nos avis Google
-          </a>
-        </div>
-
-        <p class="note">
-          Important : n’ajoute un schema AggregateRating que si la note et le nombre d’avis sont réels, publics et cohérents avec ta fiche Google.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>Questions fréquentes sur la conciergerie Airbnb à Aix-en-Provence</h2>
-
-        <div class="faq-details">
-          <details>
-            <summary>Pourquoi faire appel à une conciergerie Airbnb à Aix-en-Provence ?</summary>
-            <p>Pour déléguer les annonces, les messages, les arrivées, les départs, le ménage, le linge, la tarification et le suivi voyageurs.</p>
-          </details>
-
-          <details>
-            <summary>Combien rapporte un Airbnb à Aix-en-Provence ?</summary>
-            <p>Le revenu dépend du quartier, de la surface, de la capacité, des équipements, du standing, des photos et du calendrier disponible.</p>
-          </details>
-
-          <details>
-            <summary>Quel est le prix d’une conciergerie Airbnb ?</summary>
-            <p>La Familia fonctionne avec une commission sur les revenus générés. Le détail doit être consulté sur la page tarifs.</p>
-          </details>
-
-          <details>
-            <summary>La Familia s’occupe-t-elle du ménage et du linge ?</summary>
-            <p>Oui, la gestion peut inclure la coordination du ménage, le linge, les consommables et le contrôle qualité avant chaque arrivée.</p>
-          </details>
-
-          <details>
-            <summary>Puis-je garder des dates pour mon usage personnel ?</summary>
-            <p>Oui, vous pouvez bloquer des dates personnelles selon vos besoins et garder une visibilité sur le calendrier.</p>
-          </details>
-
-          <details>
-            <summary>Faut-il mettre les avis Google sur la page ?</summary>
-            <p>Oui, les avis Google réels renforcent la confiance, la conversion et le SEO local. Ils doivent être authentiques et vérifiables.</p>
-          </details>
+          <article class="card"><i class="fas fa-home"></i><h3>Création et optimisation d’annonce</h3><p>Structuration du titre, de la description, des équipements, des règles du logement et des informations utiles pour mieux présenter votre bien sur Airbnb et les plateformes adaptées.</p></article>
+          <article class="card"><i class="fas fa-comments"></i><h3>Gestion des voyageurs</h3><p>Réponses aux messages, informations d’arrivée, accompagnement pendant le séjour, gestion des questions courantes et suivi jusqu’au départ.</p></article>
+          <article class="card"><i class="fas fa-key"></i><h3>Check-in et check-out</h3><p>Organisation des arrivées et départs, instructions d’accès, vérification après séjour et coordination terrain selon les contraintes du logement.</p></article>
+          <article class="card"><i class="fas fa-broom"></i><h3>Ménage Airbnb et linge</h3><p>Coordination du ménage, préparation du linge, consommables essentiels et contrôle qualité pour accueillir les voyageurs dans de bonnes conditions.</p></article>
+          <article class="card"><i class="fas fa-chart-line"></i><h3>Optimisation des prix</h3><p>Ajustement des tarifs selon la saisonnalité, les événements, la demande locale, le calendrier disponible, le taux d’occupation et les performances de l’annonce.</p></article>
+          <article class="card"><i class="fas fa-clipboard-check"></i><h3>Suivi propriétaire</h3><p>Suivi des réservations, avis voyageurs, revenus, points d’amélioration et décisions à prendre pour améliorer la performance du logement.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
+        <h2>Pourquoi la location courte durée fonctionne à Aix-en-Provence ?</h2>
+        <p class="section-intro">
+          Aix-en-Provence attire toute l’année une clientèle variée : voyageurs loisirs, familles, professionnels, visiteurs de festivals, étudiants, séjours courts, week-ends et déplacements longue durée. Le potentiel d’un Airbnb dépend toutefois fortement de l’emplacement, du niveau de confort et de la qualité de gestion.
+        </p>
+        <div class="split">
+          <div class="panel">
+            <h3>Les critères qui influencent vos revenus</h3>
+            <ul class="list-check">
+              <li><i class="fas fa-check"></i><span>Quartier : centre historique, Mazarin, Rotonde, Cours Mirabeau, Luynes, Puyricard, Les Milles.</span></li>
+              <li><i class="fas fa-check"></i><span>Capacité d’accueil, couchages, équipements, climatisation, extérieur ou stationnement.</span></li>
+              <li><i class="fas fa-check"></i><span>Qualité des photos, décoration, propreté, linge, informations voyageurs et avis.</span></li>
+              <li><i class="fas fa-check"></i><span>Calendrier disponible, saisonnalité, événements et stratégie de prix.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Notre rôle</h3>
+            <p>Nous vous aidons à transformer votre logement en offre claire et attractive, puis à la gérer au quotidien avec des process simples : annonce, prix, préparation, voyageurs, ménage, avis et suivi propriétaire.</p>
+            <div class="actions"><a href="/estimation-revenus-airbnb-aix-en-provence/" class="button secondary">Demander une estimation</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Combien peut rapporter un Airbnb à Aix-en-Provence ?</h2>
+        <p class="section-intro">Il n’existe pas de revenu universel. Deux logements situés dans la même ville peuvent générer des résultats très différents selon leur quartier, leur capacité, leur standing, leur calendrier et leur qualité de présentation.</p>
+        <table class="revenue-table">
+          <thead><tr><th>Type de logement</th><th>Potentiel locatif</th><th>Points d’attention</th></tr></thead>
+          <tbody>
+            <tr><td>Studio ou T1</td><td>Intéressant pour les courts séjours, professionnels et week-ends.</td><td>Localisation, literie, photos, accès autonome, rapport qualité/prix.</td></tr>
+            <tr><td>T2 ou appartement central</td><td>Bon potentiel sur les séjours loisirs, couples, professionnels et événements.</td><td>Décoration, cuisine équipée, climatisation, stationnement ou proximité centre.</td></tr>
+            <tr><td>T3, maison ou logement familial</td><td>Potentiel plus élevé si la capacité d’accueil et le confort sont au rendez-vous.</td><td>Couchages, extérieur, équipements enfants, stationnement, ménage plus exigeant.</td></tr>
+            <tr><td>Résidence secondaire</td><td>Potentiel dépendant du calendrier disponible et des périodes bloquées.</td><td>Usage personnel, saisonnalité, entretien, disponibilité pour les hautes périodes.</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Ce tableau est indicatif. Une estimation fiable nécessite l’analyse du logement, du quartier, des équipements, des photos et du calendrier.</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Des preuves concrètes pour une gestion de qualité</h2>
+        <p class="section-intro">La confiance repose sur du concret : logement propre, préparation soignée, communication claire, consignes fiables et suivi régulier des performances.</p>
+        <div class="split">
+          <div class="photo-block"><div class="photo-caption">Un logement préparé avec soin pour favoriser de meilleurs avis voyageurs.</div></div>
+          <div class="grid two" style="margin-top:0;">
+            <article class="card"><i class="fas fa-camera"></i><h3>Mise en valeur</h3><p>Conseils sur les photos, les équipements, les détails de confort et la présentation du logement.</p></article>
+            <article class="card"><i class="fas fa-star"></i><h3>Avis voyageurs</h3><p>Attention portée à la propreté, aux arrivées, aux informations et à la réactivité.</p></article>
+            <article class="card"><i class="fas fa-calendar-alt"></i><h3>Calendrier maîtrisé</h3><p>Possibilité de bloquer vos dates personnelles et d’adapter la stratégie selon vos objectifs.</p></article>
+            <article class="card"><i class="fas fa-map-marker-alt"></i><h3>Présence locale</h3><p>Une équipe à Aix-en-Provence pour coordonner les interventions terrain.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zones">
+      <div class="container">
+        <h2>Zones d’intervention à Aix-en-Provence et alentours</h2>
+        <p class="section-intro">La Familia accompagne les propriétaires dans les secteurs où une gestion locale apporte une vraie valeur : rapidité, connaissance du marché et qualité d’accueil.</p>
+        <div class="grid">
+          <article class="card"><h3>Centre historique</h3><p>Très recherché pour les courts séjours, les week-ends, les voyageurs sans voiture et les séjours culturels.</p></article>
+          <article class="card"><h3>Quartier Mazarin</h3><p>Secteur central et élégant, adapté aux logements bien présentés et aux séjours premium.</p></article>
+          <article class="card"><h3>Cours Mirabeau / Rotonde</h3><p>Forte attractivité grâce aux restaurants, commerces, transports et lieux emblématiques.</p></article>
+          <article class="card"><h3>Luynes</h3><p>Intéressant pour les logements familiaux, les séjours plus calmes et l’accès aux axes routiers.</p></article>
+          <article class="card"><h3>Puyricard</h3><p>Potentiel pour maisons, résidences secondaires, séjours autour d’Aix et logements avec extérieur.</p></article>
+          <article class="card"><h3>Les Milles</h3><p>Demande possible pour les déplacements professionnels et les séjours liés aux zones d’activité.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="equipe">
+      <div class="container">
+        <h2>Une interlocutrice locale pour votre logement</h2>
+        <p class="section-intro">Confier son logement demande de la confiance. La Familia privilégie une approche humaine, claire et locale pour accompagner chaque propriétaire selon ses objectifs.</p>
+        <div class="team">
+          <div class="team-photo"><img src="/img/profil-Aurore.png" alt="Portrait d'Aurore, La Familia à Aix-en-Provence" loading="lazy" /></div>
+          <div>
+            <h3>Aurore, votre contact La Familia</h3>
+            <p class="quote">“Notre objectif : permettre aux propriétaires de louer plus sereinement, tout en offrant aux voyageurs une expérience soignée.”</p>
+            <p>Aurore accompagne les propriétaires à Aix-en-Provence dans la mise en location, le suivi des performances, la qualité d’accueil et les décisions d’optimisation.</p>
+            <p>Chaque logement est étudié selon son emplacement, sa capacité, son niveau de confort, son calendrier et les attentes du propriétaire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <h2>Réglementation Airbnb à Aix-en-Provence : les points à vérifier</h2>
+        <p class="section-intro">La location courte durée peut impliquer des obligations : déclaration, fiscalité, taxe de séjour, règles de copropriété, assurance, résidence principale ou résidence secondaire. Chaque situation doit être vérifiée selon le logement et l’usage prévu.</p>
+        <div class="grid">
+          <article class="card"><h3>Résidence principale ou secondaire</h3><p>Les règles peuvent différer selon l’usage du logement et la fréquence de location.</p></article>
+          <article class="card"><h3>Taxe de séjour</h3><p>Les plateformes peuvent gérer certains aspects, mais le propriétaire doit conserver une vision claire de ses obligations.</p></article>
+          <article class="card"><h3>Copropriété et assurance</h3><p>Il est utile de vérifier le règlement de copropriété, l’assurance et les conditions d’usage du logement avant mise en location.</p></article>
+        </div>
+        <p class="note">Ce contenu est informatif et ne remplace pas un conseil juridique, fiscal ou réglementaire personnalisé.</p>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <h2>Questions fréquentes sur la conciergerie Airbnb à Aix-en-Provence</h2>
+        <details><summary>Pourquoi faire appel à une conciergerie Airbnb à Aix-en-Provence ?</summary><p>Pour déléguer les annonces, les messages, les arrivées, les départs, le ménage, le linge, la tarification et le suivi voyageurs à une équipe locale.</p></details>
+        <details><summary>Quels services sont inclus dans la gestion Airbnb ?</summary><p>La gestion peut inclure l’annonce, les voyageurs, le ménage, le linge, le check-in, le check-out, l’ajustement des prix, le suivi des avis et le reporting propriétaire.</p></details>
+        <details><summary>Combien peut rapporter un Airbnb à Aix-en-Provence ?</summary><p>Le revenu dépend du quartier, de la surface, de la capacité, du standing, des équipements, des photos et du calendrier disponible.</p></details>
+        <details><summary>La Familia intervient-elle dans le centre-ville d’Aix-en-Provence ?</summary><p>Oui, notamment dans le centre historique, le quartier Mazarin, autour du Cours Mirabeau, de la Rotonde et dans plusieurs secteurs proches.</p></details>
+        <details><summary>Puis-je garder des dates pour mon usage personnel ?</summary><p>Oui, vous pouvez bloquer des dates personnelles et conserver une visibilité sur votre calendrier de réservation.</p></details>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
         <h2>À lire aussi</h2>
-        <div class="internal-links">
+        <p class="section-intro">Ces pages complètent votre réflexion avant de confier votre logement à une conciergerie Airbnb.</p>
+        <div class="grid link-grid">
           <a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière à Aix-en-Provence</a>
-          <a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs conciergerie Airbnb Aix-en-Provence</a>
-          <a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus Airbnb Aix-en-Provence</a>
+          <a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs conciergerie Airbnb</a>
+          <a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus Airbnb</a>
           <a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb Aix-en-Provence</a>
           <a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb Aix-en-Provence</a>
+          <a href="/blog/">Blog propriétaires</a>
         </div>
       </div>
     </section>
@@ -1188,65 +436,54 @@
     <section class="section dark" id="contact">
       <div class="container" style="text-align:center;">
         <h2>Vous voulez déléguer la gestion de votre Airbnb ?</h2>
-        <p class="section-copy" style="margin-left:auto;margin-right:auto;">
-          Demandez une estimation de revenus et un premier avis sur le potentiel de votre logement à Aix-en-Provence.
-        </p>
-        <div class="actions" style="justify-content:center;">
-          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button secondary">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
-        </div>
+        <p class="section-intro" style="margin-left:auto;margin-right:auto;">Demandez une estimation gratuite et recevez un premier avis sur le potentiel de votre logement à Aix-en-Provence.</p>
+        <div class="actions" style="justify-content:center;"><a href="/estimation-revenus-airbnb-aix-en-provence/" class="button secondary">Estimer mes revenus <i class="fas fa-arrow-right"></i></a></div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-grid">
-      <div>
-        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia BnB" class="footer-logo" />
-        <h3>La Familia BnB</h3>
+      <div class="footer-brand">
+        <div class="footer-logo-frame"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo" /></div>
+        <h3>La Familia</h3>
         <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
       </div>
-
       <div>
         <h3>Services</h3>
         <ul>
-          <li><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie Airbnb Aix-en-Provence</a></li>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie Airbnb Aix</a></li>
           <li><a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a></li>
           <li><a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a></li>
           <li><a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a></li>
         </ul>
       </div>
-
       <div>
         <h3>Propriétaires</h3>
         <ul>
-          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus Airbnb</a></li>
-          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs conciergerie Airbnb</a></li>
-          <li><a href="/nos-logements/">Nos logements gérés</a></li>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/nos-logements/">Logements gérés</a></li>
           <li><a href="/blog/">Blog propriétaires</a></li>
         </ul>
       </div>
-
       <div>
         <h3>Contact</h3>
         <p>6 rue Gibelin<br />13100 Aix-en-Provence</p>
-        <p>Téléphone : <a href="tel:+33651094966">06 51 09 49 66</a></p>
-        <p>Email : <a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
-        <p>
-          <a href="https://www.instagram.com/lafamiliabnb/?hl=fr" rel="noopener" target="_blank">Instagram</a> ·
-          <a href="https://www.facebook.com/profile.php?id=61562890765862" rel="noopener" target="_blank">Facebook</a>
-        </p>
+        <p><a href="tel:+33651094966">06 51 09 49 66</a></p>
+        <p><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
+        <p><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61562890765862" target="_blank" rel="noopener">Facebook</a></p>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>&copy; 2026 La Familia BnB. Tous droits réservés.</p>
+      <p>&copy; 2026 La Familia. Tous droits réservés.</p>
+      <div class="legal-links" aria-label="Liens légaux"><a href="/mentions-legales/">Mentions légales</a><a href="/politique-confidentialite/">Politique de confidentialité</a></div>
     </div>
   </footer>
 
   <script>
     const hamburger = document.getElementById("hamburger");
     const menuList = document.getElementById("menu-list");
-
     if (hamburger && menuList) {
       hamburger.addEventListener("click", () => {
         const isOpen = menuList.classList.toggle("active");
@@ -1255,7 +492,6 @@
     }
   </script>
 
-  <!-- Google tag -->
   <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
   <script defer>
     window.dataLayer = window.dataLayer || [];
@@ -1263,14 +499,8 @@
     gtag("js", new Date());
     gtag("config", "G-T5JV1M1NK3");
   </script>
-
-  <!-- Google Tag Manager -->
   <script defer>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
-    new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
-    "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,"script","dataLayer","GTM-MZ2JG2LD");
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MZ2JG2LD");
   </script>
 </body>
 </html>
