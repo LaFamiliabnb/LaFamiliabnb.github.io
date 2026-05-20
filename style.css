@@ -135,6 +135,8 @@ main #services .grid, main #zones .grid, main .section.dark:has(.grid) .grid { d
 main .section.alt.compact-bottom .grid.four > .card, main .section.dark.compact-bottom .grid.four > .card, main .proof-layout .grid.two > .card, main #services .grid > .card, main .section.alt:has(.photo-block) .grid.two > .card, main #zones .grid > .card, main .section.dark:has(.grid) .grid > .card { min-height: 0 !important; height: auto !important; max-height: none !important; grid-row: auto !important; }
 main .section.alt.compact-bottom + .section, main .section.dark.compact-bottom + .section.alt, main #services + .section.alt, main .section.alt:has(.photo-block) + .section, main #zones + .section.alt, main .section.dark:has(.grid) + .section { padding-top: 54px !important; margin-top: 0 !important; }
 main .section.dark:has(.grid) .note { margin-top: 18px !important; }
+main #contact { margin-bottom: 76px !important; position: relative !important; overflow: visible !important; }
+main #contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -76px; height: 76px; background: #fff3e8; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(0,0,0,.05); }
 
 @media (max-width: 980px) {
   main .section.alt.compact-bottom .grid.four, main .section.dark.compact-bottom .grid.four, main .proof-layout .grid.two, main #services .grid, main .section.alt:has(.photo-block) .grid.two, main #zones .grid, main .section.dark:has(.grid) .grid { grid-template-columns: 1fr !important; }
