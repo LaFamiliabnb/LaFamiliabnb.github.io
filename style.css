@@ -138,8 +138,22 @@ main .section.dark:has(.grid) .note { margin-top: 18px !important; }
 main #contact { margin-bottom: 76px !important; position: relative !important; overflow: visible !important; }
 main #contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -76px; height: 76px; background: #fff3e8; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(0,0,0,.05); }
 
+/* Alignement des articles de blog refonte */
+body .article-layout {
+  width: min(88%, 1180px) !important;
+  max-width: 1180px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body .article-hero .hero-inner {
+  width: min(100%, 1180px) !important;
+  max-width: 1180px !important;
+}
+
 @media (max-width: 980px) {
   main .section.alt.compact-bottom .grid.four, main .section.dark.compact-bottom .grid.four, main .proof-layout .grid.two, main #services .grid, main .section.alt:has(.photo-block) .grid.two, main #zones .grid, main .section.dark:has(.grid) .grid { grid-template-columns: 1fr !important; }
+  body .article-layout { width: min(88%, 1180px) !important; }
 }
 
 @media (max-width: 939px) {
