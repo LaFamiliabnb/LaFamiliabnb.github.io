@@ -366,11 +366,12 @@
     footer p, footer li { color: #f7dfcf; }
     footer a { color: #f7dfcf; text-decoration: none; }
     .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 30px; }
-    .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin-bottom: 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin: 0 auto 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
     .footer-logo { width: 94px; margin: 0 auto; }
-    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
-    .legal-links { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 900; }
+    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; align-items: center; text-align: center; background: var(--dark); }
+    .footer-bottom p { width: 100%; margin: 0; color: #f7dfcf; text-align: center; }
+    .legal-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-weight: 900; width: 100%; }
     .legal-links a { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
     .legal-links a:hover { color: var(--beige); }
 
@@ -712,9 +713,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo-frame">
-          <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia BnB" class="footer-logo" />
+          <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo" />
         </div>
-        <h3>La Familia BnB</h3>
+        <h3>La Familia</h3>
         <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
       </div>
 
