@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Sous-domaine booking volontairement exclu de l'exploration et de l'indexation.
+# Le site principal reste orienté propriétaires.
