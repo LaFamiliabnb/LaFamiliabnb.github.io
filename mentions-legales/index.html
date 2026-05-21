@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mentions légales | La Familia</title>
+  <meta name="description" content="Mentions légales du site La Familia, conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.lafamiliabnb.fr/mentions-legales/" />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Mentions légales | La Familia" />
+  <meta property="og:description" content="Mentions légales du site La Familia, conciergerie Airbnb à Aix-en-Provence." />
+  <meta property="og:url" content="https://www.lafamiliabnb.fr/mentions-legales/" />
+  <meta property="og:site_name" content="La Familia" />
+
+  <link rel="preload" href="/style.css" as="style" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "Cabin", Arial, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 6.2vw, 5.8rem); margin: 22px 0; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2rem, 3.8vw, 3.3rem); margin: 0 0 22px; letter-spacing: -.035em; }
+    h3 { font-size: 1.45rem; margin: 0 0 12px; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
+
+    .skip-link { position: absolute; left: -999px; top: 12px; background: var(--dark); color: var(--cream); padding: 10px 14px; z-index: 9999; }
+    .skip-link:focus { left: 12px; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,244,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 12px 6%; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: uppercase; font-family: "PlayfairDisplay", Georgia, serif; font-weight: 900; letter-spacing: .06em; color: var(--dark); }
+    .brand img { width: 72px; }
+    .menu-list ul { display: flex; align-items: center; gap: 24px; list-style: none; padding: 0; margin: 0; }
+    .menu-list a { text-decoration: none; text-transform: uppercase; font-size: .84rem; font-weight: 900; color: var(--dark); }
+    .menu-list a:hover { color: var(--accent); }
+    .nav-cta { background: var(--dark); color: var(--cream) !important; padding: 14px 19px; border-radius: 999px; box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: var(--dark); }
+
+    .breadcrumb { width: min(88%, 1180px); margin: 0 auto; padding-top: 22px; color: var(--muted); font-size: .95rem; }
+    .breadcrumb a { text-decoration: none; font-weight: 900; }
+
+    .legal-hero { width: min(88%, 1180px); max-width: 1180px; margin: 0 auto; padding: 58px 0 54px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .78fr); gap: 46px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 10px 16px; border-radius: 999px; background: var(--beige); font-weight: 900; color: var(--dark); }
+    .hero-lead { max-width: 760px; font-size: 1.18rem; margin-bottom: 0; }
+    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 30px; padding: 34px; box-shadow: 0 24px 54px rgba(0,0,0,.14); position: relative; overflow: hidden; }
+    .hero-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--beige); }
+    .hero-card strong { display: block; font-family: "PlayfairDisplay", Georgia, serif; color: var(--accent); font-size: clamp(2.2rem, 4.6vw, 3.7rem); line-height: .95; letter-spacing: -.04em; margin-bottom: 12px; }
+    .hero-card ul { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+    .hero-card li { display: flex; gap: 10px; font-weight: 900; }
+    .hero-card i { color: var(--accent); margin-top: 4px; }
+
+    .legal-section { padding: 74px 6%; background: var(--soft); }
+    .legal-container { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 34px; align-items: start; }
+    .legal-content { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: clamp(28px, 5vw, 56px); box-shadow: var(--shadow); }
+    .legal-block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+    .legal-block:first-child { padding-top: 0; }
+    .legal-block:last-child { border-bottom: 0; padding-bottom: 0; }
+    .legal-block h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+    .legal-list { padding-left: 0; margin: 18px 0 0; display: grid; gap: 10px; list-style: none; }
+    .legal-list li { display: grid; grid-template-columns: 190px 1fr; gap: 18px; border-bottom: 1px dashed rgba(0,0,0,.1); padding-bottom: 10px; }
+    .legal-list strong { color: var(--dark); }
+    .note { display: block; margin-top: 18px; color: var(--muted); font-size: .95rem; }
+
+    .side { position: sticky; top: 100px; display: grid; gap: 18px; }
+    .side-card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .side-card h3 { margin-bottom: 14px; }
+    .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+    .toc a { text-decoration: none; color: var(--muted); font-weight: 900; }
+    .toc a:hover { color: var(--accent); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 22px; border-radius: 14px; border: 2px solid var(--dark); background: var(--dark); color: var(--cream); text-decoration: none; font-weight: 900; box-shadow: 0 12px 28px rgba(0,0,0,.16); transition: .2s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+
+    .cta-section { padding: 74px 6%; background: var(--cream); }
+    .cta-band { max-width: 1180px; margin: 0 auto; background: var(--beige); border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1.2fr auto; gap: 28px; align-items: center; box-shadow: var(--shadow); }
+
+    footer { background: var(--dark); color: var(--cream); padding: 54px 6% 24px; }
+    footer h3 { color: var(--cream); }
+    footer p, footer li { color: #f7dfcf; }
+    footer a { color: #f7dfcf; text-decoration: none; }
+    .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin: 0 auto 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+    .footer-logo { width: 94px; margin: 0 auto; }
+    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; align-items: center; text-align: center; background: var(--dark); }
+    .footer-bottom p { width: 100%; margin: 0; color: #f7dfcf; text-align: center; }
+    .legal-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-weight: 900; width: 100%; }
+    .legal-links a { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (max-width: 980px) {
+      nav { align-items: flex-start; }
+      .hamburger { display: flex; }
+      .menu-list { display: none; position: absolute; top: 84px; right: 6%; background: var(--cream); border-radius: 18px; border: 1px solid rgba(0,0,0,.1); padding: 18px; box-shadow: 0 18px 38px rgba(0,0,0,.16); }
+      .menu-list.active { display: block; }
+      .menu-list ul { flex-direction: column; align-items: flex-start; }
+      .legal-hero, .legal-container, .cta-band, .footer-grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+      .legal-list li { grid-template-columns: 1fr; gap: 4px; }
+      .button { width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lafamiliabnb.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://www.lafamiliabnb.fr/mentions-legales/" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#mentions">Aller aux mentions légales</a>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="/">
+        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" />
+        <span>La Familia</span>
+      </a>
+
+      <div class="menu-list" id="menu-list">
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="breadcrumb"><a href="/">Accueil</a> / Mentions légales</div>
+
+    <section class="legal-hero">
+      <div>
+        <span class="eyebrow"><i class="fas fa-scale-balanced"></i> Informations légales</span>
+        <h1>Mentions légales</h1>
+        <p class="hero-lead">Cette page regroupe les informations relatives à l’édition, l’hébergement et l’utilisation du site internet La Familia.</p>
+      </div>
+
+      <aside class="hero-card">
+        <strong>La Familia</strong>
+        <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
+        <ul>
+          <li><i class="fas fa-location-dot"></i><span>6 rue Gibelin, 13100 Aix-en-Provence</span></li>
+          <li><i class="fas fa-envelope"></i><span>aurore.pageard@hotmail.fr</span></li>
+          <li><i class="fas fa-phone"></i><span>06 51 09 49 66</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="legal-section" id="mentions">
+      <div class="legal-container">
+        <article class="legal-content">
+          <section class="legal-block" id="editeur">
+            <h2>Éditeur du site</h2>
+            <p>Le présent site est édité par La Familia.</p>
+            <ul class="legal-list">
+              <li><strong>Nom commercial</strong><span>La Familia</span></li>
+              <li><strong>Activité</strong><span>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</span></li>
+              <li><strong>Adresse</strong><span>6 rue Gibelin, 13100 Aix-en-Provence, France</span></li>
+              <li><strong>Téléphone</strong><span><a href="tel:+33651094966">06 51 09 49 66</a></span></li>
+              <li><strong>E-mail</strong><span><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></span></li>
+            </ul>
+            <span class="note">Les informations administratives complémentaires, comme le numéro SIRET, le statut juridique ou le numéro de TVA le cas échéant, peuvent être ajoutées ici si nécessaire.</span>
+          </section>
+
+          <section class="legal-block" id="responsable-publication">
+            <h2>Responsable de la publication</h2>
+            <p>La responsable de la publication du site est la représentante de La Familia.</p>
+            <ul class="legal-list">
+              <li><strong>Responsable</strong><span>Aurore Pageard</span></li>
+              <li><strong>Contact</strong><span><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></span></li>
+            </ul>
+          </section>
+
+          <section class="legal-block" id="hebergement">
+            <h2>Hébergement du site</h2>
+            <p>Le site est hébergé par GitHub Pages.</p>
+            <ul class="legal-list">
+              <li><strong>Hébergeur</strong><span>GitHub, Inc.</span></li>
+              <li><strong>Adresse</strong><span>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</span></li>
+              <li><strong>Site web</strong><span><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">pages.github.com</a></span></li>
+            </ul>
+          </section>
+
+          <section class="legal-block" id="propriete-intellectuelle">
+            <h2>Propriété intellectuelle</h2>
+            <p>L’ensemble des contenus présents sur le site, notamment les textes, images, photographies, éléments graphiques, logos, structure et mise en page, est protégé par le droit de la propriété intellectuelle.</p>
+            <p>Toute reproduction, représentation, modification, adaptation, diffusion ou exploitation, totale ou partielle, sans autorisation préalable écrite de La Familia, est interdite, sauf exceptions prévues par la loi.</p>
+          </section>
+
+          <section class="legal-block" id="responsabilite">
+            <h2>Responsabilité</h2>
+            <p>La Familia s’efforce de fournir sur ce site des informations exactes et mises à jour. Toutefois, les informations diffusées sont fournies à titre indicatif et peuvent évoluer.</p>
+            <p>La Familia ne saurait être tenue responsable d’erreurs, d’omissions, d’une indisponibilité temporaire du site ou de dommages résultant de l’utilisation des informations présentes sur le site.</p>
+          </section>
+
+          <section class="legal-block" id="liens">
+            <h2>Liens externes</h2>
+            <p>Le site peut contenir des liens vers des sites tiers. La Familia n’exerce aucun contrôle sur ces sites et ne peut être tenue responsable de leur contenu, de leur disponibilité ou de leurs pratiques en matière de confidentialité.</p>
+          </section>
+
+          <section class="legal-block" id="donnees">
+            <h2>Données personnelles</h2>
+            <p>Les données transmises via les formulaires du site sont utilisées uniquement pour répondre aux demandes des utilisateurs, notamment les demandes d’estimation ou de contact.</p>
+            <p>Pour plus d’informations sur le traitement des données personnelles, les droits des utilisateurs et les modalités de contact, consultez la page dédiée à la politique de confidentialité.</p>
+            <p><a class="button" href="/politique-confidentialite/">Voir la politique de confidentialité</a></p>
+          </section>
+
+          <section class="legal-block" id="cookies">
+            <h2>Cookies et mesure d’audience</h2>
+            <p>Le site peut utiliser des outils de mesure d’audience ou des services tiers permettant d’améliorer l’expérience utilisateur et de comprendre la consultation des pages.</p>
+            <p>Lorsque cela est nécessaire, les utilisateurs peuvent être informés de l’utilisation de ces outils et disposer de moyens de gestion adaptés.</p>
+          </section>
+
+          <section class="legal-block" id="droit-applicable">
+            <h2>Droit applicable</h2>
+            <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et sauf disposition légale impérative contraire, les juridictions françaises compétentes seront saisies.</p>
+          </section>
+        </article>
+
+        <aside class="side" aria-label="Sommaire des mentions légales">
+          <div class="side-card">
+            <h3>Sommaire</h3>
+            <ul class="toc">
+              <li><a href="#editeur">Éditeur du site</a></li>
+              <li><a href="#responsable-publication">Responsable de publication</a></li>
+              <li><a href="#hebergement">Hébergement</a></li>
+              <li><a href="#propriete-intellectuelle">Propriété intellectuelle</a></li>
+              <li><a href="#responsabilite">Responsabilité</a></li>
+              <li><a href="#donnees">Données personnelles</a></li>
+              <li><a href="#cookies">Cookies</a></li>
+            </ul>
+          </div>
+
+          <div class="side-card">
+            <h3>Contact</h3>
+            <p>Une question sur le site ou vos données ?</p>
+            <a href="mailto:aurore.pageard@hotmail.fr" class="button">Nous contacter</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-band">
+        <div>
+          <h2>Vous souhaitez contacter La Familia ?</h2>
+          <p>Pour une demande concernant le site, une estimation de revenus ou la gestion d’un logement, vous pouvez nous écrire directement.</p>
+        </div>
+        <a href="mailto:aurore.pageard@hotmail.fr" class="button">Envoyer un message</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-frame"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo" /></div>
+        <h3>La Familia</h3>
+        <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie Airbnb Aix</a></li>
+          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a></li>
+          <li><a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a></li>
+          <li><a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Propriétaires</h3>
+        <ul>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/nos-logements/">Logements gérés</a></li>
+          <li><a href="/blog/">Blog propriétaires</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>6 rue Gibelin<br />13100 Aix-en-Provence</p>
+        <p><a href="tel:+33651094966">06 51 09 49 66</a></p>
+        <p><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
+        <p><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61562890765862" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 La Familia. Tous droits réservés.</p>
+      <div class="legal-links" aria-label="Liens légaux"><a href="/mentions-legales/">Mentions légales</a><a href="/politique-confidentialite/">Politique de confidentialité</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const menuList = document.getElementById("menu-list");
+    if (hamburger && menuList) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = menuList.classList.toggle("active");
+        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
+</body>
+</html>
