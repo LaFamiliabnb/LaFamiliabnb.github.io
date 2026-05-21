@@ -1,137 +1,272 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- <!-- Google tag (gtag.js) - Load as deferred-->
- <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
- <script defer>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-   gtag('config', 'G-T5JV1M1NK3');
- </script>
+  <title>Réservation voyageurs | La Familia</title>
+  <meta name="description" content="Page privée de réservation La Familia destinée aux voyageurs." />
 
- <!-- Google Tag Manager - Load as deferred-->
- <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-   })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
-   <!-- End Google Tag Manager -->
+  <!-- Page voyageurs volontairement exclue de l’indexation pour protéger le SEO du site principal propriétaires. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Reservez votre appartement ou votre location de vacances a Aix-en-Provence avec La Familia.">
-  <link rel="canonical" href="https://lafamiliabnb.fr/reservation.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="Reserver un appartement a Aix-en-Provence - La Familia">
-  <meta property="og:description" content="Decouvrez nos appartements et locations de vacances a Aix-en-Provence et reservez en direct avec La Familia.">
-  <meta property="og:url" content="https://lafamiliabnb.fr/reservation.html">
-  <meta property="og:site_name" content="La Familia - Conciergerie Locations Saisonnieres">
-  <meta property="og:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
-  <meta property="og:image:alt" content="Vue panoramique d'Aix-en-Provence">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reserver un appartement a Aix-en-Provence - La Familia">
-  <meta name="twitter:description" content="Decouvrez nos appartements et locations de vacances a Aix-en-Provence et reservez en direct avec La Familia.">
-  <meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
-  <title>Reserver un appartement a Aix-en-Provence | La Familia</title>
-
-  <link rel="stylesheet" href="./reservation.css">
-  <link rel="shortcut icon" href="./img/LogoLF.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css">
+  <link rel="shortcut icon" href="./img/LogoLF.png" />
+  <link rel="stylesheet" href="./reservation.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css" />
 
   <style>
-    body { margin: 0; background: linear-gradient(180deg, #fffaf6 0%, #ffffff 32%, #fff6ee 100%); color: #1e1a17; font-family: "Cabin", Arial, sans-serif; }
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
+
     * { box-sizing: border-box; }
-    h1, h2, h3, h4 { font-family: "PlayfairDisplay", Georgia, serif; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--cream) 0%, #ffffff 34%, var(--soft) 100%);
+      color: var(--text);
+      font-family: "Cabin", Arial, sans-serif;
+    }
+    img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; }
-    .reservation-shell { width: min(1200px, calc(100% - 32px)); margin: 0 auto 64px; }
-    .page-title { text-align: center; margin: 20px auto 32px; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.02em; }
-    .intro-map, .hero-grid, .listing-section, .detail-section, .promise-section { background: rgba(255,255,255,0.94); border: 1px solid rgba(252,229,204,0.95); border-radius: 30px; box-shadow: 0 20px 45px rgba(84,53,18,0.08); }
-    .intro-map, .listing-section, .detail-section, .promise-section { padding: 28px; margin-bottom: 28px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr); gap: 24px; padding: 28px; margin-bottom: 28px; }
+    h1, h2, h3, h4 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; margin: 0; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
+
+    .private-note {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 10px 6%;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,250,244,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 12px 6%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--dark);
+    }
+    .brand img { width: 72px; }
+    .nav-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .nav-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .84rem;
+      font-weight: 900;
+      color: var(--dark);
+    }
+    .nav-cta {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .84rem;
+      font-weight: 900;
+    }
+
+    .reservation-shell { width: min(88%, 1180px); margin: 0 auto 64px; }
+    .booking-hero {
+      padding: 66px 0 54px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, .82fr);
+      gap: 46px;
+      align-items: center;
+    }
+    .eyebrow, .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--beige);
+      font-weight: 900;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .78rem;
+    }
+    .booking-hero h1 {
+      font-size: clamp(2.9rem, 6vw, 5.8rem);
+      margin: 22px 0;
+      letter-spacing: -.045em;
+    }
+    .hero-lead { max-width: 760px; font-size: 1.18rem; margin: 0; }
+    .hero-card, .intro-map, .hero-grid, .listing-section, .listing-group, .featured-card, .listing-card, .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .hero-card {
+      border-radius: 30px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--beige); }
+    .hero-card strong {
+      display: block;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      color: var(--accent);
+      font-size: clamp(2.3rem, 4.7vw, 4rem);
+      line-height: .95;
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+    }
+    .hero-card ul { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+    .hero-card li { display: flex; gap: 10px; font-weight: 900; }
+    .hero-card i { color: var(--accent); margin-top: 4px; }
+
+    .intro-map, .hero-grid, .listing-section { border-radius: 30px; padding: 28px; margin-bottom: 28px; }
     .section-head, .listing-header, .footer-bar { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
     .section-head, .listing-header { margin-bottom: 18px; }
-    .section-kicker { display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #fce5cc; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
-    .section-copy { color: #6d5d50; max-width: 720px; margin-top: 10px; font-size: 1rem; line-height: 1.7; }
+    .section-copy { color: #5f5347; max-width: 760px; margin-top: 10px; font-size: 1rem; line-height: 1.72; }
     #apartment-map { height: 430px; width: 100%; border-radius: 24px; overflow: hidden; }
-    .hero-copy h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.1; margin-top: 14px; }
-    .hero-copy p { color: #5f5347; font-size: 1.05rem; line-height: 1.8; margin: 18px 0 0; max-width: 680px; }
-    .search-box, .booking-field, .benefit-card { background: #ffffff; border: 1px solid #f4dfcb; border-radius: 20px; padding: 16px 18px; }
-    .eyebrow { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: #9f8770; font-weight: 700; margin-bottom: 8px; }
-    .search-box strong, .booking-field strong { display: block; font-size: 1rem; font-weight: 700; }
-    .primary-button, .secondary-button, .ghost-button { display: inline-flex; align-items: center; justify-content: center; border-radius: 18px; padding: 15px 20px; text-decoration: none; font-weight: 700; transition: transform 0.2s ease; cursor: pointer; border: none; }
-    .primary-button { background: #000000; color: #ffffff; box-shadow: 0 14px 28px rgba(0,0,0,0.16); }
-    .secondary-button { background: #fce5cc; color: #1e1a17; border: 1px solid #efcfac; }
-    .ghost-button { background: #ffffff; color: #1e1a17; border: 1px solid #efdfd2; }
+
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr); gap: 24px; }
+    .hero-copy h2, .intro-map h2, .listing-section h2 { font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.035em; margin-top: 14px; }
+    .hero-copy p { color: #5f5347; font-size: 1.05rem; line-height: 1.8; margin: 18px 0 0; max-width: 700px; }
+    .primary-button, .secondary-button, .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .primary-button { background: var(--dark); color: var(--cream); box-shadow: 0 14px 28px rgba(0,0,0,.16); }
+    .secondary-button { background: var(--beige); color: var(--dark); border: 1px solid rgba(0,0,0,.08); }
+    .ghost-button { background: var(--white); color: var(--dark); border: 1px solid var(--line); }
     .primary-button:hover, .secondary-button:hover, .ghost-button:hover { transform: translateY(-2px); }
     .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .hero-badges span { background: #ffffff; border: 1px solid #f0e0d1; border-radius: 999px; padding: 10px 14px; font-size: 0.92rem; box-shadow: 0 6px 18px rgba(84,53,18,0.06); }
+    .hero-badges span { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; font-size: .92rem; box-shadow: 0 6px 18px rgba(84,53,18,.06); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 18px; }
     .direct-booking-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
-    .direct-booking-benefits .benefit-card { text-align: left; line-height: 1.6; }
+    .benefit-card { border-radius: 18px; padding: 18px; text-align: left; line-height: 1.6; }
     .featured-column { display: grid; gap: 16px; }
-    .featured-card, .listing-card { overflow: hidden; border-radius: 26px; border: 1px solid #f3dfcf; background: #ffffff; box-shadow: 0 14px 32px rgba(84,53,18,0.08); }
+    .featured-card, .listing-card { overflow: hidden; border-radius: 26px; }
     .featured-card img, .listing-card img { width: 100%; display: block; height: 220px; object-fit: cover; }
     .featured-card .card-body, .listing-card .card-body { padding: 18px; }
-    .card-tag { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #fce5cc; color: #533a24; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .card-tag { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: var(--beige); color: #533a24; font-size: .76rem; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
     .card-subtitle, .muted { color: #77675a; }
     .card-meta, .price-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; }
     .listing-header { margin-bottom: 26px; }
-    .listing-group { padding: 24px; border-radius: 28px; background: linear-gradient(180deg, #fffdfb 0%, #fff6ee 100%); border: 1px solid #f4e3d3; }
+    .listing-group { padding: 24px; border-radius: 28px; background: linear-gradient(180deg, #fffdfb 0%, var(--soft) 100%); }
     .listing-group + .listing-group { margin-top: 24px; }
     .listing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
     .listing-card { background: #fffdfa; }
     .listing-card img { height: 205px; }
-    .badge-right { background: #fff8f1; border: 1px solid #f2dcc4; border-radius: 999px; padding: 7px 10px; font-size: 0.76rem; white-space: nowrap; }
-    footer { background: #ffffff; border-top: 1px solid #f2dfcf; padding: 24px 0 36px; }
-    .footer-bar { width: min(1200px, calc(100% - 32px)); margin: 0 auto; gap: 18px; flex-wrap: wrap; color: #726255; font-size: 0.95rem; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .badge-right { background: #fff8f1; border: 1px solid #f2dcc4; border-radius: 999px; padding: 7px 10px; font-size: .76rem; white-space: nowrap; }
     .leaflet-popup-content-wrapper { border-radius: 18px; }
     .map-popup h3 { font-size: 1.1rem; margin-bottom: 8px; }
     .map-popup p { margin: 0 0 10px; color: #6d5d50; line-height: 1.5; }
-    .map-popup a { color: #1e1a17; font-weight: 700; text-decoration: none; }
-    @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .listing-grid, .direct-booking-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } .featured-column { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 768px) { .reservation-shell { width: min(100% - 20px, 1200px); } .section-head, .listing-header, .footer-bar { flex-direction: column; align-items: flex-start; } #apartment-map { height: 320px; } .intro-map, .hero-grid, .listing-section, .detail-section, .promise-section { padding: 18px; } .listing-grid, .direct-booking-benefits, .featured-column { grid-template-columns: 1fr; } }
+    .map-popup a { color: #1e1a17; font-weight: 900; text-decoration: none; }
+
+    footer { background: var(--dark); color: var(--cream); padding: 34px 6%; }
+    .footer-bar { max-width: 1180px; margin: 0 auto; gap: 18px; flex-wrap: wrap; color: #f7dfcf; font-size: .95rem; }
+    .footer-bar p { color: #f7dfcf; margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { color: #f7dfcf; text-decoration: none; font-weight: 900; }
+
+    @media (max-width: 1024px) {
+      .booking-hero, .hero-grid { grid-template-columns: 1fr; }
+      .listing-grid, .direct-booking-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .featured-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      nav { align-items: flex-start; }
+      .nav-actions { justify-content: flex-end; }
+      .reservation-shell { width: min(100% - 20px, 1180px); }
+      .section-head, .listing-header, .footer-bar { flex-direction: column; align-items: flex-start; }
+      #apartment-map { height: 320px; }
+      .intro-map, .hero-grid, .listing-section { padding: 18px; }
+      .listing-grid, .direct-booking-benefits, .featured-column { grid-template-columns: 1fr; }
+      .primary-button, .secondary-button, .ghost-button { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <div class="private-note">Page voyageurs volontairement non indexée — le site principal reste dédié aux propriétaires.</div>
 
   <header>
-    <nav>
-      <div class="logo-denomination">
-        <div class="logo-accueil">
-          <a href="index.html" class="no-underline"><img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia"></a>
-        </div>
-        <div class="denomination">
-          <a href="index.html" class="no-underline"><p>La Familia</p></a>
-        </div>
-      </div>
-      <div class="menu-list">
-        <ul><li><a href="https://my-booking.info" class="contact-button">Ma Reservation</a></li></ul>
+    <nav aria-label="Navigation réservation">
+      <a class="brand" href="reservation.html" rel="nofollow">
+        <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" />
+        <span>La Familia</span>
+      </a>
+      <div class="nav-actions">
+        <a href="https://my-booking.info" class="nav-link" rel="nofollow noopener">Ma réservation</a>
+        <a href="#logements" class="nav-cta" rel="nofollow">Voir les logements</a>
       </div>
     </nav>
   </header>
 
   <main class="reservation-shell">
-    <h1 class="page-title">Reserver un appartement</h1>
+    <section class="booking-hero">
+      <div>
+        <span class="eyebrow"><i class="fas fa-calendar-check"></i> Réservation voyageurs</span>
+        <h1>Réserver un appartement à Aix-en-Provence</h1>
+        <p class="hero-lead">Retrouvez les logements gérés par La Familia, visualisez leur emplacement et ouvrez la fiche de l’appartement qui correspond à votre séjour.</p>
+      </div>
+
+      <aside class="hero-card">
+        <strong>Séjour à Aix</strong>
+        <p>Une sélection d’appartements pour quelques nuits, un week-end ou un séjour plus long à Aix-en-Provence.</p>
+        <ul>
+          <li><i class="fas fa-map-location-dot"></i><span>Carte des logements</span></li>
+          <li><i class="fas fa-house"></i><span>Fiches appartements détaillées</span></li>
+          <li><i class="fas fa-message"></i><span>Assistance locale La Familia</span></li>
+        </ul>
+      </aside>
+    </section>
 
     <section class="intro-map">
       <div class="section-head">
         <div>
           <span class="section-kicker">Carte des appartements</span>
-          <h2>Visualisez l'ensemble des logements a Aix-en-Provence</h2>
-          <p class="section-copy">La carte reste en ouverture de page pour garder une lecture immediate des emplacements. Ensuite, la selection descend en cartes plus editoriales pour aider a choisir plus vite.</p>
+          <h2>Visualisez les logements à Aix-en-Provence</h2>
+          <p class="section-copy">La carte vous permet de situer rapidement les appartements. Vous pouvez ensuite parcourir les catégories et ouvrir la fiche du logement qui vous intéresse.</p>
         </div>
-        <a class="secondary-button" href="#logements">Voir les logements</a>
+        <a class="secondary-button" href="#logements" rel="nofollow">Voir les logements</a>
       </div>
       <div id="apartment-map" aria-label="Carte des appartements"></div>
     </section>
@@ -139,42 +274,42 @@
     <section class="hero-grid">
       <div class="hero-copy">
         <span class="section-kicker">Choisir un logement</span>
-        <h2>Toutes les fiches appartements sont maintenant reunies sur cette page</h2>
-        <p>La selection se fait ici, avec une vue d'ensemble plus simple et plus claire. Vous pouvez parcourir les categories, comparer les atmospheres et ouvrir directement la fiche du logement qui vous correspond.</p>
+        <h2>Toutes les fiches appartements réunies au même endroit</h2>
+        <p>Parcourez les catégories, comparez les ambiances, vérifiez la capacité d’accueil et ouvrez directement la fiche du logement qui correspond à votre séjour.</p>
         <div class="hero-actions">
-          <a class="primary-button" href="#logements">Voir les logements</a>
-          <a class="secondary-button" href="#apartment-map">Voir la carte</a>
+          <a class="primary-button" href="#logements" rel="nofollow">Voir les logements</a>
+          <a class="secondary-button" href="#apartment-map" rel="nofollow">Voir la carte</a>
         </div>
         <div class="hero-badges">
-          <span>Fiches detaillees</span>
-          <span>Comparaison plus simple</span>
+          <span>Fiches détaillées</span>
+          <span>Comparaison simple</span>
           <span>Assistance locale</span>
         </div>
         <div class="direct-booking-benefits">
-          <div class="benefit-card"><strong>Tout au meme endroit</strong><br>Les categories et les fiches logement sont centralisees sur une seule page.</div>
-          <div class="benefit-card"><strong>Parcours plus clair</strong><br>Vous comparez les appartements puis vous ouvrez directement la fiche qui vous interesse.</div>
-          <div class="benefit-card"><strong>Lecture plus fluide</strong><br>Moins d'etapes inutiles, plus de visibilite sur chaque logement.</div>
+          <div class="benefit-card"><strong>Tout au même endroit</strong><br />Les catégories et les fiches logement sont centralisées sur une seule page.</div>
+          <div class="benefit-card"><strong>Parcours plus clair</strong><br />Vous comparez les appartements puis ouvrez directement la fiche qui vous intéresse.</div>
+          <div class="benefit-card"><strong>Lecture plus fluide</strong><br />Moins d’étapes inutiles, plus de visibilité sur chaque logement.</div>
         </div>
       </div>
 
       <div class="featured-column">
         <article class="featured-card">
-          <img src="./img/Carnot/Salon lumineux et accueillant avec cheminée.png" alt="Le Carnot">
+          <img src="./img/Carnot/Salon lumineux et accueillant avec cheminée.png" alt="Salon lumineux de l’appartement Le Carnot" />
           <div class="card-body">
-            <span class="card-tag">Coup de coeur</span>
+            <span class="card-tag">Coup de cœur</span>
             <h3 style="margin-top:12px;">Le Carnot</h3>
-            <p class="card-subtitle">Studio • Centre-ville</p>
-            <div class="card-meta"><span class="muted">2 voyageurs</span><strong>A partir de 40€/nuit</strong></div>
+            <p class="card-subtitle">T2 • Centre-ville</p>
+            <div class="card-meta"><span class="muted">2 voyageurs</span><strong>À partir de 40€/nuit</strong></div>
           </div>
         </article>
 
         <article class="featured-card">
-          <img src="img\Cardinal\Chambre moderne avec linge roulé.png" alt="Le Cardinal">
+          <img src="img/Cardinal/Chambre moderne avec linge roulé.png" alt="Chambre de l’appartement Le Cardinal" />
           <div class="card-body">
-            <span class="card-tag">Tres demande</span>
+            <span class="card-tag">Très demandé</span>
             <h3 style="margin-top:12px;">Le Cardinal</h3>
             <p class="card-subtitle">T2 • Jardin privatif</p>
-            <div class="card-meta"><span class="muted">2 voyageurs</span><strong>A partir de 50€/nuit</strong></div>
+            <div class="card-meta"><span class="muted">2 voyageurs</span><strong>À partir de 50€/nuit</strong></div>
           </div>
         </article>
       </div>
@@ -185,149 +320,43 @@
         <div>
           <span class="section-kicker">Nos logements</span>
           <h2>Des sections simples pour mieux choisir</h2>
-          <p class="section-copy">J'ai repris la logique de votre mockup, mais dans un HTML statique adapte a cette page. Les cartes, les fonds et les boutons reprennent les couleurs du site existant.</p>
+          <p class="section-copy">Les logements sont regroupés par typologie pour faciliter la comparaison : studios, appartements avec chambre séparée, logements familiaux et logements premium.</p>
         </div>
-        <a class="ghost-button" href="#apartment-map">Revenir a la carte</a>
+        <a class="ghost-button" href="#apartment-map" rel="nofollow">Revenir à la carte</a>
       </div>
 
       <section class="listing-group">
         <div class="section-head">
           <div>
             <h3>Studios</h3>
-            <p class="section-copy">Parfait pour les sejours solo ou a deux au coeur d'Aix-en-Provence.</p>
+            <p class="section-copy">Parfait pour les séjours solo ou à deux au cœur d’Aix-en-Provence.</p>
           </div>
-          
         </div>
         <div class="listing-grid">
-          <article class="listing-card">
-            <img src="img\Fernandol\d30ec554-2098-4e05-a49a-7f304d658666.jpg" alt="Le Cardinal">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Tres demande</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Fernandol</h4>
-              <p class="card-subtitle">Hyper-centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-fernandol.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Le Forbin\09a7b04d-8eeb-4f49-8a02-6b625cf9e301.jpg" alt="Le Mazarin">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Tres reserve</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Forbin</h4>
-              <p class="card-subtitle">Quartier Mazarin</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-forbin.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Alizée\ce37c794-41fd-48d0-a46d-8e3b214207f3.jpg" alt="Alizée">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Alizée</h4>
-              <p class="card-subtitle">Sextius</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>35€/nuit</strong></div><a class="primary-button" href="appartement-alizee.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Lou Mistral\9cc5f23e-9dc3-45ed-8f79-297eb9426da4.jpg" alt="Lou Mistral">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Lou Mistral</h4>
-              <p class="card-subtitle">Hyper Centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-mistral.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Lou Mirabeau\b4090c68-c133-4d8b-b3ab-910c3c87463e.jpg" alt="Lou Mirabeau">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Lou Mirabeau</h4>
-              <p class="card-subtitle">Hyper Centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-mirabeau.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Lou Cezanne\7bb99abb-7390-4b73-95a2-8f232207e16f.jpg" alt="Lou Cezanne">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Lou Cezanne</h4>
-              <p class="card-subtitle">Hyper Centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-cezanne.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Lou Zola\da6f5529-ee3a-4feb-a0e1-a3a16bc4b603.jpg" alt="Lou Zola">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Lou Zola</h4>
-              <p class="card-subtitle">Hyper Centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-zola.html">Voir le logement</a></div>
-            </div>
-          </article>
+          <article class="listing-card"><img src="img/Fernandol/d30ec554-2098-4e05-a49a-7f304d658666.jpg" alt="Le Fernandol" /><div class="card-body"><div class="card-meta"><span class="card-tag">Très demandé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Fernandol</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-fernandol.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Le Forbin/09a7b04d-8eeb-4f49-8a02-6b625cf9e301.jpg" alt="Le Forbin" /><div class="card-body"><div class="card-meta"><span class="card-tag">Très réservé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Forbin</h4><p class="card-subtitle">Quartier Mazarin</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-forbin.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Alizée/ce37c794-41fd-48d0-a46d-8e3b214207f3.jpg" alt="Alizée" /><div class="card-body"><div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Alizée</h4><p class="card-subtitle">Sextius</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>35€/nuit</strong></div><a class="primary-button" href="appartement-alizee.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Lou Mistral/9cc5f23e-9dc3-45ed-8f79-297eb9426da4.jpg" alt="Lou Mistral" /><div class="card-body"><div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Lou Mistral</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-mistral.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Lou Mirabeau/b4090c68-c133-4d8b-b3ab-910c3c87463e.jpg" alt="Lou Mirabeau" /><div class="card-body"><div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Lou Mirabeau</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-mirabeau.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Lou Cezanne/7bb99abb-7390-4b73-95a2-8f232207e16f.jpg" alt="Lou Cezanne" /><div class="card-body"><div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Lou Cezanne</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-cezanne.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Lou Zola/da6f5529-ee3a-4feb-a0e1-a3a16bc4b603.jpg" alt="Lou Zola" /><div class="card-body"><div class="card-meta"><span class="card-tag">Calme</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Lou Zola</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-zola.html" rel="nofollow">Voir le logement</a></div></div></article>
         </div>
       </section>
 
       <section class="listing-group">
         <div class="section-head">
           <div>
-            <h3>Appartements 1 chambre separee</h3>
-            <p class="section-copy">Des appartements confortables pour un sejour a deux ou a quatre avec un espace nuit distinct.</p>
+            <h3>Appartements avec chambre séparée</h3>
+            <p class="section-copy">Des appartements confortables pour un séjour à deux ou à quatre avec un espace nuit distinct.</p>
           </div>
-          
         </div>
         <div class="listing-grid">
-          <article class="listing-card">
-            <img src="img\Cardinal\Chambre moderne avec linge roulé.png" alt="Le Cardinal">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Tres demande</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Cardinal</h4>
-              <p class="card-subtitle">Jardin privatif</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>50€/nuit</strong></div><a class="primary-button" href="appartement-le-cardinal.html">Voir le logement</a></div>
-            </div>
-          </article>
-           <article class="listing-card">
-            <img src="img\Carnot\Salon lumineux et accueillant avec cheminée.png" alt="Le Carnot">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Coup de coeur</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Carnot</h4>
-              <p class="card-subtitle">Centre historique</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-carnot.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Le Jouvencel\Salon moderne et épuré avec touches rouges.png" alt="Le Jouvencel">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Quartier prise</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Jouvencel</h4>
-              <p class="card-subtitle">Quartier Mazarin</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-jouvencel.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Boulegon\3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg" alt="Le Mazarin Signature">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Hyper Centre</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Boulegon</h4>
-              <p class="card-subtitle">Quartier Mairie</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-boulegon.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Lou solari\409f62bc-6f0e-4d62-970b-5eed5950b11e.jpg" alt="Lou Solari">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Hyper Centre</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Lou Solari</h4>
-              <p class="card-subtitle">Chambre separee</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-solari.html">Voir le logement</a></div>
-            </div>
-          </article>
-           <article class="listing-card">
-            <img src="img\Zéphir\85472393-6a9f-4f2b-8b28-60ddc9e654e5.jpg" alt="Zéphir">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Familial</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Zéphir</h4>
-              <p class="card-subtitle">Quartier Sextius</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-zephir.html">Voir le logement</a></div>
-            </div>
-          </article>
+          <article class="listing-card"><img src="img/Cardinal/Chambre moderne avec linge roulé.png" alt="Le Cardinal" /><div class="card-body"><div class="card-meta"><span class="card-tag">Très demandé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Cardinal</h4><p class="card-subtitle">Jardin privatif</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>50€/nuit</strong></div><a class="primary-button" href="appartement-le-cardinal.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Carnot/Salon lumineux et accueillant avec cheminée.png" alt="Le Carnot" /><div class="card-body"><div class="card-meta"><span class="card-tag">Coup de cœur</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Carnot</h4><p class="card-subtitle">Centre historique</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-carnot.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Le Jouvencel/Salon moderne et épuré avec touches rouges.png" alt="Le Jouvencel" /><div class="card-body"><div class="card-meta"><span class="card-tag">Quartier prisé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Jouvencel</h4><p class="card-subtitle">Quartier Mazarin</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-jouvencel.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg" alt="Le Boulegon" /><div class="card-body"><div class="card-meta"><span class="card-tag">Hyper-centre</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Boulegon</h4><p class="card-subtitle">Quartier Mairie</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-boulegon.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Lou solari/409f62bc-6f0e-4d62-970b-5eed5950b11e.jpg" alt="Lou Solari" /><div class="card-body"><div class="card-meta"><span class="card-tag">Hyper-centre</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Lou Solari</h4><p class="card-subtitle">Chambre séparée</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>30€/nuit</strong></div><a class="primary-button" href="appartement-lou-solari.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Zéphir/85472393-6a9f-4f2b-8b28-60ddc9e654e5.jpg" alt="Zéphir" /><div class="card-body"><div class="card-meta"><span class="card-tag">Familial</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Zéphir</h4><p class="card-subtitle">Quartier Sextius</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-zephir.html" rel="nofollow">Voir le logement</a></div></div></article>
         </div>
       </section>
 
@@ -337,18 +366,9 @@
             <h3>Appartements familiaux</h3>
             <p class="section-copy">Des logements plus spacieux pour les familles et petits groupes.</p>
           </div>
-          
         </div>
         <div class="listing-grid">
-          <article class="listing-card">
-            <img src="img\Zéphir\85472393-6a9f-4f2b-8b28-60ddc9e654e5.jpg" alt="Zéphir">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Familial</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Zéphir</h4>
-              <p class="card-subtitle">Quartier Sextius</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-zephir.html">Voir le logement</a></div>
-            </div>
-          </article>
+          <article class="listing-card"><img src="img/Zéphir/85472393-6a9f-4f2b-8b28-60ddc9e654e5.jpg" alt="Zéphir" /><div class="card-body"><div class="card-meta"><span class="card-tag">Familial</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Zéphir</h4><p class="card-subtitle">Quartier Sextius</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-zephir.html" rel="nofollow">Voir le logement</a></div></div></article>
         </div>
       </section>
 
@@ -356,51 +376,24 @@
         <div class="section-head">
           <div>
             <h3>Logements premium</h3>
-            <p class="section-copy">Une selection plus haut de gamme pour une experience plus signee.</p>
+            <p class="section-copy">Une sélection plus haut de gamme pour une expérience plus soignée.</p>
           </div>
-          
         </div>
         <div class="listing-grid">
-           <article class="listing-card">
-            <img src="img\Cardinal\Chambre moderne avec linge roulé.png" alt="Le Cardinal">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Tres demande</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Cardinal</h4>
-              <p class="card-subtitle">Jardin privatif</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>50€/nuit</strong></div><a class="primary-button" href="appartement-le-cardinal.html">Voir le logement</a></div>
-            </div>
-          </article>
-          <article class="listing-card">
-            <img src="img\Fernandol\d30ec554-2098-4e05-a49a-7f304d658666.jpg" alt="Le Cardinal">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Tres demande</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Fernandol</h4>
-              <p class="card-subtitle">Hyper-centre</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-fernandol.html">Voir le logement</a></div>
-            </div>
-          </article>
-           <article class="listing-card">
-            <img src="img\Boulegon\3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg" alt="Le Mazarin Signature">
-            <div class="card-body">
-              <div class="card-meta"><span class="card-tag">Hyper Centre</span><span class="badge-right">2 voyageurs</span></div>
-              <h4 style="margin-top:14px;">Le Boulegon</h4>
-              <p class="card-subtitle">Quartier Mairie</p>
-              <div class="price-row"><div><span class="eyebrow">A partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-boulegon.html">Voir le logement</a></div>
-            </div>
-          </article>
+          <article class="listing-card"><img src="img/Cardinal/Chambre moderne avec linge roulé.png" alt="Le Cardinal" /><div class="card-body"><div class="card-meta"><span class="card-tag">Très demandé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Cardinal</h4><p class="card-subtitle">Jardin privatif</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>50€/nuit</strong></div><a class="primary-button" href="appartement-le-cardinal.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Fernandol/d30ec554-2098-4e05-a49a-7f304d658666.jpg" alt="Le Fernandol" /><div class="card-body"><div class="card-meta"><span class="card-tag">Très demandé</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Fernandol</h4><p class="card-subtitle">Hyper-centre</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-le-fernandol.html" rel="nofollow">Voir le logement</a></div></div></article>
+          <article class="listing-card"><img src="img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg" alt="Le Boulegon" /><div class="card-body"><div class="card-meta"><span class="card-tag">Hyper-centre</span><span class="badge-right">2 voyageurs</span></div><h4 style="margin-top:14px;">Le Boulegon</h4><p class="card-subtitle">Quartier Mairie</p><div class="price-row"><div><span class="eyebrow">À partir de</span><strong>40€/nuit</strong></div><a class="primary-button" href="appartement-boulegon.html" rel="nofollow">Voir le logement</a></div></div></article>
         </div>
       </section>
     </section>
-
   </main>
 
   <footer>
     <div class="footer-bar">
-      <p>La Familia - Reservation directe d'appartements a Aix-en-Provence</p>
+      <p>La Familia — réservation voyageurs à Aix-en-Provence</p>
       <div class="footer-links">
-        <a href="index.html">Accueil</a>
-        <a href="https://my-booking.info">Ma Reservation</a>
-        <a href="carteinteractive.html">Livret d'accueil</a>
+        <a href="https://my-booking.info" rel="nofollow noopener">Ma réservation</a>
+        <a href="carteinteractive.html" rel="nofollow">Livret d’accueil</a>
       </div>
     </div>
   </footer>
@@ -409,23 +402,23 @@
   <script>
     const apartmentMap = L.map('apartment-map').setView([43.5294, 5.4485], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" rel="nofollow">OpenStreetMap</a> contributors'
     }).addTo(apartmentMap);
 
     const apartments = [
-      { name: 'Le Carnot', coords: [43.525205123339894, 5.454096618374515], type: 'T2', area: 'Centre historique', price: 'A partir de 40€/nuit' },
-      { name: 'Le Cardinal', coords: [43.52502959703811, 5.455281421414427], type: 'T2', area: 'Jardin privé', price: 'A partir de 50€/nuit' },
-      { name: 'Le Fernandol', coords: [43.52684205762201, 5.450943042399396], type: 'Studio', area: 'Hyper-Centre', price: 'A partir de 45€/nuit' },
-      { name: 'Le Jouvencel', coords: [43.52643099522459, 5.453803142917833], type: 'T2', area: 'Quartier Mazarin', price: 'A partir de 40€/nuit' },
-      { name: 'Le Forbin', coords: [43.52526503276521, 5.454950815867037], type: 'Studio', area: 'Centre historique', price: 'A partir de 40€/nuit' },
-      { name: 'Boulegon', coords: [43.5309928753718, 5.449671831783729], type: 'Studio', area: 'Hyper Centre', price: 'A partir de 40€/nuit' },
-      { name: 'Zéphir', coords: [43.53051931840978, 5.444769339934959 ], type: 'T2', area: 'Familial', price: 'A partir de 40€/nuit' },
-      { name: 'Alizée', coords: [43.53032075594836, 5.444453800759668], type: 'Studio', area: 'Sextius', price: 'A partir de 35€/nuit' }, 
-      { name: 'Lou Solari', coords: [43.530258689082245, 5.4492023109223195], type: 'T2', area: 'Hyper Centre', price: 'A partir de 30€/nuit' }, 
-      { name: 'Lou Mistral', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper Centre', price: 'A partir de 30€/nuit' }, 
-      { name: 'Lou Mirabeau', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper Centre', price: 'A partir de 30€/nuit' }, 
-      { name: 'Lou Cezanne', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper Centre', price: 'A partir de 30€/nuit' }, 
-      { name: 'Lou Zola', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper Centre', price: 'A partir de 30€/nuit' }, 
+      { name: 'Le Carnot', coords: [43.525205123339894, 5.454096618374515], type: 'T2', area: 'Centre historique', price: 'À partir de 40€/nuit' },
+      { name: 'Le Cardinal', coords: [43.52502959703811, 5.455281421414427], type: 'T2', area: 'Jardin privé', price: 'À partir de 50€/nuit' },
+      { name: 'Le Fernandol', coords: [43.52684205762201, 5.450943042399396], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 45€/nuit' },
+      { name: 'Le Jouvencel', coords: [43.52643099522459, 5.453803142917833], type: 'T2', area: 'Quartier Mazarin', price: 'À partir de 40€/nuit' },
+      { name: 'Le Forbin', coords: [43.52526503276521, 5.454950815867037], type: 'Studio', area: 'Centre historique', price: 'À partir de 40€/nuit' },
+      { name: 'Boulegon', coords: [43.5309928753718, 5.449671831783729], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 40€/nuit' },
+      { name: 'Zéphir', coords: [43.53051931840978, 5.444769339934959], type: 'T2', area: 'Familial', price: 'À partir de 40€/nuit' },
+      { name: 'Alizée', coords: [43.53032075594836, 5.444453800759668], type: 'Studio', area: 'Sextius', price: 'À partir de 35€/nuit' },
+      { name: 'Lou Solari', coords: [43.530258689082245, 5.4492023109223195], type: 'T2', area: 'Hyper-centre', price: 'À partir de 30€/nuit' },
+      { name: 'Lou Mistral', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 30€/nuit' },
+      { name: 'Lou Mirabeau', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 30€/nuit' },
+      { name: 'Lou Cezanne', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 30€/nuit' },
+      { name: 'Lou Zola', coords: [43.530258689082245, 5.4492023109223195], type: 'Studio', area: 'Hyper-centre', price: 'À partir de 30€/nuit' }
     ];
 
     const apartmentUrls = {
@@ -441,7 +434,7 @@
       'Lou Mistral': 'appartement-lou-mistral.html',
       'Lou Mirabeau': 'appartement-lou-mirabeau.html',
       'Lou Cezanne': 'appartement-lou-cezanne.html',
-      'Lou Zola': 'appartement-lou-zola.html',
+      'Lou Zola': 'appartement-lou-zola.html'
     };
 
     apartments.forEach(function(apartment) {
@@ -451,7 +444,7 @@
           '<h3>' + apartment.name + '</h3>' +
           '<p>' + apartment.type + ' • ' + apartment.area + '</p>' +
           '<p>' + apartment.price + '</p>' +
-          '<a href="' + (apartmentUrls[apartment.name] || '#logements') + '">Voir le logement</a>' +
+          '<a rel="nofollow" href="' + (apartmentUrls[apartment.name] || '#logements') + '">Voir le logement</a>' +
         '</div>'
       );
     });
