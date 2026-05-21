@@ -1,3 +1,5 @@
+const LA_FAMILIA_MAPS_URL = "https://maps.app.goo.gl/iJCxQQ3ByhTFWyVd8";
+
 // Bloc de contact direct affiché sur la page Estimer mes revenus
 function insertEstimationContactBlock() {
   const form = document.getElementById("estimationForm");
@@ -13,7 +15,7 @@ function insertEstimationContactBlock() {
         <i class="fas fa-phone" aria-hidden="true" style="color:#b86b3d;"></i>
         <span>06 51 09 49 66</span>
       </a>
-      <a href="https://www.google.com/maps/search/?api=1&query=6%20rue%20Gibelin%2013100%20Aix-en-Provence" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:10px;color:#202020;text-decoration:none;font-weight:900;">
+      <a href="${LA_FAMILIA_MAPS_URL}" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:10px;color:#202020;text-decoration:none;font-weight:900;">
         <i class="fas fa-map-marker-alt" aria-hidden="true" style="color:#b86b3d;margin-top:4px;"></i>
         <span>6 rue Gibelin<br>13100 Aix-en-Provence</span>
       </a>
@@ -35,10 +37,50 @@ function insertEstimationContactBlock() {
       "afterend",
       `<div class="estimation-mini-contact" style="margin:0 0 22px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <a href="tel:+33651094966" style="background:#202020;color:#fffaf4;text-decoration:none;border-radius:14px;padding:13px 15px;font-weight:900;text-align:center;">Appeler</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=6%20rue%20Gibelin%2013100%20Aix-en-Provence" target="_blank" rel="noopener" style="background:#fbe0c3;color:#202020;text-decoration:none;border-radius:14px;padding:13px 15px;font-weight:900;text-align:center;">Nous situer</a>
+        <a href="${LA_FAMILIA_MAPS_URL}" target="_blank" rel="noopener" style="background:#fbe0c3;color:#202020;text-decoration:none;border-radius:14px;padding:13px 15px;font-weight:900;text-align:center;">Nous situer</a>
       </div>`
     );
   }
+}
+
+// Remplace tous les anciens liens Google Maps par la fiche Google officielle
+function updateMapsLinks() {
+  document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.app.goo.gl"]').forEach((link) => {
+    const label = link.textContent.toLowerCase();
+    const isAddressLink = link.textContent.includes("6 rue Gibelin") || label.includes("nous situer");
+    if (isAddressLink) {
+      link.href = LA_FAMILIA_MAPS_URL;
+      link.target = "_blank";
+      link.rel = "noopener";
+    }
+  });
+}
+
+// Améliore la lisibilité du tableau de revenus sur fond noir
+function improveRevenueTableReadability() {
+  const style = document.createElement("style");
+  style.textContent = `
+    .section.dark .revenue-table tbody td {
+      color: #b86b3d !important;
+      font-weight: 800;
+      background: #fffaf4 !important;
+    }
+
+    .section.dark .revenue-table tbody td strong {
+      color: #b86b3d !important;
+      font-weight: 900;
+    }
+
+    .section.dark .revenue-table tbody tr:nth-child(even) td {
+      background: #fff3e8 !important;
+    }
+
+    .section.dark .revenue-table thead th {
+      color: #fffaf4 !important;
+      background: #202020 !important;
+    }
+  `;
+  document.head.appendChild(style);
 }
 
 // Fonction de validation
@@ -98,6 +140,8 @@ function sendConversionEvent(callback) {
 // Gestion de la soumission du formulaire
 document.addEventListener("DOMContentLoaded", function () {
   insertEstimationContactBlock();
+  updateMapsLinks();
+  improveRevenueTableReadability();
 
   const form = document.getElementById("estimationForm");
   if (!form) return;
