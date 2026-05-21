@@ -1,685 +1,466 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) - Load as deferred-->
- <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
- <script defer>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
- 
-   gtag('config', 'G-T5JV1M1NK3');
- </script>
+  <title>Carte interactive voyageurs | La Familia</title>
+  <meta name="description" content="Page privée La Familia destinée aux voyageurs : carte interactive, parkings, lieux utiles, gastronomie, culture et nature à Aix-en-Provence." />
 
- <!-- Google Tag Manager - Load as deferred-->
- <script defer>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-   })(window,document,'script','dataLayer','GTM-MZ2JG2LD');</script>
-   <!-- End Google Tag Manager -->
+  <!-- Page voyageurs volontairement exclue de l’indexation pour protéger le SEO du site principal propriétaires. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte Interactive avec Guides Filtrables</title>
-    
-    <link rel="stylesheet" href="carteinteractive.css">
+  <link rel="shortcut icon" href="./img/LogoLF.png" />
+  <link rel="stylesheet" href="carteinteractive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        #content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h2 {
-            color: #000000;
-            margin-bottom: 15px;
-            font-size: 2rem
-        }
-        
-        /* Filtres */
-        #filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-        }
-        
-        .filter-btn {
-            padding: 8px 16px;
-            background-color: #ffffff;
-            border: 1px solid #dddddd;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .filter-btn:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .filter-btn.active {
-            background-color: #2b5797;
-            color: white;
-            border-color: #2b5797;
-        }
-        
-        .marker-count {
-            margin-left: 15px;
-            font-style: italic;
-            color: #666;
-        }
-        
-        /* Carte */
-        #map {
-            height: 500px;
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .info-window {
-            max-width: 300px;
-            padding: 10px;
-        }
-        
-        .info-window img {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        
-        .info-window h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .info-window p {
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        
-        .category-tag {
-            display: inline-block;
-            padding: 3px 8px;
-            background-color: #eaeaea;
-            border-radius: 3px;
-            font-size: 12px;
-            margin-right: 5px;
-            margin-bottom: 8px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 6px 12px;
-            background-color: #2b5797;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 5px;
-            transition: background-color 0.2s ease;
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, var(--cream) 0%, #ffffff 35%, var(--soft) 100%);
+      color: var(--text);
+      font-family: "Cabin", Arial, sans-serif;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3, h4 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; margin: 0; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
 
-     
-        .leaflet-container a {
-            color: white;
-        }
+    .private-note {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 10px 6%;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 800;
+    }
 
-        .btn:hover {
-            background-color: #1e3c6a;
-        }
-        
-        /* Vignettes de guides */
-        #guides-title {
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 24px;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
-        }
-        
-        #guides-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-        
-        .guide-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
-        }
-        
-        .guide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .guide-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        
-        .guide-content {
-            padding: 15px;
-        }
-        
-        .guide-title {
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #2b5797;
-        }
-        
-        .guide-excerpt {
-            font-size: 14px;
-            margin-bottom: 15px;
-            color: #666;
-        }
-        
-        .guide-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .guide-date {
-            font-size: 12px;
-            color: #999;
-        }
-        
-        .guide-time {
-            font-size: 12px;
-            color: #999;
-        }
-        
-        .no-guides {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            color: #666;
-        }
-    </style>
-<link rel="canonical" href="https://lafamiliabnb.fr/carteinteractive.html">
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,250,244,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 12px 6%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--dark);
+    }
+    .brand img { width: 72px; }
+    .nav-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .nav-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .84rem;
+      font-weight: 900;
+      color: var(--dark);
+    }
+    .nav-cta {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .84rem;
+      font-weight: 900;
+    }
 
-<!-- Open Graph - Balises de base -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_FR">
+    .page-shell { width: min(88%, 1180px); margin: 0 auto 64px; }
+    .map-hero {
+      padding: 66px 0 54px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, .82fr);
+      gap: 46px;
+      align-items: center;
+    }
+    .eyebrow, .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--beige);
+      font-weight: 900;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .78rem;
+    }
+    .map-hero h1 {
+      font-size: clamp(2.9rem, 6vw, 5.8rem);
+      margin: 22px 0;
+      letter-spacing: -.045em;
+    }
+    .hero-lead { max-width: 760px; font-size: 1.18rem; margin: 0; }
+    .hero-card, .map-panel, .guides-panel, .guide-card, .quick-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .hero-card {
+      border-radius: 30px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--beige); }
+    .hero-card strong {
+      display: block;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      color: var(--accent);
+      font-size: clamp(2.3rem, 4.7vw, 4rem);
+      line-height: .95;
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+    }
+    .hero-card ul { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+    .hero-card li { display: flex; gap: 10px; font-weight: 900; }
+    .hero-card i { color: var(--accent); margin-top: 4px; }
 
-<!-- Balises principales -->
-<meta property="og:title" content="Carte Interactive avec Guides Filtrables">
-<meta property="og:description" content="La Familia - Conciergerie location saisonnière à Aix-en-Provence">
-<meta property="og:url" content="https://lafamiliabnb.fr/carteinteractive.html">
-<meta property="og:site_name" content="La Familia - Conciergerie Locations Saisonnières">
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .quick-card { border-radius: 18px; padding: 20px; }
+    .quick-card strong { display: block; color: var(--accent); font-size: 1.35rem; margin-bottom: 6px; }
 
-<!-- Image principale optimisée pour les partages -->
-<meta property="og:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
-<meta property="og:image:alt" content="Vue panoramique d'Aix-en-Provence - Destination de location saisonnière">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/jpeg">
+    .map-panel, .guides-panel {
+      border-radius: 30px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .section-head h2, .guides-panel h2 { font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.035em; margin-top: 14px; }
+    .section-copy { color: #5f5347; max-width: 760px; margin-top: 10px; font-size: 1rem; line-height: 1.72; }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Carte Interactive avec Guides Filtrables">
-<meta name="twitter:description" content="La Familia - Conciergerie location saisonnière à Aix-en-Provence">
-<meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg">
+    #filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 18px;
+      padding: 16px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .filter-btn {
+      padding: 11px 17px;
+      background: var(--white);
+      color: var(--dark);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      transition: .2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--dark); color: var(--cream); border-color: var(--dark); transform: translateY(-1px); }
+    .marker-count { margin-left: auto; font-style: normal; color: var(--muted); font-weight: 800; }
+
+    #map {
+      height: 520px;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
+      margin: 0;
+    }
+    .info-window { max-width: 300px; padding: 4px; }
+    .info-window img { width: 100%; border-radius: 12px; margin-bottom: 10px; max-height: 145px; object-fit: cover; }
+    .info-window h3 { margin: 0 0 10px; color: var(--dark); font-size: 1.1rem; }
+    .info-window p { margin: 0 0 8px; line-height: 1.5; }
+    .category-tag {
+      display: inline-flex;
+      padding: 5px 9px;
+      background: var(--soft);
+      color: #6a4328;
+      border: 1px solid rgba(184,107,61,.12);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-right: 5px;
+      margin-bottom: 8px;
+    }
+    .btn, .primary-button, .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 15px;
+      background: var(--dark);
+      color: var(--cream) !important;
+      text-decoration: none;
+      border-radius: 12px;
+      margin-top: 6px;
+      font-weight: 900;
+      border: 1px solid var(--dark);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .btn:hover, .primary-button:hover, .ghost-button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+    .ghost-button { background: var(--white); color: var(--dark) !important; border-color: var(--line); }
+
+    #guides-container {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .guide-card {
+      border-radius: 22px;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .guide-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+    .guide-image { width: 100%; height: 190px; object-fit: cover; }
+    .guide-content { padding: 22px; }
+    .guide-title { font-size: 1.4rem; margin: 0 0 10px; color: var(--dark); }
+    .guide-excerpt { font-size: .98rem; margin: 12px 0 15px; color: #5f5347; }
+    .guide-meta { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 10px; color: var(--muted); font-size: .86rem; }
+    .no-guides { grid-column: 1 / -1; text-align: center; padding: 40px; background: var(--soft); border-radius: 18px; color: var(--muted); font-weight: 900; }
+
+    footer { background: var(--dark); color: var(--cream); padding: 34px 6%; }
+    .footer-bar { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; color: #f7dfcf; font-size: .95rem; }
+    .footer-bar p { color: #f7dfcf; margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { color: #f7dfcf; text-decoration: none; font-weight: 900; }
+
+    @media (max-width: 1024px) {
+      .map-hero { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #guides-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      nav { align-items: flex-start; }
+      .nav-actions { justify-content: flex-end; }
+      .page-shell { width: min(100% - 20px, 1180px); }
+      .section-head, .footer-bar { flex-direction: column; align-items: flex-start; }
+      #map { height: 360px; }
+      .map-panel, .guides-panel { padding: 18px; }
+      .quick-grid, #guides-container { grid-template-columns: 1fr; }
+      .marker-count { margin-left: 0; width: 100%; }
+      .primary-button, .ghost-button { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-
-   <!-- Google Tag Manager (noscript) -->
-   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <div class="private-note">Page voyageurs volontairement non indexée — le site principal reste dédié aux propriétaires.</div>
 
   <header>
-    <nav>
-      <div class="logo-denomination">
-        <div class="logo-accueil">
-          <a href="index.html" class="no-underline">
-            <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia">
-          </a>
-        </div>
-        <div class="denomination">
-          <a href="index.html" class="no-underline">
-            <p>La Familia</p>
-          </a>
-        </div>
-      </div>
-      <div class="menu-list">
-        <ul>
-          <li><a href="./reservation.html" class="contact-button">Réserver un appartement</a></li>
-        </ul>
+    <nav aria-label="Navigation carte interactive">
+      <a class="brand" href="reservation.html" rel="nofollow">
+        <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" />
+        <span>La Familia</span>
+      </a>
+      <div class="nav-actions">
+        <a href="reservation.html" class="nav-link" rel="nofollow">Réserver</a>
+        <a href="#carte" class="nav-cta" rel="nofollow">Carte interactive</a>
       </div>
     </nav>
   </header>
 
-    <div id="content-container">
-        <h2>Guide des activités à Aix en Provence</h2>
-        
-        <div id="filters">
-            <button class="filter-btn active" data-category="all">Tous</button>
-            <button class="filter-btn" data-category="Parking">Parking</button>
-            <button class="filter-btn" data-category="Gastronomie">Gastronomie</button>
-            <button class="filter-btn" data-category="Culture">Culture</button>
-            <button class="filter-btn" data-category="Nature">Nature</button>
-            <span class="marker-count" id="marker-count">Affichage de tous les lieux</span>
+  <main class="page-shell">
+    <section class="map-hero">
+      <div>
+        <span class="eyebrow"><i class="fas fa-map-location-dot"></i> Guide voyageurs</span>
+        <h1>Carte interactive d’Aix-en-Provence</h1>
+        <p class="hero-lead">Retrouvez les parkings, lieux culturels, espaces nature et adresses utiles pour organiser votre séjour à Aix-en-Provence.</p>
+      </div>
+
+      <aside class="hero-card">
+        <strong>Explorer Aix</strong>
+        <p>Filtrez les lieux selon vos besoins, ouvrez la carte et consultez les guides associés à chaque point d’intérêt.</p>
+        <ul>
+          <li><i class="fas fa-square-parking"></i><span>Parkings utiles</span></li>
+          <li><i class="fas fa-utensils"></i><span>Gastronomie et marchés</span></li>
+          <li><i class="fas fa-landmark"></i><span>Culture et visites</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="quick-grid" aria-label="Catégories principales">
+      <div class="quick-card"><strong>Parking</strong><span>Repérer les parkings pratiques autour du centre.</span></div>
+      <div class="quick-card"><strong>Gastronomie</strong><span>Marchés, places animées et adresses à découvrir.</span></div>
+      <div class="quick-card"><strong>Culture</strong><span>Monuments, musées et lieux emblématiques.</span></div>
+      <div class="quick-card"><strong>Nature</strong><span>Balades et lieux ouverts autour d’Aix.</span></div>
+    </section>
+
+    <section class="map-panel" id="carte">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Carte filtrable</span>
+          <h2>Choisissez une catégorie</h2>
+          <p class="section-copy">Utilisez les filtres pour afficher uniquement les lieux qui vous intéressent, puis cliquez sur un marqueur pour obtenir plus d’informations.</p>
         </div>
-        
-        <div id="map"></div>
-        
-        <h3 id="guides-title">Guides associés</h3>
-        <div id="guides-container"></div>
-    </div>
-    
-    <!-- Leaflet JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.js"></script>
-    
-    <script>
-        // Initialiser la carte
-        const map = L.map('map').setView([43.5298, 5.4474], 11); // Centré sur Aix-en-Provence
+        <a class="ghost-button" href="reservation.html" rel="nofollow">Voir les logements</a>
+      </div>
 
-        
-        // Ajouter le fond de carte OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        
-        // Données complètes des lieux et guides associés
-        const locations = [
-            {
-                name: "Cours Mirabeau",
-                lat: 43.5284,
-                lng: 5.4475,
-                description: "L'avenue emblématique d'Aix-en-Provence, bordée de platanes, de fontaines et de cafés.",
-                image: "./img/cours.jpg",
-                link: "./blog/guide-cours-mirabeau.html",
-                categories: ["tourisme", "Gastronomie", "Culture"],
-                guideDetails: {
-                    title: "Guide du Cours Mirabeau",
-                    excerpt: "Découvrez l'histoire, les boutiques et les cafés incontournables du Cours Mirabeau.",
-                    date: "15 mars 2025",
-                    readTime: "10 min de lecture"
-                }
-            },
-            {
-                name: "Vieil Aix",
-                lat: 43.5292,
-                lng: 5.4485,
-                description: "Le centre historique d'Aix, avec ses ruelles pittoresques, ses fontaines et ses hôtels particuliers.",
-                image: "./img/vieilaix.jpg",
-                link: "./blog/guide-vieilaix.html",
-                categories: ["Tourisme", "Culture"],
-                guideDetails: {
-                    title: "Exploration du Vieil Aix",
-                    excerpt: "Un voyage à travers les rues chargées d'histoire du cœur d'Aix-en-Provence.",
-                    date: "22 mars 2025",
-                    readTime: "12 min de lecture"
-                }
-            },
-            {
-                name: "Cathédrale Saint-Sauveur",
-                lat: 43.5303,
-                lng: 5.4502,
-                description: "Un mélange d'époques architecturales, de l'art roman au gothique, avec un baptistère du IVe siècle.",
-                image: "../img/saintsauveur.jpg",
-                link: "./blog/guide-saint-sauveur.html",
-                categories: ["Tourisme", "Culture"],
-                guideDetails: {
-                    title: "La Cathédrale Saint-Sauveur d'Aix",
-                    excerpt: "Un édifice religieux majeur, témoin de siècles d'histoire et d'art sacré.",
-                    date: "29 mars 2025",
-                    readTime: "8 min de lecture"
-                }
-            },
-            {
-                name: "Fondation Vasarely",
-                lat: 43.4687,
-                lng: 5.4542,
-                description: "Un centre architectural audacieux présentant les œuvres de Victor Vasarely, le père de l'art optique.",
-                image: "../img/fondationvasarely.jpg",
-                link: "./blog/guide-fondationvasarely.html",
-                categories: ["Tourisme", "Culture"],
-                guideDetails: {
-                    title: "L'art optique à la Fondation Vasarely",
-                    excerpt: "Une expérience visuelle unique au cœur de l'architecture moderne.",
-                    date: "12 avril 2025",
-                    readTime: "11 min de lecture"
-                }
-            },
-            {
-                name: "Montagne Sainte-Victoire",
-                lat: 43.5398,
-                lng: 5.5786,
-                description: "La montagne emblématique de la Provence, source d'inspiration pour Cézanne, offrant des sentiers de randonnée et des vues panoramiques.",
-                image: "../img/saintevictoire.jpg",
-                link: "/blog/guide-saintevictoire.html",
-                categories: ["Tourisme", "Nature"],
-                guideDetails: {
-                    title: "À la conquête de la Sainte-Victoire",
-                    excerpt: "Randonnées, paysages à couper le souffle et l'histoire de la montagne de Cézanne.",
-                    date: "19 avril 2025",
-                    readTime: "13 min de lecture"
-                }
-            },
-            {
-                name: "Atelier Cézanne",
-                lat: 43.5350,
-                lng: 5.4385,
-                description: "L'atelier où Paul Cézanne a travaillé les dernières années de sa vie, conservé dans son état d'origine.",
-                image: "./img/ateliercezanne.jpg",
-                link: "/blog/guide-ateliercezanne.html",
-                categories: ["culture", "tourisme"],
-                guideDetails: {
-                    title: "Sur les traces de Cézanne : Visite de son atelier",
-                    excerpt: "Plongez dans l'univers de l'artiste et découvrez son lieu de création.",
-                    date: "5 avril 2025",
-                    readTime: "10 min de lecture"
-                }
-            },
-            {
-                name: "Hôtel de Caumont",
-                lat: 43.5279,
-                lng: 5.4503,
-                description: "Un hôtel particulier du XVIIIe siècle transformé en centre d'art, avec des expositions temporaires et des jardins magnifiques.",
-                image: "./img/hotelcaumont.jpg",
-                link: "/blog/guide-hotelcaumont.html",
-                categories: ["Tourisme", "Culture"],
-                guideDetails: {
-                  title: "L'Hôtel de Caumont : Art et Élégance",
-                  excerpt: "Découvrez les expositions et les jardins de ce joyau architectural.",
-                  date: "26 avril 2025",
-                  readTime: "9 min de lecture"
-                }
-            },
-            {
-                name: "Place des Cardeurs",
-                lat: 43.5289,
-                lng: 5.4468,
-                description: "Une place animée avec des restaurants, des bars et une ambiance provençale typique.",
-                image: "./img/cardeurs.jpg",
-                link: "/blog/guide-cardeurs.html",
-                categories: ["Tourisme", "Gastronomie"],
-                guideDetails: {
-                  title: "La Place des Cardeurs : Cœur Battant d'Aix",
-                  excerpt: "Restaurants, ambiance et vie nocturne sur la place la plus animée d'Aix.",
-                  date: "3 mai 2025",
-                  readTime: "8 min de lecture"
-                }
-            },
-            {
-                name: "Marché d'Aix-en-Provence",
-                lat: 43.5289,
-                lng: 5.4468,
-                description: "Un marché provençal coloré où vous trouverez des produits locaux, des fleurs, des vêtements et bien plus encore.",
-                image: "./img/marcheaix.jpg",
-                link: "/blog/guide-marcheaix.html",
-                categories: ["Tourisme", "Gastronomie"],
-                guideDetails: {
-                  title: "Les saveurs et couleurs du marché d'Aix-en-Provence",
-                  excerpt: "Une immersion dans les produits locaux et l'ambiance provençale.",
-                  date: "10 mai 2025",
-                  readTime: "7 min de lecture"
-             }
-            },
-            {
-                name: "Parking Carnot",
-                lat: 43.526729583740234,
-                lng: 5.455116271972656,
-                description: "Parking souterrain situé au centre d'Aix-en-Provence, à proximité du Cours Mirabeau et des commerces.",
-                image: "./img/parking-carnot.webp",
-                link: "./blog/guide-parkingcarnot.html",
-                categories: ["Parking"],
-                guideDetails: {
-                    title: "Guide du Parking Carnot",
-                    excerpt: "Informations pratiques, tarifs et accès au parking Carnot en plein cœur d'Aix-en-Provence.",
-                    date: "23 mars 2025",
-                    readTime: "5 min de lecture"
-                }
-            },
-            {
-                name: "Parking Rotonde",
-                lat: 43.52688,
-                lng: 5.45042,
-                description: "Parking souterrain situé au centre d'Aix-en-Provence, à proximité de la Rotonde.",
-                image: "./img/imgparkingrotonde.webp",
-                link: "./blog/guide-parkingrotonde.html",
-                categories: ["Parking"],
-                guideDetails: {
-                    title: "Guide du Parking Carnot",
-                    excerpt: "Informations pratiques, tarifs et accès au parking Rotonde en plein cœur d'Aix-en-Provence.",
-                    date: "26 mars 2025",
-                    readTime: "5 min de lecture"
-                }
-            },
-            {
-                name: "Parking Cardeurs",
-                lat: 43.52680,
-                lng: 5.44750,
-                description: "Parking souterrain situé au centre d'Aix-en-Provence, à proximité de la Rotonde.",
-                image: "./img/imgparkingcardeurs.webp",
-                link: "./blog/guide-parkingcardeurs.html",
-                categories: ["Parking"],
-                guideDetails: {
-                    title: "Guide du Parking Cardeurs",
-                    excerpt: "Informations pratiques, tarifs et accès au parking Rotonde en plein cœur d'Aix-en-Provence.",
-                    date: "26 mars 2025",
-                    readTime: "5 min de lecture"
-                }
-            },
-            {
-                name: "Parking Privé Centre-Ville",
-                lat: 43.52484606000972,
-                lng: 5.456277301643841,
-                description: "Parking Privé Centre-Ville d'Aix-en-Provence",
-                image: "./img/entreeparking.webp",
-                link: "./blog/guide-propositionparking.html",
-                categories: ["Parking"],
-                guideDetails: {
-                    title: "Parking Privé Centre-Ville",
-                    excerpt: "Place de parking privative idéalement située, dans un parking couvert et sécurisé.",
-                    date: "08 avril 2025",
-                    readTime: "5 min de lecture"
-                }
-            },
-            
-        ];
-        
-        // Stocker tous les marqueurs pour pouvoir les filtrer
-        const allMarkers = [];
-        
-        // Créer les marqueurs et les ajouter à la carte
-        locations.forEach(location => {
-            // Créer le contenu de la popup avec catégories
-            const categoriesHtml = location.categories.map(cat => 
-                `<span class="category-tag">${cat}</span>`
-            ).join(' ');
-            
-            const popupContent = `
-                <div class="info-window">
-                    <img src="${location.image}" alt="${location.name}">
-                    <h3>${location.name}</h3>
-                    <div>${categoriesHtml}</div>
-                    <p>${location.description}</p>
-                    <a href="${location.link}" class="btn">Lire le guide complet</a>
-                </div>
-            `;
-            
-            // Créer le marqueur
-            const marker = L.marker([location.lat, location.lng]);
-            marker.bindPopup(popupContent);
-            marker.addTo(map);
-            
-            // Stocker le marqueur avec ses catégories
-            allMarkers.push({
-                marker: marker,
-                categories: location.categories,
-                location: location
-            });
-        });
-        
-        // Fonction pour créer une vignette de guide
-        function createGuideCard(location) {
-            const guide = location.guideDetails;
-            const categoriesHtml = location.categories.map(cat => 
-                `<span class="category-tag">${cat}</span>`
-            ).join('');
-            
-            return `
-                <div class="guide-card">
-                    <img src="${location.image}" alt="${location.name}" class="guide-image">
-                    <div class="guide-content">
-                        <h3 class="guide-title">${guide.title}</h3>
-                        <div>${categoriesHtml}</div>
-                        <p class="guide-excerpt">${guide.excerpt}</p>
-                        <div class="guide-meta">
-                            <span class="guide-date">${guide.date}</span>
-                            <span class="guide-time">${guide.readTime}</span>
-                        </div>
-                        <a href="${location.link}" class="btn">Lire le guide</a>
-                    </div>
-                </div>
-            `;
+      <div id="filters">
+        <button class="filter-btn active" data-category="all">Tous</button>
+        <button class="filter-btn" data-category="Parking">Parking</button>
+        <button class="filter-btn" data-category="Gastronomie">Gastronomie</button>
+        <button class="filter-btn" data-category="Culture">Culture</button>
+        <button class="filter-btn" data-category="Nature">Nature</button>
+        <span class="marker-count" id="marker-count">Affichage de tous les lieux</span>
+      </div>
+
+      <div id="map" aria-label="Carte interactive des lieux utiles à Aix-en-Provence"></div>
+    </section>
+
+    <section class="guides-panel">
+      <span class="section-kicker">Guides associés</span>
+      <h2>Préparer votre séjour</h2>
+      <p class="section-copy">Les cartes ci-dessous reprennent les lieux affichés sur la carte. Elles vous aident à repérer rapidement les points utiles pour votre séjour.</p>
+      <div id="guides-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bar">
+      <p>La Familia — carte interactive voyageurs à Aix-en-Provence</p>
+      <div class="footer-links">
+        <a href="reservation.html" rel="nofollow">Réserver un logement</a>
+        <a href="https://my-booking.info" rel="nofollow noopener">Ma réservation</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.js"></script>
+  <script>
+    const map = L.map('map').setView([43.5298, 5.4474], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" rel="nofollow">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const locations = [
+      { name: "Cours Mirabeau", lat: 43.5284, lng: 5.4475, description: "L’avenue emblématique d’Aix-en-Provence, bordée de platanes, de fontaines et de cafés.", image: "./img/cours.jpg", link: "#", categories: ["Gastronomie", "Culture"], guideDetails: { title: "Guide du Cours Mirabeau", excerpt: "Découvrez l’histoire, les boutiques et les cafés incontournables du Cours Mirabeau.", date: "Guide voyageurs", readTime: "10 min" } },
+      { name: "Vieil Aix", lat: 43.5292, lng: 5.4485, description: "Le centre historique d’Aix, avec ses ruelles pittoresques, ses fontaines et ses hôtels particuliers.", image: "./img/vieilaix.jpg", link: "#", categories: ["Culture"], guideDetails: { title: "Exploration du Vieil Aix", excerpt: "Un parcours à travers les rues chargées d’histoire du cœur d’Aix-en-Provence.", date: "Guide voyageurs", readTime: "12 min" } },
+      { name: "Cathédrale Saint-Sauveur", lat: 43.5303, lng: 5.4502, description: "Un mélange d’époques architecturales, de l’art roman au gothique, avec un baptistère ancien.", image: "./img/saintsauveur.jpg", link: "#", categories: ["Culture"], guideDetails: { title: "Cathédrale Saint-Sauveur", excerpt: "Un édifice majeur du centre historique d’Aix-en-Provence.", date: "Guide voyageurs", readTime: "8 min" } },
+      { name: "Fondation Vasarely", lat: 43.5287, lng: 5.4242, description: "Un centre architectural audacieux consacré à Victor Vasarely et à l’art optique.", image: "./img/fondationvasarely.jpg", link: "#", categories: ["Culture"], guideDetails: { title: "Fondation Vasarely", excerpt: "Une visite artistique à prévoir lors d’un séjour à Aix.", date: "Guide voyageurs", readTime: "11 min" } },
+      { name: "Montagne Sainte-Victoire", lat: 43.5398, lng: 5.5786, description: "La montagne emblématique de la Provence, source d’inspiration pour Cézanne.", image: "./img/saintevictoire.jpg", link: "#", categories: ["Nature"], guideDetails: { title: "Sainte-Victoire", excerpt: "Randonnées, paysages et points de vue autour de la montagne de Cézanne.", date: "Guide voyageurs", readTime: "13 min" } },
+      { name: "Atelier Cézanne", lat: 43.5350, lng: 5.4385, description: "L’atelier où Paul Cézanne a travaillé les dernières années de sa vie.", image: "./img/ateliercezanne.jpg", link: "#", categories: ["Culture"], guideDetails: { title: "Atelier Cézanne", excerpt: "Une visite pour mieux comprendre l’univers de l’artiste.", date: "Guide voyageurs", readTime: "10 min" } },
+      { name: "Hôtel de Caumont", lat: 43.5279, lng: 5.4503, description: "Un hôtel particulier du XVIIIe siècle transformé en centre d’art.", image: "./img/hotelcaumont.jpg", link: "#", categories: ["Culture"], guideDetails: { title: "Hôtel de Caumont", excerpt: "Expositions, jardins et élégance du quartier Mazarin.", date: "Guide voyageurs", readTime: "9 min" } },
+      { name: "Place des Cardeurs", lat: 43.5289, lng: 5.4468, description: "Une place animée avec restaurants, bars et ambiance provençale.", image: "./img/cardeurs.jpg", link: "#", categories: ["Gastronomie"], guideDetails: { title: "Place des Cardeurs", excerpt: "Restaurants, ambiance et vie de quartier en plein centre.", date: "Guide voyageurs", readTime: "8 min" } },
+      { name: "Marché d’Aix-en-Provence", lat: 43.5291, lng: 5.4472, description: "Un marché provençal coloré avec produits locaux, fleurs et spécialités.", image: "./img/marcheaix.jpg", link: "#", categories: ["Gastronomie"], guideDetails: { title: "Marché d’Aix-en-Provence", excerpt: "Saveurs, couleurs et ambiance provençale au fil des marchés.", date: "Guide voyageurs", readTime: "7 min" } },
+      { name: "Parking Carnot", lat: 43.526729583740234, lng: 5.455116271972656, description: "Parking souterrain situé au centre d’Aix-en-Provence, proche du Cours Mirabeau.", image: "./img/parking-carnot.webp", link: "#", categories: ["Parking"], guideDetails: { title: "Parking Carnot", excerpt: "Informations pratiques pour stationner près du centre.", date: "Guide voyageurs", readTime: "5 min" } },
+      { name: "Parking Rotonde", lat: 43.52688, lng: 5.45042, description: "Parking souterrain situé près de la Rotonde, pratique pour accéder au centre.", image: "./img/imgparkingrotonde.webp", link: "#", categories: ["Parking"], guideDetails: { title: "Parking Rotonde", excerpt: "Un parking pratique pour rejoindre rapidement le centre-ville.", date: "Guide voyageurs", readTime: "5 min" } },
+      { name: "Parking Cardeurs", lat: 43.52680, lng: 5.44750, description: "Parking proche de la place des Cardeurs et des rues piétonnes.", image: "./img/imgparkingcardeurs.webp", link: "#", categories: ["Parking"], guideDetails: { title: "Parking Cardeurs", excerpt: "Stationnement pratique pour accéder aux restaurants et au centre ancien.", date: "Guide voyageurs", readTime: "5 min" } },
+      { name: "Parking Privé Centre-Ville", lat: 43.52484606000972, lng: 5.456277301643841, description: "Parking privé centre-ville d’Aix-en-Provence.", image: "./img/entreeparking.webp", link: "#", categories: ["Parking"], guideDetails: { title: "Parking privé centre-ville", excerpt: "Place de parking privative dans un parking couvert et sécurisé.", date: "Guide voyageurs", readTime: "5 min" } }
+    ];
+
+    const allMarkers = [];
+
+    locations.forEach(location => {
+      const categoriesHtml = location.categories.map(cat => `<span class="category-tag">${cat}</span>`).join(' ');
+      const popupContent = `
+        <div class="info-window">
+          <img src="${location.image}" alt="${location.name}" onerror="this.style.display='none'">
+          <h3>${location.name}</h3>
+          <div>${categoriesHtml}</div>
+          <p>${location.description}</p>
+        </div>
+      `;
+      const marker = L.marker([location.lat, location.lng]);
+      marker.bindPopup(popupContent);
+      marker.addTo(map);
+      allMarkers.push({ marker, categories: location.categories, location });
+    });
+
+    function createGuideCard(location) {
+      const guide = location.guideDetails;
+      const categoriesHtml = location.categories.map(cat => `<span class="category-tag">${cat}</span>`).join('');
+      return `
+        <div class="guide-card">
+          <img src="${location.image}" alt="${location.name}" class="guide-image" onerror="this.style.display='none'">
+          <div class="guide-content">
+            <h3 class="guide-title">${guide.title}</h3>
+            <div>${categoriesHtml}</div>
+            <p class="guide-excerpt">${guide.excerpt}</p>
+            <div class="guide-meta">
+              <span>${guide.date}</span>
+              <span>${guide.readTime}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateGuides(category) {
+      const guidesContainer = document.getElementById('guides-container');
+      const filteredLocations = locations.filter(location => category === 'all' || location.categories.includes(category));
+      guidesContainer.innerHTML = filteredLocations.length
+        ? filteredLocations.map(createGuideCard).join('')
+        : '<div class="no-guides">Aucun guide disponible pour cette catégorie</div>';
+    }
+
+    function filterMarkers(category) {
+      allMarkers.forEach(item => map.removeLayer(item.marker));
+      let visibleCount = 0;
+      allMarkers.forEach(item => {
+        if (category === 'all' || item.categories.includes(category)) {
+          item.marker.addTo(map);
+          visibleCount++;
         }
-        
-        // Fonction pour mettre à jour les vignettes de guides
-        function updateGuides(category) {
-            const guidesContainer = document.getElementById('guides-container');
-            let guidesHtml = '';
-            
-            // Filtrer les guides selon la catégorie sélectionnée
-            const filteredLocations = locations.filter(location => 
-                category === 'all' || location.categories.includes(category)
-            );
-            
-            // Si aucun guide ne correspond au filtre
-            if (filteredLocations.length === 0) {
-                guidesHtml = `<div class="no-guides">Aucun guide disponible pour cette catégorie</div>`;
-            } else {
-                // Créer les vignettes pour chaque guide
-                filteredLocations.forEach(location => {
-                    guidesHtml += createGuideCard(location);
-                });
-            }
-            
-            // Mettre à jour le conteneur de guides
-            guidesContainer.innerHTML = guidesHtml;
-        }
-        
-        // Fonction pour filtrer les marqueurs par catégorie
-        function filterMarkers(category) {
-            // Supprimer tous les marqueurs de la carte
-            allMarkers.forEach(item => {
-                map.removeLayer(item.marker);
-            });
-            
-            // Nombre de marqueurs affichés
-            let visibleCount = 0;
-            
-            // Ajouter les marqueurs qui correspondent à la catégorie sélectionnée
-            allMarkers.forEach(item => {
-                if (category === 'all' || item.categories.includes(category)) {
-                    item.marker.addTo(map);
-                    visibleCount++;
-                }
-            });
-            
-            // Mettre à jour le compteur
-            const countElement = document.getElementById('marker-count');
-            if (category === 'all') {
-                countElement.textContent = `Affichage de tous les lieux (${visibleCount})`;
-            } else {
-                countElement.textContent = `${visibleCount} lieu(x) dans la catégorie "${category}"`;
-            }
-            
-            // Mettre à jour les vignettes de guides
-            updateGuides(category);
-        }
-        
-        // Ajouter les événements de clic sur les boutons de filtre
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Supprimer la classe active de tous les boutons
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Ajouter la classe active au bouton cliqué
-                this.classList.add('active');
-                
-                // Filtrer les marqueurs et les guides
-                const category = this.getAttribute('data-category');
-                filterMarkers(category);
-            });
-        });
-        
-        // Initialiser avec tous les marqueurs et guides visibles
-        filterMarkers('all');
-    </script>
+      });
+      const countElement = document.getElementById('marker-count');
+      countElement.textContent = category === 'all'
+        ? `Affichage de tous les lieux (${visibleCount})`
+        : `${visibleCount} lieu(x) dans la catégorie “${category}”`;
+      updateGuides(category);
+    }
 
-<footer>
-  <div class="footer-content">
-    <div class="footer-section about">
-      <h3>La Familia</h3>
-      <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo">
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        filterMarkers(this.getAttribute('data-category'));
+      });
+    });
 
-      <p>La Familia est votre partenaire de confiance pour la gestion locative à Aix-en-Provence. Nous optimisons vos revenus locatifs et offrons une expérience unique à vos voyageurs.</p>
-    </div>
-    <div class="footer-section links">
-      <h3>Liens rapides</h3>
-      <ul>
-        <li><a href="./index.html">Accueil</a></li>
-        <li><a href="./reservation.html">Réserver un logement</a></li>
-        <li><a href="./tarifs.html">Tarifs</a></li>
-        <li><a href="./affiliation.html">Affiliation</a></li>
-        <li><a href="./estimation.html">Estimer mes revenus</a></li>
-      </ul>
-    </div>
-    <div class="footer-section contact">
-      <h3>Contact</h3>
-      <p>Adresse : 6 rue Gibelin, 13100 Aix-en-Provence</p>
-      <p>Téléphone : 06.51.09.49.66</p>
-      <p>Email : aurore.pageard@hotmail.fr</p>
-    </div>
-    <div class="footer-section social">
-      <h3>Suivez-nous</h3>
-      <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=61562890765862" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 La Familia. Tous droits réservés.</p>
-  </div>
-</footer>
-
-
+    filterMarkers('all');
+  </script>
 </body>
 </html>
