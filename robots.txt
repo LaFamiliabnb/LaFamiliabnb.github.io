@@ -3,4 +3,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://lafamiliabnb.fr/sitemap.xml
+# Espace voyageurs / booking volontairement exclu du SEO du site principal propriétaires
+Disallow: /www/booking/
+Disallow: /booking/
+
+Sitemap: https://www.lafamiliabnb.fr/sitemap.xml
