@@ -1,13 +1,492 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Tarifs conciergerie Airbnb Aix-en-Provence | La Familia</title>
-  <link rel="canonical" href="https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/">
-  <meta http-equiv="refresh" content="0; url=/tarifs.html">
+  <meta name="description" content="Tarifs de conciergerie Airbnb à Aix-en-Provence pour propriétaires : commission de gestion, prestations incluses, ménage, linge, optimisation des prix et suivi local." />
+  <link rel="canonical" href="https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/" />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Tarifs conciergerie Airbnb Aix-en-Provence | La Familia" />
+  <meta property="og:description" content="Une tarification claire pour déléguer votre location courte durée à Aix-en-Provence : gestion voyageurs, annonce, ménage, linge, prix et suivi propriétaire." />
+  <meta property="og:url" content="https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/" />
+  <meta property="og:site_name" content="La Familia" />
+  <meta property="og:image" content="https://www.lafamiliabnb.fr/img/living-room-8368673_1280.webp" />
+  <meta property="og:image:alt" content="Tarifs conciergerie Airbnb La Familia à Aix-en-Provence" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tarifs conciergerie Airbnb Aix-en-Provence | La Familia" />
+  <meta name="twitter:description" content="Commission et prestations de gestion Airbnb à Aix-en-Provence pour propriétaires." />
+  <meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/living-room-8368673_1280.webp" />
+
+  <link rel="preload" href="/img/living-room-8368673_1280.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="/style.css" as="style" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "Cabin", Arial, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 6.2vw, 5.9rem); margin: 22px 0; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2.1rem, 4.3vw, 3.8rem); margin: 0 0 22px; letter-spacing: -.035em; }
+    h3 { font-size: 1.45rem; margin: 0 0 12px; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
+
+    .skip-link { position: absolute; left: -999px; top: 12px; background: var(--dark); color: var(--cream); padding: 10px 14px; z-index: 9999; }
+    .skip-link:focus { left: 12px; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,244,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 12px 6%; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: uppercase; font-family: "PlayfairDisplay", Georgia, serif; font-weight: 900; letter-spacing: .06em; color: var(--dark); }
+    .brand img { width: 72px; }
+    .menu-list ul { display: flex; align-items: center; gap: 24px; list-style: none; padding: 0; margin: 0; }
+    .menu-list a { text-decoration: none; text-transform: uppercase; font-size: .84rem; font-weight: 900; color: var(--dark); }
+    .menu-list a:hover { color: var(--accent); }
+    .nav-cta { background: var(--dark); color: var(--cream) !important; padding: 14px 19px; border-radius: 999px; box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: var(--dark); }
+
+    .tarifs-breadcrumb { width: min(88%, 1180px); margin: 0 auto; padding-top: 22px; color: var(--muted); font-size: .95rem; }
+    .tarifs-breadcrumb a { text-decoration: none; font-weight: 900; }
+
+    .tarifs-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr); gap: 46px; align-items: center; width: min(88%, 1180px); max-width: 1180px; margin: 0 auto; padding: 58px 0 50px; }
+    .tarifs-eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 10px 16px; border-radius: 999px; background: var(--beige); font-weight: 900; color: var(--dark); }
+    .tarifs-lead { max-width: 760px; font-size: 1.22rem; margin-bottom: 0; }
+    .tarifs-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px; }
+    .tarifs-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 15px 25px; border-radius: 14px; border: 2px solid var(--dark); background: var(--dark); color: var(--cream); text-decoration: none; font-weight: 900; box-shadow: 0 12px 28px rgba(0,0,0,.18); transition: .2s ease; }
+    .tarifs-button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+    .tarifs-button.secondary { background: transparent; color: var(--dark); box-shadow: none; }
+    .tarifs-section.dark .tarifs-button.secondary { color: var(--cream); border-color: var(--cream); }
+
+    .tarifs-price-card { border-radius: 30px; background: var(--white); border: 1px solid var(--line); box-shadow: 0 24px 54px rgba(0,0,0,.14); overflow: hidden; }
+    .tarifs-price-photo { min-height: 215px; background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.32)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; position: relative; }
+    .tarifs-price-photo span { position: absolute; left: 22px; bottom: 22px; background: rgba(255,250,244,.92); border-radius: 18px; padding: 13px 16px; font-weight: 900; }
+    .tarifs-price-body { padding: 30px; }
+    .tarifs-price-main { display: flex; align-items: baseline; gap: 8px; margin: 12px 0; }
+    .tarifs-price-main strong { font-size: clamp(3.2rem, 7vw, 5rem); color: var(--accent); line-height: .95; }
+    .tarifs-price-main span { font-weight: 900; color: var(--dark); }
+    .tarifs-note-list { display: grid; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .tarifs-note-list li { background: var(--soft); border-radius: 14px; padding: 14px 15px; display: flex; gap: 10px; font-weight: 800; }
+    .tarifs-note-list i { color: var(--accent); margin-top: 4px; }
+
+    .tarifs-trust { width: min(88%, 1180px); margin: 0 auto; padding: 0 0 54px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .tarifs-trust-item { background: var(--white); border-radius: 18px; padding: 22px; box-shadow: 0 8px 22px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); text-align: center; }
+    .tarifs-trust-item strong { display: block; font-size: 1.65rem; color: var(--accent); margin-bottom: 6px; }
+
+    .tarifs-section { padding: 74px 6%; }
+    .tarifs-section.compact { padding-top: 58px; padding-bottom: 50px; }
+    .tarifs-section.alt { background: var(--soft); }
+    .tarifs-section.dark { background: var(--dark); color: var(--cream); }
+    .tarifs-section.dark h2, .tarifs-section.dark h3 { color: var(--cream); }
+    .tarifs-section.dark p, .tarifs-section.dark li { color: #f7dfcf; }
+    .tarifs-container { max-width: 1180px; margin: 0 auto; }
+    .tarifs-intro { max-width: 860px; font-size: 1.15rem; }
+
+    .tarifs-grid { display: grid; gap: 22px; margin-top: 32px; }
+    .tarifs-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tarifs-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tarifs-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .tarifs-card { background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 20px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .tarifs-card i { color: var(--accent); font-size: 1.45rem; margin-bottom: 14px; }
+    .tarifs-section.dark .tarifs-card { background: rgba(255,250,244,.09); border-color: rgba(255,255,255,.2); box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+
+    .tarifs-offers { display: grid; grid-template-columns: 1.05fr .95fr; gap: 24px; margin-top: 38px; align-items: stretch; }
+    .tarifs-offer { background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 26px; padding: 34px; box-shadow: var(--shadow); }
+    .tarifs-offer.featured { background: var(--beige); }
+    .tarifs-badge { display: inline-flex; width: fit-content; background: var(--dark); color: var(--cream); border-radius: 999px; padding: 9px 14px; font-weight: 900; font-size: .88rem; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 18px; }
+    .tarifs-big-price { margin: 14px 0 8px; font-family: "PlayfairDisplay", Georgia, serif; color: var(--accent); font-size: clamp(3.2rem, 7vw, 5.4rem); line-height: .9; letter-spacing: -.04em; }
+    .tarifs-big-price span { font-family: "Cabin", Arial, sans-serif; color: var(--dark); font-size: 1.15rem; letter-spacing: 0; font-weight: 900; }
+    .tarifs-list { display: grid; gap: 13px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .tarifs-list li { display: flex; align-items: flex-start; gap: 10px; font-weight: 800; }
+    .tarifs-list i { color: var(--accent); margin-top: 5px; }
+
+    .tarifs-included { display: grid; gap: 12px; margin-top: 34px; }
+    .tarifs-included-row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 18px; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 5px 18px rgba(0,0,0,.06); }
+    .tarifs-included-row strong { color: var(--dark); font-size: 1.06rem; }
+
+    .tarifs-example { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 34px; align-items: stretch; }
+    .tarifs-calculation { background: var(--beige); border-radius: 26px; padding: 32px; box-shadow: var(--shadow); }
+    .tarifs-calc-line { display: flex; justify-content: space-between; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,.12); font-weight: 900; }
+    .tarifs-calc-line.total { border-bottom: 0; font-size: 1.2rem; color: var(--accent); }
+    .tarifs-warning { background: rgba(255,250,244,.12); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 22px; margin-top: 24px; }
+
+    .tarifs-comparison { overflow-x: auto; margin-top: 34px; }
+    .tarifs-comparison table { width: 100%; min-width: 720px; border-collapse: collapse; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+    .tarifs-comparison th, .tarifs-comparison td { text-align: left; padding: 18px; border-bottom: 1px solid rgba(0,0,0,.08); vertical-align: top; }
+    .tarifs-comparison th { background: var(--dark); color: var(--cream); font-weight: 900; }
+    .tarifs-comparison td strong { color: var(--accent); }
+
+    .tarifs-faq details { background: var(--white); border-radius: 18px; border: 1px solid rgba(0,0,0,.08); padding: 22px; margin-top: 14px; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+    .tarifs-faq summary { cursor: pointer; font-weight: 900; }
+    .tarifs-link-grid a { display: block; background: var(--white); border-radius: 16px; padding: 20px; text-decoration: none; font-weight: 900; box-shadow: 0 6px 18px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); }
+    .tarifs-cta { background: var(--beige); border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1.2fr auto; gap: 28px; align-items: center; box-shadow: var(--shadow); }
+
+    footer { background: var(--dark); color: var(--cream); padding: 54px 6% 24px; }
+    footer h3 { color: var(--cream); }
+    footer p, footer li { color: #f7dfcf; }
+    footer a { color: #f7dfcf; text-decoration: none; }
+    .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin: 0 auto 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+    .footer-logo { width: 94px; margin: 0 auto; }
+    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; align-items: center; text-align: center; background: var(--dark); }
+    .footer-bottom p { width: 100%; margin: 0; color: #f7dfcf; text-align: center; }
+    .legal-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-weight: 900; width: 100%; }
+    .legal-links a { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (max-width: 980px) {
+      nav { align-items: flex-start; }
+      .hamburger { display: flex; }
+      .menu-list { display: none; position: absolute; top: 84px; right: 6%; background: var(--cream); border-radius: 18px; border: 1px solid rgba(0,0,0,.1); padding: 18px; box-shadow: 0 18px 38px rgba(0,0,0,.16); }
+      .menu-list.active { display: block; }
+      .menu-list ul { flex-direction: column; align-items: flex-start; }
+      .tarifs-hero, .tarifs-offers, .tarifs-example, .tarifs-cta { grid-template-columns: 1fr; }
+      .tarifs-trust, .tarifs-grid.two, .tarifs-grid.three, .tarifs-grid.four, .footer-grid { grid-template-columns: 1fr; }
+      .tarifs-included-row { grid-template-columns: 1fr; }
+      .tarifs-actions { flex-direction: column; }
+      .tarifs-button { width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://www.lafamiliabnb.fr/#business",
+    "name": "La Familia",
+    "url": "https://www.lafamiliabnb.fr/",
+    "image": "https://www.lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
+    "description": "Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.",
+    "telephone": "+33651094966",
+    "email": "aurore.pageard@hotmail.fr",
+    "address": { "@type": "PostalAddress", "streetAddress": "6 rue Gibelin", "postalCode": "13100", "addressLocality": "Aix-en-Provence", "addressCountry": "FR" },
+    "areaServed": ["Aix-en-Provence", "Centre historique d'Aix-en-Provence", "Quartier Mazarin", "Cours Mirabeau", "Rotonde", "Luynes", "Puyricard", "Les Milles"],
+    "priceRange": "Commission de gestion",
+    "sameAs": ["https://www.instagram.com/lafamiliabnb/?hl=fr", "https://www.facebook.com/profile.php?id=61562890765862"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Tarifs conciergerie Airbnb à Aix-en-Provence",
+    "serviceType": "Conciergerie Airbnb et gestion de location courte durée",
+    "provider": { "@id": "https://www.lafamiliabnb.fr/#business" },
+    "areaServed": { "@type": "City", "name": "Aix-en-Provence" },
+    "description": "Tarifs de gestion Airbnb à Aix-en-Provence : annonce, voyageurs, ménage, linge, check-in, optimisation des prix et suivi propriétaire.",
+    "offers": {
+      "@type": "Offer",
+      "name": "Commission de gestion La Familia",
+      "description": "Commission de gestion de 20% sur les revenus générés, selon les conditions de la prestation.",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "20", "priceCurrency": "EUR", "unitText": "PERCENT" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lafamiliabnb.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Tarifs conciergerie Airbnb Aix-en-Provence", "item": "https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Quel est le tarif d'une conciergerie Airbnb à Aix-en-Provence ?", "acceptedAnswer": { "@type": "Answer", "text": "La Familia propose une commission de gestion de 20% sur les revenus générés, selon les conditions de la prestation validées avec le propriétaire." } },
+      { "@type": "Question", "name": "Que comprend la commission de gestion ?", "acceptedAnswer": { "@type": "Answer", "text": "La commission peut inclure la gestion de l'annonce, la communication voyageurs, le check-in, le check-out, l'optimisation des prix, le suivi des avis et le reporting propriétaire." } },
+      { "@type": "Question", "name": "Le ménage et le linge sont-ils compris dans les tarifs ?", "acceptedAnswer": { "@type": "Answer", "text": "Le ménage et le linge peuvent être organisés selon les besoins du logement. Les modalités sont précisées lors de l'estimation afin d'éviter toute ambiguïté." } },
+      { "@type": "Question", "name": "Y a-t-il des frais cachés ?", "acceptedAnswer": { "@type": "Answer", "text": "Les conditions de gestion sont clarifiées avant la mise en location : commission, éventuels frais logistiques, ménage, linge et prestations spécifiques." } },
+      { "@type": "Question", "name": "Puis-je demander une estimation avant de m'engager ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, une estimation du potentiel locatif peut être demandée avant toute mise en gestion du logement." } }
+    ]
+  }
+  </script>
 </head>
+
 <body>
-  <p>Redirection vers <a href="/tarifs.html">la page tarifs</a>.</p>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ2JG2LD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="/"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia - conciergerie Airbnb Aix-en-Provence" /><span>La Familia</span></a>
+      <div class="menu-list" id="menu-list">
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <div class="tarifs-breadcrumb"><a href="/">Accueil</a> / Tarifs conciergerie Airbnb Aix-en-Provence</div>
+
+    <section class="tarifs-hero">
+      <div>
+        <span class="tarifs-eyebrow"><i class="fas fa-receipt"></i> Tarifs transparents</span>
+        <h1>Tarifs de conciergerie Airbnb à Aix-en-Provence</h1>
+        <p class="tarifs-lead">Une tarification claire pour les propriétaires qui souhaitent déléguer leur location courte durée : annonce, voyageurs, check-in, ménage, linge, optimisation des prix et suivi local.</p>
+        <div class="tarifs-actions">
+          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="tarifs-button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
+          <a href="#commission" class="tarifs-button secondary">Comprendre la commission</a>
+        </div>
+      </div>
+
+      <aside class="tarifs-price-card" aria-label="Commission de gestion La Familia">
+        <div class="tarifs-price-photo"><span>Commission de gestion</span></div>
+        <div class="tarifs-price-body">
+          <h2>Gestion complète</h2>
+          <div class="tarifs-price-main"><strong>20%</strong><span>sur les revenus générés</span></div>
+          <p>Commission appliquée selon les conditions validées ensemble avant la mise en gestion de votre logement.</p>
+          <ul class="tarifs-note-list">
+            <li><i class="fas fa-check-circle"></i><span>Modèle aligné sur la performance du logement</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Estimation personnalisée avant engagement</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Suivi local à Aix-en-Provence</span></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="tarifs-trust" aria-label="Points clés des tarifs">
+      <div class="tarifs-trust-item"><strong>20%</strong><span>commission de gestion</span></div>
+      <div class="tarifs-trust-item"><strong>Airbnb + Booking</strong><span>plateformes suivies</span></div>
+      <div class="tarifs-trust-item"><strong>7j/7</strong><span>assistance voyageurs</span></div>
+      <div class="tarifs-trust-item"><strong>Aix</strong><span>gestion locale terrain</span></div>
+    </section>
+
+    <section class="tarifs-section alt compact" id="commission">
+      <div class="tarifs-container">
+        <h2>Une tarification simple, lisible et alignée avec vos revenus</h2>
+        <p class="tarifs-intro">La commission rémunère la gestion opérationnelle et le suivi de votre location courte durée. L’objectif est de vous faire gagner du temps, de sécuriser l’expérience voyageurs et d’améliorer la performance de votre logement.</p>
+        <div class="tarifs-offers">
+          <article class="tarifs-offer featured">
+            <span class="tarifs-badge">Offre principale</span>
+            <h3>Gestion complète Airbnb & Booking</h3>
+            <div class="tarifs-big-price">20% <span>de commission</span></div>
+            <p>Commission prélevée sur les revenus générés par votre logement, selon les modalités validées avant mise en gestion.</p>
+            <ul class="tarifs-list">
+              <li><i class="fas fa-check"></i><span>Création et optimisation de l’annonce</span></li>
+              <li><i class="fas fa-check"></i><span>Diffusion Airbnb, Booking et plateformes adaptées</span></li>
+              <li><i class="fas fa-check"></i><span>Communication voyageurs et assistance 7j/7</span></li>
+              <li><i class="fas fa-check"></i><span>Check-in, check-out et instructions d’arrivée</span></li>
+              <li><i class="fas fa-check"></i><span>Optimisation des prix selon la saisonnalité</span></li>
+              <li><i class="fas fa-check"></i><span>Suivi propriétaire et conseils d’amélioration</span></li>
+            </ul>
+          </article>
+
+          <article class="tarifs-offer">
+            <span class="tarifs-badge">À préciser selon logement</span>
+            <h3>Ménage, linge et préparation</h3>
+            <div class="tarifs-big-price">Sur devis <span>selon besoins</span></div>
+            <p>Les besoins logistiques varient selon la surface, le nombre de couchages, le standing et la fréquence des rotations.</p>
+            <ul class="tarifs-list">
+              <li><i class="fas fa-check"></i><span>Ménage entre deux séjours</span></li>
+              <li><i class="fas fa-check"></i><span>Coordination ou préparation du linge</span></li>
+              <li><i class="fas fa-check"></i><span>Consommables essentiels</span></li>
+              <li><i class="fas fa-check"></i><span>Contrôle qualité avant arrivée</span></li>
+            </ul>
+            <div class="tarifs-actions"><a href="/estimation-revenus-airbnb-aix-en-provence/" class="tarifs-button secondary">Adapter à mon logement</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section">
+      <div class="tarifs-container">
+        <h2>Ce qui est inclus dans la gestion</h2>
+        <p class="tarifs-intro">La page tarifs doit être claire : vous devez comprendre ce que vous déléguez, ce qui est suivi et comment la conciergerie vous accompagne au quotidien.</p>
+        <div class="tarifs-included">
+          <div class="tarifs-included-row"><strong>Annonce et diffusion</strong><span>Rédaction, optimisation, équipements, règles du logement, calendrier et diffusion sur Airbnb, Booking ou plateformes adaptées.</span></div>
+          <div class="tarifs-included-row"><strong>Gestion voyageurs</strong><span>Réponses aux messages, informations d’arrivée, suivi pendant le séjour, assistance en cas d’imprévu et amélioration de l’expérience.</span></div>
+          <div class="tarifs-included-row"><strong>Arrivées et départs</strong><span>Organisation du check-in, check-out, instructions d’accès, boîte à clés si nécessaire et vérification après départ.</span></div>
+          <div class="tarifs-included-row"><strong>Ménage, linge et qualité</strong><span>Coordination du ménage, gestion du linge selon les besoins, consommables, contrôle qualité et préparation du logement.</span></div>
+          <div class="tarifs-included-row"><strong>Optimisation des revenus</strong><span>Ajustement des tarifs selon la saison, les événements à Aix-en-Provence, la demande, le taux d’occupation et les performances.</span></div>
+          <div class="tarifs-included-row"><strong>Suivi propriétaire</strong><span>Visibilité sur les réservations, suivi des revenus, conseils d’amélioration, avis voyageurs et points de vigilance.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section dark">
+      <div class="tarifs-container">
+        <h2>Exemple de calcul de commission</h2>
+        <p class="tarifs-intro">Cet exemple est indicatif. Les résultats réels dépendent du logement, de son emplacement, de sa disponibilité, du niveau de confort, des photos, des plateformes et de la saisonnalité.</p>
+        <div class="tarifs-example">
+          <div class="tarifs-calculation">
+            <h3>Exemple simple</h3>
+            <div class="tarifs-calc-line"><span>Revenus générés sur le mois</span><span>2 000 €</span></div>
+            <div class="tarifs-calc-line"><span>Commission de gestion 20%</span><span>400 €</span></div>
+            <div class="tarifs-calc-line total"><span>Revenus avant autres charges éventuelles</span><span>1 600 €</span></div>
+          </div>
+          <div>
+            <h3>Pourquoi ce modèle est intéressant ?</h3>
+            <p>La rémunération est liée à la performance du logement. Plus l’annonce est bien présentée, les voyageurs bien accompagnés et les prix bien ajustés, plus les intérêts du propriétaire et de la conciergerie sont alignés.</p>
+            <div class="tarifs-warning"><p>Les éventuels frais spécifiques, comme le ménage, le linge ou des prestations particulières, sont clarifiés avant toute mise en gestion.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section alt">
+      <div class="tarifs-container">
+        <h2>Comparer les options de gestion</h2>
+        <p class="tarifs-intro">Cette comparaison aide à comprendre la valeur d’une conciergerie locale face à une gestion seule ou à un service plus standardisé.</p>
+        <div class="tarifs-comparison">
+          <table>
+            <thead><tr><th>Critère</th><th>Gestion seul</th><th>Service standardisé</th><th>La Familia</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Temps à consacrer</strong></td><td>Élevé : messages, ménage, prix, imprévus</td><td>Réduit, mais parfois impersonnel</td><td>Gestion locale et suivi propriétaire</td></tr>
+              <tr><td><strong>Présence terrain à Aix</strong></td><td>Dépend de votre disponibilité</td><td>Variable selon les prestataires</td><td>Interlocutrice locale à Aix-en-Provence</td></tr>
+              <tr><td><strong>Expérience voyageurs</strong></td><td>Dépend du temps disponible</td><td>Process souvent standardisé</td><td>Logement préparé, suivi et réactivité</td></tr>
+              <tr><td><strong>Optimisation prix</strong></td><td>Souvent manuelle</td><td>Automatisée, parfois peu personnalisée</td><td>Prix adaptés au bien, au quartier et à la saison</td></tr>
+              <tr><td><strong>Relation propriétaire</strong></td><td>Vous gérez tout</td><td>Support plus éloigné</td><td>Suivi humain, clair et local</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section">
+      <div class="tarifs-container">
+        <h2>Pourquoi le tarif ne suffit pas à comparer deux conciergeries ?</h2>
+        <p class="tarifs-intro">Une commission plus basse n’est intéressante que si la qualité de gestion suit. En location courte durée, les revenus dépendent aussi de la présentation du logement, de la rapidité des réponses, de la propreté, des avis et de l’ajustement des prix.</p>
+        <div class="tarifs-grid three">
+          <article class="tarifs-card"><i class="fas fa-star"></i><h3>Qualité des avis</h3><p>Des voyageurs satisfaits améliorent la visibilité de l’annonce et la confiance des futurs clients.</p></article>
+          <article class="tarifs-card"><i class="fas fa-broom"></i><h3>Préparation du logement</h3><p>Un ménage fiable, un linge propre et des consignes claires limitent les mauvaises surprises.</p></article>
+          <article class="tarifs-card"><i class="fas fa-chart-line"></i><h3>Prix ajustés</h3><p>Un tarif bien piloté selon la saison et la demande locale peut faire une vraie différence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section alt tarifs-faq">
+      <div class="tarifs-container">
+        <h2>Questions fréquentes sur nos tarifs</h2>
+        <details><summary>Quel est le tarif de La Familia pour gérer un Airbnb à Aix-en-Provence ?</summary><p>La Familia propose une commission de gestion de 20% sur les revenus générés, selon les conditions de la prestation validées avec le propriétaire.</p></details>
+        <details><summary>Que comprend la commission de gestion ?</summary><p>Elle peut inclure la gestion de l’annonce, les échanges voyageurs, le check-in, le check-out, l’optimisation des prix, le suivi des avis et le suivi propriétaire.</p></details>
+        <details><summary>Le ménage et le linge sont-ils inclus ?</summary><p>Le ménage et le linge sont organisés selon les besoins du logement. Les modalités exactes sont précisées avant la mise en gestion.</p></details>
+        <details><summary>Y a-t-il des frais cachés ?</summary><p>Non, les conditions sont clarifiées avant de commencer : commission, éventuels frais logistiques, ménage, linge ou prestations spécifiques.</p></details>
+        <details><summary>Puis-je demander une estimation avant de m’engager ?</summary><p>Oui. Une estimation du potentiel locatif permet de vérifier si la location courte durée est pertinente pour votre bien.</p></details>
+      </div>
+    </section>
+
+    <section class="tarifs-section">
+      <div class="tarifs-container">
+        <h2>À lire aussi</h2>
+        <p class="tarifs-intro">Ces pages complètent votre réflexion avant de confier votre logement à une conciergerie Airbnb.</p>
+        <div class="tarifs-grid three tarifs-link-grid">
+          <a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie Airbnb Aix-en-Provence</a>
+          <a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus Airbnb</a>
+          <a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a>
+          <a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb Aix-en-Provence</a>
+          <a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb Aix-en-Provence</a>
+          <a href="/blog/">Blog propriétaires</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarifs-section alt">
+      <div class="tarifs-container">
+        <div class="tarifs-cta">
+          <div>
+            <h2>Vous voulez connaître le potentiel de votre logement ?</h2>
+            <p>Demandez une estimation gratuite pour vérifier les revenus possibles, les frais à prévoir et les conditions de gestion adaptées à votre bien.</p>
+          </div>
+          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="tarifs-button">Estimer mes revenus</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-frame"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo" /></div>
+        <h3>La Familia</h3>
+        <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie Airbnb Aix</a></li>
+          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a></li>
+          <li><a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a></li>
+          <li><a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Propriétaires</h3>
+        <ul>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/nos-logements/">Logements gérés</a></li>
+          <li><a href="/blog/">Blog propriétaires</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>6 rue Gibelin<br />13100 Aix-en-Provence</p>
+        <p><a href="tel:+33651094966">06 51 09 49 66</a></p>
+        <p><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
+        <p><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61562890765862" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 La Familia. Tous droits réservés.</p>
+      <div class="legal-links" aria-label="Liens légaux"><a href="/mentions-legales/">Mentions légales</a><a href="/politique-confidentialite/">Politique de confidentialité</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const menuList = document.getElementById("menu-list");
+    if (hamburger && menuList) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = menuList.classList.toggle("active");
+        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
+
+  <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-T5JV1M1NK3"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-T5JV1M1NK3");
+  </script>
+  <script defer>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MZ2JG2LD");
+  </script>
 </body>
 </html>
