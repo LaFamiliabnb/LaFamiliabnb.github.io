@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Politique de confidentialité | La Familia</title>
+  <meta name="description" content="Politique de confidentialité du site La Familia : données personnelles, formulaires de contact, estimation de revenus, cookies et droits des utilisateurs." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.lafamiliabnb.fr/politique-confidentialite/" />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Politique de confidentialité | La Familia" />
+  <meta property="og:description" content="Informations sur la gestion des données personnelles collectées via le site La Familia." />
+  <meta property="og:url" content="https://www.lafamiliabnb.fr/politique-confidentialite/" />
+  <meta property="og:site_name" content="La Familia" />
+
+  <link rel="preload" href="/style.css" as="style" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "Cabin", Arial, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 6.2vw, 5.8rem); margin: 22px 0; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2rem, 3.8vw, 3.3rem); margin: 0 0 22px; letter-spacing: -.035em; }
+    h3 { font-size: 1.45rem; margin: 0 0 12px; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
+
+    .skip-link { position: absolute; left: -999px; top: 12px; background: var(--dark); color: var(--cream); padding: 10px 14px; z-index: 9999; }
+    .skip-link:focus { left: 12px; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,244,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 12px 6%; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: uppercase; font-family: "PlayfairDisplay", Georgia, serif; font-weight: 900; letter-spacing: .06em; color: var(--dark); }
+    .brand img { width: 72px; }
+    .menu-list ul { display: flex; align-items: center; gap: 24px; list-style: none; padding: 0; margin: 0; }
+    .menu-list a { text-decoration: none; text-transform: uppercase; font-size: .84rem; font-weight: 900; color: var(--dark); }
+    .menu-list a:hover { color: var(--accent); }
+    .nav-cta { background: var(--dark); color: var(--cream) !important; padding: 14px 19px; border-radius: 999px; box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: var(--dark); }
+
+    .breadcrumb { width: min(88%, 1180px); margin: 0 auto; padding-top: 22px; color: var(--muted); font-size: .95rem; }
+    .breadcrumb a { text-decoration: none; font-weight: 900; }
+
+    .privacy-hero { width: min(88%, 1180px); max-width: 1180px; margin: 0 auto; padding: 58px 0 54px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .78fr); gap: 46px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 10px 16px; border-radius: 999px; background: var(--beige); font-weight: 900; color: var(--dark); }
+    .hero-lead { max-width: 760px; font-size: 1.18rem; margin-bottom: 0; }
+    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 30px; padding: 34px; box-shadow: 0 24px 54px rgba(0,0,0,.14); position: relative; overflow: hidden; }
+    .hero-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--beige); }
+    .hero-card strong { display: block; font-family: "PlayfairDisplay", Georgia, serif; color: var(--accent); font-size: clamp(2.2rem, 4.6vw, 3.7rem); line-height: .95; letter-spacing: -.04em; margin-bottom: 12px; }
+    .hero-card ul { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+    .hero-card li { display: flex; gap: 10px; font-weight: 900; }
+    .hero-card i { color: var(--accent); margin-top: 4px; }
+
+    .privacy-section { padding: 74px 6%; background: var(--soft); }
+    .privacy-container { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 34px; align-items: start; }
+    .privacy-content { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: clamp(28px, 5vw, 56px); box-shadow: var(--shadow); }
+    .privacy-block { padding: 30px 0; border-bottom: 1px solid var(--line); }
+    .privacy-block:first-child { padding-top: 0; }
+    .privacy-block:last-child { border-bottom: 0; padding-bottom: 0; }
+    .privacy-block h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+    .privacy-list { padding-left: 0; margin: 18px 0 0; display: grid; gap: 10px; list-style: none; }
+    .privacy-list li { display: grid; grid-template-columns: 230px 1fr; gap: 18px; border-bottom: 1px dashed rgba(0,0,0,.1); padding-bottom: 10px; }
+    .privacy-list strong { color: var(--dark); }
+    .note { display: block; margin-top: 18px; color: var(--muted); font-size: .95rem; }
+    .warning-box { background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 20px; }
+
+    .side { position: sticky; top: 100px; display: grid; gap: 18px; }
+    .side-card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .side-card h3 { margin-bottom: 14px; }
+    .toc { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+    .toc a { text-decoration: none; color: var(--muted); font-weight: 900; }
+    .toc a:hover { color: var(--accent); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 22px; border-radius: 14px; border: 2px solid var(--dark); background: var(--dark); color: var(--cream); text-decoration: none; font-weight: 900; box-shadow: 0 12px 28px rgba(0,0,0,.16); transition: .2s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+
+    .cta-section { padding: 74px 6%; background: var(--cream); }
+    .cta-band { max-width: 1180px; margin: 0 auto; background: var(--beige); border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1.2fr auto; gap: 28px; align-items: center; box-shadow: var(--shadow); }
+
+    footer { background: var(--dark); color: var(--cream); padding: 54px 6% 24px; }
+    footer h3 { color: var(--cream); }
+    footer p, footer li { color: #f7dfcf; }
+    footer a { color: #f7dfcf; text-decoration: none; }
+    .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 30px; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-frame { width: 126px; height: 126px; display: grid; place-items: center; background: var(--white); border-radius: 26px; padding: 16px; margin: 0 auto 18px; box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+    .footer-logo { width: 94px; margin: 0 auto; }
+    .footer-bottom { max-width: 1180px; margin: 30px auto 0; padding: 22px 0 0; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; align-items: center; text-align: center; background: var(--dark); }
+    .footer-bottom p { width: 100%; margin: 0; color: #f7dfcf; text-align: center; }
+    .legal-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; font-weight: 900; width: 100%; }
+    .legal-links a { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (max-width: 980px) {
+      nav { align-items: flex-start; }
+      .hamburger { display: flex; }
+      .menu-list { display: none; position: absolute; top: 84px; right: 6%; background: var(--cream); border-radius: 18px; border: 1px solid rgba(0,0,0,.1); padding: 18px; box-shadow: 0 18px 38px rgba(0,0,0,.16); }
+      .menu-list.active { display: block; }
+      .menu-list ul { flex-direction: column; align-items: flex-start; }
+      .privacy-hero, .privacy-container, .cta-band, .footer-grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+      .privacy-list li { grid-template-columns: 1fr; gap: 4px; }
+      .button { width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lafamiliabnb.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Politique de confidentialité", "item": "https://www.lafamiliabnb.fr/politique-confidentialite/" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#confidentialite">Aller à la politique de confidentialité</a>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="/">
+        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" />
+        <span>La Familia</span>
+      </a>
+
+      <div class="menu-list" id="menu-list">
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="breadcrumb"><a href="/">Accueil</a> / Politique de confidentialité</div>
+
+    <section class="privacy-hero">
+      <div>
+        <span class="eyebrow"><i class="fas fa-shield-halved"></i> Données personnelles</span>
+        <h1>Politique de confidentialité</h1>
+        <p class="hero-lead">Cette page explique comment La Familia collecte, utilise et protège les données personnelles transmises via son site internet.</p>
+      </div>
+
+      <aside class="hero-card">
+        <strong>Vos données</strong>
+        <p>Les informations transmises via le site servent principalement à répondre aux demandes de contact et d’estimation.</p>
+        <ul>
+          <li><i class="fas fa-envelope"></i><span>Répondre à vos messages</span></li>
+          <li><i class="fas fa-chart-line"></i><span>Étudier le potentiel de votre logement</span></li>
+          <li><i class="fas fa-lock"></i><span>Limiter l’usage aux besoins de la relation</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="privacy-section" id="confidentialite">
+      <div class="privacy-container">
+        <article class="privacy-content">
+          <section class="privacy-block" id="responsable">
+            <h2>Responsable du traitement</h2>
+            <p>Les données personnelles collectées sur le site sont traitées par La Familia.</p>
+            <ul class="privacy-list">
+              <li><strong>Nom commercial</strong><span>La Familia</span></li>
+              <li><strong>Adresse</strong><span>6 rue Gibelin, 13100 Aix-en-Provence, France</span></li>
+              <li><strong>E-mail</strong><span><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></span></li>
+              <li><strong>Téléphone</strong><span><a href="tel:+33651094966">06 51 09 49 66</a></span></li>
+            </ul>
+          </section>
+
+          <section class="privacy-block" id="donnees-collectees">
+            <h2>Données collectées</h2>
+            <p>La Familia peut collecter les informations que vous transmettez volontairement via les formulaires du site ou par contact direct.</p>
+            <ul class="privacy-list">
+              <li><strong>Coordonnées</strong><span>Nom, prénom, adresse e-mail, numéro de téléphone.</span></li>
+              <li><strong>Logement</strong><span>Adresse ou quartier du bien, type de logement, surface, nombre de couchages, équipements, disponibilité et informations utiles pour l’estimation.</span></li>
+              <li><strong>Message</strong><span>Contenu libre transmis via le formulaire ou par e-mail.</span></li>
+              <li><strong>Données techniques</strong><span>Informations liées à la navigation, notamment lorsque des outils de mesure d’audience sont utilisés.</span></li>
+            </ul>
+          </section>
+
+          <section class="privacy-block" id="finalites">
+            <h2>Finalités du traitement</h2>
+            <p>Les données collectées sont utilisées pour des finalités précises liées aux services proposés par La Familia.</p>
+            <ul class="privacy-list">
+              <li><strong>Répondre aux demandes</strong><span>Traiter les demandes de contact, d’information ou d’estimation de revenus.</span></li>
+              <li><strong>Estimer un logement</strong><span>Analyser le potentiel d’un logement en location courte durée à Aix-en-Provence.</span></li>
+              <li><strong>Suivi commercial</strong><span>Recontacter les propriétaires ayant sollicité une information ou une estimation.</span></li>
+              <li><strong>Amélioration du site</strong><span>Comprendre l’utilisation du site et améliorer l’expérience utilisateur.</span></li>
+            </ul>
+          </section>
+
+          <section class="privacy-block" id="base-legale">
+            <h2>Base légale</h2>
+            <p>Selon les cas, les traitements reposent sur l’une des bases légales suivantes :</p>
+            <ul>
+              <li>le consentement de l’utilisateur lorsqu’il transmet volontairement ses informations via un formulaire ;</li>
+              <li>l’intérêt légitime de La Familia à répondre aux demandes reçues et à assurer le suivi de ses prospects ;</li>
+              <li>l’exécution de mesures précontractuelles lorsqu’une demande concerne une prestation de conciergerie ou d’estimation ;</li>
+              <li>le respect d’obligations légales lorsque cela est applicable.</li>
+            </ul>
+          </section>
+
+          <section class="privacy-block" id="destinataires">
+            <h2>Destinataires des données</h2>
+            <p>Les données collectées sont destinées à La Familia et aux personnes habilitées à répondre aux demandes des utilisateurs.</p>
+            <p>Elles peuvent également être transmises à des prestataires techniques nécessaires au fonctionnement du site, notamment les services d’hébergement, de formulaire ou de mesure d’audience.</p>
+            <div class="warning-box">
+              <h3>Pas de vente de données</h3>
+              <p>La Familia ne vend pas les données personnelles collectées via son site.</p>
+            </div>
+          </section>
+
+          <section class="privacy-block" id="formulaires">
+            <h2>Formulaires du site</h2>
+            <p>Les formulaires du site, notamment les formulaires de contact ou d’estimation, permettent aux utilisateurs de transmettre leurs coordonnées et des informations sur leur logement.</p>
+            <p>Ces données sont utilisées uniquement pour traiter la demande, recontacter l’utilisateur et, le cas échéant, proposer une analyse ou un accompagnement adapté.</p>
+          </section>
+
+          <section class="privacy-block" id="duree">
+            <h2>Durée de conservation</h2>
+            <p>Les données personnelles sont conservées pendant une durée limitée, proportionnée aux finalités pour lesquelles elles ont été collectées.</p>
+            <ul class="privacy-list">
+              <li><strong>Demandes de contact</strong><span>Durée nécessaire au traitement de la demande et au suivi de la relation.</span></li>
+              <li><strong>Prospects</strong><span>Durée raisonnable permettant le suivi commercial, sauf opposition de la personne concernée.</span></li>
+              <li><strong>Clients</strong><span>Durée nécessaire à la gestion de la relation contractuelle et aux obligations légales éventuelles.</span></li>
+              <li><strong>Cookies</strong><span>Durée variable selon les outils utilisés et les choix de l’utilisateur.</span></li>
+            </ul>
+          </section>
+
+          <section class="privacy-block" id="cookies">
+            <h2>Cookies et mesure d’audience</h2>
+            <p>Le site peut utiliser des cookies ou technologies similaires afin de mesurer l’audience, comprendre la navigation et améliorer le site.</p>
+            <p>Des outils tiers comme Google Analytics ou Google Tag Manager peuvent être utilisés pour suivre des statistiques de consultation.</p>
+            <p>Lorsque la réglementation l’exige, les utilisateurs peuvent être informés de l’utilisation de ces outils et disposer de moyens pour gérer leurs préférences.</p>
+          </section>
+
+          <section class="privacy-block" id="droits">
+            <h2>Vos droits</h2>
+            <p>Conformément à la réglementation applicable en matière de protection des données personnelles, vous disposez de droits sur vos données.</p>
+            <ul>
+              <li>droit d’accès ;</li>
+              <li>droit de rectification ;</li>
+              <li>droit d’effacement ;</li>
+              <li>droit d’opposition ;</li>
+              <li>droit à la limitation du traitement ;</li>
+              <li>droit à la portabilité lorsque cela est applicable ;</li>
+              <li>droit de retirer votre consentement lorsque le traitement repose sur celui-ci.</li>
+            </ul>
+            <p>Pour exercer ces droits, vous pouvez contacter La Familia à l’adresse suivante : <a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a>.</p>
+          </section>
+
+          <section class="privacy-block" id="reclamation">
+            <h2>Réclamation</h2>
+            <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez contacter La Familia afin de demander des explications ou une correction.</p>
+            <p>Vous pouvez également introduire une réclamation auprès de l’autorité compétente en matière de protection des données personnelles.</p>
+          </section>
+
+          <section class="privacy-block" id="securite">
+            <h2>Sécurité des données</h2>
+            <p>La Familia met en œuvre des mesures raisonnables afin de protéger les données personnelles contre l’accès non autorisé, la perte, l’altération ou la divulgation.</p>
+            <p>Toutefois, aucun système de transmission ou de stockage en ligne ne peut garantir une sécurité absolue.</p>
+          </section>
+
+          <section class="privacy-block" id="modification">
+            <h2>Modification de la politique</h2>
+            <p>La présente politique de confidentialité peut être mise à jour afin de refléter l’évolution du site, des services proposés ou de la réglementation applicable.</p>
+            <span class="note">Dernière mise à jour : mai 2026.</span>
+          </section>
+        </article>
+
+        <aside class="side" aria-label="Sommaire de la politique de confidentialité">
+          <div class="side-card">
+            <h3>Sommaire</h3>
+            <ul class="toc">
+              <li><a href="#responsable">Responsable</a></li>
+              <li><a href="#donnees-collectees">Données collectées</a></li>
+              <li><a href="#finalites">Finalités</a></li>
+              <li><a href="#base-legale">Base légale</a></li>
+              <li><a href="#destinataires">Destinataires</a></li>
+              <li><a href="#cookies">Cookies</a></li>
+              <li><a href="#droits">Vos droits</a></li>
+              <li><a href="#securite">Sécurité</a></li>
+            </ul>
+          </div>
+
+          <div class="side-card">
+            <h3>Exercer vos droits</h3>
+            <p>Vous pouvez nous écrire pour toute question relative à vos données personnelles.</p>
+            <a href="mailto:aurore.pageard@hotmail.fr" class="button">Nous contacter</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-band">
+        <div>
+          <h2>Une question sur vos données ?</h2>
+          <p>Pour toute demande concernant la confidentialité, les formulaires ou l’utilisation de vos informations, contactez La Familia.</p>
+        </div>
+        <a href="mailto:aurore.pageard@hotmail.fr" class="button">Envoyer un message</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-frame"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" class="footer-logo" /></div>
+        <h3>La Familia</h3>
+        <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence.html">Conciergerie Airbnb Aix</a></li>
+          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a></li>
+          <li><a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a></li>
+          <li><a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Propriétaires</h3>
+        <ul>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/nos-logements/">Logements gérés</a></li>
+          <li><a href="/blog/">Blog propriétaires</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>6 rue Gibelin<br />13100 Aix-en-Provence</p>
+        <p><a href="tel:+33651094966">06 51 09 49 66</a></p>
+        <p><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
+        <p><a href="https://www.instagram.com/lafamiliabnb/?hl=fr" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61562890765862" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 La Familia. Tous droits réservés.</p>
+      <div class="legal-links" aria-label="Liens légaux"><a href="/mentions-legales/">Mentions légales</a><a href="/politique-confidentialite/">Politique de confidentialité</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const menuList = document.getElementById("menu-list");
+    if (hamburger && menuList) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = menuList.classList.toggle("active");
+        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
+</body>
+</html>
