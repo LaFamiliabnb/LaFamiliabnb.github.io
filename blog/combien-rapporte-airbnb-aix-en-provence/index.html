@@ -1,13 +1,974 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Combien rapporte un Airbnb à Aix-en-Provence ?</title>
-  <link rel="canonical" href="https://www.lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/">
-  <meta http-equiv="refresh" content="0; url=/blog/combien-rapporte-airbnb-aix-en-provence.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Combien rapporte un Airbnb à Aix-en-Provence ? | La Familia BnB</title>
+  <meta
+    name="description"
+    content="Combien peut rapporter un Airbnb à Aix-en-Provence ? Quartiers, saisonnalité, type de bien, prix par nuit, taux d’occupation, charges et méthode d’estimation pour propriétaires."
+  />
+
+  <link rel="canonical" href="https://lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/" />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Combien rapporte un Airbnb à Aix-en-Provence ?" />
+  <meta property="og:description" content="Quartiers, saisonnalité, type de bien, couchages et stratégie de prix : les critères qui influencent vraiment vos revenus." />
+  <meta property="og:url" content="https://lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/" />
+  <meta property="og:site_name" content="La Familia BnB" />
+  <meta property="og:image" content="https://lafamiliabnb.fr/img/banniere-aix-provence.jpg" />
+
+  <link rel="preload" href="/style.css" as="style" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --color1: #fffaf4;
+      --color2: #202020;
+      --color3: #b86b3d;
+      --color4: #fbe0c3;
+      --soft: #fff3e8;
+      --white: #ffffff;
+      --muted: #5f5f5f;
+      --line: rgba(32, 32, 32, .08);
+      --shadow: 0 14px 34px rgba(32, 32, 32, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--color1);
+      color: var(--color2);
+      font-family: "Cabin", Arial, sans-serif;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+
+    h1, h2, h3 {
+      font-family: "PlayfairDisplay", Georgia, serif;
+      color: var(--color2);
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6.2vw, 6rem);
+      letter-spacing: -0.045em;
+      margin: 22px 0;
+      max-width: 980px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+    }
+
+    h3 {
+      font-size: 1.55rem;
+      margin: 0 0 12px;
+    }
+
+    p, li {
+      line-height: 1.78;
+      color: #3e3e3e;
+      font-size: 1.05rem;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: var(--color2);
+      color: var(--color1);
+      padding: 10px 14px;
+      z-index: 9999;
+    }
+
+    .skip-link:focus { left: 12px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 250, 244, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      padding: 12px 6%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--color2);
+    }
+
+    .brand img { width: 72px; }
+
+    .menu-list ul {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-list a {
+      color: var(--color2);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: .84rem;
+    }
+
+    .menu-list a:hover { color: var(--color3); }
+
+    .nav-cta {
+      background: var(--color2);
+      color: var(--color1) !important;
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(32, 32, 32, .14);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 26px;
+      height: 3px;
+      background: var(--color2);
+    }
+
+    .article-hero {
+      background:
+        radial-gradient(circle at top left, rgba(251, 224, 195, .72), transparent 34%),
+        linear-gradient(180deg, var(--color1) 0%, var(--soft) 100%);
+      border-bottom: 1px solid rgba(32,32,32,.06);
+      padding: 74px 6% 76px;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--color4);
+      color: var(--color2);
+      font-weight: 900;
+      border: 1px solid rgba(32,32,32,.08);
+      box-shadow: 0 8px 18px rgba(32,32,32,.06);
+    }
+
+    .hero-subtitle {
+      max-width: 780px;
+      margin: 0;
+      color: #3e3e3e;
+      font-size: 1.16rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      color: var(--color3);
+      font-size: 2rem;
+      font-family: "PlayfairDisplay", Georgia, serif;
+      margin-bottom: 10px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-card li {
+      display: flex;
+      gap: 10px;
+      font-weight: 900;
+      color: var(--color2);
+    }
+
+    .hero-card i { color: var(--color3); margin-top: 4px; }
+
+    .article-layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 74px 6% 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .article-content {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: clamp(28px, 5vw, 58px);
+      box-shadow: var(--shadow);
+    }
+
+    .article-content > p:first-of-type {
+      font-size: 1.2rem;
+      color: #303030;
+    }
+
+    .article-content h2 {
+      margin-top: 56px;
+    }
+
+    .article-content h3 {
+      margin-top: 32px;
+    }
+
+    .summary-box,
+    .warning-box,
+    .cta-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+
+    .warning-box {
+      background: #fff7ed;
+      border-color: rgba(184, 107, 61, .18);
+    }
+
+    .cta-box {
+      background: var(--color4);
+    }
+
+    .summary-box ul,
+    .warning-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(32,32,32,.08);
+      background: var(--white);
+    }
+
+    th, td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(32,32,32,.08);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    th {
+      background: var(--color2);
+      color: var(--color1);
+      font-weight: 900;
+    }
+
+    td strong { color: var(--color3); }
+
+    .formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--color2);
+      color: var(--color1);
+      border-radius: 16px;
+      padding: 18px;
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    .side {
+      position: sticky;
+      top: 100px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .side-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .toc {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .toc a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .toc a:hover { color: var(--color3); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 15px 25px;
+      border-radius: 14px;
+      border: 2px solid var(--color2);
+      background: var(--color2);
+      color: var(--color1);
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(32,32,32,.16);
+      transition: .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--color3);
+      border-color: var(--color3);
+    }
+
+    .faq details {
+      background: var(--soft);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--color2);
+    }
+
+    .sources {
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--color2);
+      color: var(--color1);
+      padding: 54px 6% 24px;
+    }
+
+    footer h3 {
+      color: var(--color1);
+      font-family: "PlayfairDisplay", Georgia, serif;
+    }
+
+    footer p,
+    footer li {
+      color: #f7dfcf;
+    }
+
+    footer a {
+      color: #f7dfcf;
+      text-decoration: none;
+    }
+
+    .footer-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    .footer-logo { width: 90px; margin-bottom: 12px; }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 30px auto 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    @media (max-width: 980px) {
+      nav { align-items: flex-start; }
+
+      .hamburger { display: flex; }
+
+      .menu-list {
+        display: none;
+        position: absolute;
+        top: 84px;
+        right: 6%;
+        background: var(--color1);
+        border-radius: 18px;
+        border: 1px solid rgba(32,32,32,.12);
+        padding: 18px;
+        box-shadow: 0 18px 38px rgba(32,32,32,.14);
+      }
+
+      .menu-list.active { display: block; }
+      .menu-list ul { flex-direction: column; align-items: flex-start; }
+
+      .hero-inner,
+      .article-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side { position: static; }
+
+      .article-hero {
+        padding: 58px 6% 58px;
+      }
+
+      .button { width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Combien rapporte un Airbnb à Aix-en-Provence ?",
+    "description": "Quartiers, saisonnalité, type de bien, couchages et stratégie de prix : les critères qui influencent les revenus Airbnb à Aix-en-Provence.",
+    "image": "https://lafamiliabnb.fr/img/banniere-aix-provence.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "La Familia BnB"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "La Familia BnB",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png"
+      }
+    },
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-05-20",
+    "mainEntityOfPage": "https://lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien peut rapporter un Airbnb à Aix-en-Provence ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le revenu dépend du quartier, du type de bien, du nombre de couchages, de la qualité des photos, du prix par nuit, du taux d’occupation, de la saisonnalité et de la qualité de gestion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel type de bien fonctionne le mieux sur Airbnb à Aix-en-Provence ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les studios et T2 bien situés sont souvent performants pour les courts séjours, tandis que les T3 et maisons peuvent attirer familles et séjours plus longs si les équipements sont adaptés."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il une conciergerie pour améliorer les revenus Airbnb ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Une conciergerie peut améliorer la performance en travaillant les photos, l’annonce, le ménage, les avis, la communication voyageurs et l’optimisation des prix."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
+
 <body>
-  <p>Redirection vers <a href="/blog/combien-rapporte-airbnb-aix-en-provence.html">l’article Combien rapporte un Airbnb à Aix-en-Provence ?</a></p>
+  <a class="skip-link" href="#article">Aller à l’article</a>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="/">
+        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia BnB" />
+        <span>La Familia</span>
+      </a>
+
+      <div class="menu-list" id="menu-list">
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie Airbnb</a></li>
+          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Services</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/blog/">Blog propriétaires</a></li>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+        </ul>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-controls="menu-list" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="article-hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow"><i class="fas fa-chart-line"></i> Revenus Airbnb · Guide propriétaire</span>
+        <h1>Combien rapporte un Airbnb à Aix-en-Provence ?</h1>
+        <p class="hero-subtitle">
+          Quartiers, saisonnalité, type de bien, couchages et stratégie de prix : voici les critères qui influencent vraiment vos revenus en location courte durée à Aix-en-Provence.
+        </p>
+        <div class="meta-row">
+          <span>La Familia BnB</span>
+          <span>Mis à jour en 2026</span>
+          <span>8 min de lecture</span>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <strong>À retenir</strong>
+        <ul>
+          <li><i class="fas fa-check-circle"></i><span>Le revenu dépend surtout du quartier, du standing et du calendrier.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Les outils de marché donnent une base, pas une garantie.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Une bonne gestion peut améliorer le taux d’occupation et les avis.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <main class="article-layout" id="article">
+    <article class="article-content">
+      <p>
+        La question revient souvent chez les propriétaires : <strong>“Combien peut me rapporter mon logement sur Airbnb à Aix-en-Provence ?”</strong>
+        La réponse honnête est simple : cela dépend fortement du bien. Un studio dans le centre historique, un T2 proche du Cours Mirabeau,
+        une maison à Puyricard ou un appartement familial avec parking ne génèrent pas les mêmes revenus.
+      </p>
+
+      <div class="summary-box">
+        <h3>Résumé rapide</h3>
+        <ul>
+          <li>Le potentiel dépend du prix moyen par nuit, du taux d’occupation et du nombre de nuits ouvertes à la location.</li>
+          <li>Les logements bien placés, bien photographiés et bien notés performent mieux.</li>
+          <li>La saisonnalité à Aix-en-Provence peut créer de forts écarts entre basse et haute période.</li>
+          <li>Avant de se lancer, il faut aussi intégrer les frais, la réglementation et la qualité de gestion.</li>
+        </ul>
+      </div>
+
+      <h2 id="marche">Le marché Airbnb à Aix-en-Provence : pourquoi il existe un vrai potentiel</h2>
+      <p>
+        Aix-en-Provence bénéficie d’une demande touristique et professionnelle régulière : centre historique, patrimoine, événements, séjours week-end,
+        déplacements professionnels, étudiants, familles et visiteurs de passage en Provence. Le Pays d’Aix fait partie des bassins majeurs de fréquentation
+        touristique dans les Bouches-du-Rhône, et Provence Tourisme indique que Marseille et le Pays d’Aix représentent ensemble une part très importante
+        des nuitées du département.
+      </p>
+
+      <p>
+        Les données de marché publiques confirment aussi l’existence d’une activité courte durée significative. AirDNA recense plusieurs milliers de locations
+        courte durée à Aix-en-Provence et affiche des indicateurs de performance comme le taux d’occupation moyen et le prix moyen journalier. Airbtics estime
+        de son côté qu’un hôte moyen à Aix-en-Provence a généré environ 28 000 € sur la période février 2025 - janvier 2026. Ces chiffres doivent être lus
+        comme des tendances de marché, pas comme une promesse pour un bien précis.
+      </p>
+
+      <h2 id="formule">La formule simple pour estimer vos revenus Airbnb</h2>
+      <p>
+        Pour comprendre le potentiel d’un logement, il faut commencer par une formule simple :
+      </p>
+
+      <div class="formula">
+        Revenus bruts estimés = prix moyen par nuit × nombre de nuits réservées
+      </div>
+
+      <p>
+        Puis il faut retirer ou intégrer selon votre situation :
+      </p>
+
+      <ul>
+        <li>les commissions des plateformes comme Airbnb ou Booking ;</li>
+        <li>la commission de conciergerie si vous déléguez la gestion ;</li>
+        <li>les frais de ménage et de linge ;</li>
+        <li>les consommables et petits remplacements ;</li>
+        <li>les charges, taxes, fiscalité et éventuels frais de maintenance.</li>
+      </ul>
+
+      <p>
+        Une estimation sérieuse ne doit donc pas seulement annoncer un chiffre mensuel. Elle doit distinguer les <strong>revenus bruts</strong>,
+        les frais de gestion, les coûts opérationnels et le revenu réellement perçu par le propriétaire.
+      </p>
+
+      <h2 id="fourchettes">Fourchettes indicatives selon le type de logement</h2>
+      <p>
+        Les fourchettes ci-dessous servent uniquement de base de réflexion. Elles doivent être adaptées à votre adresse, à votre calendrier, à la qualité du logement
+        et à la demande réelle au moment de la mise en location.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type de bien</th>
+            <th>Profil de demande</th>
+            <th>Potentiel à analyser</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Studio / T1</strong></td>
+            <td>Voyageurs solo, couples, étudiants, courts séjours, professionnels.</td>
+            <td>Très dépendant de la localisation, des photos et de l’accès autonome.</td>
+          </tr>
+          <tr>
+            <td><strong>T2</strong></td>
+            <td>Couples, week-ends, séjours culturels, déplacements professionnels.</td>
+            <td>Souvent intéressant si le logement est bien situé et bien équipé.</td>
+          </tr>
+          <tr>
+            <td><strong>T3 / familial</strong></td>
+            <td>Familles, petits groupes, séjours plus longs, vacances scolaires.</td>
+            <td>Potentiel renforcé avec parking, terrasse, climatisation ou couchages confortables.</td>
+          </tr>
+          <tr>
+            <td><strong>Maison / résidence secondaire</strong></td>
+            <td>Familles, longs week-ends, séjours premium autour d’Aix.</td>
+            <td>Dépend fortement de la disponibilité annuelle et du niveau de prestations.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <h3>Attention aux chiffres trop “parfaits”</h3>
+        <p>
+          Un revenu Airbnb annoncé sans visite du bien, sans photos, sans adresse précise et sans analyse du calendrier est rarement fiable.
+          Le bon réflexe est de demander une estimation personnalisée.
+        </p>
+      </div>
+
+      <h2 id="quartiers">Les quartiers qui influencent le plus vos revenus</h2>
+      <p>
+        À Aix-en-Provence, le quartier a un impact direct sur le prix par nuit et le taux d’occupation. Un voyageur en week-end romantique ne cherche pas forcément
+        la même chose qu’une famille en voiture ou qu’un professionnel en déplacement.
+      </p>
+
+      <h3>Centre historique</h3>
+      <p>
+        Le centre historique est très recherché pour les courts séjours : restaurants, commerces, patrimoine, vie piétonne et accès aux points d’intérêt.
+        Les petits appartements bien rénovés peuvent y être attractifs, surtout si l’arrivée est simple et les photos soignées.
+      </p>
+
+      <h3>Quartier Mazarin et Cours Mirabeau</h3>
+      <p>
+        Ce sont des secteurs premium pour les voyageurs qui veulent une expérience aixoise élégante et centrale. Le niveau de décoration, la literie et la qualité
+        de l’annonce jouent beaucoup sur le prix accepté par les voyageurs.
+      </p>
+
+      <h3>Luynes, Puyricard et alentours</h3>
+      <p>
+        Ces secteurs peuvent être intéressants pour les maisons, logements familiaux, résidences secondaires ou séjours plus calmes. Le parking, l’extérieur,
+        la capacité d’accueil et la facilité d’accès deviennent alors essentiels.
+      </p>
+
+      <h2 id="facteurs">Les 7 facteurs qui font vraiment varier les revenus</h2>
+
+      <h3>1. Le prix moyen par nuit</h3>
+      <p>
+        Un prix trop bas remplit le calendrier mais peut limiter les revenus. Un prix trop haut réduit le taux d’occupation. L’objectif est d’ajuster le prix selon
+        la saison, la demande, les événements et la concurrence.
+      </p>
+
+      <h3>2. Le taux d’occupation</h3>
+      <p>
+        Le taux d’occupation mesure le nombre de nuits réservées par rapport aux nuits disponibles. Il dépend du prix, des avis, de l’emplacement, de la qualité de l’annonce
+        et de la réactivité aux demandes voyageurs.
+      </p>
+
+      <h3>3. Les photos</h3>
+      <p>
+        Les photos sont souvent le premier levier de performance. Une annonce avec des photos lumineuses, cohérentes et professionnelles convertit mieux qu’une annonce sombre
+        ou mal cadrée.
+      </p>
+
+      <h3>4. Le nombre de couchages</h3>
+      <p>
+        Ajouter un canapé-lit ou améliorer la literie peut augmenter le potentiel, mais uniquement si le confort reste bon. Un couchage supplémentaire ne doit pas dégrader
+        l’expérience voyageurs.
+      </p>
+
+      <h3>5. Les équipements</h3>
+      <p>
+        Wi-Fi fiable, climatisation, machine à café, lave-linge, cuisine équipée, espace de travail, parking ou terrasse peuvent influencer le choix des voyageurs.
+      </p>
+
+      <h3>6. Les avis voyageurs</h3>
+      <p>
+        Les avis sont un moteur de conversion. Un logement propre, bien préparé et bien expliqué obtient plus facilement de bons commentaires, ce qui améliore ensuite
+        la performance de l’annonce.
+      </p>
+
+      <h3>7. La qualité de gestion</h3>
+      <p>
+        La communication, le ménage, le linge, les instructions d’arrivée, la résolution des imprévus et l’optimisation des prix font une vraie différence sur la durée.
+      </p>
+
+      <h2 id="charges">Ce qu’il faut retirer des revenus bruts</h2>
+      <p>
+        Le chiffre d’affaires Airbnb n’est pas le revenu net propriétaire. Avant de prendre une décision, il faut intégrer :
+      </p>
+
+      <ul>
+        <li>les commissions des plateformes ;</li>
+        <li>la commission de conciergerie ;</li>
+        <li>le ménage, le linge et les consommables ;</li>
+        <li>l’entretien courant du logement ;</li>
+        <li>les charges de copropriété ou d’énergie selon votre situation ;</li>
+        <li>la fiscalité applicable ;</li>
+        <li>les éventuelles obligations réglementaires.</li>
+      </ul>
+
+      <p>
+        C’est pour cette raison qu’une conciergerie sérieuse doit parler de <strong>revenus potentiels</strong>, mais aussi de <strong>conditions de rentabilité</strong>.
+      </p>
+
+      <h2 id="reglementation">Réglementation : un point à vérifier avant de louer</h2>
+      <p>
+        Avant de louer en courte durée, il faut vérifier votre situation : résidence principale, résidence secondaire, copropriété, assurance, taxe de séjour et éventuelles
+        démarches de changement d’usage. La Ville d’Aix-en-Provence rappelle que la taxe de séjour finance notamment les actions de l’Office de Tourisme, et le portail
+        local de taxe de séjour indique que les demandes liées au changement d’usage d’un meublé de tourisme hors résidence principale doivent être vues avec la mairie.
+      </p>
+
+      <p>
+        Pour une résidence secondaire, Service-Public.fr rappelle qu’une autorisation de changement d’usage peut être nécessaire selon la commune. Cette partie doit être
+        vérifiée avant de publier une annonce.
+      </p>
+
+      <h2 id="conciergerie">Une conciergerie peut-elle augmenter les revenus ?</h2>
+      <p>
+        Une conciergerie ne crée pas magiquement de la demande. En revanche, elle peut améliorer les éléments qui influencent directement la performance :
+      </p>
+
+      <ul>
+        <li>meilleures photos et annonce plus claire ;</li>
+        <li>prix ajustés selon la demande ;</li>
+        <li>réponses plus rapides aux voyageurs ;</li>
+        <li>logement mieux préparé ;</li>
+        <li>moins de mauvais avis liés à l’arrivée, au ménage ou aux imprévus ;</li>
+        <li>meilleure régularité dans la gestion.</li>
+      </ul>
+
+      <p>
+        En pratique, cela peut aider un propriétaire à gagner du temps, à sécuriser l’expérience voyageurs et à mieux exploiter les périodes de forte demande.
+      </p>
+
+      <div class="cta-box">
+        <h3>Vous voulez connaître le potentiel de votre bien ?</h3>
+        <p>
+          La Familia BnB peut vous donner une première estimation selon votre adresse, votre type de logement et votre calendrier disponible.
+        </p>
+        <a class="button" href="/estimation-revenus-airbnb-aix-en-provence/">Demander une estimation gratuite</a>
+      </div>
+
+      <h2 id="faq">FAQ : revenus Airbnb à Aix-en-Provence</h2>
+
+      <section class="faq">
+        <details>
+          <summary>Combien rapporte un Airbnb à Aix-en-Provence ?</summary>
+          <p>
+            Le revenu dépend du quartier, du type de bien, du nombre de couchages, du prix moyen par nuit, du taux d’occupation, des avis et de la qualité de gestion.
+            Une estimation personnalisée est indispensable.
+          </p>
+        </details>
+
+        <details>
+          <summary>Quel logement fonctionne le mieux sur Airbnb à Aix ?</summary>
+          <p>
+            Les studios et T2 bien situés sont souvent attractifs pour les courts séjours. Les T3 et maisons peuvent bien fonctionner si le confort, la capacité d’accueil
+            et les équipements sont adaptés.
+          </p>
+        </details>
+
+        <details>
+          <summary>Le centre-ville rapporte-t-il plus ?</summary>
+          <p>
+            Le centre historique, Mazarin et les abords du Cours Mirabeau sont très demandés, mais la rentabilité dépend aussi du prix d’achat, des charges, de la réglementation
+            et de la qualité du bien.
+          </p>
+        </details>
+
+        <details>
+          <summary>Airbnb ou Booking : quelle plateforme choisir ?</summary>
+          <p>
+            Les deux peuvent être utiles. Airbnb est souvent très fort sur l’expérience courte durée, tandis que Booking peut compléter la visibilité. La bonne stratégie dépend du logement.
+          </p>
+        </details>
+
+        <details>
+          <summary>Faut-il passer par une conciergerie ?</summary>
+          <p>
+            Cela dépend de votre disponibilité. Si vous ne pouvez pas gérer les messages, le ménage, les arrivées, les prix et les imprévus, une conciergerie locale peut être pertinente.
+          </p>
+        </details>
+      </section>
+
+      <h2 id="conclusion">Conclusion</h2>
+      <p>
+        Un Airbnb à Aix-en-Provence peut représenter un vrai potentiel, mais le revenu dépend de nombreux paramètres : emplacement, qualité du logement, prix, disponibilité,
+        saisonnalité, réglementation et gestion quotidienne. Le plus important n’est pas d’obtenir une estimation générique, mais une lecture réaliste de votre bien.
+      </p>
+
+      <p>
+        Votre logement mérite une analyse personnalisée : c’est la seule manière de savoir s’il peut devenir une source de revenus intéressante en location courte durée.
+      </p>
+
+      <div class="sources">
+        <h3>Sources utiles</h3>
+        <ul>
+          <li>Provence Tourisme — bilan de fréquentation touristique 2025.</li>
+          <li>Ville d’Aix-en-Provence — démarches location saisonnière et taxe de séjour.</li>
+          <li>Portail taxe de séjour Aix-en-Provence — informations déclaratives.</li>
+          <li>Service-Public.fr — résidence secondaire et changement d’usage.</li>
+          <li>Airbtics et AirDNA — données de marché courte durée à Aix-en-Provence.</li>
+        </ul>
+      </div>
+    </article>
+
+    <aside class="side">
+      <div class="side-card">
+        <h3>Sommaire</h3>
+        <ul class="toc">
+          <li><a href="#marche">Le marché Airbnb à Aix</a></li>
+          <li><a href="#formule">Formule de calcul</a></li>
+          <li><a href="#fourchettes">Type de logement</a></li>
+          <li><a href="#quartiers">Quartiers</a></li>
+          <li><a href="#facteurs">Facteurs clés</a></li>
+          <li><a href="#charges">Charges</a></li>
+          <li><a href="#reglementation">Réglementation</a></li>
+          <li><a href="#conciergerie">Impact conciergerie</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>Votre estimation</h3>
+        <p>Recevez une première analyse du potentiel de votre logement à Aix-en-Provence.</p>
+        <a class="button" href="/estimation-revenus-airbnb-aix-en-provence/">Estimer mes revenus</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia BnB" class="footer-logo" />
+        <h3>La Familia BnB</h3>
+        <p>Conciergerie Airbnb et gestion de locations saisonnières à Aix-en-Provence pour propriétaires.</p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie Airbnb Aix</a></li>
+          <li><a href="/gestion-location-saisonniere-aix-en-provence/">Gestion location saisonnière</a></li>
+          <li><a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a></li>
+          <li><a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Propriétaires</h3>
+        <ul>
+          <li><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus</a></li>
+          <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
+          <li><a href="/nos-logements/">Logements gérés</a></li>
+          <li><a href="/blog/">Blog propriétaires</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>6 rue Gibelin<br />13100 Aix-en-Provence</p>
+        <p><a href="tel:+33651094966">06 51 09 49 66</a></p>
+        <p><a href="mailto:aurore.pageard@hotmail.fr">aurore.pageard@hotmail.fr</a></p>
+        <p>
+          <a href="https://www.instagram.com/lafamiliabnb/?hl=fr" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://www.facebook.com/profile.php?id=61562890765862" target="_blank" rel="noopener">Facebook</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 La Familia BnB. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const menuList = document.getElementById("menu-list");
+
+    if (hamburger && menuList) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = menuList.classList.toggle("active");
+        hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
