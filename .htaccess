@@ -11,27 +11,36 @@ RewriteRule ^estimation\.html$ https://www.lafamiliabnb.fr/estimation-revenus-ai
 RewriteRule ^Blog\.html$ https://www.lafamiliabnb.fr/blog/ [R=301,L]
 RewriteRule ^blog\.html$ https://www.lafamiliabnb.fr/blog/ [R=301,L]
 
-# 2) Anciennes pages non prioritaires du site principal
+# 2) Articles de blog : conserver les URL propres /blog/article/ tout en servant les fichiers .html existants
+# Exemple : /blog/combien-rapporte-airbnb-aix-en-provence/ sert /blog/combien-rapporte-airbnb-aix-en-provence.html
+RewriteCond %{THE_REQUEST} \s/+blog/([^/\s]+)\.html[\s?] [NC]
+RewriteRule ^blog/([^/]+)\.html$ https://www.lafamiliabnb.fr/blog/$1/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+RewriteRule ^blog/([^/]+)/?$ /blog/$1.html [L]
+
+# 3) Anciennes pages non prioritaires du site principal
 RewriteRule ^affiliation\.html$ https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/ [R=301,L]
 
-# 3) Anciennes pages voyageurs déplacées vers le sous-domaine booking
+# 4) Anciennes pages voyageurs déplacées vers le sous-domaine booking
 RewriteRule ^reservation\.html$ https://booking.lafamiliabnb.fr/reservation.html [R=301,L]
 RewriteRule ^carteinteractive\.html$ https://booking.lafamiliabnb.fr/carteinteractive.html [R=301,L]
 
-# 4) Canonicalisation du domaine principal : lafamiliabnb.fr -> www.lafamiliabnb.fr
+# 5) Canonicalisation du domaine principal : lafamiliabnb.fr -> www.lafamiliabnb.fr
 # Important : on ne touche pas aux sous-domaines, notamment booking.lafamiliabnb.fr.
 RewriteCond %{HTTP_HOST} ^lafamiliabnb\.fr$ [NC]
 RewriteRule ^(.*)$ https://www.lafamiliabnb.fr/$1 [R=301,L]
 
-# 5) HTTPS sur le domaine principal www
+# 6) HTTPS sur le domaine principal www
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP_HOST} ^www\.lafamiliabnb\.fr$ [NC]
 RewriteRule ^(.*)$ https://www.lafamiliabnb.fr/$1 [R=301,L]
 
-# 6) Page d'accueil explicite
+# 7) Page d'accueil explicite
 RewriteRule ^index\.html$ https://www.lafamiliabnb.fr/ [R=301,L]
 
-# 7) En-têtes basiques de sécurité / confort
+# 8) En-têtes basiques de sécurité / confort
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
