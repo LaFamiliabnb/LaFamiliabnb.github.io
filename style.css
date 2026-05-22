@@ -186,3 +186,195 @@ body .article-hero .hero-inner {
   .gastronomieimg { order: 8; }
   .chiffrescleimg, .lieuxvisiterimg, .evenementsimg, .gastronomieimg { height: 300px; }
 }
+
+/* Harmonisation de l'en-tête et du pied de page des articles du blog propriétaire */
+body:has(.article-layout) header nav {
+  background: #fffaf4 !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.02) !important;
+  backdrop-filter: none !important;
+  padding: 22px 6% !important;
+  align-items: center !important;
+}
+
+body:has(.article-layout) header nav .brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  color: #202020 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  font-family: "PlayfairDisplay", Georgia, serif !important;
+  font-size: 1.02rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+}
+
+body:has(.article-layout) header nav .brand img {
+  width: 62px !important;
+  height: 62px !important;
+  object-fit: contain !important;
+}
+
+body:has(.article-layout) header nav .menu-list ul {
+  display: flex !important;
+  align-items: center !important;
+  gap: 26px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body:has(.article-layout) header nav .menu-list li:has(> a[href="/gestion-location-saisonniere-aix-en-provence/"]) {
+  display: none !important;
+}
+
+body:has(.article-layout) header nav .menu-list a {
+  color: #202020 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  font-family: "Cabin", Arial, sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: .02em !important;
+  font-size: .86rem !important;
+}
+
+body:has(.article-layout) header nav .menu-list a[href="/conciergerie-airbnb-aix-en-provence/"],
+body:has(.article-layout) header nav .menu-list a[href="/tarifs-conciergerie-airbnb-aix-en-provence/"],
+body:has(.article-layout) header nav .menu-list a[href="/blog/"] {
+  font-size: 0 !important;
+}
+
+body:has(.article-layout) header nav .menu-list a[href="/conciergerie-airbnb-aix-en-provence/"]::after {
+  content: "CONCIERGERIE";
+  font-size: .86rem !important;
+}
+
+body:has(.article-layout) header nav .menu-list a[href="/tarifs-conciergerie-airbnb-aix-en-provence/"]::after {
+  content: "TARIFS";
+  font-size: .86rem !important;
+}
+
+body:has(.article-layout) header nav .menu-list a[href="/blog/"]::after {
+  content: "BLOG";
+  font-size: .86rem !important;
+}
+
+body:has(.article-layout) header nav .nav-cta,
+body:has(.article-layout) header nav .menu-list a[href="/estimation-revenus-airbnb-aix-en-provence/"] {
+  background: #202020 !important;
+  color: #fffaf4 !important;
+  border-radius: 999px !important;
+  padding: 15px 22px !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,.16) !important;
+  font-size: 0 !important;
+}
+
+body:has(.article-layout) header nav .nav-cta::after,
+body:has(.article-layout) header nav .menu-list a[href="/estimation-revenus-airbnb-aix-en-provence/"]::after {
+  content: "ESTIMER MES REVENUS";
+  font-size: .86rem !important;
+}
+
+body:has(.article-layout) footer {
+  background: #202020 !important;
+  color: #fffaf4 !important;
+  padding: 74px 6% 28px !important;
+  text-align: center !important;
+  font-family: "Cabin", Arial, sans-serif !important;
+}
+
+body:has(.article-layout) footer .footer-grid {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 1.35fr 1fr 1fr 1fr !important;
+  gap: 42px !important;
+  align-items: start !important;
+  text-align: center !important;
+}
+
+body:has(.article-layout) footer .footer-grid > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+body:has(.article-layout) footer .footer-logo {
+  width: 126px !important;
+  height: 126px !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  border-radius: 26px !important;
+  padding: 18px !important;
+  margin: 0 auto 20px !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.22) !important;
+}
+
+body:has(.article-layout) footer h3 {
+  color: #fffaf4 !important;
+  font-family: "PlayfairDisplay", Georgia, serif !important;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
+  line-height: 1.1 !important;
+  margin: 0 0 18px !important;
+}
+
+body:has(.article-layout) footer .footer-grid > div:first-child h3 {
+  font-size: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+body:has(.article-layout) footer .footer-grid > div:first-child h3::after {
+  content: "La Familia";
+  font-size: clamp(1.9rem, 2.8vw, 2.35rem) !important;
+}
+
+body:has(.article-layout) footer p,
+body:has(.article-layout) footer li,
+body:has(.article-layout) footer a {
+  color: #f7dfcf !important;
+  font-size: 1.02rem !important;
+  line-height: 1.7 !important;
+  text-decoration: none !important;
+}
+
+body:has(.article-layout) footer ul {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+body:has(.article-layout) footer .footer-bottom {
+  max-width: 1180px !important;
+  margin: 34px auto 0 !important;
+  padding-top: 22px !important;
+  border-top: 1px solid rgba(255,255,255,.16) !important;
+  background: transparent !important;
+}
+
+body:has(.article-layout) footer .footer-bottom p {
+  font-size: 0 !important;
+  margin: 0 !important;
+}
+
+body:has(.article-layout) footer .footer-bottom p::after {
+  content: "© 2026 La Familia. Tous droits réservés.";
+  font-size: .95rem !important;
+  color: #f7dfcf !important;
+}
+
+@media (max-width: 980px) {
+  body:has(.article-layout) header nav {
+    padding: 16px 6% !important;
+  }
+
+  body:has(.article-layout) header nav .menu-list {
+    top: 82px !important;
+    background: #fffaf4 !important;
+  }
+
+  body:has(.article-layout) footer .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
