@@ -32,7 +32,7 @@
           <span class="fact-tag">Residence securisee</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=166522&referer=BookingLink">Réserver</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Le Fernandol combine une adresse iconique, une residence rassurante et un vrai confort du quotidien pour profiter d'Aix a pied, sans compromis sur la tranquillite.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">Les plus</span><strong>Central, calme, securise</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=166522&referer=BookingLink">Réserver</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -100,8 +100,8 @@
       </div>
       <div class="neighbourhood-list">
         <span>Acces direct au celebre Cours Mirabeau</span>
-            <span>Restaurants, commerces et belles adresses au pied de l'immeuble</span>
-            <span>Une localisation rare pour tout faire a pied sans renoncer a la tranquillite</span>
+        <span>Restaurants, commerces et belles adresses au pied de l'immeuble</span>
+        <span>Une localisation rare pour tout faire a pied sans renoncer a la tranquillite</span>
       </div>
     </section>
 
@@ -115,7 +115,7 @@
       </div>
       <div class="location-grid">
         <div class="map-frame">
-          <iframe title="Carte de l'emplacement du Fernandol" src="https://www.openstreetmap.org/export/embed.html?bbox=5.4488%2C43.5246%2C5.4588%2C43.5288&amp;layer=mapnik&amp;marker=43.52684205762201%2C5.450943042399396"></iframe>, 
+          <iframe title="Carte de l'emplacement du Fernandol" src="https://www.openstreetmap.org/export/embed.html?bbox=5.4488%2C43.5246%2C5.4588%2C43.5288&amp;layer=mapnik&amp;marker=43.52684205762201%2C5.450943042399396"></iframe>
         </div>
         <div class="story-card">
           <span class="section-label">Adresse</span>
@@ -160,25 +160,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Le Fernandol</span>
-        <h2>Un studio rare pour vivre Aix depuis l'une de ses plus belles adresses</h2>
-        <p>Le Fernandol s'adresse aux voyageurs qui veulent profiter du centre historique sans rien sacrifier a la serenite. Entre son emplacement exceptionnel, sa residence standing, ses equipements complets et sa sensation de calme, c'est une adresse facile a aimer pour une escapade aixoise plus soignee.</p>
+        <span class="section-label">Reservation directe</span>
+        <h2>Verifiez les disponibilites du Fernandol</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
+        </div>
       </div>
-      <div class="cta-box">
-        <span class="section-label">En bref</span>
-        <h2>Le Fernandol, le confort d'un cocon sur le Cours Mirabeau</h2>
-        <p>Une adresse centrale, chic et securisee, avec acces direct sur le Cours Mirabeau, pour vivre Aix-en-Provence dans ce qu'elle a de plus elegant et de plus pratique.</p>
-        <div class="cta-list">
-          <span>Residence standing securisee avec gardien et video surveillance</span>
-          <span>Studio entierement equipe avec Nespresso, Wi-Fi et Google Home</span>
-          <span>Option parking prive a proximite selon disponibilite</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="../reservation.html">Voir les autres logements</a>
-          <a class="button-ghost" href="#galerie">Revoir les photos</a>
-        </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Le Fernandol</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div id="nowistay-booking" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -193,5 +190,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var origin = "https://traveler.nowistay.com";
+      var container = document.getElementById("nowistay-booking");
+      if (!container) return;
+
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://traveler.nowistay.com/fr/book/496hyzv1";
+      iframe.title = "Reservation Nowistay - Le Fernandol";
+      iframe.style.cssText = "width:100%;border:none;height:800px;max-width:100%;display:block;border-radius:20px;background:#fff;";
+      iframe.setAttribute("scrolling", "no");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowtransparency", "true");
+
+      container.appendChild(iframe);
+
+      window.addEventListener("message", function(event){
+        if (event.origin !== origin) return;
+        if (event.data && event.data.type === "nowistay-resize" && event.data.height) {
+          iframe.style.height = Math.max(event.data.height + 20, 400) + "px";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
