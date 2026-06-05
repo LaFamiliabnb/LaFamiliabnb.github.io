@@ -32,7 +32,7 @@
           <span class="fact-tag">Chambre climatisee</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=135798&referer=BookingLink">Réserver</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Le Cardinal est ideal pour un week-end a deux, un sejour en famille ou quelques jours a Aix avec plus d'espace, plus de calme et un vrai exterieur prive en plein centre-ville.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">A partir de</span><strong>50EUR/nuit</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=135798&referer=BookingLink">Réserver</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -160,25 +160,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Le Cardinal</span>
-        <h2>Une adresse rare pour profiter d'Aix avec plus d'espace et un vrai exterieur</h2>
-        <p>Le Cardinal plait aux voyageurs qui veulent tout a la fois: la proximite immediate du centre, le confort d'un appartement bien equipe, une chambre separee, un jardin privatif et la sensation de vivre Aix dans de tres bonnes conditions. C'est une adresse facile a choisir quand on veut se faire plaisir sans compromis sur l'emplacement.</p>
+        <span class="section-label">Reservation directe</span>
+        <h2>Verifiez les disponibilites du Cardinal</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
+        </div>
       </div>
-      <div class="cta-box">
-        <span class="section-label">En bref</span>
-        <h2>Le Cardinal, version Aix confort</h2>
-        <p>Un appartement lumineux de 45 m2, a quelques minutes du Cours Mirabeau, avec chambre separee, jardin privatif et tous les equipements utiles pour un sejour aussi simple qu'agreable.</p>
-        <div class="cta-list">
-          <span>A partir de 50EUR par nuit</span>
-          <span>Appartement 1 chambre jusqu'a 4 voyageurs</span>
-          <span>Rue d'Italie, proche Cours Mirabeau</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="../reservation.html">Voir les autres logements</a>
-          <a class="button-ghost" href="#galerie">Revoir les photos</a>
-        </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Le Cardinal</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div id="nowistay-booking" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -193,5 +190,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var origin = "https://traveler.nowistay.com";
+      var container = document.getElementById("nowistay-booking");
+      if (!container) return;
+
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://traveler.nowistay.com/fr/book/x1hlh4je";
+      iframe.title = "Reservation Nowistay - Le Cardinal";
+      iframe.style.cssText = "width:100%;border:none;height:800px;max-width:100%;display:block;border-radius:20px;background:#fff;";
+      iframe.setAttribute("scrolling", "no");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowtransparency", "true");
+
+      container.appendChild(iframe);
+
+      window.addEventListener("message", function(event){
+        if (event.origin !== origin) return;
+        if (event.data && event.data.type === "nowistay-resize" && event.data.height) {
+          iframe.style.height = Math.max(event.data.height + 20, 400) + "px";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
