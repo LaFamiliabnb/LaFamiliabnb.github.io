@@ -32,7 +32,7 @@
           <span class="fact-tag">Arrivee autonome</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=284279&referer=BookingLink">Reserver ce logement</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Studio refait a neuf en mai 2025, situe au 4eme etage sans ascenseur dans une zone pietonne. Les parkings Pasteur et Bellegarde sont a moins de 5 minutes a pied.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">A partir de</span><strong>30EUR/nuit</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=284279&referer=BookingLink">Disponibilites</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -135,25 +135,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Lou Zola</span>
-        <h2>Un studio recent, central et facile a comprendre</h2>
-        <p>Lou Zola concentre l'essentiel: une renovation recente, un emplacement fort dans le centre historique, une arrivee autonome et un interieur sobre qui rassure tout de suite. C'est une fiche efficace pour aider le voyageur a se projeter rapidement avant de reserver.</p>
-      </div>
-      <div class="cta-box">
         <span class="section-label">Reservation directe</span>
-        <h2>Consultez les disponibilites de Lou Zola</h2>
-        <p>Retrouvez le logement dans l'environnement de reservation La Familia pour verifier les dates et finaliser votre sejour.</p>
-        <div class="cta-list">
-          <span>Studio renove pour 2 voyageurs</span>
-          <span>Hyper centre et zone pietonne</span>
-          <span>Climatisation et arrivee autonome</span>
+        <h2>Verifiez les disponibilites de Lou Zola</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
         </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="https://beds24.com/booking.php?propid=284279&referer=BookingLink">Aller a la reservation</a>
-          <a class="button-ghost" href="../reservation.html">Voir les autres studios</a>
-        </div>
+      </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Lou Zola</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div id="nowistay-booking" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -168,5 +165,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var origin = "https://traveler.nowistay.com";
+      var container = document.getElementById("nowistay-booking");
+      if (!container) return;
+
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://traveler.nowistay.com/fr/book/fmrndsuo";
+      iframe.title = "Reservation Nowistay - Lou Zola";
+      iframe.style.cssText = "width:100%;border:none;height:800px;max-width:100%;display:block;border-radius:20px;background:#fff;";
+      iframe.setAttribute("scrolling", "no");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowtransparency", "true");
+
+      container.appendChild(iframe);
+
+      window.addEventListener("message", function(event){
+        if (event.origin !== origin) return;
+        if (event.data && event.data.type === "nowistay-resize" && event.data.height) {
+          iframe.style.height = Math.max(event.data.height + 20, 400) + "px";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
