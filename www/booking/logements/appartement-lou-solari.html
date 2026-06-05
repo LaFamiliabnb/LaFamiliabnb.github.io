@@ -31,7 +31,7 @@
           <span class="fact-tag">Climatisation</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=284276&referer=BookingLink">Reserver ce logement</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -44,7 +44,7 @@
           <p>Lou Solari mise sur la simplicite: un couchage confortable, une kitchenette equipee, une salle d'eau renovee et une adresse tres centrale pour tout faire a pied dans Aix.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">A partir de</span><strong>30EUR/nuit</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=284276&referer=BookingLink">Disponibilites</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -131,25 +131,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Lou Solari</span>
-        <h2>Un logement tres simple, mais au bon endroit</h2>
-        <p>Lou Solari n'essaie pas d'etre plus grand ou plus demonstratif qu'il ne l'est. Son vrai argument est ailleurs: une adresse centrale, un tarif d'appel accessible et un niveau de fonctionnalite suffisant pour profiter d'Aix sans contrainte.</p>
-      </div>
-      <div class="cta-box">
         <span class="section-label">Reservation directe</span>
-        <h2>Consultez les disponibilites de Lou Solari</h2>
-        <p>Retrouvez le module de reservation La Familia pour verifier vos dates et finaliser votre sejour directement.</p>
-        <div class="cta-list">
-          <span>A partir de 30EUR par nuit</span>
-          <span>Studio pour 2 voyageurs</span>
-          <span>Hyper-centre d'Aix-en-Provence</span>
+        <h2>Verifiez les disponibilites de Lou Solari</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
         </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="https://beds24.com/booking.php?propid=284276&referer=BookingLink">Aller a la reservation</a>
-          <a class="button-ghost" href="reservation-studios.html">Voir les autres studios</a>
-        </div>
+      </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Lou Solari</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div id="nowistay-booking" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -164,5 +161,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var origin = "https://traveler.nowistay.com";
+      var container = document.getElementById("nowistay-booking");
+      if (!container) return;
+
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://traveler.nowistay.com/fr/book/hkqujqhk";
+      iframe.title = "Reservation Nowistay - Lou Solari";
+      iframe.style.cssText = "width:100%;border:none;height:800px;max-width:100%;display:block;border-radius:20px;background:#fff;";
+      iframe.setAttribute("scrolling", "no");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allowtransparency", "true");
+
+      container.appendChild(iframe);
+
+      window.addEventListener("message", function(event){
+        if (event.origin !== origin) return;
+        if (event.data && event.data.type === "nowistay-resize" && event.data.height) {
+          iframe.style.height = Math.max(event.data.height + 20, 400) + "px";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
