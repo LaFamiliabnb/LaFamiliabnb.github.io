@@ -32,7 +32,7 @@
           <span class="fact-tag">Climatisation</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=243418&referer=BookingLink">Reserver ce logement</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Place des Cardeurs a 3 minutes, mairie a 5 minutes, Rotonde a 7 minutes et Cours Mirabeau a 10 minutes. Un stationnement payant se trouve en bas de l'immeuble et l'acces en voiture permet de decharger facilement.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">A partir de</span><strong>Sur demande</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=243418&referer=BookingLink">Disponibilites</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -135,25 +135,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking nowistay-booking-section">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir L'Alizee</span>
-        <h2>Un studio efficace pour vivre Aix sans contrainte</h2>
-        <p>L'Alizee reunit ce que beaucoup de voyageurs cherchent a Aix: un emplacement central, un format simple mais bien equipe, une arrivee autonome et une vraie facilite pour profiter de la ville a pied. C'est une fiche faite pour rassurer rapidement avant la reservation.</p>
-      </div>
-      <div class="cta-box">
         <span class="section-label">Reservation directe</span>
-        <h2>Consultez les disponibilites de L'Alizee</h2>
-        <p>Le module de reservation La Familia permet ensuite de verifier les dates et de finaliser le sejour dans un parcours plus direct.</p>
-        <div class="cta-list">
-          <span>Studio lumineux pour 2 voyageurs</span>
-          <span>Centre historique d'Aix-en-Provence</span>
-          <span>Arrivee autonome et stationnement payant a proximite</span>
+        <h2>Verifiez les disponibilites d'Alizee</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
         </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="https://beds24.com/booking.php?propid=243418&referer=BookingLink">Aller a la reservation</a>
-          <a class="button-ghost" href="../reservation.html">Voir les autres studios</a>
-        </div>
+      </div>
+      <div class="cta-box nowistay-widget-card">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver L'Alizee</h2>
+        <p>Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div class="nowistay-booking-embed" data-nowistay-id="ez75vtay" data-nowistay-name="Alizee"></div>
       </div>
     </section>
   </main>
@@ -168,5 +165,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="./nowistay-booking.js" defer></script>
 </body>
 </html>
