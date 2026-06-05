@@ -1,0 +1,220 @@
+name: One-off harmonize apartment pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-off-harmonize-apartment-pages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  harmonize-apartments:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Harmonize booking apartment headers and footers
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          base = Path('www/booking/logements')
+          apartment_files = sorted(base.glob('appartement-*.html'))
+
+          new_header = '''  <header>
+    <nav aria-label="Navigation réservation">
+      <a class="brand" href="../reservation.html" rel="nofollow">
+        <img src="./img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" />
+        <span>La Familia</span>
+      </a>
+      <div class="nav-actions">
+        <a href="https://my-booking.info" class="nav-link" rel="nofollow noopener">Ma réservation</a>
+        <a href="../reservation.html#logements" class="nav-cta" rel="nofollow">Voir les logements</a>
+      </div>
+    </nav>
+  </header>'''
+
+          new_footer = '''  <footer class="site-footer">
+    <div class="site-footer-bar">
+      <p>La Familia — réservation voyageurs à Aix-en-Provence</p>
+      <div class="site-footer-links">
+        <a href="../reservation.html" rel="nofollow">Tous les logements</a>
+        <a href="https://my-booking.info" rel="nofollow noopener">Ma réservation</a>
+        <a href="../carteinteractive.html" rel="nofollow">Livret d’accueil</a>
+      </div>
+    </div>
+  </footer>'''
+
+          for path in apartment_files:
+              content = path.read_text(encoding='utf-8')
+
+              # The old parent stylesheet injects legacy header rules and global image sizing; apartment.css now owns the page styling.
+              content = re.sub(r'\n\s*<link rel="stylesheet" href="\./reservation\.css">', '', content)
+              content = re.sub(r'\n\s*<link rel="stylesheet" href="\./reservation\.css"\s*/>', '', content)
+
+              content = re.sub(r'  <header>.*?</header>', new_header, content, count=1, flags=re.S)
+              content = re.sub(r'  <footer class="site-footer">.*?</footer>', new_footer, content, count=1, flags=re.S)
+              content = re.sub(r'  <footer>.*?</footer>', new_footer, content, count=1, flags=re.S)
+
+              # Fix navigation links from /logements/ pages back to the booking parent pages.
+              content = re.sub(r'href="(reservation[^"/]*\.html)"', r'href="../\1"', content)
+              content = content.replace('href="index.html"', 'href="../reservation.html"')
+              content = content.replace('href="carteinteractive.html"', 'href="../carteinteractive.html"')
+
+              # Avoid accidental double parent prefixes if a file was already partially corrected.
+              content = content.replace('href="../../reservation', 'href="../reservation')
+              content = content.replace('href="../../carteinteractive.html"', 'href="../carteinteractive.html"')
+
+              path.write_text(content, encoding='utf-8')
+
+          css_path = base / 'appartement.css'
+          css = css_path.read_text(encoding='utf-8')
+          block_start = '/* Harmonisation header/footer booking voyageurs */'
+          block = '''/* Harmonisation header/footer booking voyageurs */
+header nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 250, 244, .94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  padding: 12px 6%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "PlayfairDisplay", Georgia, serif;
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: #202020;
+}
+
+.brand img {
+  width: 72px;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .84rem;
+  font-weight: 900;
+  color: #202020;
+}
+
+.nav-cta {
+  background: #202020;
+  color: #fffaf4;
+  padding: 14px 19px;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.14);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.site-footer {
+  background: #202020;
+  color: #fffaf4;
+  padding: 34px 6%;
+  margin-top: 42px;
+}
+
+.site-footer-bar {
+  width: min(1180px, 100%);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #f7dfcf;
+  font-size: .95rem;
+}
+
+.site-footer-bar p {
+  color: #f7dfcf;
+  margin: 0;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.site-footer-links a {
+  color: #f7dfcf;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.site-footer-links a:hover,
+.nav-link:hover {
+  color: #b86b3d;
+}
+
+@media (max-width: 720px) {
+  header nav {
+    align-items: flex-start;
+    padding: 12px 5%;
+  }
+
+  .nav-actions {
+    justify-content: flex-end;
+  }
+
+  .site-footer-bar {
+    width: 100%;
+  }
+}
+'''
+          if block_start in css:
+              css = css[:css.index(block_start)] + block
+          else:
+              css = css.rstrip() + '\n\n' + block
+          css_path.write_text(css, encoding='utf-8')
+
+          workflow = Path('.github/workflows/one-off-harmonize-apartment-pages.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Commit apartment page harmonization
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Harmonize booking apartment page header and footer"
+            git push
+          else
+            echo "No changes needed."
+          fi
