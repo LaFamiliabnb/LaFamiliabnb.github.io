@@ -32,7 +32,7 @@
           <span class="fact-tag">Wi-Fi et TV</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=135814&referer=BookingLink">Réserver</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Le Jouvencel est ideal pour un sejour a deux ou un long week-end en ville, avec un emplacement central tres recherché et une ambiance calme rare en hyper-centre.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">Les plus</span><strong>Calme, neuf, central</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=135814&referer=BookingLink">Réserver</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
         <div class="gallery-card"><img src="../img/Le Jouvencel/Cuisine moderne et épurée (1).png" alt="Chambre du Jouvencel"></div>
         <div class="gallery-card"><img src="../img/Le Jouvencel/Espace contemporain et lumineux à louer.png" alt="Sejour du Jouvencel"></div>
         <div class="gallery-card"><img src="../img/Le Jouvencel/Rue pittoresque avec fenêtres couvertes de lierre.png" alt="Cuisine du Jouvencel"></div>
-        <div class="gallery-card"><img src="../img/Le Jouvencel/Salle de bain moderne et épurée (1).png" alt="Chambre du Jouvencel"></div> 
+        <div class="gallery-card"><img src="../img/Le Jouvencel/Salle de bain moderne et épurée (1).png" alt="Chambre du Jouvencel"></div>
         <div class="gallery-card"><img src="../img/Le Jouvencel/Salle de bain moderne et épurée (2).png" alt="Sejour du Jouvencel"></div>
         <div class="gallery-card"><img src="../img/Le Jouvencel/Salon moderne et épuré avec touches rouges.png" alt="Cuisine du Jouvencel"></div>
       </div>
@@ -162,25 +162,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Le Jouvencel</span>
-        <h2>Le bon choix pour profiter d'Aix avec charme et tranquillite</h2>
-        <p>Le Jouvencel plait aux voyageurs qui cherchent une adresse centrale sans compromis sur le calme. Refait a neuf, bien equipe et situe dans un secteur tres recherche, il permet de profiter pleinement d'Aix-en-Provence avec la sensation d'avoir trouve une adresse vraiment agreable a vivre.</p>
+        <span class="section-label">Reservation directe</span>
+        <h2>Verifiez les disponibilites du Jouvencel</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
+        </div>
       </div>
-      <div class="cta-box">
-        <span class="section-label">En bref</span>
-        <h2>Le Jouvencel, l'elegance simple du centre historique</h2>
-        <p>Un T2 renove, dans une rue pietonne calme, a quelques pas du Cours Mirabeau et de la rue d'Italie, pour un sejour a Aix a la fois pratique, confortable et plein de charme.</p>
-        <div class="cta-list">
-          <span>T2 de 36 m2 entierement renove</span>
-          <span>Centre historique a quelques pas du Cours Mirabeau</span>
-          <span>Wi-Fi, TV, Nespresso et linge de maison fourni</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="../reservation.html">Voir les autres logements</a>
-          <a class="button-ghost" href="#galerie">Revoir les photos</a>
-        </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Le Jouvencel</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div class="nowistay-booking-embed" data-nowistay-id="yk6g55f7" data-nowistay-name="Le Jouvencel" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -195,5 +192,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="./nowistay-booking.js" defer></script>
 </body>
 </html>
