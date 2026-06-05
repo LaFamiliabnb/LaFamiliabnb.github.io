@@ -15,7 +15,7 @@
         <div class="logo-accueil"><a href="../reservation.html" class="no-underline"><img src="../img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia"></a></div>
         <div class="denomination"><a href="../reservation.html" class="no-underline"><p>La Familia</p></a></div>
       </div>
-      <div class="menu-list"><ul><li><a href="reservation-studios.html" class="contact-button">Retour aux studios</a></li></ul></div>
+      <div class="menu-list"><ul><li><a href="../reservation.html" class="contact-button">Retour aux logements</a></li></ul></div>
     </nav>
   </header>
 
@@ -32,7 +32,7 @@
           <span class="fact-tag">Arrivee autonome</span>
         </div>
         <div class="hero-actions">
-          <a class="button-primary" href="https://beds24.com/booking.php?propid=279265&referer=BookingLink">Reserver ce logement</a>
+          <a class="button-primary" href="#reservation">Voir les disponibilites</a>
           <a class="button-secondary" href="#galerie">Voir les photos</a>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <p>Le Zephir est un logement entierement privatif en duplex. Il est ideal pour les voyageurs qui recherchent un appartement de caractere, mais l'escalier n'est pas adapte aux jeunes enfants ni aux personnes ayant des difficultes a se mouvoir.</p>
           <div class="pricing-line">
             <div><span class="eyebrow">A partir de</span><strong>40EUR/nuit</strong></div>
-            <a class="button-ghost" href="https://beds24.com/booking.php?propid=279265&referer=BookingLink">Disponibilites</a>
+            <a class="button-ghost" href="#reservation">Disponibilites</a>
           </div>
         </div>
       </div>
@@ -134,25 +134,22 @@
       </div>
     </section>
 
-    <section class="detail-booking">
+    <section id="reservation" class="detail-booking" style="grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);align-items:start;">
       <div class="story-card">
-        <span class="section-label">Pourquoi choisir Le Zephir</span>
-        <h2>Un logement plus memorisable qu'un simple appartement de passage</h2>
-        <p>Le Zephir combine une vraie identite architecturale, le confort moderne d'un duplex climatise et la commodite du centre historique. La page detaillee sert justement a faire ressentir cette singularite avant la reservation finale.</p>
-      </div>
-      <div class="cta-box">
         <span class="section-label">Reservation directe</span>
-        <h2>Consultez les disponibilites du Zephir</h2>
-        <p>Retrouvez le module de reservation La Familia pour verifier les dates et finaliser votre sejour dans un parcours simple. La note temporaire de travaux mentionnee dans votre capture concernait la periode du 3 septembre 2025 au 14 fevrier 2026, donc elle n'est plus affichee ici comme information active au 14 avril 2026.</p>
-        <div class="cta-list">
-          <span>T2 duplex climatise en centre historique</span>
-          <span>A partir de 40EUR par nuit</span>
-          <span>Mur en pierre, chambre separee et cuisine equipee</span>
+        <h2>Verifiez les disponibilites du Zephir</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
         </div>
-        <div class="hero-actions">
-          <a class="button-secondary" href="https://beds24.com/booking.php?propid=279265&referer=BookingLink">Aller a la reservation</a>
-          <a class="button-ghost" href="reservation-studios.html">Voir les autres studios</a>
-        </div>
+      </div>
+      <div class="cta-box" style="background:#ffffff;color:#202020;border:1px solid #f1decb;box-shadow:0 20px 45px rgba(84,53,18,.08);">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver Le Zephir</h2>
+        <p style="color:#6f5d4f;">Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div class="nowistay-booking-embed" data-nowistay-id="olo1to3p" data-nowistay-name="Le Zephir" style="margin-top:20px;overflow:visible;border-radius:22px;background:#fff;"></div>
       </div>
     </section>
   </main>
@@ -167,5 +164,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="./nowistay-booking.js" defer></script>
 </body>
 </html>
