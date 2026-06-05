@@ -2,85 +2,233 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.lafamiliabnb.fr/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://www.lafamiliabnb.fr/estimation-revenus-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
     <loc>https://www.lafamiliabnb.fr/blog/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://www.lafamiliabnb.fr/check-in-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
-    <loc>https://www.lafamiliabnb.fr/blog/reglementation-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/estimation-revenus-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/gestion-location-saisonniere-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/menage-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/mentions-legales/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/nos-logements/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/politique-confidentialite/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/combien-rapporte-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/conciergerie-airbnb-aix-en-provence-avantages/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-ateliercezanne/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-cardeurs/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-cours-mirabeau/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-fondationvasarely/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-hotelcaumont/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-marcheaix/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-parkingcarnot/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-parkingrotonde/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-propositionparking/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-saint-sauveur/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-saintevictoire/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/guide-vieilaix/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/index/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/location-saisonniere-ou-location-classique-aix/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/meilleurs-quartiers-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lafamiliabnb.fr/blog/menage-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.lafamiliabnb.fr/blog/optimiser-annonce-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
   <url>
-    <loc>https://www.lafamiliabnb.fr/blog/meilleurs-quartiers-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://www.lafamiliabnb.fr/blog/reglementation-airbnb-aix-en-provence/</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.lafamiliabnb.fr/blog/tarif-conciergerie-airbnb-aix-en-provence/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
   <url>
-    <loc>https://www.lafamiliabnb.fr/mentions-legales/</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.lafamiliabnb.fr/www/booking/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 
-  <url>
-    <loc>https://www.lafamiliabnb.fr/politique-confidentialite/</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 </urlset>

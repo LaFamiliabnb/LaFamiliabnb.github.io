@@ -5,11 +5,11 @@ function addJsonLdScripts() {
   organizationScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://lafamiliabnb.fr/#organization",
+    "@id": "https://www.lafamiliabnb.fr/#organization",
     name: "La Familia",
-    url: "https://lafamiliabnb.fr",
-    image: "https://lafamiliabnb.fr/img/banniere-aix-provence.jpg",
-    logo: "https://lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
+    url: "https://www.lafamiliabnb.fr",
+    image: "https://www.lafamiliabnb.fr/img/banniere-aix-provence.jpg",
+    logo: "https://www.lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png",
     description:
       "Conciergerie Airbnb a Aix-en-Provence specialisee dans la gestion locative saisonniere pour proprietaires.",
     telephone: "+33651094966",
@@ -51,13 +51,13 @@ function addJsonLdScripts() {
   serviceScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://lafamiliabnb.fr/#service",
+    "@id": "https://www.lafamiliabnb.fr/#service",
     name: "Conciergerie Airbnb et gestion locative saisonniere a Aix-en-Provence",
     serviceType: "Gestion locative saisonniere",
     description:
       "Service complet de conciergerie Airbnb a Aix-en-Provence : annonces, tarification, accueil voyageurs, menage, linge et maintenance.",
     provider: {
-      "@id": "https://lafamiliabnb.fr/#organization",
+      "@id": "https://www.lafamiliabnb.fr/#organization",
     },
     areaServed: {
       "@type": "City",
@@ -111,13 +111,13 @@ function addJsonLdScripts() {
   websiteScript.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://lafamiliabnb.fr/#website",
-    url: "https://lafamiliabnb.fr",
+    "@id": "https://www.lafamiliabnb.fr/#website",
+    url: "https://www.lafamiliabnb.fr",
     name: "La Familia",
     description:
       "Site officiel de La Familia, conciergerie Airbnb a Aix-en-Provence pour proprietaires.",
     publisher: {
-      "@id": "https://lafamiliabnb.fr/#organization",
+      "@id": "https://www.lafamiliabnb.fr/#organization",
     },
     inLanguage: "fr-FR",
   });
