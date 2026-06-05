@@ -1,0 +1,77 @@
+name: One-off fix booking image paths
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-off-fix-booking-image-paths.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fix relative image and font paths on apartment pages
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          base = Path('www/booking/logements')
+
+          for path in sorted(base.glob('appartement-*.html')):
+              content = path.read_text(encoding='utf-8')
+
+              # Remove legacy stylesheet that overrides header/images and is not present in /logements/.
+              content = re.sub(r'\n\s*<link rel="stylesheet" href="\./reservation\.css"\s*/?>', '', content)
+
+              # Images and favicon live one level up: /www/booking/img/.
+              content = content.replace('href="./img/', 'href="../img/')
+              content = content.replace("href='./img/", "href='../img/")
+              content = content.replace('src="./img/', 'src="../img/')
+              content = content.replace("src='./img/", "src='../img/")
+              content = content.replace('src="img/', 'src="../img/')
+              content = content.replace("src='img/", "src='../img/")
+              content = content.replace('src="img\\', 'src="../img/')
+              content = content.replace("src='img\\", "src='../img/")
+              content = content.replace('\\', '/')
+
+              # Header links from /logements/ must go back to the booking root.
+              content = content.replace('href="index.html"', 'href="../reservation.html"')
+              content = content.replace('href="reservation.html"', 'href="../reservation.html"')
+              content = content.replace('href="reservation - Copie.html"', 'href="../reservation.html"')
+              content = content.replace('href="carteinteractive.html"', 'href="../carteinteractive.html"')
+              content = content.replace('href="../reservation - Copie.html"', 'href="../reservation.html"')
+              content = content.replace('href="../../reservation.html"', 'href="../reservation.html"')
+              content = content.replace('href="../../carteinteractive.html"', 'href="../carteinteractive.html"')
+
+              path.write_text(content, encoding='utf-8')
+
+          css_path = base / 'appartement.css'
+          css = css_path.read_text(encoding='utf-8')
+          css = css.replace('url(./fonts/', 'url(../fonts/')
+          css = css.replace('url("./fonts/', 'url("../fonts/')
+          css = css.replace("url('./fonts/", "url('../fonts/")
+          css_path.write_text(css, encoding='utf-8')
+
+          workflow = Path('.github/workflows/one-off-fix-booking-image-paths.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Commit booking path fixes
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Fix booking apartment image paths"
+            git push
+          else
+            echo "No changes needed."
+          fi
