@@ -1,0 +1,123 @@
+name: One-off wire Nowistay pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-off-wire-nowistay-pages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  wire-nowistay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add Nowistay blocks
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          from html import escape
+
+          base = Path('www/booking/logements')
+          data = {
+            'appartement-lou-solari.html': ('Lou Solari', 'hkqujqhk'),
+            'appartement-le-fernandol.html': ('Le Fernandol', '496hyzv1'),
+            'appartement-le-forbin.html': ('Le Forbin', '6fh2cnzs'),
+            'appartement-le-cardinal.html': ('Le Cardinal', 'x1hlh4je'),
+            'appartement-le-carnot.html': ('Le Carnot', '29ihs9l4'),
+            'appartement-le-jouvencel.html': ('Le Jouvencel', 'yk6g55f7'),
+            'appartement-boulegon.html': ('Le Boulegon', '1dgrtxe3'),
+            'appartement-zephir.html': ('Zéphir', 'olo1to3p'),
+            'appartement-alizee.html': ('Alizée', 'ez75vtay'),
+            'appartement-lou-mistral.html': ('Lou Mistral', 'fj3v2c0a'),
+            'appartement-lou-mirabeau.html': ('Lou Mirabeau', '856e30k6'),
+            'appartement-lou-cezanne.html': ('Lou Cezanne', '6vtgp3bg'),
+            'appartement-lou-zola.html': ('Lou Zola', 'fmrndsuo')
+          }
+
+          def section(name, code):
+            n = escape(name)
+            c = escape(code)
+            return f'''    <section id="reservation" class="detail-booking nowistay-booking-section">
+      <div class="story-card">
+        <span class="section-label">Reservation directe</span>
+        <h2>Verifiez les disponibilites de {n}</h2>
+        <p>Selectionnez vos dates, indiquez le nombre de voyageurs et consultez le prix directement via le module de reservation securise Nowistay.</p>
+        <div class="feature-list">
+          <span>Arrivee a partir de 16h00</span>
+          <span>Depart jusqu'a 10h00</span>
+          <span>Reservation directe La Familia</span>
+        </div>
+      </div>
+      <div class="cta-box nowistay-widget-card">
+        <span class="section-label">Dates et prix</span>
+        <h2>Reserver {n}</h2>
+        <p>Choisissez vos dates pour voir les disponibilites et finaliser votre sejour.</p>
+        <div class="nowistay-booking-embed" data-nowistay-id="{c}" data-nowistay-name="{n}"></div>
+      </div>
+    </section>'''
+
+          for filename, (name, code) in data.items():
+            path = base / filename
+            if not path.exists():
+              print('missing', filename)
+              continue
+            html = path.read_text(encoding='utf-8')
+            html = re.sub(r'href="https://beds24\.com/booking\.php\?[^"]*"', 'href="#reservation"', html)
+            html = re.sub(r'\n\s*<script>\s*\(function\(\)\{.*?nowistay.*?</script>', '', html, flags=re.S|re.I)
+            block = section(name, code)
+            pat = r'\s*<section[^>]*(?:id="reservation"[^>]*class="[^"]*detail-booking[^"]*"|class="[^"]*detail-booking[^"]*"[^>]*)>.*?</section>'
+            if re.search(pat, html, flags=re.S):
+              html = re.sub(pat, '\n' + block, html, count=1, flags=re.S)
+            else:
+              html = html.replace('  </main>', '\n' + block + '\n  </main>')
+            if 'nowistay-booking.js' not in html:
+              html = html.replace('</body>', '  <script src="./nowistay-booking.js" defer></script>\n</body>')
+            path.write_text(html, encoding='utf-8')
+
+          css_path = base / 'appartement.css'
+          css = css_path.read_text(encoding='utf-8')
+          add = '''
+
+/* Nowistay booking widget */
+.nowistay-booking-section {
+  grid-template-columns: minmax(0, .72fr) minmax(520px, 1.28fr);
+  align-items: start;
+}
+.nowistay-widget-card {
+  background: #ffffff;
+  color: #202020;
+  border: 1px solid #f1decb;
+  box-shadow: 0 20px 45px rgba(84, 53, 18, 0.08);
+}
+.nowistay-widget-card p { color: #6f5d4f; }
+.nowistay-booking-embed {
+  margin-top: 20px;
+  overflow: visible;
+  border-radius: 22px;
+  background: #fff;
+}
+@media (max-width: 980px) {
+  .nowistay-booking-section { grid-template-columns: 1fr; }
+}
+'''
+          if '/* Nowistay booking widget */' not in css:
+            css = css.rstrip() + add
+          css_path.write_text(css, encoding='utf-8')
+
+          wf = Path('.github/workflows/one-off-wire-nowistay-pages.yml')
+          wf.unlink(missing_ok=True)
+          PY
+      - name: Commit changes
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Wire Nowistay widgets on apartment pages"
+            git push
+          fi
