@@ -1,14 +1,314 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ménage Airbnb Aix-en-Provence | La Familia</title>
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/">
-  <meta http-equiv="refresh" content="0; url=/conciergerie-airbnb-aix-en-provence/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ménage Airbnb Aix-en-Provence | Linge et préparation dès 50 € TTC</title>
+  <meta name="description" content="Service de ménage Airbnb à Aix-en-Provence : ménage, linge, lits faits, consommables et préparation de location courte durée à partir de 50 € TTC tout compris." />
+  <link rel="canonical" href="https://www.lafamiliabnb.fr/menage-airbnb-aix-en-provence/" />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Ménage Airbnb Aix-en-Provence | La Familia" />
+  <meta property="og:description" content="Ménage, linge et préparation complète de votre location courte durée à Aix-en-Provence, à partir de 50 € TTC tout compris." />
+  <meta property="og:url" content="https://www.lafamiliabnb.fr/menage-airbnb-aix-en-provence/" />
+  <meta property="og:site_name" content="La Familia" />
+  <meta property="og:image" content="https://www.lafamiliabnb.fr/img/entretien.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ménage Airbnb Aix-en-Provence | Linge et préparation" />
+  <meta name="twitter:description" content="Préparation de logement courte durée à Aix : ménage, linge, lits faits et remise en place à partir de 50 € TTC." />
+  <meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/entretien.png" />
+
+  <link rel="preload" href="/style.css" as="style" />
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    :root {
+      --cream: #fffaf4;
+      --beige: #fbe0c3;
+      --soft: #fff3e8;
+      --dark: #202020;
+      --text: #2a2a2a;
+      --muted: #5f5f5f;
+      --accent: #b86b3d;
+      --white: #ffffff;
+      --line: rgba(0,0,0,.08);
+      --shadow: 0 14px 34px rgba(0,0,0,.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--text); font-family: "Cabin", Arial, sans-serif; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: "PlayfairDisplay", Georgia, serif; color: var(--dark); line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 6.4vw, 6.1rem); margin: 22px 0; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2.1rem, 4.4vw, 4rem); margin: 0 0 22px; letter-spacing: -.035em; }
+    h3 { font-size: 1.45rem; margin: 0 0 12px; }
+    p, li { line-height: 1.72; color: #3e3e3e; }
+
+    .skip-link { position: absolute; left: -999px; top: 12px; background: var(--dark); color: var(--cream); padding: 10px 14px; z-index: 9999; }
+    .skip-link:focus { left: 12px; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,250,244,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 12px 6%; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; text-transform: uppercase; font-family: "PlayfairDisplay", Georgia, serif; font-weight: 900; letter-spacing: .06em; color: var(--dark); }
+    .brand img { width: 72px; }
+    .menu-list ul { display: flex; align-items: center; gap: 24px; list-style: none; padding: 0; margin: 0; }
+    .menu-list a { text-decoration: none; text-transform: uppercase; font-size: .84rem; font-weight: 900; color: var(--dark); }
+    .menu-list a:hover { color: var(--accent); }
+    .nav-cta { background: var(--dark); color: var(--cream) !important; padding: 14px 19px; border-radius: 999px; box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+
+    .breadcrumb { width: min(88%, 1180px); margin: 0 auto; padding-top: 22px; color: var(--muted); font-size: .95rem; }
+    .breadcrumb a { text-decoration: none; font-weight: 900; }
+
+    .hero { width: min(88%, 1180px); margin: 0 auto; padding: 58px 0 54px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .86fr); gap: 46px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 10px 16px; border-radius: 999px; background: var(--beige); font-weight: 900; color: var(--dark); }
+    .hero-lead { max-width: 760px; font-size: 1.22rem; margin-bottom: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px; }
+    .button, .submit-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 15px 25px; border-radius: 14px; border: 2px solid var(--dark); background: var(--dark); color: var(--cream); text-decoration: none; font-weight: 900; box-shadow: 0 12px 28px rgba(0,0,0,.18); transition: .2s ease; cursor: pointer; }
+    .button:hover, .submit-button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
+    .button.secondary { background: transparent; color: var(--dark); box-shadow: none; }
+    .micro-proof { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; color: var(--muted); font-weight: 800; }
+    .micro-proof span { display: inline-flex; align-items: center; gap: 7px; }
+    .micro-proof i { color: var(--accent); }
+
+    .price-card { border-radius: 30px; background: var(--white); border: 1px solid var(--line); box-shadow: 0 24px 54px rgba(0,0,0,.14); overflow: hidden; }
+    .price-visual { min-height: 240px; background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.34)), url("/img/entretien.png"); background-size: cover; background-position: center; position: relative; }
+    .price-visual span { position: absolute; left: 22px; bottom: 22px; background: rgba(255,250,244,.92); border-radius: 18px; padding: 13px 16px; font-weight: 900; }
+    .price-body { padding: 30px; }
+    .price-main { display: flex; align-items: baseline; gap: 8px; margin: 12px 0; }
+    .price-main strong { font-size: clamp(3.4rem, 7vw, 5.2rem); color: var(--accent); line-height: .95; }
+    .price-main span { font-weight: 900; color: var(--dark); }
+    .included-mini { display: grid; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .included-mini li { background: var(--soft); border-radius: 14px; padding: 14px 15px; display: flex; gap: 10px; font-weight: 800; }
+    .included-mini i { color: var(--accent); margin-top: 4px; }
+
+    .trust-strip { width: min(88%, 1180px); margin: 0 auto; padding: 0 0 54px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .trust-item { background: var(--white); border-radius: 18px; padding: 22px; box-shadow: 0 8px 22px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); text-align: center; }
+    .trust-item strong { display: block; font-size: 1.55rem; color: var(--accent); margin-bottom: 6px; }
+
+    .section { padding: 74px 6%; }
+    .section.alt { background: var(--soft); }
+    .section.dark { background: var(--dark); color: var(--cream); }
+    .section.dark h2, .section.dark h3 { color: var(--cream); }
+    .section.dark p, .section.dark li { color: #f7dfcf; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .section-intro { max-width: 860px; font-size: 1.15rem; }
+
+    .grid { display: grid; gap: 22px; margin-top: 32px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 20px; padding: 28px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .card i { color: var(--accent); font-size: 1.45rem; margin-bottom: 14px; }
+    .section.dark .card { background: rgba(255,250,244,.09); border-color: rgba(255,255,255,.2); box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+    .section.dark .card h3 { color: var(--cream); }
+    .section.dark .card p { color: #f7dfcf; }
+
+    .included-list { display: grid; gap: 12px; margin-top: 32px; }
+    .included-row { display: grid; grid-template-columns: .9fr 1.6fr; gap: 18px; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 5px 18px rgba(0,0,0,.06); }
+    .included-row strong { color: var(--dark); font-size: 1.06rem; }
+
+    .process { counter-reset: step; display: grid; gap: 18px; margin-top: 32px; }
+    .process-step { position: relative; background: var(--white); border-radius: 22px; padding: 26px 26px 26px 88px; border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .process-step::before { counter-increment: step; content: counter(step); position: absolute; left: 26px; top: 28px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--dark); color: var(--cream); font-weight: 900; }
+
+    .contact-panel { display: grid; grid-template-columns: .95fr 1.05fr; gap: 26px; margin-top: 34px; align-items: stretch; }
+    .contact-box, .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 26px; padding: 30px; box-shadow: var(--shadow); }
+    .contact-actions { display: grid; gap: 12px; margin-top: 22px; }
+    .contact-link { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 900; background: var(--soft); border-radius: 16px; padding: 15px; }
+    .contact-link i { color: var(--accent); }
+
+    form { display: grid; gap: 16px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    label { display: block; font-weight: 900; margin-bottom: 7px; color: var(--dark); }
+    input, select, textarea { width: 100%; border: 1px solid rgba(0,0,0,.14); border-radius: 14px; padding: 13px 14px; font: inherit; background: #fff; }
+    textarea { min-height: 116px; resize: vertical; }
+    .submit-button { width: 100%; }
+    .form-note { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    details { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; box-shadow: 0 5px 18px rgba(0,0,0,.06); }
+    details + details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 900; color: var(--dark); }
+
+    .site-footer { background: var(--dark); color: var(--cream); padding: 34px 6%; }
+    .site-footer-bar { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; color: #f7dfcf; }
+    .site-footer-bar p { color: #f7dfcf; margin: 0; }
+    .site-footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .site-footer-links a { color: #f7dfcf; text-decoration: none; font-weight: 900; }
+
+    @media (max-width: 980px) {
+      .hero, .contact-panel, .included-row { grid-template-columns: 1fr; }
+      .trust-strip, .grid.four, .grid.three, .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      nav { align-items: flex-start; padding: 12px 5%; }
+      .menu-list ul { flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
+      .hero, .breadcrumb, .trust-strip { width: min(92%, 1180px); }
+      .trust-strip, .grid.four, .grid.three, .grid.two, .form-grid { grid-template-columns: 1fr; }
+      .button, .submit-button { width: 100%; }
+      .site-footer-bar { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["LocalBusiness","ProfessionalService"],"@id":"https://www.lafamiliabnb.fr/#business","name":"La Familia","url":"https://www.lafamiliabnb.fr/","image":"https://www.lafamiliabnb.fr/img/LogoLF__3_-removebg-preview.png","description":"Conciergerie Airbnb et services de ménage pour locations courte durée à Aix-en-Provence.","telephone":"+33651094966","email":"aurore.pageard@hotmail.fr","address":{"@type":"PostalAddress","streetAddress":"6 rue Gibelin","postalCode":"13100","addressLocality":"Aix-en-Provence","addressCountry":"FR"},"areaServed":["Aix-en-Provence","Centre historique d'Aix-en-Provence","Quartier Mazarin","Cours Mirabeau","Rotonde","Luynes","Puyricard","Les Milles"],"priceRange":"Ménage Airbnb à partir de 50 € TTC"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Ménage Airbnb à Aix-en-Provence","provider":{"@id":"https://www.lafamiliabnb.fr/#business"},"areaServed":{"@type":"City","name":"Aix-en-Provence"},"serviceType":"Ménage, linge et préparation de location courte durée","description":"Service de ménage Airbnb avec linge et préparation du logement entre deux séjours, à partir de 50 € TTC tout compris à Aix-en-Provence.","offers":{"@type":"Offer","price":"50","priceCurrency":"EUR","description":"Ménage Airbnb, linge et préparation à partir de 50 € TTC tout compris."}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.lafamiliabnb.fr/"},{"@type":"ListItem","position":2,"name":"Ménage Airbnb Aix-en-Provence","item":"https://www.lafamiliabnb.fr/menage-airbnb-aix-en-provence/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Que comprend le service de ménage Airbnb ?","acceptedAnswer":{"@type":"Answer","text":"Le service comprend le ménage entre deux séjours, la préparation du logement, la mise en place du linge, les lits faits, la vérification générale et la remise en ordre avant l'arrivée des voyageurs."}},{"@type":"Question","name":"Quel est le prix du ménage Airbnb à Aix-en-Provence ?","acceptedAnswer":{"@type":"Answer","text":"La Familia propose une prestation à partir de 50 euros TTC tout compris. Le tarif exact dépend de la surface, du nombre de couchages, du volume de linge et du niveau de préparation demandé."}},{"@type":"Question","name":"Le linge est-il inclus ?","acceptedAnswer":{"@type":"Answer","text":"Oui, l'offre peut inclure la gestion du linge, la mise en place des draps et serviettes et la préparation des couchages selon l'organisation retenue avec le propriétaire."}},{"@type":"Question","name":"Intervenez-vous uniquement à Aix-en-Provence ?","acceptedAnswer":{"@type":"Answer","text":"La priorité est donnée à Aix-en-Provence et à ses quartiers proches : centre historique, Mazarin, Cours Mirabeau, Rotonde, Luynes, Puyricard et Les Milles selon disponibilité."}}]}</script>
 </head>
+
 <body>
-  <p>Redirection vers <a href="/conciergerie-airbnb-aix-en-provence/">la page conciergerie Airbnb à Aix-en-Provence</a>.</p>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="/"><img src="/img/LogoLF__3_-removebg-preview.png" alt="Logo La Familia" /><span>La Familia</span></a>
+      <div class="menu-list"><ul><li><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie</a></li><li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li><li><a href="/blog/">Blog</a></li><li><a href="#devis" class="nav-cta">Demander un devis</a></li></ul></div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <div class="breadcrumb"><a href="/">Accueil</a> / Ménage Airbnb Aix-en-Provence</div>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><i class="fas fa-broom"></i> Ménage, linge et préparation</span>
+        <h1>Ménage Airbnb à Aix-en-Provence, dès 50 € TTC</h1>
+        <p class="hero-lead">Confiez la remise en état de votre location courte durée à une équipe locale. Nous préparons votre logement entre deux voyageurs : ménage, linge, lits faits, contrôle visuel et remise en place, pour une arrivée propre, simple et rassurante.</p>
+        <div class="actions"><a href="#devis" class="button">Demander un devis <i class="fas fa-arrow-right"></i></a><a href="tel:+33651094966" class="button secondary">Appeler La Familia</a></div>
+        <div class="micro-proof"><span><i class="fas fa-check-circle"></i> À partir de 50 € TTC</span><span><i class="fas fa-check-circle"></i> Tout compris</span><span><i class="fas fa-check-circle"></i> Spécial location courte durée</span></div>
+      </div>
+
+      <aside class="price-card" aria-label="Offre ménage Airbnb">
+        <div class="price-visual"><span>Préparation avant arrivée voyageurs</span></div>
+        <div class="price-body">
+          <span class="eyebrow"><i class="fas fa-tag"></i> Prix d’appel</span>
+          <div class="price-main"><strong>50 €</strong><span>TTC<br>à partir de</span></div>
+          <p>Prestation tout compris pour les petits logements, ajustée selon la surface, le nombre de couchages et le volume de linge.</p>
+          <ul class="included-mini">
+            <li><i class="fas fa-check"></i><span>Ménage entre deux séjours</span></li>
+            <li><i class="fas fa-check"></i><span>Linge, lits et serviettes selon organisation</span></li>
+            <li><i class="fas fa-check"></i><span>Remise en place et contrôle avant arrivée</span></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="trust-strip" aria-label="Avantages service ménage"><div class="trust-item"><strong>50 € TTC</strong><span>prix d'appel tout compris</span></div><div class="trust-item"><strong>Airbnb</strong><span>pensé pour les rotations voyageurs</span></div><div class="trust-item"><strong>Linge</strong><span>draps, serviettes et lits préparés</span></div><div class="trust-item"><strong>Aix</strong><span>intervention locale et réactive</span></div></section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Une prestation pensée pour les locations courte durée</h2>
+        <p class="section-intro">Le ménage d’un Airbnb ne ressemble pas à un ménage classique. Il faut aller vite, être régulier, repérer les détails qui peuvent impacter les avis voyageurs et préparer le logement comme s’il allait accueillir les prochains hôtes dans quelques heures.</p>
+        <div class="grid three">
+          <article class="card"><i class="fas fa-home"></i><h3>Ménage complet</h3><p>Pièces de vie, cuisine, salle de bain, sanitaires, sols, surfaces, miroirs et remise en ordre générale du logement.</p></article>
+          <article class="card"><i class="fas fa-bed"></i><h3>Linge et lits faits</h3><p>Préparation des couchages, mise en place des serviettes et gestion du linge selon l’organisation définie ensemble.</p></article>
+          <article class="card"><i class="fas fa-clipboard-check"></i><h3>Contrôle avant arrivée</h3><p>Vérification visuelle du logement, rangement, consommables de base et signalement d’un problème si quelque chose manque.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Ce qui est inclus dans la préparation</h2>
+        <p class="section-intro">L’objectif est simple : que le voyageur entre dans un logement propre, prêt, cohérent avec les photos et agréable dès les premières minutes.</p>
+        <div class="included-list">
+          <div class="included-row"><strong>Ménage du logement</strong><span>Dépoussiérage, nettoyage des surfaces, cuisine, salle de bain, WC, sols, miroirs, poubelles et remise en ordre.</span></div>
+          <div class="included-row"><strong>Préparation du linge</strong><span>Draps, taies, serviettes, tapis de bain et mise en place des couchages selon le nombre de voyageurs prévu.</span></div>
+          <div class="included-row"><strong>Préparation voyageurs</strong><span>Vérification des consommables, présentation du logement, rangement visible et attention aux détails qui influencent les avis.</span></div>
+          <div class="included-row"><strong>Suivi propriétaire</strong><span>Signalement des anomalies : casse, objet oublié, stock faible, tache, odeur, problème technique ou besoin d’intervention.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <h2>Pour quels propriétaires ?</h2>
+        <p class="section-intro">Ce service s’adresse aux propriétaires qui gèrent eux-mêmes leurs réservations mais veulent déléguer la partie la plus sensible : le ménage, le linge et la préparation entre deux séjours.</p>
+        <div class="grid three">
+          <article class="card"><h3>Vous louez sur Airbnb</h3><p>Nous intervenons entre deux voyageurs pour maintenir une qualité régulière et limiter le risque de mauvais avis liés à la propreté.</p></article>
+          <article class="card"><h3>Vous manquez de temps</h3><p>Vous gardez la main sur votre annonce, vos prix et vos messages, mais vous déléguez la préparation opérationnelle.</p></article>
+          <article class="card"><h3>Vous voulez professionnaliser</h3><p>Un logement bien préparé donne une meilleure première impression et renforce la confiance des voyageurs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Comment ça fonctionne ?</h2>
+        <div class="process">
+          <div class="process-step"><h3>Premier échange</h3><p>Vous nous indiquez l’adresse, le type de logement, la surface, le nombre de couchages, le volume de linge et votre fréquence de réservation.</p></div>
+          <div class="process-step"><h3>Organisation de la prestation</h3><p>Nous validons le tarif, les consignes d’accès, les équipements à vérifier, la gestion du linge et les attentes précises de préparation.</p></div>
+          <div class="process-step"><h3>Intervention entre deux séjours</h3><p>Le logement est nettoyé, remis en place, préparé pour les voyageurs suivants et les anomalies éventuelles vous sont signalées.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zones">
+      <div class="container">
+        <h2>Zones d’intervention autour d’Aix-en-Provence</h2>
+        <p class="section-intro">Nous privilégions Aix-en-Provence et les secteurs proches pour conserver une intervention fiable et réactive.</p>
+        <div class="grid four">
+          <article class="card"><h3>Centre historique</h3><p>Rues piétonnes, Cours Mirabeau, Rotonde, mairie, Cardeurs et quartiers très centraux.</p></article>
+          <article class="card"><h3>Quartier Mazarin</h3><p>Logements de charme, appartements premium et locations courtes durées à forte exigence de présentation.</p></article>
+          <article class="card"><h3>Luynes, Puyricard</h3><p>Interventions possibles selon disponibilité, accès au logement et fréquence des rotations.</p></article>
+          <article class="card"><h3>Les Milles</h3><p>Logements professionnels, séjours courts et demandes régulières selon planning.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="devis">
+      <div class="container">
+        <h2>Demander un devis ménage Airbnb</h2>
+        <p class="section-intro">Le prix commence à 50 € TTC tout compris. Pour confirmer le tarif, nous avons besoin de quelques informations sur votre logement et votre organisation.</p>
+        <div class="contact-panel">
+          <div class="contact-box">
+            <h3>Contact direct</h3>
+            <p>Besoin de savoir rapidement si nous pouvons intervenir sur votre logement ? Appelez-nous ou envoyez votre demande via le formulaire.</p>
+            <div class="contact-actions">
+              <a class="contact-link" href="tel:+33651094966"><i class="fas fa-phone"></i><span>06 51 09 49 66</span></a>
+              <a class="contact-link" href="mailto:aurore.pageard@hotmail.fr?subject=Demande%20ménage%20Airbnb%20Aix-en-Provence"><i class="fas fa-envelope"></i><span>aurore.pageard@hotmail.fr</span></a>
+              <a class="contact-link" href="https://maps.app.goo.gl/iJCxQQ3ByhTFWyVd8" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>6 rue Gibelin, 13100 Aix-en-Provence</span></a>
+            </div>
+          </div>
+          <aside class="form-card">
+            <h3>Votre logement</h3>
+            <form action="https://formspree.io/f/meoeyqqk" method="POST">
+              <div class="form-grid"><div><label for="nom">Nom</label><input id="nom" name="nom" type="text" autocomplete="name" required /></div><div><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" autocomplete="tel" required /></div></div>
+              <div class="form-grid"><div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required /></div><div><label for="surface">Surface</label><input id="surface" name="surface" type="text" placeholder="Ex : 32 m², T2, 4 couchages" /></div></div>
+              <div><label for="adresse">Adresse ou quartier du logement</label><input id="adresse" name="adresse" type="text" placeholder="Ex : centre historique, Mazarin, Rotonde..." required /></div>
+              <div><label for="besoin">Votre besoin</label><textarea id="besoin" name="besoin" placeholder="Ménage seul, linge, lits faits, fréquence, nombre de couchages, contraintes d’accès..."></textarea></div>
+              <input type="hidden" name="service" value="Ménage Airbnb Aix-en-Provence" />
+              <button class="submit-button" type="submit">Recevoir mon devis</button>
+              <p class="form-note">Nous vous recontactons pour valider le tarif, les accès et l’organisation de la prestation.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Questions fréquentes</h2>
+        <details><summary>Le tarif de 50 € TTC est-il valable pour tous les logements ?</summary><p>Il s’agit d’un prix d’appel pour les petits logements et les prestations simples. Le tarif final dépend de la surface, du nombre de couchages, du volume de linge et de la complexité de la préparation.</p></details>
+        <details><summary>Le linge est-il fourni ou seulement mis en place ?</summary><p>L’organisation du linge est définie avec le propriétaire. Nous pouvons intégrer la mise en place des draps et serviettes, ainsi que la préparation des lits selon le fonctionnement retenu.</p></details>
+        <details><summary>Pouvez-vous intervenir entre deux réservations le même jour ?</summary><p>Oui, selon la zone, l’horaire de départ, l’horaire d’arrivée et le planning disponible. Les rotations courtes doivent être anticipées pour garantir une préparation correcte.</p></details>
+        <details><summary>Proposez-vous aussi la gestion complète de l’Airbnb ?</summary><p>Oui. Si vous souhaitez déléguer davantage que le ménage, La Familia propose aussi une conciergerie Airbnb complète : annonce, voyageurs, prix, check-in, ménage, linge et suivi propriétaire.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-bar">
+      <p>La Familia — ménage Airbnb et conciergerie à Aix-en-Provence</p>
+      <div class="site-footer-links"><a href="/conciergerie-airbnb-aix-en-provence/">Conciergerie</a><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a><a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation</a></div>
+    </div>
+  </footer>
 </body>
 </html>
