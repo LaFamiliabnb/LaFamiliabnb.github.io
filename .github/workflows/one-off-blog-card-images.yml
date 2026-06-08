@@ -18,30 +18,25 @@ jobs:
           python3 <<'PY'
           from pathlib import Path
 
-          path = Path('blog/index/index.html')
-          html = path.read_text(encoding='utf-8')
+          page = Path('blog/index/index.html')
+          html = page.read_text(encoding='utf-8')
 
-          old_block = '''    .article-image { background: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; min-height: 210px; }
-    .article-card:nth-child(1) .article-image, .article-card:nth-child(2) .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg"); }
-    .article-card.card-reglementation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/cardinal/Chambre%20%C3%A9l%C3%A9gante%20avec%20ambiance%20lumineuse.png"); }
-    .article-card.card-tarif .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/cardinal/Quel%20tarif%20pour%20une%20conciergerie%20Airbnb%20%C3%A0%20Aix-en-Provence.png"); }
-    .article-card.card-quartiers .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Le%20Forbin/35477b0c-721d-4a05-83e7-b70d148f9cc6.jpg"); }'''
+          start = html.index('    .article-image {')
+          end = html.index('    .article-content {', start)
 
-          new_block = '''    .article-image { background: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; min-height: 210px; }
-    .article-card.card-revenus .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg"); }
-    .article-card.card-reglementation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Cardinal/Salon moderne avec canapé et jardinet.png"); }
-    .article-card.card-conciergerie .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Carnot/Salon moderne et lumineux avec vue extérieure.png"); }
+          new_css = '''    .article-image { background: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; min-height: 210px; }
+    .article-card.card-revenus .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/cours.jpg"); }
+    .article-card.card-reglementation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/ateliercezanne.jpg"); }
+    .article-card.card-conciergerie .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/living-room-8368673_1280.webp"); }
     .article-card.card-tarif .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/argent.png"); }
-    .article-card.card-location .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Fernandol/23012bd5-3a7f-4704-abc2-f513a7831d9c.jpg"); }
+    .article-card.card-location .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/flexible.webp"); }
     .article-card.card-menage .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/entretien.png"); }
     .article-card.card-quartiers .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/marcheaix.jpg"); }
-    .article-card.card-optimisation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Lou Cezanne/7bb99abb-7390-4b73-95a2-8f232207e16f.jpg"); }'''
+    .article-card.card-optimisation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/ill-graph.webp"); }
+'''
 
-          if old_block not in html:
-              raise SystemExit('Expected old blog image block not found')
-
-          html = html.replace(old_block, new_block, 1)
-          path.write_text(html, encoding='utf-8')
+          html = html[:start] + new_css + html[end:]
+          page.write_text(html, encoding='utf-8')
           Path('.github/workflows/one-off-blog-card-images.yml').unlink(missing_ok=True)
           PY
 
