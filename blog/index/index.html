@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Conseils pour propriétaires Airbnb à Aix-en-Provence : revenus, tarifs, réglementation et gestion courte durée." />
   <meta name="twitter:image" content="https://www.lafamiliabnb.fr/img/living-room-8368673_1280.webp" />
 
-  <link rel="preload" href="/img/living-room-8368673_1280.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="/img/cours.jpg" as="image" fetchpriority="high" />
   <link rel="preload" href="/style.css" as="style" />
   <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all';this.onload=null;" />
   <noscript><link rel="stylesheet" href="/style.css" /></noscript>
@@ -95,11 +95,9 @@
     .articles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; min-height: 0; }
     .article-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); text-decoration: none; overflow: hidden; transition: .2s ease; display: flex; flex-direction: column; min-height: 100%; }
     .article-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
-    .article-image { background: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/living-room-8368673_1280.webp"); background-size: cover; background-position: center; min-height: 210px; }
-    .article-card:nth-child(1) .article-image, .article-card:nth-child(2) .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Boulegon/3db3e48d-4e21-4ad4-8b2a-343ef131dbaa.jpg"); }
-    .article-card.card-reglementation .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/cardinal/Chambre%20%C3%A9l%C3%A9gante%20avec%20ambiance%20lumineuse.png"); }
-    .article-card.card-tarif .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/cardinal/Quel%20tarif%20pour%20une%20conciergerie%20Airbnb%20%C3%A0%20Aix-en-Provence.png"); }
-    .article-card.card-quartiers .article-image { background-image: linear-gradient(180deg, rgba(32,32,32,.03), rgba(32,32,32,.22)), url("/img/Le%20Forbin/35477b0c-721d-4a05-83e7-b70d148f9cc6.jpg"); }
+    .article-image { min-height: 210px; background: #f0e7dd; overflow: hidden; }
+    .article-image img { width: 100%; height: 210px; object-fit: cover; transition: transform .25s ease; }
+    .article-card:hover .article-image img { transform: scale(1.035); }
     .article-content { padding: 28px; flex: 1; display: flex; flex-direction: column; }
     .meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
     .tag { display: inline-flex; width: fit-content; background: var(--soft); color: var(--accent); border: 1px solid rgba(184,107,61,.12); border-radius: 999px; padding: 7px 13px; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; font-weight: 900; }
@@ -228,7 +226,7 @@
 
       <section class="articles-grid" aria-label="Liste des articles">
         <a class="article-card card-revenus" href="/blog/combien-rapporte-airbnb-aix-en-provence/" data-category="revenus">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/cours.jpg" alt="Cours Mirabeau à Aix-en-Provence" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Revenus Airbnb</span><span>Mis à jour en 2026</span></div>
             <h3>Combien rapporte un Airbnb à Aix-en-Provence ?</h3>
@@ -238,7 +236,7 @@
         </a>
 
         <a class="article-card card-reglementation" href="/blog/reglementation-airbnb-aix-en-provence/" data-category="reglementation">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/ateliercezanne.jpg" alt="Atelier Cézanne à Aix-en-Provence" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Réglementation</span><span>Guide propriétaire</span></div>
             <h3>Réglementation Airbnb à Aix-en-Provence : ce qu’il faut vérifier</h3>
@@ -248,7 +246,7 @@
         </a>
 
         <a class="article-card card-conciergerie" href="/blog/conciergerie-airbnb-aix-en-provence-avantages/" data-category="conciergerie">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/living-room-8368673_1280.webp" alt="Salon préparé pour une location courte durée" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Conciergerie</span><span>Guide</span></div>
             <h3>Pourquoi passer par une conciergerie Airbnb à Aix-en-Provence ?</h3>
@@ -258,7 +256,7 @@
         </a>
 
         <a class="article-card card-tarif" href="/blog/tarif-conciergerie-airbnb-aix-en-provence/" data-category="conciergerie">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/argent.png" alt="Illustration des tarifs et revenus" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Tarifs</span><span>Conciergerie</span></div>
             <h3>Quel tarif pour une conciergerie Airbnb à Aix-en-Provence ?</h3>
@@ -268,7 +266,7 @@
         </a>
 
         <a class="article-card card-location" href="/blog/location-saisonniere-ou-location-classique-aix/" data-category="revenus">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/flexible.webp" alt="Illustration de flexibilité locative" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Revenus Airbnb</span><span>Investissement</span></div>
             <h3>Location saisonnière ou location classique à Aix : que choisir ?</h3>
@@ -278,7 +276,7 @@
         </a>
 
         <a class="article-card card-menage" href="/blog/menage-airbnb-aix-en-provence/" data-category="gestion">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/entretien.png" alt="Illustration du ménage Airbnb" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Gestion locative</span><span>Qualité</span></div>
             <h3>Ménage Airbnb : pourquoi c’est décisif pour vos avis voyageurs</h3>
@@ -288,7 +286,7 @@
         </a>
 
         <a class="article-card card-quartiers" href="/blog/meilleurs-quartiers-airbnb-aix-en-provence/" data-category="aix">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/marcheaix.jpg" alt="Marché et quartiers d’Aix-en-Provence" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Marché Aix</span><span>Local</span></div>
             <h3>Quels quartiers d’Aix-en-Provence fonctionnent le mieux sur Airbnb ?</h3>
@@ -298,7 +296,7 @@
         </a>
 
         <a class="article-card card-optimisation" href="/blog/optimiser-annonce-airbnb-aix-en-provence/" data-category="gestion">
-          <div class="article-image"></div>
+          <div class="article-image"><img src="/img/ill-graph.webp" alt="Graphique d’optimisation de performance Airbnb" loading="lazy" /></div>
           <div class="article-content">
             <div class="meta"><span class="tag">Gestion locative</span><span>Annonce</span></div>
             <h3>Comment optimiser une annonce Airbnb à Aix-en-Provence ?</h3>
