@@ -50,10 +50,49 @@
     }).format(new Date(date));
   }
 
+  function normalizeChecklist(checklist) {
+    if (Array.isArray(checklist)) return checklist;
+    if (!checklist || typeof checklist !== "object") return [];
+    return Object.entries(checklist).map(([label, checked]) => ({ label, checked: Boolean(checked) }));
+  }
+
   function reportChecklistScore(report) {
-    const checklist = Array.isArray(report.checklist) ? report.checklist : [];
+    const checklist = normalizeChecklist(report.checklist);
     const checked = checklist.filter((item) => Boolean(item.checked)).length;
     return `${checked}/${checklist.length}`;
+  }
+
+  function getReportDate(report) {
+    return report.submitted_at || report.report_generated_at || report.created_at;
+  }
+
+  function getReportCleaner(report) {
+    return report.staff_name || "Non renseigné";
+  }
+
+  function getReportGuest(report) {
+    return report.booking_guest_name || "Non renseigné";
+  }
+
+  function getPropertyCover(property) {
+    const payload = property.payload || {};
+    const candidates = [
+      property.cover_url,
+      payload.cover_url,
+      payload.coverUrl,
+      payload.picture,
+      payload.image,
+      payload.photo,
+      Array.isArray(payload.photos) ? payload.photos[0] : null,
+      Array.isArray(payload.images) ? payload.images[0] : null,
+    ];
+
+    for (const candidate of candidates) {
+      if (!candidate) continue;
+      if (typeof candidate === "string") return candidate;
+      if (typeof candidate === "object") return candidate.url || candidate.src || candidate.path || null;
+    }
+    return null;
   }
 
   function getSession() {
@@ -139,25 +178,25 @@
   }
 
   async function getDashboardData(session) {
-    const owners = await supabaseFetch(
-      `/rest/v1/owners?select=id,auth_user_id,name,email,created_at&auth_user_id=eq.${session.user.id}&limit=1`,
+    const accounts = await supabaseFetch(
+      `/rest/v1/owner_accounts?select=id,auth_user_id,name,email,nowistay_owner_id,created_at&auth_user_id=eq.${session.user.id}&limit=1`,
       { accessToken: session.accessToken },
     );
 
-    if (!owners.length) {
-      throw new Error("Aucun propriétaire n’est relié à cet utilisateur Supabase.");
+    if (!accounts.length) {
+      throw new Error("Aucun compte propriétaire n’est relié à cet utilisateur Supabase. Crée une ligne dans owner_accounts avec son auth_user_id.");
     }
 
-    const owner = owners[0];
+    const owner = accounts[0];
     const properties = await supabaseFetch(
-      `/rest/v1/properties?select=id,owner_id,nowistay_property_id,name,city,cover_url,created_at&owner_id=eq.${owner.id}&order=name.asc`,
+      `/rest/v1/nowistay_properties?select=id,name,owner_id,capacity,property_type,city,country,payload&owner_id=eq.${owner.nowistay_owner_id}&order=name.asc`,
       { accessToken: session.accessToken },
     );
 
     const propertyIds = properties.map((property) => property.id);
     const reports = propertyIds.length
       ? await supabaseFetch(
-          `/rest/v1/cleaning_reports?select=id,nowistay_mission_id,nowistay_property_id,property_id,cleaner_name,guest_name,completed_at,comment,photos,checklist,created_at&property_id=in.(${propertyIds.join(",")})&order=completed_at.desc&limit=100`,
+          `/rest/v1/staff_cleaning_reports?select=id,mission_id,booking_id,property_id,team_member_id,staff_name,status,checklist,comment,problem_reported,problem_type,photos,submitted_at,created_at,report_document_path,report_generated_at&property_id=in.(${propertyIds.join(",")})&order=submitted_at.desc&limit=100`,
           { accessToken: session.accessToken },
         )
       : [];
@@ -167,7 +206,7 @@
 
   async function getReportDetail(session, reportId) {
     const reports = await supabaseFetch(
-      `/rest/v1/cleaning_reports?select=id,nowistay_mission_id,nowistay_property_id,property_id,cleaner_name,guest_name,completed_at,comment,photos,checklist,created_at&id=eq.${reportId}&limit=1`,
+      `/rest/v1/staff_cleaning_reports?select=id,mission_id,booking_id,property_id,team_member_id,staff_name,status,checklist,comment,problem_reported,problem_type,photos,submitted_at,created_at,report_document_path,report_generated_at&id=eq.${reportId}&limit=1`,
       { accessToken: session.accessToken },
     );
 
@@ -177,7 +216,7 @@
 
     const report = reports[0];
     const properties = await supabaseFetch(
-      `/rest/v1/properties?select=id,owner_id,nowistay_property_id,name,city,cover_url,created_at&id=eq.${report.property_id}&limit=1`,
+      `/rest/v1/nowistay_properties?select=id,name,owner_id,capacity,property_type,city,country,payload&id=eq.${report.property_id}&limit=1`,
       { accessToken: session.accessToken },
     );
 
@@ -249,7 +288,7 @@
     setText("[data-owner-name]", data.owner.name);
     setText("[data-owner-property-count]", data.properties.length);
     setText("[data-owner-report-count]", data.reports.length);
-    setText("[data-owner-last-report]", data.reports[0] ? formatDate(data.reports[0].completed_at) : "Aucun rapport");
+    setText("[data-owner-last-report]", data.reports[0] ? formatDate(getReportDate(data.reports[0])) : "Aucun rapport");
 
     const reportsByProperty = new Map();
     data.reports.forEach((report) => {
@@ -260,15 +299,16 @@
     if (!container) return;
 
     if (!data.properties.length) {
-      container.innerHTML = '<div class="owner-empty">Aucun logement n’est encore relié à votre compte.</div>';
+      container.innerHTML = '<div class="owner-empty">Aucun logement n’est relié à ce propriétaire Nowistay.</div>';
       return;
     }
 
     container.innerHTML = data.properties
       .map((property) => {
         const reports = reportsByProperty.get(property.id) || [];
-        const cover = property.cover_url
-          ? `<img src="${escapeHtml(property.cover_url)}" alt="${escapeHtml(property.name)}" loading="lazy">`
+        const coverUrl = getPropertyCover(property);
+        const cover = coverUrl
+          ? `<img src="${escapeHtml(coverUrl)}" alt="${escapeHtml(property.name)}" loading="lazy">`
           : '<div class="owner-property-placeholder">Photo du logement à ajouter</div>';
 
         const reportCards = reports.length
@@ -277,7 +317,7 @@
                 (report) => `
                   <a class="owner-report-card" href="./rapport.html?id=${encodeURIComponent(report.id)}">
                     <h3>Rapport ménage — ${escapeHtml(property.name)}</h3>
-                    <p class="owner-muted">${formatDate(report.completed_at)} · Cleaner : ${escapeHtml(report.cleaner_name || "non renseigné")}</p>
+                    <p class="owner-muted">${formatDate(getReportDate(report))} · Cleaner : ${escapeHtml(getReportCleaner(report))}</p>
                     <div class="owner-mini-stats">
                       <span class="owner-mini-stat">Checklist <strong>${reportChecklistScore(report)}</strong></span>
                       <span class="owner-mini-stat">Photos <strong>${Array.isArray(report.photos) ? report.photos.length : 0}</strong></span>
@@ -296,8 +336,8 @@
               <div class="owner-property-content">
                 <div class="owner-property-head">
                   <div>
-                    <h2>${escapeHtml(property.name)}</h2>
-                    <p class="owner-muted">${escapeHtml(property.city || "Ville non renseignée")} · Nowistay #${escapeHtml(property.nowistay_property_id)}</p>
+                    <h2>${escapeHtml(property.name || "Logement")}</h2>
+                    <p class="owner-muted">${escapeHtml(property.city || property.country || "Ville non renseignée")} · Nowistay #${escapeHtml(property.id)}</p>
                   </div>
                   <span class="owner-pill">${reports.length} rapport(s)</span>
                 </div>
@@ -328,17 +368,18 @@
   }
 
   function renderReportDetail({ report, property }) {
-    setText("[data-report-property]", property.name);
-    setText("[data-report-date]", formatDateTime(report.completed_at));
-    setText("[data-report-mission]", `Nowistay mission #${report.nowistay_mission_id}`);
-    setText("[data-report-cleaner]", report.cleaner_name || "Non renseigné");
-    setText("[data-report-guest]", report.guest_name || "Non renseigné");
+    setText("[data-report-property]", property.name || "Logement");
+    setText("[data-report-date]", formatDateTime(getReportDate(report)));
+    setText("[data-report-mission]", report.mission_id ? `Nowistay mission #${report.mission_id}` : `Rapport #${report.id}`);
+    setText("[data-report-cleaner]", getReportCleaner(report));
+    setText("[data-report-guest]", getReportGuest(report));
     setText("[data-report-checklist-score]", reportChecklistScore(report));
     setText("[data-report-photo-count]", Array.isArray(report.photos) ? report.photos.length : 0);
 
     const cover = qs("[data-report-cover]");
-    if (cover && property.cover_url) {
-      cover.innerHTML = `<img src="${escapeHtml(property.cover_url)}" alt="${escapeHtml(property.name)}">`;
+    const coverUrl = getPropertyCover(property);
+    if (cover && coverUrl) {
+      cover.innerHTML = `<img src="${escapeHtml(coverUrl)}" alt="${escapeHtml(property.name)}">`;
     }
 
     const commentSection = qs("[data-report-comment-section]");
@@ -347,7 +388,7 @@
       commentSection.hidden = false;
     }
 
-    const checklist = Array.isArray(report.checklist) ? report.checklist : [];
+    const checklist = normalizeChecklist(report.checklist);
     const checklistContainer = qs("[data-report-checklist]");
     if (checklistContainer) {
       checklistContainer.innerHTML = checklist.length
@@ -369,13 +410,15 @@
     if (gallery) {
       gallery.innerHTML = photos.length
         ? photos
-            .map(
-              (photo, index) => `
-                <a href="${escapeHtml(photo)}" target="_blank" rel="noreferrer">
-                  <img src="${escapeHtml(photo)}" alt="Photo ménage ${index + 1}" loading="lazy">
+            .map((photo, index) => {
+              const url = typeof photo === "string" ? photo : photo.url || photo.src || photo.path || "";
+              if (!url) return "";
+              return `
+                <a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">
+                  <img src="${escapeHtml(url)}" alt="Photo ménage ${index + 1}" loading="lazy">
                 </a>
-              `,
-            )
+              `;
+            })
             .join("")
         : '<div class="owner-empty">Aucune photo n’est attachée à ce rapport.</div>';
     }
