@@ -30,6 +30,36 @@
       .replaceAll("'", "&#039;");
   }
 
+  function encodeStoragePath(path) {
+    return String(path || "")
+      .split("/")
+      .map((part) => encodeURIComponent(part))
+      .join("/");
+  }
+
+  function storagePublicUrl(bucket, path) {
+    if (!bucket || !path || !supabaseUrl) return "";
+    return `${supabaseUrl}/storage/v1/object/public/${encodeURIComponent(bucket)}/${encodeStoragePath(path)}`;
+  }
+
+  function getFileUrl(file, defaultBucket = "cleaning-reports") {
+    if (!file) return "";
+
+    if (typeof file === "string") {
+      if (/^https?:\/\//i.test(file)) return file;
+      return storagePublicUrl(defaultBucket, file);
+    }
+
+    if (typeof file !== "object") return "";
+
+    const directUrl = file.url || file.src || file.publicUrl || file.public_url;
+    if (directUrl && /^https?:\/\//i.test(directUrl)) return directUrl;
+
+    const bucket = file.bucket || file.bucket_id || file.bucketId || defaultBucket;
+    const path = file.path || file.name || file.fullPath || file.full_path;
+    return storagePublicUrl(bucket, path);
+  }
+
   function formatDate(date) {
     if (!date) return "Date non renseignée";
     return new Intl.DateTimeFormat("fr-FR", {
@@ -62,22 +92,39 @@
     return `${checked}/${checklist.length}`;
   }
 
+  function firstNameOnly(value) {
+    const clean = String(value || "").replace(/\s+/g, " ").trim();
+    if (!clean || clean.toLowerCase() === "non renseigné") return clean || "Non renseigné";
+    return clean.split(" ")[0];
+  }
+
   function getReportDate(report) {
     return report.submitted_at || report.report_generated_at || report.created_at;
   }
 
   function getReportCleaner(report) {
-    return report.staff_name || "Non renseigné";
+    return firstNameOnly(report.staff_name || "Non renseigné");
   }
 
   function getReportGuest(report) {
     return report.booking_guest_name || "Non renseigné";
   }
 
+  function getReportComment(report) {
+    return String(report.comment || "").replace(/\s+/g, " ").trim();
+  }
+
+  function getReportCommentPreview(report, maxLength = 170) {
+    const comment = getReportComment(report);
+    if (!comment) return "Aucun commentaire renseigné.";
+    return comment.length > maxLength ? `${comment.slice(0, maxLength).trim()}…` : comment;
+  }
+
   function getPropertyCover(property) {
     const payload = property.payload || {};
     const candidates = [
       property.cover_url,
+      payload.cover,
       payload.cover_url,
       payload.coverUrl,
       payload.picture,
@@ -88,9 +135,8 @@
     ];
 
     for (const candidate of candidates) {
-      if (!candidate) continue;
-      if (typeof candidate === "string") return candidate;
-      if (typeof candidate === "object") return candidate.url || candidate.src || candidate.path || null;
+      const url = getFileUrl(candidate, "property-covers");
+      if (url) return url;
     }
     return null;
   }
@@ -299,7 +345,7 @@
     if (!container) return;
 
     if (!data.properties.length) {
-      container.innerHTML = '<div class="owner-empty">Aucun logement n’est relié à ce propriétaire Nowistay.</div>';
+      container.innerHTML = '<div class="owner-empty">Aucun logement n’est relié à ce compte propriétaire.</div>';
       return;
     }
 
@@ -317,7 +363,8 @@
                 (report) => `
                   <a class="owner-report-card" href="./rapport.html?id=${encodeURIComponent(report.id)}">
                     <h3>Rapport ménage — ${escapeHtml(property.name)}</h3>
-                    <p class="owner-muted">${formatDate(getReportDate(report))} · Cleaner : ${escapeHtml(getReportCleaner(report))}</p>
+                    <p class="owner-muted">${formatDate(getReportDate(report))} · Intervenant(e) : ${escapeHtml(getReportCleaner(report))}</p>
+                    <p class="owner-muted"><strong>Commentaire :</strong> ${escapeHtml(getReportCommentPreview(report))}</p>
                     <div class="owner-mini-stats">
                       <span class="owner-mini-stat">Checklist <strong>${reportChecklistScore(report)}</strong></span>
                       <span class="owner-mini-stat">Photos <strong>${Array.isArray(report.photos) ? report.photos.length : 0}</strong></span>
@@ -337,7 +384,7 @@
                 <div class="owner-property-head">
                   <div>
                     <h2>${escapeHtml(property.name || "Logement")}</h2>
-                    <p class="owner-muted">${escapeHtml(property.city || property.country || "Ville non renseignée")} · Nowistay #${escapeHtml(property.id)}</p>
+                    <p class="owner-muted">${escapeHtml(property.city || property.country || "Adresse non renseignée")}</p>
                   </div>
                   <span class="owner-pill">${reports.length} rapport(s)</span>
                 </div>
@@ -370,7 +417,7 @@
   function renderReportDetail({ report, property }) {
     setText("[data-report-property]", property.name || "Logement");
     setText("[data-report-date]", formatDateTime(getReportDate(report)));
-    setText("[data-report-mission]", report.mission_id ? `Nowistay mission #${report.mission_id}` : `Rapport #${report.id}`);
+    setText("[data-report-mission]", "Rapport ménage");
     setText("[data-report-cleaner]", getReportCleaner(report));
     setText("[data-report-guest]", getReportGuest(report));
     setText("[data-report-checklist-score]", reportChecklistScore(report));
@@ -383,8 +430,9 @@
     }
 
     const commentSection = qs("[data-report-comment-section]");
-    if (commentSection && report.comment) {
-      qs("[data-report-comment]", commentSection).textContent = report.comment;
+    if (commentSection) {
+      const paragraph = qs("[data-report-comment]", commentSection);
+      if (paragraph) paragraph.textContent = getReportComment(report) || "Aucun commentaire renseigné.";
       commentSection.hidden = false;
     }
 
@@ -411,7 +459,7 @@
       gallery.innerHTML = photos.length
         ? photos
             .map((photo, index) => {
-              const url = typeof photo === "string" ? photo : photo.url || photo.src || photo.path || "";
+              const url = getFileUrl(photo, "cleaning-reports");
               if (!url) return "";
               return `
                 <a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">
