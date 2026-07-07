@@ -141,6 +141,24 @@
     return null;
   }
 
+  function formatInterventionType(type) {
+    if (type === "maintenance") return "Maintenance";
+    return "Ménage";
+  }
+
+  function formatInterventionStatus(status) {
+    const labels = {
+      assigned: "Planifiée",
+      pending_host: "À confirmer",
+      pending_sync: "Demande envoyée",
+      synced: "Synchronisée",
+      failed: "Erreur de synchronisation",
+      completed: "Terminée",
+      cancelled: "Annulée",
+    };
+    return labels[status] || status || "À confirmer";
+  }
+
   function getSession() {
     try {
       const raw = localStorage.getItem(SESSION_KEY);
@@ -247,7 +265,38 @@
         )
       : [];
 
-    return { owner, properties, reports };
+    const now = encodeURIComponent(new Date().toISOString());
+    const futureInterventions = propertyIds.length
+      ? await supabaseFetch(
+          `/rest/v1/nowistay_missions?select=id,property_id,type,status,title,description,scheduled_at,duration_minutes,assigned_team_member_name,property_name&property_id=in.(${propertyIds.join(",")})&scheduled_at=gte.${now}&status=neq.cancelled&order=scheduled_at.asc&limit=200`,
+          { accessToken: session.accessToken },
+        )
+      : [];
+
+    const interventionRequests = await supabaseFetch(
+      `/rest/v1/owner_intervention_requests?select=id,property_id,intervention_type,requested_for,time_window,title,description,urgency,status,nowistay_mission_id,created_at&auth_user_id=eq.${session.user.id}&status=neq.cancelled&order=requested_for.asc&limit=100`,
+      { accessToken: session.accessToken },
+    );
+
+    return { owner, properties, reports, futureInterventions, interventionRequests };
+  }
+
+  async function createInterventionRequest(session, owner, payload) {
+    return supabaseFetch("/rest/v1/owner_intervention_requests", {
+      method: "POST",
+      accessToken: session.accessToken,
+      prefer: "return=representation",
+      body: {
+        nowistay_owner_id: owner.nowistay_owner_id,
+        property_id: payload.propertyId,
+        intervention_type: payload.interventionType,
+        requested_for: payload.requestedFor,
+        time_window: payload.timeWindow || null,
+        title: payload.title || null,
+        description: payload.description || null,
+        urgency: payload.urgency || "normal",
+      },
+    });
   }
 
   async function getReportDetail(session, reportId) {
@@ -330,6 +379,172 @@
     });
   }
 
+  function renderInterventions(data) {
+    const container = qs("[data-owner-properties]");
+    if (!container) return;
+
+    qs("[data-owner-future-section]")?.remove();
+    qs("[data-owner-request-section]")?.remove();
+
+    const propertiesById = new Map(data.properties.map((property) => [String(property.id), property]));
+    const futureItems = [
+      ...(data.futureInterventions || []).map((item) => ({
+        source: "mission",
+        id: item.id,
+        propertyId: item.property_id,
+        type: item.type,
+        status: item.status,
+        scheduledAt: item.scheduled_at,
+        title: item.title,
+        description: item.description,
+      })),
+      ...(data.interventionRequests || []).map((item) => ({
+        source: "request",
+        id: item.id,
+        propertyId: item.property_id,
+        type: item.intervention_type,
+        status: item.status,
+        scheduledAt: item.requested_for,
+        title: item.title,
+        description: item.description,
+        timeWindow: item.time_window,
+      })),
+    ]
+      .filter((item) => item.scheduledAt)
+      .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt))
+      .slice(0, 20);
+
+    const futureHtml = futureItems.length
+      ? futureItems
+          .map((item) => {
+            const property = propertiesById.get(String(item.propertyId));
+            const propertyName = property?.name || item.title || "Logement";
+            const sourceLabel = item.source === "request" ? "Demande propriétaire" : "Intervention planifiée";
+            const timeWindow = item.timeWindow ? ` · ${escapeHtml(item.timeWindow)}` : "";
+            return `
+              <div class="owner-report-card">
+                <h3>${formatInterventionType(item.type)} — ${escapeHtml(propertyName)}</h3>
+                <p class="owner-muted">${formatDateTime(item.scheduledAt)}${timeWindow}</p>
+                <div class="owner-mini-stats">
+                  <span class="owner-mini-stat">${sourceLabel}</span>
+                  <span class="owner-mini-stat">${formatInterventionStatus(item.status)}</span>
+                </div>
+                ${item.description ? `<p class="owner-muted">${escapeHtml(item.description)}</p>` : ""}
+              </div>
+            `;
+          })
+          .join("")
+      : '<div class="owner-empty">Aucune intervention future n’est prévue pour le moment.</div>';
+
+    const propertyOptions = data.properties
+      .map((property) => `<option value="${escapeHtml(property.id)}">${escapeHtml(property.name || "Logement")}</option>`)
+      .join("");
+
+    container.insertAdjacentHTML(
+      "beforebegin",
+      `
+        <section class="owner-section" data-owner-future-section>
+          <h2>Interventions futures</h2>
+          <div class="owner-list">${futureHtml}</div>
+        </section>
+
+        <section class="owner-section" data-owner-request-section>
+          <h2>Demander une intervention</h2>
+          <form class="owner-form" data-owner-intervention-form>
+            <label class="owner-label">
+              Logement
+              <select class="owner-input" name="propertyId" required>${propertyOptions}</select>
+            </label>
+            <label class="owner-label">
+              Type d’intervention
+              <select class="owner-input" name="interventionType" required>
+                <option value="cleaning">Ménage</option>
+                <option value="maintenance">Maintenance</option>
+              </select>
+            </label>
+            <label class="owner-label">
+              Date et heure souhaitées
+              <input class="owner-input" name="requestedFor" type="datetime-local" required />
+            </label>
+            <label class="owner-label">
+              Créneau préféré
+              <input class="owner-input" name="timeWindow" type="text" placeholder="Ex. matin, après-midi, avant 11h…" />
+            </label>
+            <label class="owner-label">
+              Urgence
+              <select class="owner-input" name="urgency">
+                <option value="normal">Normale</option>
+                <option value="high">Urgente</option>
+                <option value="low">Faible</option>
+              </select>
+            </label>
+            <label class="owner-label">
+              Commentaire
+              <textarea class="owner-input" name="description" rows="4" placeholder="Précisez la demande, l’accès au logement ou le problème à traiter."></textarea>
+            </label>
+            <button class="owner-button" type="submit">Envoyer la demande</button>
+            <p class="owner-muted" data-owner-request-feedback hidden></p>
+          </form>
+        </section>
+      `,
+    );
+  }
+
+  function setupInterventionRequestForm(data, session) {
+    const form = qs("[data-owner-intervention-form]");
+    if (!form) return;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const button = qs("button[type='submit']", form);
+      const feedback = qs("[data-owner-request-feedback]", form);
+      const formData = new FormData(form);
+      const requestedForValue = String(formData.get("requestedFor") || "");
+      const requestedFor = requestedForValue ? new Date(requestedForValue).toISOString() : "";
+
+      if (!requestedFor) {
+        if (feedback) {
+          feedback.textContent = "Choisis une date et une heure.";
+          feedback.hidden = false;
+        }
+        return;
+      }
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Envoi…";
+      }
+
+      try {
+        await createInterventionRequest(session, data.owner, {
+          propertyId: Number(formData.get("propertyId")),
+          interventionType: String(formData.get("interventionType")),
+          requestedFor,
+          timeWindow: String(formData.get("timeWindow") || "").trim(),
+          urgency: String(formData.get("urgency") || "normal"),
+          description: String(formData.get("description") || "").trim(),
+        });
+
+        if (feedback) {
+          feedback.textContent = "Demande enregistrée. Elle sera synchronisée avec Nowistay par le serveur.";
+          feedback.hidden = false;
+        }
+        form.reset();
+        setTimeout(() => window.location.reload(), 900);
+      } catch (error) {
+        if (feedback) {
+          feedback.textContent = error.message || "Impossible d’enregistrer la demande.";
+          feedback.hidden = false;
+        }
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = "Envoyer la demande";
+        }
+      }
+    });
+  }
+
   function renderDashboard(data) {
     setText("[data-owner-name]", data.owner.name);
     setText("[data-owner-property-count]", data.properties.length);
@@ -395,6 +610,8 @@
         `;
       })
       .join("");
+
+    renderInterventions(data);
   }
 
   async function initDashboardPage() {
@@ -406,6 +623,7 @@
     try {
       const data = await getDashboardData(session);
       renderDashboard(data);
+      setupInterventionRequestForm(data, session);
       qs("[data-owner-loading]")?.remove();
       qs("[data-owner-content]").hidden = false;
     } catch (error) {
