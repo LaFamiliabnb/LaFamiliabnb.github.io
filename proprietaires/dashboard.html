@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard propriétaire | La Familia</title>
+  <meta name="description" content="Dashboard propriétaire La Familia : logements et rapports ménage." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="owner-dashboard">
+  <main class="owner-shell">
+    <div class="owner-topbar">
+      <a class="owner-logo" href="/">
+        <img src="/img/LogoLF.png" alt="La Familia" />
+        La Familia
+      </a>
+      <button class="owner-button owner-secondary-button" type="button" data-owner-logout>
+        Se déconnecter
+      </button>
+    </div>
+
+    <div class="owner-alert error" data-owner-alert hidden></div>
+
+    <p class="owner-muted" data-owner-loading>Chargement de votre espace propriétaire…</p>
+
+    <div data-owner-content hidden>
+      <header class="owner-header">
+        <div>
+          <p class="owner-eyebrow">Espace propriétaire</p>
+          <h1>Bonjour <span data-owner-name>—</span></h1>
+          <p class="owner-muted">
+            Retrouvez ici vos logements, vos rapports ménage, les checklists et les photos.
+          </p>
+        </div>
+      </header>
+
+      <section class="owner-stats" aria-label="Statistiques">
+        <div class="owner-stat">
+          <span>Logements reliés</span>
+          <strong data-owner-property-count>0</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Rapports affichés</span>
+          <strong data-owner-report-count>0</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Dernier ménage</span>
+          <strong data-owner-last-report>Aucun rapport</strong>
+        </div>
+      </section>
+
+      <section class="owner-list" data-owner-properties aria-label="Logements et rapports"></section>
+    </div>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
