@@ -1,0 +1,13 @@
+# Secrets / configuration locale
+/proprietaires/config.js
+/ovh/config.php
+.env
+.env.*
+!.env.example
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
