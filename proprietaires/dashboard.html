@@ -61,20 +61,5 @@
   <script src="./config.js"></script>
   <script src="./app.js"></script>
   <script src="./comments-fix.js"></script>
-  <script src="./client-privacy-fix.js"></script>
-  <script>
-    function useCleanReportLinks() {
-      document.querySelectorAll("a.owner-report-card[href*='rapport.html?id=']").forEach((link) => {
-        const url = new URL(link.getAttribute("href"), window.location.href);
-        const id = url.searchParams.get("id");
-        if (id) link.setAttribute("href", "./rapport-client.html?id=" + encodeURIComponent(id));
-      });
-    }
-    document.addEventListener("DOMContentLoaded", () => {
-      useCleanReportLinks();
-      const target = document.querySelector("[data-owner-properties]") || document.body;
-      new MutationObserver(useCleanReportLinks).observe(target, { childList: true, subtree: true });
-    });
-  </script>
 </body>
 </html>
