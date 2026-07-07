@@ -1,86 +1,65 @@
--- Schéma MVP pour l’espace propriétaire La Familia.
--- À exécuter dans Supabase SQL Editor.
+-- Schéma actuel pour l’espace propriétaire La Familia.
+-- Cette version utilise les tables Nowistay déjà présentes :
+-- - public.nowistay_properties
+-- - public.staff_cleaning_reports
+-- Elle ajoute seulement une table de liaison entre Supabase Auth et les propriétaires Nowistay.
 
 create extension if not exists pgcrypto;
 
-create table if not exists public.owners (
+create table if not exists public.owner_accounts (
   id uuid primary key default gen_random_uuid(),
-  auth_user_id uuid unique references auth.users(id) on delete set null,
+  auth_user_id uuid unique references auth.users(id) on delete cascade,
   name text not null,
   email text not null unique,
+  nowistay_owner_id bigint not null,
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.properties (
-  id uuid primary key default gen_random_uuid(),
-  owner_id uuid not null references public.owners(id) on delete cascade,
-  nowistay_property_id integer not null unique,
-  name text not null,
-  city text,
-  cover_url text,
-  created_at timestamptz not null default now()
-);
+create index if not exists owner_accounts_auth_user_id_idx on public.owner_accounts(auth_user_id);
+create index if not exists owner_accounts_nowistay_owner_id_idx on public.owner_accounts(nowistay_owner_id);
 
-create table if not exists public.cleaning_reports (
-  id uuid primary key default gen_random_uuid(),
-  nowistay_mission_id integer not null unique,
-  nowistay_property_id integer not null,
-  property_id uuid not null references public.properties(id) on delete cascade,
-  cleaner_name text,
-  guest_name text,
-  completed_at timestamptz,
-  comment text,
-  photos jsonb not null default '[]'::jsonb,
-  checklist jsonb not null default '[]'::jsonb,
-  created_at timestamptz not null default now()
-);
+alter table public.owner_accounts enable row level security;
+alter table public.nowistay_properties enable row level security;
+alter table public.staff_cleaning_reports enable row level security;
 
-create index if not exists owners_auth_user_id_idx on public.owners(auth_user_id);
-create index if not exists properties_owner_id_idx on public.properties(owner_id);
-create index if not exists properties_nowistay_property_id_idx on public.properties(nowistay_property_id);
-create index if not exists cleaning_reports_property_id_idx on public.cleaning_reports(property_id);
-create index if not exists cleaning_reports_nowistay_mission_id_idx on public.cleaning_reports(nowistay_mission_id);
-create index if not exists cleaning_reports_completed_at_idx on public.cleaning_reports(completed_at desc);
-
-alter table public.owners enable row level security;
-alter table public.properties enable row level security;
-alter table public.cleaning_reports enable row level security;
-
-drop policy if exists "Owners can read own profile" on public.owners;
-create policy "Owners can read own profile"
-on public.owners
+drop policy if exists "Owner accounts can read own account" on public.owner_accounts;
+create policy "Owner accounts can read own account"
+on public.owner_accounts
 for select
 to authenticated
 using (auth.uid() = auth_user_id);
 
-drop policy if exists "Owners can read own properties" on public.properties;
-create policy "Owners can read own properties"
-on public.properties
+drop policy if exists "Owner accounts can read own Nowistay properties" on public.nowistay_properties;
+create policy "Owner accounts can read own Nowistay properties"
+on public.nowistay_properties
 for select
 to authenticated
 using (
   exists (
     select 1
-    from public.owners
-    where owners.id = properties.owner_id
-      and owners.auth_user_id = auth.uid()
+    from public.owner_accounts
+    where owner_accounts.auth_user_id = auth.uid()
+      and owner_accounts.nowistay_owner_id = nowistay_properties.owner_id
   )
 );
 
-drop policy if exists "Owners can read own cleaning reports" on public.cleaning_reports;
-create policy "Owners can read own cleaning reports"
-on public.cleaning_reports
+drop policy if exists "Owner accounts can read own staff reports" on public.staff_cleaning_reports;
+create policy "Owner accounts can read own staff reports"
+on public.staff_cleaning_reports
 for select
 to authenticated
 using (
   exists (
     select 1
-    from public.properties
-    join public.owners on owners.id = properties.owner_id
-    where properties.id = cleaning_reports.property_id
-      and owners.auth_user_id = auth.uid()
+    from public.owner_accounts
+    join public.nowistay_properties
+      on nowistay_properties.owner_id = owner_accounts.nowistay_owner_id
+    where owner_accounts.auth_user_id = auth.uid()
+      and nowistay_properties.id = staff_cleaning_reports.property_id
   )
 );
 
--- Le script OVH utilise la service_role key : cette clé contourne RLS côté serveur.
--- Ne jamais exposer la service_role key dans GitHub Pages, HTML, JS, ou dans le navigateur.
+-- Anciennes tables MVP éventuellement créées avant cette adaptation :
+-- public.owners, public.properties, public.cleaning_reports.
+-- Elles ne sont plus utilisées par le front GitHub Pages.
+-- Ne pas les supprimer sans vérifier qu’aucun autre test ne les utilise.
