@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapport ménage | La Familia</title>
+  <style>
+    html, body { margin: 0; min-height: 100%; background: #fffaf4; }
+    iframe { width: 100%; min-height: 100vh; border: 0; display: block; }
+  </style>
+</head>
+<body>
+  <iframe id="report-frame" title="Rapport ménage"></iframe>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || '';
+    const frame = document.getElementById('report-frame');
+    frame.src = './rapport.html?id=' + encodeURIComponent(id);
+
+    function firstNameOnly(value) {
+      const clean = String(value || '').replace(/\s+/g, ' ').trim();
+      if (!clean || clean.toLowerCase() === 'non renseigné') return clean || 'Non renseigné';
+      return clean.split(' ')[0];
+    }
+
+    function cleanText(value) {
+      return String(value || '')
+        .replace(/\s*·\s*Nowistay\s*#\d+/gi, '')
+        .replace(/Nowistay mission\s*#\d+/gi, 'Rapport ménage')
+        .replace(/Mission Nowistay/gi, 'Rapport ménage')
+        .replace(/Nowistay\s*#\d+/gi, '')
+        .replace(/Nowistay/gi, '')
+        .replace(/Cleaner\s*:/gi, 'Intervenant(e) :')
+        .replace(/\bCleaner\b/gi, 'Intervenant(e)')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    }
+
+    function applyPrivacy() {
+      const doc = frame.contentDocument;
+      if (!doc || !doc.body) return;
+
+      doc.querySelectorAll('[data-report-cleaner]').forEach((element) => {
+        element.textContent = firstNameOnly(element.textContent);
+      });
+
+      const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach((node) => {
+        const cleaned = cleanText(node.nodeValue);
+        if (cleaned !== node.nodeValue) node.nodeValue = cleaned;
+      });
+    }
+
+    frame.addEventListener('load', () => {
+      applyPrivacy();
+      const doc = frame.contentDocument;
+      if (!doc || !doc.body) return;
+      const observer = new MutationObserver(applyPrivacy);
+      observer.observe(doc.body, { childList: true, subtree: true, characterData: true });
+    });
+  </script>
+</body>
+</html>
