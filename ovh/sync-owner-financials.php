@@ -26,7 +26,7 @@ function required_env(string $key): string
     return trim($value);
 }
 
-function request_json(string $method, string $url, array $headers, ?array $body = null): array
+function request_json(string $method, string $url, array $headers, ?array $body = null): mixed
 {
     $curl = curl_init($url);
     $finalHeaders = array_merge(['Accept: application/json'], $headers);
@@ -51,7 +51,7 @@ function request_json(string $method, string $url, array $headers, ?array $body 
     if ($response === false) throw new RuntimeException('Erreur cURL : ' . $error);
 
     $decoded = $response !== '' ? json_decode($response, true) : [];
-    if (!is_array($decoded)) $decoded = ['raw' => $response];
+    if (json_last_error() !== JSON_ERROR_NONE) $decoded = ['raw' => $response];
 
     if ($status < 200 || $status >= 300) {
         throw new RuntimeException('Erreur HTTP ' . $status . ' : ' . json_encode($decoded, JSON_UNESCAPED_UNICODE));
@@ -63,6 +63,14 @@ function request_json(string $method, string $url, array $headers, ?array $body 
 function month_start(DateTimeImmutable $date): string
 {
     return $date->modify('first day of this month')->format('Y-m-01');
+}
+
+function rpc_rows(mixed $result): int
+{
+    if (is_numeric($result)) return (int) $result;
+    if (is_array($result) && array_key_exists(0, $result) && is_numeric($result[0])) return (int) $result[0];
+    if (is_array($result) && isset($result['raw']) && is_numeric($result['raw'])) return (int) $result['raw'];
+    return 0;
 }
 
 $supabaseUrl = rtrim(required_env('SUPABASE_URL'), '/');
@@ -93,7 +101,7 @@ for ($offset = -$monthsBack; $offset <= $monthsForward; $offset++) {
         ]
     );
 
-    $rows = is_array($result) && array_key_exists(0, $result) ? (int) $result[0] : (int) $result;
+    $rows = rpc_rows($result);
     $results[] = [
         'month' => $month,
         'rows' => $rows,
