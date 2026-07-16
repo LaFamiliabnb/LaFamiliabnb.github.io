@@ -38,7 +38,7 @@
           <strong data-admin-property-count>0</strong>
         </div>
         <div class="owner-stat">
-          <span>Interventions du jour</span>
+          <span>Interventions affichées</span>
           <strong data-admin-mission-count>0</strong>
         </div>
         <div class="owner-stat">
@@ -49,13 +49,20 @@
 
       <section class="owner-section">
         <h2>Interventions journalières Nowistay</h2>
-        <form class="owner-form" data-admin-date-form>
+        <form class="owner-form" data-admin-filters-form>
           <label class="owner-label">
             Date
             <input class="owner-input" name="date" type="date" data-admin-date />
           </label>
+          <label class="owner-label">
+            Intervenant(e)
+            <select class="owner-input" name="assignee" data-admin-assignee-filter>
+              <option value="__all">Tous les intervenants</option>
+            </select>
+          </label>
           <button class="owner-button" type="submit">Afficher</button>
         </form>
+        <p class="owner-muted">Le changement d’intervenant est enregistré dans Supabase pour le planning admin. La synchronisation d’une modification vers Nowistay dépendra de l’endpoint API Nowistay disponible.</p>
         <div class="owner-list" data-admin-missions></div>
       </section>
 
@@ -75,6 +82,6 @@
     window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
   </script>
   <script src="../proprietaires/config.js"></script>
-  <script src="./app.js?v=20260716-admin"></script>
+  <script src="./app.js?v=20260716-admin-assignees"></script>
 </body>
 </html>
