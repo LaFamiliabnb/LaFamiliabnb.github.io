@@ -382,7 +382,7 @@
     const container = qs("[data-admin-requests]");
     if (!container) return;
 
-    const visibleRequests = requests.filter((request) => !["cancelled", "completed"].includes(request.status));
+    const visibleRequests = requests.filter((request) => ["pending_admin", "internal_pending", "failed"].includes(request.status));
 
     if (!visibleRequests.length) {
       container.innerHTML = '<div class="owner-empty">Aucune demande propriétaire à traiter.</div>';
