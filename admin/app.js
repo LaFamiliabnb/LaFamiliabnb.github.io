@@ -210,6 +210,10 @@
     return String(mission.assigned_team_member_name || "").replace(/\s+/g, " ").trim();
   }
 
+  function staffName(staffMember) {
+    return String(staffMember?.staff_name || "").replace(/\s+/g, " ").trim();
+  }
+
   function assigneeMatches(mission, selectedAssignee) {
     if (!selectedAssignee || selectedAssignee === ALL_ASSIGNEES) return true;
     const name = assigneeName(mission);
@@ -217,15 +221,20 @@
     return name === selectedAssignee;
   }
 
-  function assigneeOptions(missions) {
-    return Array.from(new Set(missions.map(assigneeName).filter(Boolean))).sort((a, b) => a.localeCompare(b, "fr"));
+  function assigneeOptions(missions, staffMembers = []) {
+    return Array.from(
+      new Set([
+        ...staffMembers.map(staffName).filter(Boolean),
+        ...missions.map(assigneeName).filter(Boolean),
+      ]),
+    ).sort((a, b) => a.localeCompare(b, "fr"));
   }
 
-  function updateAssigneeFilterOptions(missions, selectedValue = ALL_ASSIGNEES) {
+  function updateAssigneeFilterOptions(missions, staffMembers = [], selectedValue = ALL_ASSIGNEES) {
     const select = qs("[data-admin-assignee-filter]");
     if (!select) return;
 
-    const names = assigneeOptions(missions);
+    const names = assigneeOptions(missions, staffMembers);
     const hasUnassigned = missions.some((mission) => !assigneeName(mission));
     const options = [
       `<option value="${ALL_ASSIGNEES}">Tous les intervenants</option>`,
@@ -235,6 +244,33 @@
 
     select.innerHTML = options.join("");
     select.value = names.includes(selectedValue) || selectedValue === UNASSIGNED ? selectedValue : ALL_ASSIGNEES;
+  }
+
+  function renderMissionAssigneeOptions(mission, staffMembers = []) {
+    const currentId = mission.team_member_id ? String(mission.team_member_id) : "";
+    const currentName = assigneeName(mission);
+    const optionRows = [`<option value="">Sans intervenant</option>`];
+    const knownIds = new Set();
+
+    staffMembers.forEach((staffMember) => {
+      const id = staffMember.team_member_id ? String(staffMember.team_member_id) : "";
+      const name = staffName(staffMember);
+      if (!id || !name || knownIds.has(id)) return;
+      knownIds.add(id);
+      const selected = currentId && currentId === id ? " selected" : "";
+      optionRows.push(
+        `<option value="${escapeHtml(id)}" data-staff-id="${escapeHtml(id)}" data-staff-name="${escapeHtml(name)}"${selected}>${escapeHtml(name)}</option>`,
+      );
+    });
+
+    if (currentName && (!currentId || !knownIds.has(currentId))) {
+      const value = currentId || `current:${currentName}`;
+      optionRows.push(
+        `<option value="${escapeHtml(value)}" data-staff-id="${escapeHtml(currentId)}" data-staff-name="${escapeHtml(currentName)}" selected>${escapeHtml(currentName)} — intervenant actuel</option>`,
+      );
+    }
+
+    return optionRows.join("");
   }
 
   async function loadDashboardData(session, dateValue) {
@@ -256,10 +292,16 @@
       { accessToken: session.accessToken },
     );
 
-    return { properties, missions, requests };
+    const staffMembers = await supabaseFetch("/rest/v1/rpc/get_admin_staff_members", {
+      method: "POST",
+      accessToken: session.accessToken,
+      body: {},
+    });
+
+    return { properties, missions, requests, staffMembers };
   }
 
-  function renderMissions(missions, propertiesById) {
+  function renderMissions(missions, propertiesById, staffMembers = []) {
     const container = qs("[data-admin-missions]");
     if (!container) return;
 
@@ -287,7 +329,9 @@
             <form class="owner-form" data-admin-assignee-form data-mission-id="${escapeHtml(mission.id)}">
               <label class="owner-label">
                 Changer l’intervenant(e)
-                <input class="owner-input" name="assignedTeamMemberName" type="text" value="${escapeHtml(currentAssignee)}" placeholder="Nom de l’intervenant(e)" />
+                <select class="owner-input" name="assignedTeamMember">
+                  ${renderMissionAssigneeOptions(mission, staffMembers)}
+                </select>
               </label>
               <button class="owner-button owner-secondary-button" type="submit">Enregistrer l’intervenant(e)</button>
               <p class="owner-muted" data-assignee-feedback hidden></p>
@@ -366,7 +410,7 @@
     setText("[data-admin-mission-count]", filteredMissions.length);
     setText("[data-admin-request-count]", activeRequests.length);
 
-    renderMissions(filteredMissions, propertiesById);
+    renderMissions(filteredMissions, propertiesById, data.staffMembers || []);
     renderRequests(data.requests, propertiesById);
     renderProperties(data.properties);
   }
@@ -380,12 +424,13 @@
     });
   }
 
-  async function updateMissionAssignee(session, missionId, assignedTeamMemberName) {
+  async function updateMissionAssignee(session, missionId, teamMemberId, assignedTeamMemberName) {
     return supabaseFetch(`/rest/v1/nowistay_missions?id=eq.${encodeURIComponent(missionId)}`, {
       method: "PATCH",
       accessToken: session.accessToken,
       prefer: "return=representation",
       body: {
+        team_member_id: teamMemberId ? Number(teamMemberId) : null,
         assigned_team_member_name: assignedTeamMemberName || null,
       },
     });
@@ -452,7 +497,7 @@
       try {
         const selectedBeforeLoad = assigneeFilter?.value || ALL_ASSIGNEES;
         const data = await loadDashboardData(session, dateInput?.value || todayInputValue());
-        updateAssigneeFilterOptions(data.missions, selectedBeforeLoad);
+        updateAssigneeFilterOptions(data.missions, data.staffMembers || [], selectedBeforeLoad);
         renderDashboard(data, assigneeFilter?.value || ALL_ASSIGNEES);
         qs("[data-admin-loading]")?.remove();
         qs("[data-admin-content]").hidden = false;
@@ -480,8 +525,10 @@
       const button = qs("button[type='submit']", form);
       const feedback = qs("[data-assignee-feedback]", form);
       const missionId = form.dataset.missionId;
-      const formData = new FormData(form);
-      const assignedTeamMemberName = String(formData.get("assignedTeamMemberName") || "").replace(/\s+/g, " ").trim();
+      const select = qs("select[name='assignedTeamMember']", form);
+      const selectedOption = select?.selectedOptions?.[0];
+      const teamMemberId = selectedOption?.dataset.staffId || "";
+      const assignedTeamMemberName = String(selectedOption?.dataset.staffName || "").replace(/\s+/g, " ").trim();
 
       if (button) {
         button.disabled = true;
@@ -489,7 +536,7 @@
       }
 
       try {
-        await updateMissionAssignee(session, missionId, assignedTeamMemberName);
+        await updateMissionAssignee(session, missionId, teamMemberId, assignedTeamMemberName);
         if (feedback) {
           feedback.textContent = "Intervenant(e) mis(e) à jour dans Supabase.";
           feedback.hidden = false;
