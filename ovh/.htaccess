@@ -1,0 +1,4 @@
+# Bloque l'accès web au dossier cron OVH.
+# À copier sur OVH dans : /www/cron/.htaccess
+
+Require all denied
