@@ -68,7 +68,7 @@
 
       <section class="owner-section">
         <h2>Demandes propriétaires</h2>
-        <p class="owner-muted">Les nouvelles demandes attendent une validation. Une demande validée passe en vert côté propriétaire, une demande refusée passe en rouge.</p>
+        <p class="owner-muted">Les nouvelles demandes attendent une validation. Une demande validée passe en vert côté propriétaire, une demande refusée passe en rouge puis disparaît de cette file admin.</p>
         <div class="owner-list" data-admin-requests></div>
       </section>
 
@@ -83,6 +83,6 @@
     window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
   </script>
   <script src="../proprietaires/config.js"></script>
-  <script src="./app.js?v=20260716-admin-approval"></script>
+  <script src="./app.js?v=20260716-admin-processed-queue"></script>
 </body>
 </html>
