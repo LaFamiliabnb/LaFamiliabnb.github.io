@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mot de passe oublié | Admin La Familia</title>
+  <meta name="description" content="Réinitialisation du mot de passe admin La Familia." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="../proprietaires/style.css" />
+</head>
+<body class="owner-page" data-page="admin-password-reset" data-password-context="admin">
+  <main class="owner-shell owner-login-shell">
+    <a class="owner-logo" href="/">
+      <img src="/img/LogoLF.png" alt="La Familia" />
+      La Familia
+    </a>
+
+    <section class="owner-login-card">
+      <p class="owner-eyebrow">Administration</p>
+      <h1>Mot de passe oublié</h1>
+      <p class="owner-muted">Recevez un lien sécurisé pour choisir un nouveau mot de passe admin.</p>
+
+      <div class="owner-alert error" data-password-alert hidden></div>
+
+      <div data-password-request-panel>
+        <form class="owner-form" data-password-request-form>
+          <label class="owner-label" for="admin-reset-email">
+            Email du compte admin
+            <input class="owner-input" id="admin-reset-email" type="email" autocomplete="email" required data-password-email />
+          </label>
+
+          <button class="owner-button" type="submit" data-password-request-button>Recevoir le lien</button>
+        </form>
+
+        <p class="owner-muted">
+          <a href="./login.html">Retour à la connexion admin</a>
+        </p>
+      </div>
+
+      <div data-password-reset-panel hidden>
+        <form class="owner-form" data-password-reset-form>
+          <label class="owner-label" for="admin-new-password">
+            Nouveau mot de passe
+            <input class="owner-input" id="admin-new-password" type="password" autocomplete="new-password" required minlength="8" data-new-password />
+          </label>
+
+          <label class="owner-label" for="admin-confirm-password">
+            Confirmer le mot de passe
+            <input class="owner-input" id="admin-confirm-password" type="password" autocomplete="new-password" required minlength="8" data-confirm-password />
+          </label>
+
+          <button class="owner-button" type="submit" data-password-reset-button>Changer le mot de passe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="../proprietaires/config.js"></script>
+  <script src="../proprietaires/password-reset.js?v=20260716-password-reset"></script>
+</body>
+</html>
