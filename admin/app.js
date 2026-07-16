@@ -182,6 +182,9 @@
 
   function formatStatus(status) {
     const labels = {
+      pending_admin: "Attente confirmation",
+      approved: "Validé",
+      rejected: "Refusé",
       assigned: "Planifiée",
       pending_host: "À confirmer",
       pending_sync: "À synchroniser Nowistay",
@@ -192,6 +195,17 @@
       cancelled: "Annulée",
     };
     return labels[status] || status || "À confirmer";
+  }
+
+  function statusStyle(status) {
+    if (status === "pending_admin") return "background:#fff3cd;color:#8a5a00;border-color:#f6c343;";
+    if (["approved", "synced", "completed"].includes(status)) return "background:#d1fae5;color:#065f46;border-color:#34d399;";
+    if (["rejected", "failed", "cancelled"].includes(status)) return "background:#fee2e2;color:#991b1b;border-color:#f87171;";
+    return "";
+  }
+
+  function statusBadge(status) {
+    return `<span class="owner-mini-stat" style="${statusStyle(status)}">${escapeHtml(formatStatus(status))}</span>`;
   }
 
   function propertyLocation(property) {
@@ -288,7 +302,7 @@
     );
 
     const requests = await supabaseFetch(
-      "/rest/v1/owner_intervention_requests?select=id,property_id,intervention_type,requested_for,time_window,title,description,urgency,status,created_at,nowistay_mission_id&status=neq.cancelled&order=requested_for.asc&limit=500",
+      "/rest/v1/owner_intervention_requests?select=id,property_id,intervention_type,requested_for,time_window,title,description,urgency,status,created_at,nowistay_mission_id,sync_error&status=neq.cancelled&order=requested_for.asc&limit=500",
       { accessToken: session.accessToken },
     );
 
@@ -320,7 +334,7 @@
             <h3>${formatTime(mission.scheduled_at)} — ${formatType(mission.type)} — ${escapeHtml(propertyName)}</h3>
             <p class="owner-muted">${escapeHtml(propertyLocation(property) || "Adresse non renseignée")}</p>
             <div class="owner-mini-stats">
-              <span class="owner-mini-stat">${formatStatus(mission.status)}</span>
+              ${statusBadge(mission.status)}
               <span class="owner-mini-stat">${sourceLabel(property)}</span>
               <span class="owner-mini-stat">Intervenant(e) : ${escapeHtml(currentAssignee || "Non renseigné")}</span>
             </div>
@@ -342,39 +356,56 @@
       .join("");
   }
 
+  function requestActionButtons(request) {
+    if (request.status === "pending_admin") {
+      return `
+        <div class="owner-mini-stats">
+          <button class="owner-button owner-secondary-button" type="button" data-request-action="approved" data-request-id="${escapeHtml(request.id)}">Valider</button>
+          <button class="owner-button owner-secondary-button" type="button" data-request-action="rejected" data-request-id="${escapeHtml(request.id)}">Refuser</button>
+        </div>
+      `;
+    }
+
+    if (request.status === "internal_pending") {
+      return `
+        <div class="owner-mini-stats">
+          <button class="owner-button owner-secondary-button" type="button" data-request-action="completed" data-request-id="${escapeHtml(request.id)}">Marquer terminée</button>
+          <button class="owner-button owner-secondary-button" type="button" data-request-action="cancelled" data-request-id="${escapeHtml(request.id)}">Annuler</button>
+        </div>
+      `;
+    }
+
+    return "";
+  }
+
   function renderRequests(requests, propertiesById) {
     const container = qs("[data-admin-requests]");
     if (!container) return;
 
-    const activeRequests = requests.filter((request) => !["completed", "cancelled"].includes(request.status));
+    const visibleRequests = requests.filter((request) => !["cancelled", "completed"].includes(request.status));
 
-    if (!activeRequests.length) {
+    if (!visibleRequests.length) {
       container.innerHTML = '<div class="owner-empty">Aucune demande propriétaire à traiter.</div>';
       return;
     }
 
-    container.innerHTML = activeRequests
+    container.innerHTML = visibleRequests
       .map((request) => {
         const property = propertiesById.get(String(request.property_id));
         const propertyName = property?.name || "Logement";
-        const isInternal = request.status === "internal_pending";
         const timeWindow = request.time_window ? ` · ${escapeHtml(request.time_window)}` : "";
         return `
           <div class="owner-report-card">
             <h3>${formatType(request.intervention_type)} — ${escapeHtml(propertyName)}</h3>
             <p class="owner-muted">${formatDateTime(request.requested_for)}${timeWindow}</p>
             <div class="owner-mini-stats">
-              <span class="owner-mini-stat">${formatStatus(request.status)}</span>
+              ${statusBadge(request.status)}
               <span class="owner-mini-stat">${sourceLabel(property)}</span>
               <span class="owner-mini-stat">Urgence : ${escapeHtml(request.urgency || "normal")}</span>
             </div>
             ${request.description ? `<p class="owner-muted">${escapeHtml(request.description)}</p>` : ""}
-            ${isInternal ? `
-              <div class="owner-mini-stats">
-                <button class="owner-button owner-secondary-button" type="button" data-request-action="completed" data-request-id="${escapeHtml(request.id)}">Marquer terminée</button>
-                <button class="owner-button owner-secondary-button" type="button" data-request-action="cancelled" data-request-id="${escapeHtml(request.id)}">Annuler</button>
-              </div>
-            ` : ""}
+            ${request.sync_error ? `<p class="owner-muted">Erreur : ${escapeHtml(request.sync_error)}</p>` : ""}
+            ${requestActionButtons(request)}
           </div>
         `;
       })
@@ -403,12 +434,12 @@
   function renderDashboard(data, selectedAssignee = ALL_ASSIGNEES) {
     latestDashboardData = data;
     const propertiesById = new Map(data.properties.map((property) => [String(property.id), property]));
-    const activeRequests = data.requests.filter((request) => !["completed", "cancelled"].includes(request.status));
+    const pendingRequests = data.requests.filter((request) => request.status === "pending_admin");
     const filteredMissions = data.missions.filter((mission) => assigneeMatches(mission, selectedAssignee));
 
     setText("[data-admin-property-count]", data.properties.length);
     setText("[data-admin-mission-count]", filteredMissions.length);
-    setText("[data-admin-request-count]", activeRequests.length);
+    setText("[data-admin-request-count]", pendingRequests.length);
 
     renderMissions(filteredMissions, propertiesById, data.staffMembers || []);
     renderRequests(data.requests, propertiesById);
@@ -564,7 +595,7 @@
       const requestId = button.dataset.requestId;
       const status = button.dataset.requestAction;
       button.disabled = true;
-      button.textContent = "Mise à jour…";
+      button.textContent = status === "approved" ? "Validation…" : status === "rejected" ? "Refus…" : "Mise à jour…";
 
       try {
         await updateRequestStatus(session, requestId, status);
