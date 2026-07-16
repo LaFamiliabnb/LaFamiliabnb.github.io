@@ -1,8 +1,12 @@
 (() => {
   const SESSION_KEY = "lafamilia_admin_session";
+  const ALL_ASSIGNEES = "__all";
+  const UNASSIGNED = "__unassigned";
   const config = window.LA_FAMILIA_SUPABASE_CONFIG || {};
   const supabaseUrl = (config.url || "").replace(/\/$/, "");
   const supabaseAnonKey = config.anonKey || "";
+
+  let latestDashboardData = null;
 
   function isConfigured() {
     return Boolean(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes("ton-projet") && !supabaseAnonKey.includes("ta_anon_key"));
@@ -202,6 +206,37 @@
     return property?.source === "manual" ? "Manuel" : "Nowistay";
   }
 
+  function assigneeName(mission) {
+    return String(mission.assigned_team_member_name || "").replace(/\s+/g, " ").trim();
+  }
+
+  function assigneeMatches(mission, selectedAssignee) {
+    if (!selectedAssignee || selectedAssignee === ALL_ASSIGNEES) return true;
+    const name = assigneeName(mission);
+    if (selectedAssignee === UNASSIGNED) return !name;
+    return name === selectedAssignee;
+  }
+
+  function assigneeOptions(missions) {
+    return Array.from(new Set(missions.map(assigneeName).filter(Boolean))).sort((a, b) => a.localeCompare(b, "fr"));
+  }
+
+  function updateAssigneeFilterOptions(missions, selectedValue = ALL_ASSIGNEES) {
+    const select = qs("[data-admin-assignee-filter]");
+    if (!select) return;
+
+    const names = assigneeOptions(missions);
+    const hasUnassigned = missions.some((mission) => !assigneeName(mission));
+    const options = [
+      `<option value="${ALL_ASSIGNEES}">Tous les intervenants</option>`,
+      ...(hasUnassigned ? [`<option value="${UNASSIGNED}">Sans intervenant</option>`] : []),
+      ...names.map((name) => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`),
+    ];
+
+    select.innerHTML = options.join("");
+    select.value = names.includes(selectedValue) || selectedValue === UNASSIGNED ? selectedValue : ALL_ASSIGNEES;
+  }
+
   async function loadDashboardData(session, dateValue) {
     await requireAdmin(session);
     const range = dayRange(dateValue);
@@ -212,7 +247,7 @@
     );
 
     const missions = await supabaseFetch(
-      `/rest/v1/nowistay_missions?select=id,property_id,type,status,title,description,scheduled_at,duration_minutes,assigned_team_member_name,property_name,booking_guest_name,booking_arrival,booking_departure&scheduled_at=gte.${range.start}&scheduled_at=lt.${range.end}&status=neq.cancelled&order=scheduled_at.asc&limit=500`,
+      `/rest/v1/nowistay_missions?select=id,property_id,type,status,title,description,scheduled_at,duration_minutes,team_member_id,assigned_team_member_name,property_name,booking_guest_name,booking_arrival,booking_departure&scheduled_at=gte.${range.start}&scheduled_at=lt.${range.end}&status=neq.cancelled&order=scheduled_at.asc&limit=500`,
       { accessToken: session.accessToken },
     );
 
@@ -229,7 +264,7 @@
     if (!container) return;
 
     if (!missions.length) {
-      container.innerHTML = '<div class="owner-empty">Aucune intervention Nowistay sur cette journée.</div>';
+      container.innerHTML = '<div class="owner-empty">Aucune intervention ne correspond à ces filtres.</div>';
       return;
     }
 
@@ -237,6 +272,7 @@
       .map((mission) => {
         const property = propertiesById.get(String(mission.property_id));
         const propertyName = property?.name || mission.property_name || "Logement";
+        const currentAssignee = assigneeName(mission);
         return `
           <div class="owner-report-card">
             <h3>${formatTime(mission.scheduled_at)} — ${formatType(mission.type)} — ${escapeHtml(propertyName)}</h3>
@@ -244,10 +280,18 @@
             <div class="owner-mini-stats">
               <span class="owner-mini-stat">${formatStatus(mission.status)}</span>
               <span class="owner-mini-stat">${sourceLabel(property)}</span>
-              ${mission.assigned_team_member_name ? `<span class="owner-mini-stat">Intervenant(e) : ${escapeHtml(mission.assigned_team_member_name)}</span>` : ""}
+              <span class="owner-mini-stat">Intervenant(e) : ${escapeHtml(currentAssignee || "Non renseigné")}</span>
             </div>
             ${mission.booking_guest_name ? `<p class="owner-muted">Voyageur : ${escapeHtml(mission.booking_guest_name)}</p>` : ""}
             ${mission.description ? `<p class="owner-muted">${escapeHtml(mission.description)}</p>` : ""}
+            <form class="owner-form" data-admin-assignee-form data-mission-id="${escapeHtml(mission.id)}">
+              <label class="owner-label">
+                Changer l’intervenant(e)
+                <input class="owner-input" name="assignedTeamMemberName" type="text" value="${escapeHtml(currentAssignee)}" placeholder="Nom de l’intervenant(e)" />
+              </label>
+              <button class="owner-button owner-secondary-button" type="submit">Enregistrer l’intervenant(e)</button>
+              <p class="owner-muted" data-assignee-feedback hidden></p>
+            </form>
           </div>
         `;
       })
@@ -312,15 +356,17 @@
       .join("");
   }
 
-  function renderDashboard(data) {
+  function renderDashboard(data, selectedAssignee = ALL_ASSIGNEES) {
+    latestDashboardData = data;
     const propertiesById = new Map(data.properties.map((property) => [String(property.id), property]));
     const activeRequests = data.requests.filter((request) => !["completed", "cancelled"].includes(request.status));
+    const filteredMissions = data.missions.filter((mission) => assigneeMatches(mission, selectedAssignee));
 
     setText("[data-admin-property-count]", data.properties.length);
-    setText("[data-admin-mission-count]", data.missions.length);
+    setText("[data-admin-mission-count]", filteredMissions.length);
     setText("[data-admin-request-count]", activeRequests.length);
 
-    renderMissions(data.missions, propertiesById);
+    renderMissions(filteredMissions, propertiesById);
     renderRequests(data.requests, propertiesById);
     renderProperties(data.properties);
   }
@@ -331,6 +377,17 @@
       accessToken: session.accessToken,
       prefer: "return=representation",
       body: { status },
+    });
+  }
+
+  async function updateMissionAssignee(session, missionId, assignedTeamMemberName) {
+    return supabaseFetch(`/rest/v1/nowistay_missions?id=eq.${encodeURIComponent(missionId)}`, {
+      method: "PATCH",
+      accessToken: session.accessToken,
+      prefer: "return=representation",
+      body: {
+        assigned_team_member_name: assignedTeamMemberName || null,
+      },
     });
   }
 
@@ -388,12 +445,15 @@
     qsa("[data-admin-logout]").forEach((button) => button.addEventListener("click", signOut));
 
     const dateInput = qs("[data-admin-date]");
+    const assigneeFilter = qs("[data-admin-assignee-filter]");
     if (dateInput && !dateInput.value) dateInput.value = todayInputValue();
 
     const load = async () => {
       try {
+        const selectedBeforeLoad = assigneeFilter?.value || ALL_ASSIGNEES;
         const data = await loadDashboardData(session, dateInput?.value || todayInputValue());
-        renderDashboard(data);
+        updateAssigneeFilterOptions(data.missions, selectedBeforeLoad);
+        renderDashboard(data, assigneeFilter?.value || ALL_ASSIGNEES);
         qs("[data-admin-loading]")?.remove();
         qs("[data-admin-content]").hidden = false;
       } catch (error) {
@@ -402,9 +462,52 @@
       }
     };
 
-    qs("[data-admin-date-form]")?.addEventListener("submit", async (event) => {
+    qs("[data-admin-filters-form]")?.addEventListener("submit", async (event) => {
       event.preventDefault();
       await load();
+    });
+
+    assigneeFilter?.addEventListener("change", () => {
+      if (!latestDashboardData) return;
+      renderDashboard(latestDashboardData, assigneeFilter.value || ALL_ASSIGNEES);
+    });
+
+    document.addEventListener("submit", async (event) => {
+      const form = event.target.closest("[data-admin-assignee-form]");
+      if (!form) return;
+      event.preventDefault();
+
+      const button = qs("button[type='submit']", form);
+      const feedback = qs("[data-assignee-feedback]", form);
+      const missionId = form.dataset.missionId;
+      const formData = new FormData(form);
+      const assignedTeamMemberName = String(formData.get("assignedTeamMemberName") || "").replace(/\s+/g, " ").trim();
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Enregistrement…";
+      }
+
+      try {
+        await updateMissionAssignee(session, missionId, assignedTeamMemberName);
+        if (feedback) {
+          feedback.textContent = "Intervenant(e) mis(e) à jour dans Supabase.";
+          feedback.hidden = false;
+        }
+        await load();
+      } catch (error) {
+        if (feedback) {
+          feedback.textContent = error.message || "Impossible de mettre à jour l’intervenant(e).";
+          feedback.hidden = false;
+        } else {
+          showAlert(error.message || "Impossible de mettre à jour l’intervenant(e).");
+        }
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = "Enregistrer l’intervenant(e)";
+        }
+      }
     });
 
     document.addEventListener("click", async (event) => {
