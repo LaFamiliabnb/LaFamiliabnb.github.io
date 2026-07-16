@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Script OVH à copier dans /www/cron/sync-owner-intervention-requests.php.
- * Il lit les demandes propriétaire dans Supabase puis crée les missions côté Nowistay.
+ * Il lit les demandes propriétaire validées par l'admin dans Supabase puis crée les missions côté Nowistay.
  * Ne jamais mettre les vraies clés dans GitHub : utiliser /www/cron/config.php sur OVH.
  */
 
@@ -81,9 +81,11 @@ $supabaseHeaders = [
     'Authorization: Bearer ' . $supabaseServiceRoleKey,
 ];
 
+// On synchronise uniquement les demandes validées par l'admin, liées à un logement Nowistay.
+// Les demandes refusées restent en "rejected". Les logements manuels restent internes.
 $requests = request_json(
     'GET',
-    $supabaseUrl . '/rest/v1/owner_intervention_requests?select=id,property_id,intervention_type,requested_for,time_window,title,description,urgency&status=eq.pending_sync&order=created_at.asc&limit=25',
+    $supabaseUrl . '/rest/v1/owner_intervention_requests?select=id,property_id,intervention_type,requested_for,time_window,title,description,urgency,nowistay_properties!inner(source)&status=eq.approved&nowistay_mission_id=is.null&nowistay_properties.source=eq.nowistay&order=created_at.asc&limit=25',
     $supabaseHeaders
 );
 
@@ -98,6 +100,7 @@ foreach ($requests as $request) {
             !empty($request['time_window']) ? 'Créneau préféré : ' . $request['time_window'] : '',
             !empty($request['urgency']) ? 'Urgence : ' . $request['urgency'] : '',
             'Source : espace propriétaire La Familia',
+            'Validation admin : oui',
         ]);
 
         $payload = [
