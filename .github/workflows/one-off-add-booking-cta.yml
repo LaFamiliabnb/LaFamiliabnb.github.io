@@ -22,8 +22,6 @@ jobs:
           html = path.read_text(encoding='utf-8')
           original = html
 
-          booking_url = 'https://booking.lafamiliabnb.fr/reservation.html'
-
           css_marker = '''    .nav-cta {
       background: var(--dark);
       color: var(--cream) !important;
