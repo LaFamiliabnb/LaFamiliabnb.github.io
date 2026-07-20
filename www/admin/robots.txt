@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Espace admin privé : ne doit pas être indexé.
