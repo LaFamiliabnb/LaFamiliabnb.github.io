@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Espace propriétaire privé : ne doit pas être indexé.
