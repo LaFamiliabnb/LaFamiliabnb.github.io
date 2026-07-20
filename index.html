@@ -111,7 +111,7 @@
     .menu-list ul {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 18px;
       list-style: none;
       padding: 0;
       margin: 0;
@@ -133,6 +133,24 @@
       padding: 14px 19px;
       border-radius: 999px;
       box-shadow: 0 10px 22px rgba(0,0,0,.14);
+    }
+
+    .nav-booking {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--dark);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: transparent;
+      color: var(--dark) !important;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-booking:hover {
+      background: var(--dark);
+      color: var(--cream) !important;
     }
 
     .hamburger {
@@ -191,6 +209,8 @@
 
     .button:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); }
     .button.secondary { background: transparent; color: var(--dark); box-shadow: none; }
+    .button.booking { background: transparent; color: var(--dark); border-color: var(--dark); box-shadow: none; }
+    .button.booking:hover { background: var(--dark); color: var(--cream); border-color: var(--dark); }
     .section.dark .button.secondary { color: var(--cream); border-color: var(--cream); }
 
     .micro-proof { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; color: var(--muted); font-weight: 800; }
@@ -454,6 +474,7 @@
           <li><a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+          <li><a href="https://booking.lafamiliabnb.fr/reservation.html" class="nav-booking" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
         </ul>
       </div>
 
@@ -475,6 +496,7 @@
 
         <div class="actions">
           <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
+          <a href="https://booking.lafamiliabnb.fr/reservation.html" class="button booking" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           <a href="/conciergerie-airbnb-aix-en-provence/" class="button secondary">Découvrir nos services</a>
         </div>
 
@@ -673,7 +695,10 @@
             <h2>Vous avez un logement à Aix-en-Provence ?</h2>
             <p>Demandez une estimation gratuite et recevez un premier avis sur le potentiel de votre bien en location courte durée.</p>
           </div>
-          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus</a>
+          <div class="actions" style="margin-top:0; justify-content:flex-end;">
+            <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus</a>
+            <a href="https://booking.lafamiliabnb.fr/reservation.html" class="button booking" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </section>
@@ -691,7 +716,7 @@
           <a href="/tarifs-conciergerie-airbnb-aix-en-provence/">Tarifs conciergerie Airbnb</a>
           <a href="/estimation-revenus-airbnb-aix-en-provence/">Estimation revenus Airbnb</a>
           <a href="/menage-airbnb-aix-en-provence/">Ménage Airbnb</a>
-          <a href="/check-in-airbnb-aix-en-provence/">Check-in Airbnb</a>
+          <a href="https://booking.lafamiliabnb.fr/reservation.html">Réserver votre séjour</a>
         </div>
       </div>
     </section>
