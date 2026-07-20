@@ -1,0 +1,106 @@
+name: One-off add stay reservation CTA
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  add-stay-reservation-cta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add reservation CTA next to revenue estimate CTA
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          booking_url = 'https://booking.lafamiliabnb.fr/reservation.html'
+          changed = []
+
+          nav_old = '<li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>'
+          nav_new = nav_old + f'\n          <li><a href="{booking_url}" class="nav-stay-cta" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>'
+
+          hero_old = '<a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>'
+          hero_new = hero_old + f'\n          <a href="{booking_url}" class="button stay-button" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>'
+
+          css_old = '''    .nav-cta {
+      background: var(--dark);
+      color: var(--cream) !important;
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+    }'''
+
+          css_new = css_old + '''
+
+    .nav-stay-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 2px solid var(--dark);
+      color: var(--dark) !important;
+      background: transparent;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .nav-stay-cta:hover {
+      background: var(--dark);
+      color: var(--cream) !important;
+    }
+
+    .button.stay-button {
+      background: transparent;
+      color: var(--dark);
+      border-color: var(--dark);
+      box-shadow: none;
+    }
+
+    .button.stay-button:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: var(--cream);
+    }'''
+
+          for path in sorted(Path('.').rglob('*.html')):
+              if '.git' in path.parts or path.parts[:2] == ('.github', 'workflows'):
+                  continue
+              html = path.read_text(encoding='utf-8')
+              original = html
+
+              if 'Réserver votre séjour' not in html:
+                  html = html.replace(nav_old, nav_new)
+                  if path.as_posix() == 'index.html':
+                      html = html.replace(hero_old, hero_new, 1)
+
+              if '.nav-stay-cta' not in html and css_old in html:
+                  html = html.replace(css_old, css_new, 1)
+
+              if html != original:
+                  path.write_text(html, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Updated files:')
+          for item in changed:
+              print('-', item)
+
+          Path('.github/workflows/one-off-add-stay-reservation-cta.yml').unlink(missing_ok=True)
+          PY
+
+      - name: Commit reservation CTA update
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Add direct booking CTA to main site"
+            git push
+          else
+            echo "No changes needed."
+          fi
