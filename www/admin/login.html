@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | La Familia</title>
+  <meta name="description" content="Connexion admin La Familia." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="admin-login">
+  <main class="owner-shell owner-login-shell">
+    <a class="owner-logo" href="https://www.lafamiliabnb.fr/">
+      <img src="/img/LogoLF.png" alt="La Familia" />
+      La Familia
+    </a>
+
+    <section class="owner-login-card">
+      <p class="owner-eyebrow">Administration</p>
+      <h1>Connexion admin</h1>
+      <p class="owner-muted">Accès réservé aux comptes administrateurs La Familia.</p>
+
+      <div class="owner-alert error" data-admin-alert hidden></div>
+
+      <form class="owner-form" data-admin-login-form>
+        <label class="owner-label" for="admin-email">
+          Email
+          <input class="owner-input" id="admin-email" type="email" autocomplete="email" required />
+        </label>
+
+        <label class="owner-label" for="admin-password">
+          Mot de passe
+          <input class="owner-input" id="admin-password" type="password" autocomplete="current-password" required />
+        </label>
+
+        <button class="owner-button" type="submit" data-admin-login-button>Entrer dans l’admin</button>
+
+        <p class="owner-muted" style="margin-top: 1rem; text-align: center;">
+          <a href="./mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./app.js?v=20260716-admin"></script>
+</body>
+</html>

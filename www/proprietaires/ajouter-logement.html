@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter un logement | La Familia</title>
+  <meta name="description" content="Ajouter un logement manuel dans l’espace propriétaire La Familia." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="owner-manual-property">
+  <main class="owner-shell">
+    <div class="owner-topbar">
+      <a class="owner-logo" href="/">
+        <img src="/img/LogoLF.png" alt="La Familia" />
+        La Familia
+      </a>
+      <a class="owner-button owner-secondary-button" href="./dashboard.html">Retour au dashboard</a>
+    </div>
+
+    <div class="owner-alert error" data-owner-alert hidden></div>
+
+    <div data-owner-content>
+      <header class="owner-header">
+        <div>
+          <p class="owner-eyebrow">Logement manuel</p>
+          <h1>Ajouter un logement hors Nowistay</h1>
+          <p class="owner-muted">
+            Ces logements apparaîtront dans l’espace propriétaire, mais les demandes d’intervention resteront internes La Familia tant que le logement n’existe pas dans Nowistay.
+          </p>
+        </div>
+      </header>
+
+      <section class="owner-section">
+        <h2>Nouveau logement</h2>
+        <form class="owner-form" data-manual-property-form>
+          <label class="owner-label">
+            Nom du logement
+            <input class="owner-input" name="name" type="text" placeholder="Ex. Mazarin bis" required />
+          </label>
+
+          <label class="owner-label">
+            Adresse
+            <input class="owner-input" name="addressLine1" type="text" placeholder="Ex. 15 Rue Clovis Hugues" />
+          </label>
+
+          <label class="owner-label">
+            Ville
+            <input class="owner-input" name="city" type="text" placeholder="Ex. Aix-en-Provence" required />
+          </label>
+
+          <label class="owner-label">
+            Pays
+            <input class="owner-input" name="country" type="text" value="France" required />
+          </label>
+
+          <label class="owner-label">
+            Capacité
+            <input class="owner-input" name="capacity" type="number" min="1" step="1" placeholder="Ex. 2" />
+          </label>
+
+          <label class="owner-label">
+            Type de logement
+            <select class="owner-input" name="propertyType">
+              <option value="apartment">Appartement</option>
+              <option value="villa">Villa</option>
+              <option value="house">Maison</option>
+              <option value="country_house">Maison de campagne</option>
+              <option value="other">Autre</option>
+            </select>
+          </label>
+
+          <label class="owner-label">
+            Note interne
+            <textarea class="owner-input" name="manualNotes" rows="4" placeholder="Informations utiles pour La Familia, accès, particularités, etc."></textarea>
+          </label>
+
+          <button class="owner-button" type="submit">Ajouter le logement</button>
+          <p class="owner-muted" data-manual-property-feedback hidden></p>
+        </form>
+      </section>
+
+      <section class="owner-section">
+        <h2>Logements manuels existants</h2>
+        <div class="owner-list" data-manual-property-list>
+          <div class="owner-empty">Chargement…</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./manual-properties.js?v=20260716-manual-properties"></script>
+</body>
+</html>

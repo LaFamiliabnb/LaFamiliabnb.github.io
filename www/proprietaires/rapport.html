@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapport ménage | La Familia</title>
+  <meta name="description" content="Détail du rapport ménage propriétaire La Familia." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="owner-report">
+  <main class="owner-shell">
+    <div class="owner-topbar">
+      <a class="owner-logo" href="./dashboard.html">
+        ← Retour au dashboard
+      </a>
+      <button class="owner-button owner-secondary-button" type="button" data-owner-logout>
+        Se déconnecter
+      </button>
+    </div>
+
+    <div class="owner-alert error" data-owner-alert hidden></div>
+
+    <p class="owner-muted" data-owner-loading>Chargement du rapport ménage…</p>
+
+    <div data-owner-content hidden>
+      <header class="owner-detail-cover">
+        <div data-report-cover></div>
+        <div class="owner-detail-cover-content">
+          <p class="owner-eyebrow">Rapport ménage</p>
+          <h1 class="owner-report-title" data-report-property>Logement</h1>
+          <p class="owner-muted">
+            <span data-report-date>Date non renseignée</span> · <span data-report-mission>Rapport ménage</span>
+          </p>
+        </div>
+      </header>
+
+      <section class="owner-stats" aria-label="Résumé du rapport">
+        <div class="owner-stat">
+          <span>Intervenant(e)</span>
+          <strong data-report-cleaner>—</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Voyageur</span>
+          <strong data-report-guest>—</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Checklist</span>
+          <strong data-report-checklist-score>0/0</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Photos</span>
+          <strong data-report-photo-count>0</strong>
+        </div>
+      </section>
+
+      <section class="owner-section" data-report-comment-section hidden>
+        <h2>Commentaire</h2>
+        <p class="owner-muted" data-report-comment></p>
+      </section>
+
+      <section class="owner-section">
+        <h2>Checklist complète</h2>
+        <div class="owner-checklist" data-report-checklist></div>
+      </section>
+
+      <section class="owner-section">
+        <h2>Photos du ménage</h2>
+        <div class="owner-gallery" data-report-gallery></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./app.js?v=20260707-app-clean"></script>
+</body>
+</html>

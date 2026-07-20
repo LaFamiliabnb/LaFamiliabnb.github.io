@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard admin | La Familia</title>
+  <meta name="description" content="Dashboard admin La Familia : interventions, demandes et logements." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="admin-dashboard">
+  <main class="owner-shell">
+    <div class="owner-topbar">
+      <a class="owner-logo" href="https://www.lafamiliabnb.fr/">
+        <img src="/img/LogoLF.png" alt="La Familia" />
+        La Familia
+      </a>
+      <a class="owner-button owner-secondary-button" href="https://proprietaires.lafamiliabnb.fr/dashboard.html">Espace propriétaire</a>
+      <button class="owner-button owner-secondary-button" type="button" data-admin-logout>Se déconnecter</button>
+    </div>
+
+    <div class="owner-alert error" data-admin-alert hidden></div>
+    <p class="owner-muted" data-admin-loading>Chargement de l’admin…</p>
+
+    <div data-admin-content hidden>
+      <header class="owner-header">
+        <div>
+          <p class="owner-eyebrow">Administration</p>
+          <h1>Dashboard admin</h1>
+          <p class="owner-muted">Vue globale des interventions Nowistay, demandes propriétaires et logements La Familia.</p>
+        </div>
+      </header>
+
+      <section class="owner-stats" aria-label="Statistiques admin">
+        <div class="owner-stat">
+          <span>Logements</span>
+          <strong data-admin-property-count>0</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Interventions du jour</span>
+          <strong data-admin-mission-count>0</strong>
+        </div>
+        <div class="owner-stat">
+          <span>Demandes à traiter</span>
+          <strong data-admin-request-count>0</strong>
+        </div>
+      </section>
+
+      <section class="owner-section">
+        <h2>Interventions journalières Nowistay</h2>
+        <form class="owner-form" data-admin-filters-form>
+          <label class="owner-label">
+            Date
+            <input class="owner-input" name="date" type="date" data-admin-date />
+          </label>
+          <label class="owner-label">
+            Intervenant(e)
+            <select class="owner-input" name="assignee" data-admin-assignee-filter>
+              <option value="__all">Tous les intervenants</option>
+            </select>
+          </label>
+          <button class="owner-button" type="submit">Afficher</button>
+        </form>
+        <p class="owner-muted">Le changement d’intervenant est enregistré dans Supabase pour le planning admin. La synchronisation d’une modification vers Nowistay dépendra de l’endpoint API Nowistay disponible.</p>
+        <div class="owner-list" data-admin-missions></div>
+      </section>
+
+      <section class="owner-section">
+        <h2>Demandes propriétaires</h2>
+        <p class="owner-muted">Les nouvelles demandes attendent une validation. Une demande validée passe en vert côté propriétaire, une demande refusée passe en rouge puis disparaît de cette file admin.</p>
+        <div class="owner-list" data-admin-requests></div>
+      </section>
+
+      <section class="owner-section">
+        <h2>Logements</h2>
+        <div class="owner-list" data-admin-properties></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./app.js?v=20260716-admin-processed-queue"></script>
+</body>
+</html>
