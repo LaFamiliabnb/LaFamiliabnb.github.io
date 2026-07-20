@@ -1,10 +1,27 @@
 User-agent: *
 Allow: /
+
+# Pages SEO propriétaires / conciergerie Airbnb : autorisées
+Allow: /conciergerie-airbnb-aix-en-provence/
+Allow: /tarifs-conciergerie-airbnb-aix-en-provence/
+Allow: /estimation-revenus-airbnb-aix-en-provence/
+Allow: /gestion-location-saisonniere-aix-en-provence/
+Allow: /menage-airbnb-aix-en-provence/
+Allow: /check-in-airbnb-aix-en-provence/
+Allow: /blog/
+
+# Espaces privés, techniques ou non destinés au référencement
 Disallow: /admin/
+Disallow: /www/admin/
+Disallow: /proprietaires/
+Disallow: /www/proprietaires/
 Disallow: /private/
+Disallow: /ovh/
+Disallow: /supabase/
+Disallow: /docs/
 
 # Espace voyageurs / booking volontairement exclu du SEO du site principal propriétaires
-Disallow: /www/booking/
 Disallow: /booking/
+Disallow: /www/booking/
 
 Sitemap: https://www.lafamiliabnb.fr/sitemap.xml
