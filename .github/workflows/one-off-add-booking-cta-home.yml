@@ -1,0 +1,94 @@
+name: One-off add booking CTA homepage
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  add-booking-cta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add booking CTA beside revenue estimate CTA
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+          original = html
+          booking_url = 'https://booking.lafamiliabnb.fr/reservation.html'
+
+          if '.nav-booking-cta' not in html:
+              html = html.replace(
+                  '''    .nav-cta {
+      background: var(--dark);
+      color: var(--cream) !important;
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+    }''',
+                  '''    .nav-cta {
+      background: var(--dark);
+      color: var(--cream) !important;
+      padding: 14px 19px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+    }
+
+    .nav-booking-cta {
+      border: 2px solid var(--dark);
+      color: var(--dark) !important;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-booking-cta:hover {
+      background: var(--dark);
+      color: var(--cream) !important;
+    }'''
+              )
+
+          if 'Réserver votre séjour <i class="fas fa-external-link-alt"></i>' not in html:
+              html = html.replace(
+                  '''          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>''',
+                  f'''          <li><a href="/estimation-revenus-airbnb-aix-en-provence/" class="nav-cta">Estimer mes revenus</a></li>
+          <li><a href="{booking_url}" class="nav-booking-cta" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt"></i></a></li>'''
+              )
+
+          if 'Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i>' not in html:
+              html = html.replace(
+                  '''          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
+          <a href="/conciergerie-airbnb-aix-en-provence/" class="button secondary">Découvrir nos services</a>''',
+                  f'''          <a href="/estimation-revenus-airbnb-aix-en-provence/" class="button">Estimer mes revenus <i class="fas fa-arrow-right"></i></a>
+          <a href="{booking_url}" class="button secondary" target="_blank" rel="noopener">Réserver votre séjour <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+          <a href="/conciergerie-airbnb-aix-en-provence/" class="button secondary">Découvrir nos services</a>'''
+              )
+
+          if html == original:
+              print('No changes needed.')
+          else:
+              path.write_text(html, encoding='utf-8')
+
+          Path('.github/workflows/one-off-add-booking-cta-home.yml').unlink(missing_ok=True)
+          PY
+
+      - name: Commit homepage booking CTA
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Add direct booking CTA to homepage"
+            git push
+          else
+            echo "No changes needed."
+          fi
