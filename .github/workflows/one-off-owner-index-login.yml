@@ -1,0 +1,94 @@
+name: One-off owner portal index login
+
+on:
+  push:
+    paths:
+      - ".github/workflows/.trigger-owner-index-login.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-owner-login:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rename owner login to index
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          owner_dir = Path("www/proprietaires")
+          login_path = owner_dir / "login.html"
+          index_path = owner_dir / "index.html"
+          app_path = owner_dir / "app.js"
+          password_js_path = owner_dir / "password-reset.js"
+          password_page_path = owner_dir / "mot-de-passe-oublie.html"
+          main_index_path = Path("index.html")
+
+          if not login_path.exists():
+              raise SystemExit("www/proprietaires/login.html introuvable")
+
+          login_content = login_path.read_text(encoding="utf-8")
+          index_path.write_text(login_content, encoding="utf-8")
+
+          login_redirect = """<!DOCTYPE html>
+<html lang=\"fr\">
+<head>
+  <meta charset=\"UTF-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
+  <title>Redirection espace propriétaire | La Familia</title>
+  <meta name=\"robots\" content=\"noindex,nofollow\" />
+  <link rel=\"canonical\" href=\"https://proprietaires.lafamiliabnb.fr/\" />
+  <meta http-equiv=\"refresh\" content=\"0; url=./\" />
+</head>
+<body>
+  <p>Redirection vers l’espace propriétaire… <a href=\"./\">Continuer</a></p>
+  <script>window.location.replace(\"./\");</script>
+</body>
+</html>
+"""
+          login_path.write_text(login_redirect, encoding="utf-8")
+
+          if app_path.exists():
+              content = app_path.read_text(encoding="utf-8")
+              content = content.replace('window.location.href = "./login.html";', 'window.location.href = "./index.html";')
+              content = content.replace("window.location.href = './login.html';", "window.location.href = './index.html';")
+              app_path.write_text(content, encoding="utf-8")
+
+          if password_js_path.exists():
+              content = password_js_path.read_text(encoding="utf-8")
+              content = content.replace(
+                  'const loginPath = context === "admin" ? "./login.html" : "./login.html";',
+                  'const loginPath = context === "admin" ? "./login.html" : "./index.html";',
+              )
+              password_js_path.write_text(content, encoding="utf-8")
+
+          if password_page_path.exists():
+              content = password_page_path.read_text(encoding="utf-8")
+              content = content.replace('href="./login.html"', 'href="./index.html"')
+              password_page_path.write_text(content, encoding="utf-8")
+
+          if main_index_path.exists():
+              content = main_index_path.read_text(encoding="utf-8")
+              content = content.replace(
+                  'https://proprietaires.lafamiliabnb.fr/login.html',
+                  'https://proprietaires.lafamiliabnb.fr/',
+              )
+              main_index_path.write_text(content, encoding="utf-8")
+          PY
+
+      - name: Remove one-off workflow files
+        run: |
+          rm -f .github/workflows/one-off-owner-index-login.yml
+          rm -f .github/workflows/.trigger-owner-index-login.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html www/proprietaires/index.html www/proprietaires/login.html www/proprietaires/app.js www/proprietaires/password-reset.js www/proprietaires/mot-de-passe-oublie.html .github/workflows/one-off-owner-index-login.yml .github/workflows/.trigger-owner-index-login.txt
+          git commit -m "Use index as owner portal login" || echo "No changes to commit"
+          git push
