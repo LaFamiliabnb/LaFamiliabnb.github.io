@@ -1,1 +1,0 @@
-trigger owner index login update
