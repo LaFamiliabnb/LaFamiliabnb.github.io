@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion propriétaire | La Familia</title>
+  <meta name="description" content="Connexion à l’espace propriétaire La Familia pour consulter les rapports ménage, photos et checklists." />
+  <link rel="shortcut icon" href="/img/LogoLF.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="owner-page" data-page="owner-login">
+  <main class="owner-hero">
+    <section>
+      <a class="owner-logo" href="/">
+        <img src="/img/LogoLF.png" alt="La Familia" />
+        La Familia
+      </a>
+      <h1 class="owner-title">Connexion propriétaire</h1>
+      <p class="owner-subtitle">
+        Accédez aux rapports ménage de vos logements : date d’intervention,
+        intervenant(e), commentaire, checklist complète et galerie photos.
+      </p>
+    </section>
+
+    <section class="owner-card" aria-labelledby="login-title">
+      <h2 id="login-title">Se connecter</h2>
+      <p>Utilisez le compte créé dans Supabase Auth.</p>
+
+      <div class="owner-alert error" data-owner-alert hidden></div>
+
+      <form class="owner-form" data-owner-login-form>
+        <label class="owner-label" for="owner-email">
+          Email
+          <input class="owner-input" id="owner-email" type="email" autocomplete="email" required placeholder="jean@email.com" />
+        </label>
+
+        <label class="owner-label" for="owner-password">
+          Mot de passe
+          <input class="owner-input" id="owner-password" type="password" autocomplete="current-password" required placeholder="••••••••" />
+        </label>
+
+        <button class="owner-button" type="submit" data-owner-login-button>
+          Entrer dans mon espace
+        </button>
+
+        <p class="owner-muted" style="margin-top: 1rem; text-align: center;">
+          <a href="./mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+        </p>
+      </form>
+
+      <p class="owner-muted">
+        Votre accès est réservé aux propriétaires accompagnés par La Familia.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    window.LA_FAMILIA_SUPABASE_CONFIG = { url: "", anonKey: "" };
+  </script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
