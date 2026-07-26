@@ -3,7 +3,7 @@
   const supabaseUrl = (config.url || "").replace(/\/$/, "");
   const supabaseAnonKey = config.anonKey || "";
   const context = document.body.dataset.passwordContext || "owner";
-  const loginPath = context === "admin" ? "./login.html" : "./login.html";
+  const loginPath = context === "admin" ? "./login.html" : "./index.html";
 
   function isConfigured() {
     return Boolean(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes("ton-projet") && !supabaseAnonKey.includes("ta_anon_key"));
