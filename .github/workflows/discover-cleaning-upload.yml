@@ -24,7 +24,21 @@ jobs:
             echo "=== Repository web files ==="
             find www -maxdepth 4 -type f 2>/dev/null | sort
             echo "=== Photo and upload candidates ==="
-            grep -RInE 'type=["'"']file|capture=|FileReader|createImageBitmap|canvas|toBlob|toDataURL|FormData|storage/v1/object|\.upload[[:space:]]*\(|photo|image/' . \
+            grep -RInE \
+              -e 'type="file"' \
+              -e "type='file'" \
+              -e 'capture=' \
+              -e 'FileReader' \
+              -e 'createImageBitmap' \
+              -e 'canvas' \
+              -e 'toBlob' \
+              -e 'toDataURL' \
+              -e 'FormData' \
+              -e 'storage/v1/object' \
+              -e '\.upload[[:space:]]*\(' \
+              -e 'photo' \
+              -e 'image/' \
+              . \
               --include='*.js' \
               --include='*.html' \
               --exclude-dir=.git \
