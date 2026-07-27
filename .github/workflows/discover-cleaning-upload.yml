@@ -20,14 +20,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "=== Matching files ==="
-          grep -RIlE 'cleaning-reports|staff_cleaning_reports|report_document_path' . \
-            --exclude-dir=.git \
-            --exclude='*.map' \
-            --exclude='discover-cleaning-upload.yml' || true
-          echo "=== Relevant lines ==="
-          grep -RInE 'cleaning-reports|staff_cleaning_reports|report_document_path|storage[[:space:]]*\.[[:space:]]*from|\.upload[[:space:]]*\(' . \
-            --exclude-dir=.git \
-            --exclude='*.map' \
-            --exclude='discover-cleaning-upload.yml' \
-            | head -500 || true
+          {
+            echo "=== Matching files ==="
+            grep -RIlE 'cleaning-reports|staff_cleaning_reports|report_document_path' . \
+              --exclude-dir=.git \
+              --exclude='*.map' \
+              --exclude='discover-cleaning-upload.yml' || true
+            echo "=== Relevant lines ==="
+            grep -RInE 'cleaning-reports|staff_cleaning_reports|report_document_path|storage[[:space:]]*\.[[:space:]]*from|\.upload[[:space:]]*\(' . \
+              --exclude-dir=.git \
+              --exclude='*.map' \
+              --exclude='discover-cleaning-upload.yml' \
+              | head -500 || true
+          } > cleaning-upload-discovery.txt
+      - name: Upload discovery result
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleaning-upload-discovery
+          path: cleaning-upload-discovery.txt
+          retention-days: 1
