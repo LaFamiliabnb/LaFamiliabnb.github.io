@@ -21,17 +21,15 @@ jobs:
         run: |
           set -euo pipefail
           {
-            echo "=== Matching files ==="
-            grep -RIlE 'cleaning-reports|staff_cleaning_reports|report_document_path' . \
+            echo "=== Repository web files ==="
+            find www -maxdepth 4 -type f 2>/dev/null | sort
+            echo "=== Photo and upload candidates ==="
+            grep -RInE 'type=["'"']file|capture=|FileReader|createImageBitmap|canvas|toBlob|toDataURL|FormData|storage/v1/object|\.upload[[:space:]]*\(|photo|image/' . \
+              --include='*.js' \
+              --include='*.html' \
               --exclude-dir=.git \
-              --exclude='*.map' \
-              --exclude='discover-cleaning-upload.yml' || true
-            echo "=== Relevant lines ==="
-            grep -RInE 'cleaning-reports|staff_cleaning_reports|report_document_path|storage[[:space:]]*\.[[:space:]]*from|\.upload[[:space:]]*\(' . \
-              --exclude-dir=.git \
-              --exclude='*.map' \
               --exclude='discover-cleaning-upload.yml' \
-              | head -500 || true
+              | head -1500 || true
           } > cleaning-upload-discovery.txt
       - name: Upload discovery result
         uses: actions/upload-artifact@v4
