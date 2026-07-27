@@ -1,0 +1,30 @@
+name: Discover cleaning photo upload
+
+on:
+  push:
+    branches:
+      - feature/compress-cleaning-report-photos
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate cleaning report upload code
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "=== Matching files ==="
+          grep -RIlE 'cleaning-reports|staff_cleaning_reports|report_document_path' . \
+            --exclude-dir=.git \
+            --exclude='*.map' \
+            --exclude='discover-cleaning-upload.yml' || true
+          echo "=== Relevant lines ==="
+          grep -RInE 'cleaning-reports|staff_cleaning_reports|report_document_path|storage[[:space:]]*\.[[:space:]]*from|\.upload[[:space:]]*\(' . \
+            --exclude-dir=.git \
+            --exclude='*.map' \
+            --exclude='discover-cleaning-upload.yml' \
+            | head -500 || true
