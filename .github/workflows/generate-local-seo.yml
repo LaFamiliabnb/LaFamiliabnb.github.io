@@ -1,5 +1,6 @@
 name: Generate local SEO pages
 
+# Generates reviewed static HTML after SEO source files change.
 on:
   push:
     branches:
