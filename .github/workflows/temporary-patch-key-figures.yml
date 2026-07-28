@@ -1,9 +1,8 @@
 name: Temporary patch key figures
 
 on:
-  pull_request:
-    types: [synchronize]
-    branches: [main]
+  pull_request_target:
+    types: [labeled]
 
 permissions:
   contents: write
@@ -11,7 +10,7 @@ permissions:
 
 jobs:
   patch:
-    if: github.event.pull_request.number == 5
+    if: github.event.pull_request.number == 5 && github.event.label.name == 'run-key-figures-patch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
