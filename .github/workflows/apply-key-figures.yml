@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - feat/chiffres-cles-20260728
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   patch-site:
@@ -14,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Ajouter le bloc de chiffres clés
         shell: bash
@@ -126,4 +132,4 @@ jobs:
           git add index.html public-site.css
           git diff --cached --quiet && exit 0
           git commit -m "feat: afficher les chiffres clés vérifiés"
-          git push
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
