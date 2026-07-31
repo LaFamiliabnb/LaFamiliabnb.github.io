@@ -1,4 +1,5 @@
 const LA_FAMILIA_MAPS_URL = "https://maps.app.goo.gl/iJCxQQ3ByhTFWyVd8";
+const ESTIMATION_FORM_EVENT = "form_submission_success";
 
 // Bloc de contact direct affiché sur la page Estimer mes revenus
 function insertEstimationContactBlock() {
@@ -83,39 +84,104 @@ function improveRevenueTableReadability() {
   document.head.appendChild(style);
 }
 
-// Fonction de validation
-function validateForm() {
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const conditionsChecked = document.getElementById("conditions").checked;
+function normalizeFrenchPhone(value) {
+  const digits = String(value || "").replace(/\D/g, "");
 
+  if (digits.startsWith("0033") && digits.length === 13) {
+    return `0${digits.slice(4)}`;
+  }
+
+  if (digits.startsWith("33") && digits.length === 11) {
+    return `0${digits.slice(2)}`;
+  }
+
+  return digits;
+}
+
+function preparePhoneField() {
+  const phoneInput = document.getElementById("phone");
+  if (!phoneInput) return;
+
+  // Le pattern HTML initial bloquait les numéros contenant des espaces avant même
+  // l’exécution du JavaScript. La validation est désormais centralisée ci-dessous.
+  phoneInput.removeAttribute("pattern");
+  phoneInput.setAttribute("inputmode", "tel");
+
+  phoneInput.addEventListener("blur", () => {
+    const normalizedPhone = normalizeFrenchPhone(phoneInput.value);
+    if (/^0[1-9]\d{8}$/.test(normalizedPhone)) {
+      phoneInput.value = normalizedPhone.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+    }
+  });
+}
+
+function getOrCreateFormStatus(form) {
+  let status = form.querySelector(".form-status");
+  if (status) return status;
+
+  status = document.createElement("p");
+  status.className = "form-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  status.style.margin = "16px 0 0";
+  status.style.padding = "14px 16px";
+  status.style.borderRadius = "14px";
+  status.style.display = "none";
+
+  const submitButton = form.querySelector('[type="submit"]');
+  if (submitButton) {
+    submitButton.insertAdjacentElement("afterend", status);
+  } else {
+    form.appendChild(status);
+  }
+
+  return status;
+}
+
+function showFormStatus(status, type, message) {
+  status.textContent = message;
+  status.style.display = "block";
+  status.style.background = type === "success" ? "#edf7ed" : "#fff0ed";
+  status.style.border = type === "success" ? "1px solid #9bc79b" : "1px solid #d79a8d";
+  status.style.color = type === "success" ? "#245c2a" : "#8b2f20";
+}
+
+// Validation du formulaire avec prise en charge des formats 06 00 00 00 00 et +33 6 00 00 00 00.
+function validateForm() {
+  const emailInput = document.getElementById("email");
+  const phoneInput = document.getElementById("phone");
+  const conditionsInput = document.getElementById("conditions");
+
+  if (!emailInput || !phoneInput || !conditionsInput) return false;
+
+  const email = emailInput.value.trim();
+  const normalizedPhone = normalizeFrenchPhone(phoneInput.value);
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phonePattern = /^[0-9]{10}$/;
+  const phonePattern = /^0[1-9]\d{8}$/;
 
   let valid = true;
 
-  // Validation de l'e-mail
   if (!emailPattern.test(email)) {
     document.getElementById("emailError").textContent =
       "Veuillez entrer une adresse e-mail valide.";
     valid = false;
   } else {
     document.getElementById("emailError").textContent = "";
+    emailInput.value = email;
   }
 
-  // Validation du téléphone
-  if (!phonePattern.test(phone)) {
+  if (!phonePattern.test(normalizedPhone)) {
     document.getElementById("phoneError").textContent =
-      "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
+      "Veuillez entrer un numéro français valide, par exemple 06 00 00 00 00.";
     valid = false;
   } else {
     document.getElementById("phoneError").textContent = "";
+    phoneInput.value = normalizedPhone;
   }
 
-  // Validation des conditions
-  if (!conditionsChecked) {
+  if (!conditionsInput.checked) {
     document.getElementById("conditionsError").textContent =
-      "Vous devez accepter les conditions générales.";
+      "Vous devez accepter d’être recontacté au sujet de votre estimation.";
     valid = false;
   } else {
     document.getElementById("conditionsError").textContent = "";
@@ -124,16 +190,49 @@ function validateForm() {
   return valid;
 }
 
-// Fonction d’envoi de l’événement Google
-function sendConversionEvent(callback) {
-  if (typeof gtag === "function") {
-    gtag("event", "conversion_event_contact", {
-      event_callback: callback,
-      event_timeout: 2000,
+function pushFormEvent(eventName, extraData = {}) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName,
+    form_name: "estimation_revenus",
+    ...extraData,
+  });
+}
+
+function trackSuccessfulSubmission() {
+  // Événement destiné à GTM : il doit déclencher la balise de conversion Google Ads.
+  pushFormEvent(ESTIMATION_FORM_EVENT);
+
+  // Événement GA4 standard utile pour l’analyse des prospects.
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "generate_lead", {
+      form_name: "estimation_revenus",
     });
-  } else {
-    // Si gtag n’est pas encore chargé, on appelle quand même le callback
-    callback();
+  }
+}
+
+async function submitFormToFormspree(form) {
+  const response = await fetch(form.action, {
+    method: (form.method || "POST").toUpperCase(),
+    body: new FormData(form),
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    let errorMessage = "Le formulaire n’a pas pu être envoyé.";
+
+    try {
+      const payload = await response.json();
+      if (Array.isArray(payload.errors) && payload.errors.length > 0) {
+        errorMessage = payload.errors.map((error) => error.message).join(" ");
+      }
+    } catch (error) {
+      // La réponse n’est pas nécessairement au format JSON.
+    }
+
+    throw new Error(errorMessage);
   }
 }
 
@@ -142,17 +241,50 @@ document.addEventListener("DOMContentLoaded", function () {
   insertEstimationContactBlock();
   updateMapsLinks();
   improveRevenueTableReadability();
+  preparePhoneField();
 
   const form = document.getElementById("estimationForm");
   if (!form) return;
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const status = getOrCreateFormStatus(form);
+  const submitButton = form.querySelector('[type="submit"]');
+  const initialButtonContent = submitButton ? submitButton.innerHTML : "";
 
-    if (validateForm()) {
-      sendConversionEvent(() => {
-        form.submit();
-      });
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    status.style.display = "none";
+
+    if (!validateForm()) return;
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitButton.textContent = "Envoi en cours…";
+    }
+
+    try {
+      await submitFormToFormspree(form);
+      trackSuccessfulSubmission();
+      form.reset();
+      showFormStatus(
+        status,
+        "success",
+        "Merci, votre demande a bien été envoyée. La Familia vous recontactera rapidement."
+      );
+    } catch (error) {
+      console.error("Erreur d’envoi du formulaire d’estimation :", error);
+      pushFormEvent("form_submission_error");
+      showFormStatus(
+        status,
+        "error",
+        "L’envoi a échoué. Merci de réessayer ou de nous appeler au 06 51 09 49 66."
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+        submitButton.innerHTML = initialButtonContent;
+      }
     }
   });
 });
