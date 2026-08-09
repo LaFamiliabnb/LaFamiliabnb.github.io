@@ -18,7 +18,9 @@ RewriteRule ^(.*)$ https://www.lafamiliabnb.fr/$1 [R=301,L]
 RewriteRule ^index\.html$ https://www.lafamiliabnb.fr/ [R=301,L]
 
 # 4) Anciennes pages principales vers les nouvelles URL SEO propres
-RewriteRule ^conciergerie-airbnb-aix-en-provence\.html$ https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/ [R=301,L]
+RewriteRule ^conciergerie-airbnb-aix-en-provence(?:\.html|/?)$ https://www.lafamiliabnb.fr/ [R=301,L]
+RewriteRule ^check-in-airbnb-aix-en-provence/?$ https://www.lafamiliabnb.fr/ [R=301,L]
+RewriteRule ^blog/index/?$ https://www.lafamiliabnb.fr/blog/ [R=301,L]
 RewriteRule ^tarifs\.html$ https://www.lafamiliabnb.fr/tarifs-conciergerie-airbnb-aix-en-provence/ [R=301,L]
 RewriteRule ^estimation\.html$ https://www.lafamiliabnb.fr/estimation-revenus-airbnb-aix-en-provence/ [R=301,L]
 RewriteRule ^Blog\.html$ https://www.lafamiliabnb.fr/blog/ [R=301,L]
@@ -34,7 +36,7 @@ RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
 RewriteRule ^blog/([^/]+)/?$ /blog/$1.html [L]
 
 # 6) Anciennes pages non prioritaires du site principal
-RewriteRule ^affiliation\.html$ https://www.lafamiliabnb.fr/conciergerie-airbnb-aix-en-provence/ [R=301,L]
+RewriteRule ^affiliation\.html$ https://www.lafamiliabnb.fr/ [R=301,L]
 
 # 7) Anciennes pages voyageurs déplacées vers le sous-domaine booking
 RewriteRule ^reservation\.html$ https://booking.lafamiliabnb.fr/reservation.html [R=301,L]
