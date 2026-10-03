@@ -724,3 +724,333 @@ body.homepage main#contenu > .home-hero .home-hero-content {
     min-height: 0 !important;
   }
 }
+
+/* Harmonisation raffinée des sections restantes */
+.homepage main#contenu > .section:not(.home-offers) {
+  padding: clamp(78px, 8vw, 112px) 6% !important;
+}
+
+.homepage main#contenu > .section:not(.home-offers) > .container {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.homepage main#contenu > .section.alt {
+  background: #f7ede2 !important;
+}
+
+.homepage main#contenu > .section:not(.alt):not(.dark):not(.home-offers) {
+  background: #fffaf4 !important;
+}
+
+.homepage main#contenu > .section.dark {
+  background: #090c10 !important;
+  color: #f7efe5 !important;
+}
+
+.homepage main#contenu > .section:not(.home-offers) h2 {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 18px !important;
+  text-align: center !important;
+  color: #26231f !important;
+  font-size: clamp(2.55rem, 4.4vw, 4.7rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -.045em !important;
+}
+
+.homepage main#contenu > .section.dark h2,
+.homepage main#contenu > .section.dark h3 {
+  color: #fffaf4 !important;
+}
+
+.homepage main#contenu > .section .section-intro {
+  max-width: 790px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 46px !important;
+  text-align: center !important;
+  color: #4f4942 !important;
+  font-size: clamp(1rem, 1.25vw, 1.14rem) !important;
+  line-height: 1.75 !important;
+}
+
+.homepage main#contenu > .section.dark .section-intro {
+  color: rgba(247, 239, 229, .72) !important;
+}
+
+.homepage main#contenu > .section:not(.dark) .card,
+.homepage .review-card,
+.homepage .market-box,
+.homepage .estimate-band,
+.homepage .team,
+.homepage .cta-band,
+.homepage .faq details {
+  border: 1px solid rgba(38, 35, 31, .08) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, .82) !important;
+  box-shadow: 0 24px 58px rgba(54, 38, 24, .08) !important;
+}
+
+.homepage main#contenu > .section:not(.dark) .card:hover,
+.homepage .review-card:hover,
+.homepage .link-grid a:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 107, 61, .24) !important;
+  box-shadow: 0 34px 82px rgba(54, 38, 24, .13) !important;
+}
+
+.homepage main#contenu > .section:not(.dark) .card,
+.homepage .review-card,
+.homepage .link-grid a {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.homepage main#contenu > .section:not(.dark) .card i,
+.homepage .proof-layout .card i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-bottom: 20px !important;
+  border-radius: 999px !important;
+  background: #f1dfcf !important;
+  color: #b86b3d !important;
+  font-size: 1.05rem !important;
+}
+
+.homepage .market-box,
+.homepage .estimate-band,
+.homepage .proof-layout,
+.homepage .team,
+.homepage .reviews,
+.homepage .link-grid {
+  max-width: 1120px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.homepage .market-box,
+.homepage .estimate-band,
+.homepage .team,
+.homepage .cta-band {
+  padding: clamp(30px, 4vw, 54px) !important;
+}
+
+.homepage .market-box {
+  gap: 34px !important;
+  align-items: stretch !important;
+}
+
+.homepage .market-panel {
+  border: 1px solid rgba(184, 107, 61, .18) !important;
+  border-radius: 16px !important;
+  background: #fffaf4 !important;
+  padding: clamp(26px, 3vw, 38px) !important;
+}
+
+.homepage .market-list li,
+.homepage .criteria-row {
+  border-color: rgba(38, 35, 31, .10) !important;
+}
+
+.homepage .market-list i {
+  color: #b86b3d !important;
+}
+
+.homepage .section.dark .process-card {
+  min-height: 100% !important;
+  border: 1px solid rgba(198, 161, 95, .28) !important;
+  border-radius: 0 !important;
+  background: rgba(15, 18, 24, .96) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .22) !important;
+}
+
+.homepage .section.dark .process-card p {
+  color: rgba(247, 239, 229, .76) !important;
+}
+
+.homepage .step-number {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  margin-bottom: 18px !important;
+  border: 1px solid rgba(198, 161, 95, .55) !important;
+  border-radius: 999px !important;
+  color: #c6a15f !important;
+  font-weight: 900 !important;
+}
+
+.homepage .estimate-band {
+  align-items: center !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.86), rgba(250,242,232,.92)) !important;
+}
+
+.homepage .criteria {
+  border: 1px solid rgba(38, 35, 31, .08) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #fffaf4 !important;
+}
+
+.homepage .criteria-row {
+  padding: 16px 18px !important;
+}
+
+.homepage .proof-layout {
+  gap: 30px !important;
+  align-items: stretch !important;
+}
+
+.homepage .photo-block {
+  min-height: 420px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 30px 90px rgba(54, 38, 24, .16) !important;
+}
+
+.homepage .photo-caption {
+  border-radius: 0 !important;
+  background: rgba(9, 12, 16, .72) !important;
+  color: #fffaf4 !important;
+}
+
+.homepage .team {
+  display: grid !important;
+  grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr) !important;
+  gap: clamp(28px, 4vw, 58px) !important;
+  align-items: center !important;
+}
+
+.homepage .team-photo {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 26px 70px rgba(54, 38, 24, .14) !important;
+}
+
+.homepage .quote {
+  color: #8f4d2f !important;
+  font-family: 'PlayfairDisplay', Georgia, serif !important;
+  font-size: clamp(1.35rem, 2vw, 1.9rem) !important;
+  line-height: 1.35 !important;
+}
+
+.homepage .reviews {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+}
+
+.homepage .review-card {
+  padding: 32px 28px !important;
+}
+
+.homepage .stars {
+  color: #b86b3d !important;
+  letter-spacing: .12em !important;
+}
+
+.homepage .source {
+  color: #8f4d2f !important;
+  font-weight: 900 !important;
+}
+
+.homepage .cta-band {
+  gap: 28px !important;
+  align-items: center !important;
+  background: linear-gradient(135deg, #26231f, #111017) !important;
+  color: #fffaf4 !important;
+  border-radius: 0 !important;
+  border-color: rgba(198, 161, 95, .30) !important;
+}
+
+.homepage .cta-band h2,
+.homepage main#contenu > .section .cta-band h2 {
+  margin: 0 0 12px !important;
+  text-align: left !important;
+  color: #fffaf4 !important;
+  font-size: clamp(2rem, 3vw, 3.15rem) !important;
+}
+
+.homepage .cta-band p {
+  color: rgba(247, 239, 229, .78) !important;
+}
+
+.homepage .link-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.homepage .link-grid a {
+  display: flex !important;
+  min-height: 96px !important;
+  align-items: center !important;
+  padding: 22px 24px !important;
+  border: 1px solid rgba(38, 35, 31, .08) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, .82) !important;
+  color: #26231f !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+}
+
+.homepage .link-grid a::after {
+  content: "↗";
+  margin-left: auto;
+  color: #b86b3d;
+}
+
+.homepage .faq details {
+  max-width: 920px !important;
+  margin: 14px auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.homepage .faq summary {
+  padding: 22px 26px !important;
+  color: #26231f !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.homepage .faq details p {
+  margin: 0 !important;
+  padding: 0 26px 24px !important;
+  color: #4f4942 !important;
+  line-height: 1.75 !important;
+}
+
+@media (max-width: 980px) {
+  .homepage main#contenu > .section:not(.home-offers) h2 {
+    font-size: clamp(2.2rem, 9vw, 3.25rem) !important;
+  }
+
+  .homepage .reviews,
+  .homepage .link-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .homepage .team,
+  .homepage .market-box,
+  .homepage .estimate-band,
+  .homepage .proof-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .homepage .cta-band,
+  .homepage .cta-band h2,
+  .homepage main#contenu > .section .cta-band h2 {
+    text-align: center !important;
+  }
+
+  .homepage .cta-band .actions {
+    justify-content: center !important;
+  }
+}
