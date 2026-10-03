@@ -277,48 +277,43 @@
 
     <section class="section home-offers" id="offres" aria-labelledby="offers-title">
       <div class="container">
-        <span class="home-kicker">Votre bien, votre façon de déléguer</span>
-        <h2 id="offers-title">Nos offres</h2>
-        <p class="section-intro">Un accompagnement à votre mesure, avec la même attention au logement, aux voyageurs et à votre tranquillité.</p>
-        <div class="home-offers-grid">
+        <span class="home-kicker">Nos formules</span>
+        <h2 id="offers-title">Notre offre</h2>
+        <p class="section-intro">Deux manières de déléguer selon votre besoin : une conciergerie complète à la commission, ou des prestations à la carte sans commission sur vos revenus.</p>
+        <div class="home-offers-grid home-offers-grid-two">
           <article class="home-offer home-offer-featured">
-            <span class="home-offer-label">01 / La sérénité au quotidien</span>
-            <h3>Gestion complète</h3>
-            <p class="home-offer-price"><strong>20 %</strong><span>des revenus locatifs nets</span></p>
-            <p>Un interlocuteur local pour coordonner votre location, de l’annonce au suivi propriétaire.</p>
+            <span class="home-offer-label">01 / Notre cœur de métier</span>
+            <h3>Conciergerie complète</h3>
+            <p class="home-offer-price"><strong>20 % TTC</strong><span>des revenus locatifs nets</span></p>
+            <p class="home-offer-subtitle">Soit 16,67 % HT — commission prélevée uniquement quand votre bien est loué.</p>
+            <p>Notre formule tout-inclus prend en charge votre bien de A à Z : annonce, réservations, voyageurs, ménage, linge, maintenance et suivi propriétaire.</p>
             <ul>
-              <li>Annonces, tarifs et réservations</li>
-              <li>Échanges voyageurs, arrivées et départs</li>
-              <li>Coordination du ménage et du linge</li>
+              <li>Diffusion multi-plateformes : Airbnb, Abritel, Booking, Expedia, Hotels.com...</li>
+              <li>Échanges voyageurs, arrivées, départs et assistance 7 jours sur 7</li>
+              <li>Ménage professionnel et blanchisserie coordonnés à chaque rotation</li>
+              <li>Stratégie saisonnière : courte durée, saisonnier ou bail mobilité selon le bien</li>
+              <li>Suivi propriétaire et optimisation continue de l’annonce</li>
             </ul>
-            <a class="button" href="/tarifs-conciergerie-airbnb-aix-en-provence/">Découvrir les conditions <span aria-hidden="true">↗</span></a>
+            <a class="button" href="/tarifs-conciergerie-airbnb-aix-en-provence/">Découvrir la gestion complète <span aria-hidden="true">↗</span></a>
           </article>
           <article class="home-offer">
-            <span class="home-offer-label">02 / Le soin du détail</span>
-            <h3>Prestations à la carte</h3>
-            <p class="home-offer-subtitle">Ménage, linge & consommables</p>
-            <p>Vous gardez la main sur votre location. Nous intervenons selon vos besoins pour préparer chaque séjour.</p>
+            <span class="home-offer-label">02 / Prestations à la carte</span>
+            <h3>Ménage, linge & consommables</h3>
+            <p class="home-offer-price"><strong>Dès 35 €</strong><span>pour le ménage entre séjours</span></p>
+            <p class="home-offer-subtitle">Linge et consommables à partir de 15 €.</p>
+            <p>Vous gardez la main sur vos réservations. Nous intervenons sur place pour préparer le logement entre deux séjours.</p>
             <ul>
-              <li>Ménage entre deux séjours</li>
-              <li>Gestion et préparation du linge</li>
-              <li>Réassort des consommables</li>
+              <li>Ménage entre séjours à partir de 35 €</li>
+              <li>Linge et consommables à partir de 15 €</li>
+              <li>Sans commission sur vos revenus</li>
+              <li>Sans engagement de durée</li>
+              <li>Facturation mensuelle</li>
+              <li>Prestataires assurés et contrôlés</li>
             </ul>
-            <a class="button secondary" href="/menage-airbnb-aix-en-provence/">Explorer les prestations <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="home-offer">
-            <span class="home-offer-label">03 / La mise en valeur</span>
-            <h3>Visibilité & réservation directe</h3>
-            <p class="home-offer-subtitle">Optimisation & promotion du bien</p>
-            <p>Une présentation soignée et une stratégie de diffusion adaptée au potentiel de votre logement.</p>
-            <ul>
-              <li>Mise en valeur de l’annonce</li>
-              <li>Ajustement des prix selon la demande</li>
-              <li>Promotion et réservation directe</li>
-            </ul>
-            <a class="button secondary" href="/gestion-location-saisonniere-aix-en-provence/">Découvrir l’accompagnement <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="/menage-airbnb-aix-en-provence/">Voir les prestations à la carte <span aria-hidden="true">↗</span></a>
           </article>
         </div>
-        <p class="home-offers-note">Le périmètre des prestations, la base de calcul des revenus locatifs nets et les éventuels frais complémentaires sont précisés avant tout engagement. Les performances dépendent notamment du bien, de sa disponibilité et du marché ; aucun revenu ni taux d’occupation n’est garanti.</p>
+        <p class="home-offers-note">Le périmètre exact des prestations, la base de calcul des revenus locatifs nets et les éventuels frais complémentaires sont précisés avant tout engagement. Les performances dépendent notamment du bien, de sa disponibilité et du marché ; aucun revenu ni taux d’occupation n’est garanti.</p>
       </div>
     </section>
 
@@ -597,12 +592,9 @@
   </footer>
 
   <script>
-    // Aucune source vidéo n'est chargée sur petit écran, en économie de données
-    // ou lorsque la réduction des animations est demandée.
     (() => {
       const video = document.getElementById("home-hero-video");
       const toggle = document.getElementById("home-video-toggle");
-      const desktop = matchMedia("(min-width: 981px)");
       const motion = matchMedia("(prefers-reduced-motion: reduce)");
       const connection = navigator.connection;
       let userPaused = false;
@@ -612,17 +604,7 @@
           video.pause();
           video.classList.remove("is-playing");
           toggle.hidden = true;
-          if (loaded) {
-            video.querySelectorAll("source").forEach(source => source.removeAttribute("src"));
-            video.load();
-            loaded = false;
-          }
           return;
-        }
-        if (!loaded) {
-          video.querySelectorAll("source").forEach(source => { source.src = source.dataset.src; });
-          video.load();
-          loaded = true;
         }
         if (!userPaused) video.play().catch(() => { /* L'image reste visible. */ });
       };
@@ -641,7 +623,6 @@
           video.play().catch(() => {});
         }
       });
-      // Le poster dédié remplace le fond existant uniquement s'il est disponible.
       const poster = new Image();
       poster.onload = () => { video.parentElement.style.backgroundImage = `url("${poster.src}")`; };
       poster.src = video.poster;
