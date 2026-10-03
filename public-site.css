@@ -382,3 +382,44 @@ body.homepage main#contenu > .home-hero .home-hero-content {
     padding: 0 !important;
   }
 }
+
+/* Recentrage de la signature La Familia sous les preuves du hero */
+@media (min-width: 981px) {
+  body.homepage main#contenu > .home-hero {
+    align-content: center !important;
+  }
+
+  body.homepage main#contenu > .home-hero .micro-proof {
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+    margin-top: 22px !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.homepage main#contenu > .home-hero .home-hero-signature,
+  .homepage .home-hero-signature {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 2 !important;
+    max-width: 680px !important;
+    width: min(680px, 88vw) !important;
+    margin: 28px auto 0 !important;
+    padding-top: 22px !important;
+    border-top: 1px solid rgba(214, 190, 158, .75) !important;
+    text-align: center !important;
+  }
+
+  body.homepage main#contenu > .home-hero .home-hero-signature strong,
+  .homepage .home-hero-signature strong {
+    display: block !important;
+    font-size: 2rem !important;
+  }
+
+  body.homepage main#contenu > .home-hero .home-hero-signature p,
+  .homepage .home-hero-signature p {
+    max-width: 560px !important;
+    margin: 12px auto 0 !important;
+    line-height: 1.65 !important;
+  }
+}
