@@ -221,10 +221,10 @@
     <section class="hero home-hero">
       <!-- Les médias locaux peuvent être ajoutés sans modifier cette structure.
            Sans vidéo ni poster, le fond CSS conserve l'image existante. -->
-      <video class="home-hero-video" id="home-hero-video" autoplay muted loop playsinline preload="none"
+      <video class="home-hero-video is-playing" id="home-hero-video" autoplay muted loop playsinline preload="auto"
         poster="/assets/video/homepage-provence-poster.jpg" aria-hidden="true" tabindex="-1">
-        <source data-src="/assets/video/homepage-provence.webm" type="video/webm" />
-        <source data-src="/assets/video/homepage-provence.mp4" type="video/mp4" />
+        <source src="/assets/video/homepage-provence.webm" type="video/webm" />
+        <source src="/assets/video/homepage-provence.mp4" type="video/mp4" />
       </video>
       <div class="home-hero-content">
         <span class="eyebrow"><i class="fas fa-map-marker-alt"></i> Conciergerie Airbnb à Aix-en-Provence</span>
@@ -605,9 +605,8 @@
       const desktop = matchMedia("(min-width: 981px)");
       const motion = matchMedia("(prefers-reduced-motion: reduce)");
       const connection = navigator.connection;
-      let loaded = false;
       let userPaused = false;
-      const allowed = () => desktop.matches && !motion.matches && !connection?.saveData;
+      const allowed = () => !motion.matches && !connection?.saveData;
       const sync = () => {
         if (!allowed()) {
           video.pause();
@@ -646,7 +645,6 @@
       const poster = new Image();
       poster.onload = () => { video.parentElement.style.backgroundImage = `url("${poster.src}")`; };
       poster.src = video.poster;
-      desktop.addEventListener("change", sync);
       motion.addEventListener("change", sync);
       connection?.addEventListener("change", sync);
       if (document.readyState === "complete") sync();
