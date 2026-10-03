@@ -605,3 +605,122 @@ body.homepage main#contenu > .home-hero .home-hero-content {
     text-align: center !important;
   }
 }
+
+/* Raffinement de la section chiffres : cartes claires et premium */
+.homepage .key-figures {
+  background: #f7ede2 !important;
+  padding: clamp(72px, 8vw, 112px) 6% clamp(70px, 7vw, 96px) !important;
+}
+
+.homepage .key-figures-heading {
+  max-width: 980px !important;
+  margin: 0 auto 42px !important;
+  text-align: center !important;
+}
+
+.homepage .key-figures-heading h2 {
+  margin: 0 0 16px !important;
+  color: #26231f !important;
+  font-size: clamp(2.75rem, 5vw, 5.1rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -.045em !important;
+}
+
+.homepage .key-figures-heading p {
+  max-width: 850px !important;
+  margin: 0 auto !important;
+  color: #26231f !important;
+  font-size: clamp(1rem, 1.3vw, 1.18rem) !important;
+  line-height: 1.65 !important;
+}
+
+.homepage .key-figures .trust-strip {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.homepage .key-figures .trust-item {
+  display: flex !important;
+  min-height: 188px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 30px 22px !important;
+  border: 1px solid rgba(38, 35, 31, .08) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, .78) !important;
+  box-shadow: 0 22px 54px rgba(54, 38, 24, .08) !important;
+  text-align: center !important;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.homepage .key-figures .trust-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 107, 61, .25) !important;
+  box-shadow: 0 32px 76px rgba(54, 38, 24, .13) !important;
+}
+
+.homepage .key-figures .trust-item strong {
+  color: #b86b3d !important;
+  font-family: 'PlayfairDisplay', Georgia, serif !important;
+  font-size: clamp(2.65rem, 4.5vw, 4rem) !important;
+  font-weight: 500 !important;
+  line-height: .95 !important;
+  letter-spacing: -.05em !important;
+  white-space: nowrap !important;
+}
+
+.homepage .key-figures .trust-item:last-child strong {
+  font-size: clamp(1.85rem, 2.8vw, 2.85rem) !important;
+}
+
+.homepage .key-figures .trust-item span {
+  display: block !important;
+  margin-top: 8px !important;
+  color: #111017 !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+}
+
+.homepage .key-figures .trust-item small {
+  display: block !important;
+  max-width: 240px !important;
+  margin-top: 12px !important;
+  color: #4f4942 !important;
+  font-size: .86rem !important;
+  line-height: 1.45 !important;
+}
+
+.homepage .key-figures-note {
+  max-width: 1040px !important;
+  margin: 28px auto 0 !important;
+  color: #4f4942 !important;
+  font-size: .88rem !important;
+  line-height: 1.65 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 1100px) {
+  .homepage .key-figures .trust-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 760px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .homepage .key-figures {
+    padding: 56px 6% 62px !important;
+  }
+
+  .homepage .key-figures .trust-strip {
+    grid-template-columns: 1fr !important;
+  }
+
+  .homepage .key-figures .trust-item {
+    min-height: 0 !important;
+  }
+}
