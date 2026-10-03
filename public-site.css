@@ -50,13 +50,17 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  width: 100vw;
   max-width: none;
-  min-height: 740px;
-  grid-template-columns: minmax(0, 2.5fr) minmax(200px, 1fr);
+  min-height: calc(100vh - 92px);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(240px, 1fr);
   align-items: end;
   gap: 64px;
-  padding: 92px max(6%, calc((100vw - 1180px) / 2)) 86px;
-  background: #302b25 url('/img/living-room-8368673_1280.webp') center / cover;
+  padding: 96px max(6%, calc((100vw - 1180px) / 2)) 86px;
+  background: #302b25 url('/assets/video/homepage-provence-poster.jpg') center / cover;
   color: #fffaf4;
 }
 .homepage .home-hero::after {
@@ -64,7 +68,9 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(25, 23, 20, .88), rgba(25, 23, 20, .62));
+  background:
+    linear-gradient(90deg, rgba(18, 15, 12, .72) 0%, rgba(18, 15, 12, .42) 48%, rgba(18, 15, 12, .12) 100%),
+    linear-gradient(0deg, rgba(18, 15, 12, .54) 0%, rgba(18, 15, 12, .08) 58%);
 }
 .homepage .home-hero-video {
   position: absolute;
@@ -119,7 +125,7 @@
   .homepage .home-offer { padding: 28px 20px; }
 }
 @media (max-width: 980px) {
-  .homepage .home-hero { grid-template-columns: 1fr; min-height: auto; padding: 56px 6% 48px; gap: 36px; }
+  .homepage .home-hero { grid-template-columns: 1fr; min-height: 82vh; padding: 72px 6% 56px; gap: 36px; }
   .homepage .home-hero-video { display: none; }
   .homepage .home-hero-signature { max-width: 520px; }
   .homepage .home-offers-grid { grid-template-columns: 1fr; }
