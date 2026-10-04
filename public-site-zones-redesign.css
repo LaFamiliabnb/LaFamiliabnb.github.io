@@ -17,8 +17,8 @@ body.homepage #zones .cta-band {
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr) !important;
   gap: clamp(26px, 4vw, 54px) !important;
   align-items: center !important;
-  overflow: hidden !important;
-  padding: clamp(34px, 5vw, 58px) !important;
+  overflow: visible !important;
+  padding: clamp(44px, 5vw, 64px) clamp(34px, 5vw, 58px) clamp(34px, 5vw, 58px) !important;
   border: 1px solid rgba(184, 107, 61, .16) !important;
   border-radius: 34px !important;
   background:
@@ -31,36 +31,73 @@ body.homepage #zones .cta-band {
 body.homepage #zones .cta-band::before {
   content: "Présence locale" !important;
   position: absolute !important;
-  top: 22px !important;
-  right: 26px !important;
+  top: 20px !important;
+  left: clamp(34px, 5vw, 58px) !important;
+  right: auto !important;
+  z-index: 20 !important;
   padding: 8px 12px !important;
+  border: 1px solid rgba(184, 107, 61, .14) !important;
   border-radius: 999px !important;
-  background: rgba(184, 107, 61, .10) !important;
+  background: #fffaf4 !important;
   color: #8f4d2f !important;
+  -webkit-text-fill-color: #8f4d2f !important;
   font-size: .72rem !important;
   font-weight: 900 !important;
   letter-spacing: .14em !important;
+  line-height: 1 !important;
   text-transform: uppercase !important;
+  box-shadow: 0 10px 26px rgba(54, 38, 24, .08) !important;
 }
 
 body.homepage #zones .cta-band > div:first-child {
   max-width: 560px !important;
+  padding-top: 24px !important;
   color: #26231f !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
+body.homepage #zones .cta-band > div:first-child h2,
 body.homepage #zones h2 {
   max-width: 560px !important;
   margin-bottom: 14px !important;
   color: #26231f !important;
+  -webkit-text-fill-color: #26231f !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
   font-size: clamp(2rem, 3.6vw, 3.35rem) !important;
   line-height: .98 !important;
   letter-spacing: -.045em !important;
 }
 
+body.homepage #zones .cta-band > div:first-child p,
 body.homepage #zones p {
   max-width: 540px !important;
   margin-bottom: 0 !important;
   color: #3d352f !important;
+  -webkit-text-fill-color: #3d352f !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+  font-size: clamp(1rem, 1.2vw, 1.08rem) !important;
+  line-height: 1.75 !important;
+}
+
+/* Remplace visuellement la phrase trop générique "communes voisines" par une formulation plus affirmée. */
+body.homepage #zones .cta-band > div:first-child p {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+body.homepage #zones .cta-band > div:first-child p::before {
+  content: "Nous gérons des logements à Aix-en-Provence et dans tout le Pays d’Aix, avec une présence locale et une organisation terrain fiable." !important;
+  display: block !important;
+  color: #3d352f !important;
+  -webkit-text-fill-color: #3d352f !important;
   font-size: clamp(1rem, 1.2vw, 1.08rem) !important;
   line-height: 1.75 !important;
 }
@@ -74,6 +111,7 @@ body.homepage #zones .cta-band > div:first-child::after {
   padding-top: 22px !important;
   border-top: 1px solid rgba(184, 107, 61, .18) !important;
   color: #8f4d2f !important;
+  -webkit-text-fill-color: #8f4d2f !important;
   font-size: .88rem !important;
   font-weight: 850 !important;
   line-height: 1.85 !important;
@@ -82,6 +120,7 @@ body.homepage #zones .cta-band > div:first-child::after {
 
 body.homepage #zones .actions {
   position: relative !important;
+  z-index: 5 !important;
   display: flex !important;
   min-height: 220px !important;
   flex-direction: column !important;
@@ -101,6 +140,7 @@ body.homepage #zones .actions::before {
   content: "Le Pays d’Aix, notre terrain de gestion" !important;
   display: block !important;
   color: #fffaf4 !important;
+  -webkit-text-fill-color: #fffaf4 !important;
   font-family: "PlayfairDisplay", Georgia, serif !important;
   font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
   font-weight: 800 !important;
@@ -112,6 +152,7 @@ body.homepage #zones .actions::after {
   display: block !important;
   margin-top: -4px !important;
   color: rgba(255,250,244,.80) !important;
+  -webkit-text-fill-color: rgba(255,250,244,.80) !important;
   font-size: .92rem !important;
   line-height: 1.6 !important;
 }
@@ -121,6 +162,7 @@ body.homepage #zones .actions .button {
   margin-top: 10px !important;
   background: #edc9a6 !important;
   color: #26231f !important;
+  -webkit-text-fill-color: #26231f !important;
   border-color: #edc9a6 !important;
   box-shadow: 0 14px 34px rgba(0,0,0,.18) !important;
 }
@@ -141,7 +183,7 @@ body.homepage #zones .actions .button:hover {
   body.homepage #zones .cta-band::before {
     position: static !important;
     width: fit-content !important;
-    margin: 0 auto 8px !important;
+    margin: 0 auto 12px !important;
   }
 
   body.homepage #zones .cta-band > div:first-child,
@@ -151,6 +193,10 @@ body.homepage #zones .actions .button:hover {
     max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+
+  body.homepage #zones .cta-band > div:first-child {
+    padding-top: 0 !important;
   }
 
   body.homepage #zones .cta-band > div:first-child::after {
