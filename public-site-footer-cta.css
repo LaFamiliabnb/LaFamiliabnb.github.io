@@ -93,6 +93,19 @@ body.homepage main#contenu > section:nth-of-type(11) .cta-band > div:first-child
 body.homepage main#contenu > section:nth-of-type(11) .cta-band h2 {
   max-width: 980px !important;
   margin: 0 auto 20px !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-family: "PlayfairDisplay", Georgia, serif !important;
+  font-size: 0 !important;
+  line-height: .92 !important;
+  letter-spacing: -.055em !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band h2::before {
+  content: "Confiez-nous la gestion de votre logement" !important;
+  display: block !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
   color: #26231f !important;
   -webkit-text-fill-color: #26231f !important;
   font-family: "PlayfairDisplay", Georgia, serif !important;
