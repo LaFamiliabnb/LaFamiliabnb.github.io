@@ -1,0 +1,73 @@
+/* Style propre pour les services intégrés à la zone Notre rôle.
+   Ce fichier remplace les anciens essais de superposition. */
+
+/* Tant que les liens de services ne sont pas encore déplacés dans le HTML,
+   on supprime l'ancien bloc autonome pour éviter qu'il recouvre le tableau. */
+body.homepage main#contenu > section:nth-of-type(12) {
+  display: none !important;
+}
+
+/* Style cible à utiliser quand les liens seront placés directement dans la colonne Notre rôle. */
+.role-service-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(24px, 3vw, 34px);
+}
+
+.role-service-title {
+  flex: 0 0 100%;
+  display: block;
+  margin-bottom: 2px;
+  color: #8f4d2f;
+  font-family: "PlayfairDisplay", Georgia, serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.role-service-bubbles a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid rgba(184, 107, 61, .24);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, .94);
+  color: #26231f;
+  font-size: .86rem;
+  font-weight: 850;
+  line-height: 1.16;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(54, 38, 24, .055);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.role-service-bubbles a span {
+  color: #b86b3d;
+  font-size: .86rem;
+  line-height: 1;
+}
+
+.role-service-bubbles a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 107, 61, .44);
+  box-shadow: 0 15px 38px rgba(54, 38, 24, .09);
+}
+
+@media (max-width: 760px) {
+  .role-service-bubbles {
+    justify-content: center;
+  }
+
+  .role-service-title {
+    text-align: center;
+  }
+
+  .role-service-bubbles a {
+    width: 100%;
+  }
+}
