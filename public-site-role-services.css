@@ -1,6 +1,6 @@
 /* Services : afficher uniquement les bulles sous le paragraphe “Notre rôle”.
-   On ne déplace pas toute une section : la section Explorer devient transparente et sans hauteur,
-   seuls ses liens sont utilisés comme bulles dans la colonne droite du cadre marché. */
+   On garde la section Explorer pour le SEO, mais seule sa grille de liens est visible.
+   La grille est remontée dans la colonne droite du cadre marché, sans fond ni superposition large. */
 
 body.homepage main#contenu > section:nth-of-type(5) {
   position: relative !important;
@@ -9,28 +9,31 @@ body.homepage main#contenu > section:nth-of-type(5) {
 body.homepage main#contenu > section:nth-of-type(5) .market-box {
   position: relative !important;
   overflow: visible !important;
-  padding-bottom: clamp(178px, 13vw, 230px) !important;
+  padding-bottom: clamp(190px, 14vw, 255px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(5) .market-box > div:last-child .actions {
   display: none !important;
 }
 
-/* Le bloc Explorer nos services se place immédiatement après le cadre marché,
-   mais ne crée plus de bande, de fond ou de hauteur propre. */
+/* La section Explorer devient une enveloppe invisible, sans fond, sans hauteur propre. */
 body.homepage main#contenu > section:nth-of-type(12) {
   order: 9 !important;
   position: relative !important;
-  z-index: 4 !important;
+  z-index: 8 !important;
   height: 0 !important;
   min-height: 0 !important;
+  max-height: 0 !important;
   overflow: visible !important;
   padding: 0 !important;
-  margin-top: clamp(-218px, -13vw, -168px) !important;
-  margin-bottom: clamp(58px, 5vw, 84px) !important;
   background: transparent !important;
   color: #26231f !important;
   pointer-events: none !important;
+
+  /* Position réelle : la section arrive juste après le market-box ;
+     on la remonte donc dans la partie droite blanche du cadre. */
+  margin-top: clamp(-560px, -34vw, -420px) !important;
+  margin-bottom: clamp(120px, 10vw, 170px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(12) .container {
@@ -39,6 +42,7 @@ body.homepage main#contenu > section:nth-of-type(12) .container {
   padding-left: clamp(24px, 4vw, 48px) !important;
   padding-right: clamp(24px, 4vw, 48px) !important;
   background: transparent !important;
+  box-shadow: none !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(12) h2,
@@ -52,6 +56,7 @@ body.homepage main#contenu > section:nth-of-type(12) .section-intro {
   white-space: nowrap !important;
 }
 
+/* Grille réellement visible : uniquement les bulles, dans la colonne Notre rôle. */
 body.homepage main#contenu > section:nth-of-type(12) .link-grid {
   width: min(470px, calc(50% - 34px)) !important;
   margin: 0 0 0 calc(50% + 30px) !important;
@@ -123,8 +128,8 @@ body.homepage main#contenu > section:nth-of-type(14) { order: 14 !important; }
   }
 
   body.homepage main#contenu > section:nth-of-type(12) {
-    margin-top: clamp(-342px, -50vw, -248px) !important;
-    margin-bottom: 46px !important;
+    margin-top: clamp(-430px, -58vw, -300px) !important;
+    margin-bottom: 52px !important;
   }
 
   body.homepage main#contenu > section:nth-of-type(12) .container {
