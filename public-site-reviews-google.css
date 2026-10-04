@@ -1,0 +1,210 @@
+/* Avis Google : présentation inspirée des cartes Manasteos, avec noms réels et lecture plus crédible. */
+
+body.homepage #avis {
+  background: linear-gradient(180deg, #fffaf4 0%, #f7ecdf 100%) !important;
+  padding-top: clamp(58px, 7vw, 96px) !important;
+  padding-bottom: clamp(58px, 7vw, 96px) !important;
+}
+
+body.homepage #avis .container {
+  max-width: 1180px !important;
+}
+
+body.homepage #avis h2,
+body.homepage #avis .section-intro {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.homepage #avis .section-intro {
+  max-width: 760px !important;
+}
+
+body.homepage #avis .reviews {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2vw, 24px) !important;
+  max-width: 1180px !important;
+  margin: clamp(30px, 4vw, 48px) auto 0 !important;
+}
+
+body.homepage #avis .review-card {
+  position: relative !important;
+  min-height: 230px !important;
+  padding: 94px 24px 26px !important;
+  border: 1px solid rgba(54, 38, 24, .08) !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+  box-shadow: 0 16px 42px rgba(54, 38, 24, .08) !important;
+  text-align: left !important;
+}
+
+body.homepage #avis .review-card::before {
+  position: absolute !important;
+  top: 28px !important;
+  left: 24px !important;
+  display: inline-flex !important;
+  width: 44px !important;
+  height: 44px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 8px 20px rgba(54, 38, 24, .10) !important;
+}
+
+body.homepage #avis .review-card:nth-child(1)::before {
+  content: "" !important;
+  background:
+    radial-gradient(circle at 32% 34%, #5a8f42 0 16%, transparent 17%),
+    radial-gradient(circle at 65% 38%, #2f6f35 0 18%, transparent 19%),
+    radial-gradient(circle at 48% 70%, #9dbb78 0 22%, transparent 23%),
+    #dbe9cf !important;
+}
+
+body.homepage #avis .review-card:nth-child(2)::before {
+  content: "C" !important;
+  background: #8f7566 !important;
+}
+
+body.homepage #avis .review-card:nth-child(3)::before {
+  content: "M" !important;
+  background: #0b5f9e !important;
+}
+
+body.homepage #avis .review-card::after {
+  content: "G" !important;
+  position: absolute !important;
+  top: 31px !important;
+  right: 24px !important;
+  color: #4285f4 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -.08em !important;
+}
+
+body.homepage #avis .review-card .source {
+  position: absolute !important;
+  top: 29px !important;
+  left: 82px !important;
+  right: 58px !important;
+  margin: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 0 !important;
+  line-height: 1.25 !important;
+}
+
+body.homepage #avis .review-card .source::before {
+  display: block !important;
+  color: #26231f !important;
+  -webkit-text-fill-color: #26231f !important;
+  font-size: .98rem !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+}
+
+body.homepage #avis .review-card .source::after {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #8a8179 !important;
+  -webkit-text-fill-color: #8a8179 !important;
+  font-size: .78rem !important;
+  font-weight: 700 !important;
+}
+
+body.homepage #avis .review-card:nth-child(1) .source::before { content: "Christian Voigts" !important; }
+body.homepage #avis .review-card:nth-child(1) .source::after { content: "il y a 4 jours" !important; }
+body.homepage #avis .review-card:nth-child(2) .source::before { content: "Chris Gathercole" !important; }
+body.homepage #avis .review-card:nth-child(2) .source::after { content: "il y a 1 semaine" !important; }
+body.homepage #avis .review-card:nth-child(3) .source::before { content: "Matthias Oberholzer" !important; }
+body.homepage #avis .review-card:nth-child(3) .source::after { content: "il y a 3 semaines" !important; }
+
+body.homepage #avis .review-card .stars {
+  margin: 0 0 14px !important;
+  color: #f5b400 !important;
+  -webkit-text-fill-color: #f5b400 !important;
+  font-size: 1.18rem !important;
+  line-height: 1 !important;
+  letter-spacing: .04em !important;
+}
+
+body.homepage #avis .review-card p {
+  margin: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+body.homepage #avis .review-card p::before {
+  display: block !important;
+  color: #26231f !important;
+  -webkit-text-fill-color: #26231f !important;
+  font-size: .96rem !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+}
+
+body.homepage #avis .review-card:nth-child(1) p::before {
+  content: "alle sehr angenehm !!" !important;
+}
+
+body.homepage #avis .review-card:nth-child(2) p::before {
+  content: "Very lovely, comfortable, clean apartment. Great responsive hosts. Lovely location with great views across Monaco." !important;
+}
+
+body.homepage #avis .review-card:nth-child(3) p::before {
+  content: "Great" !important;
+}
+
+body.homepage #avis .actions {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: clamp(28px, 4vw, 44px) !important;
+}
+
+body.homepage #avis .actions .button {
+  min-height: 52px !important;
+  padding: 14px 24px !important;
+  border-radius: 999px !important;
+  background: #26231f !important;
+  border-color: #26231f !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 0 !important;
+  box-shadow: 0 16px 36px rgba(54, 38, 24, .16) !important;
+}
+
+body.homepage #avis .actions .button::before {
+  content: "Voir nos avis en ligne" !important;
+  color: #fffaf4 !important;
+  -webkit-text-fill-color: #fffaf4 !important;
+  font-size: .98rem !important;
+  font-weight: 900 !important;
+}
+
+body.homepage #avis .actions .button::after {
+  content: "↗" !important;
+  margin-left: 10px !important;
+  color: #edc9a6 !important;
+  -webkit-text-fill-color: #edc9a6 !important;
+  font-size: 1rem !important;
+}
+
+body.homepage #avis .actions .button:hover {
+  transform: translateY(-2px) !important;
+  background: #8f4d2f !important;
+  border-color: #8f4d2f !important;
+}
+
+@media (max-width: 980px) {
+  body.homepage #avis .reviews {
+    grid-template-columns: 1fr !important;
+    max-width: 560px !important;
+  }
+}
