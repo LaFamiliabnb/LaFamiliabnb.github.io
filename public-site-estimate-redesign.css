@@ -1,0 +1,254 @@
+/* Refonte de la section “Estimez le potentiel de votre logement”.
+   Objectif : section plus premium, plus lisible et plus orientée conversion,
+   sans modifier le contenu HTML ni le contenu SEO. */
+
+body.homepage main#contenu > section:nth-of-type(7) {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(184, 107, 61, .10), transparent 28%),
+    linear-gradient(180deg, #fffaf4 0%, #f7ecdf 100%) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7)::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 34px auto auto 6% !important;
+  width: 150px !important;
+  height: 150px !important;
+  border: 1px solid rgba(184, 107, 61, .14) !important;
+  border-radius: 999px !important;
+  pointer-events: none !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .container {
+  position: relative !important;
+  max-width: 1160px !important;
+  z-index: 1 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) h2 {
+  max-width: 760px !important;
+  margin-bottom: 16px !important;
+  letter-spacing: -.045em !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) h2::before {
+  content: "Votre potentiel locatif" !important;
+  display: block !important;
+  margin-bottom: 14px !important;
+  color: #b86b3d !important;
+  font-family: inherit !important;
+  font-size: .76rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .18em !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .section-intro {
+  max-width: 690px !important;
+  color: #4a4038 !important;
+  font-size: clamp(1rem, 1.25vw, 1.14rem) !important;
+  line-height: 1.8 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr) !important;
+  gap: 0 !important;
+  margin-top: clamp(34px, 4.4vw, 56px) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(184, 107, 61, .18) !important;
+  border-radius: 34px 34px 0 0 !important;
+  background: rgba(255, 255, 255, .92) !important;
+  box-shadow: 0 34px 92px rgba(54, 38, 24, .13) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band::before {
+  content: "Analyse personnalisée" !important;
+  position: absolute !important;
+  top: 24px !important;
+  right: 28px !important;
+  z-index: 3 !important;
+  padding: 8px 12px !important;
+  border: 1px solid rgba(255, 250, 244, .32) !important;
+  border-radius: 999px !important;
+  background: rgba(38, 35, 31, .78) !important;
+  color: #fffaf4 !important;
+  font-size: .68rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .14em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div {
+  padding: clamp(30px, 4.2vw, 58px) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:first-child {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 244, .96), rgba(255, 255, 255, .88)) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:first-child h3 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 24px !important;
+  color: #26231f !important;
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem) !important;
+  line-height: 1.08 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:first-child h3::before {
+  content: "01" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+  border-radius: 999px !important;
+  background: #f2ddca !important;
+  color: #8f4d2f !important;
+  font-family: var(--font-sans, Arial, sans-serif) !important;
+  font-size: .82rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .criteria {
+  display: grid !important;
+  gap: 12px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .criteria-row {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(120px, .55fr) minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: center !important;
+  padding: 16px 18px 16px 20px !important;
+  border: 1px solid rgba(184, 107, 61, .14) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 250, 244, .72) !important;
+  box-shadow: 0 14px 34px rgba(54, 38, 24, .045) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .criteria-row::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 16px !important;
+  bottom: 16px !important;
+  width: 3px !important;
+  border-radius: 999px !important;
+  background: #b86b3d !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .criteria-row span:first-child {
+  color: #26231f !important;
+  font-weight: 950 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .criteria-row span:last-child {
+  color: #665a50 !important;
+  font-size: .94rem !important;
+  line-height: 1.45 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child {
+  position: relative !important;
+  display: flex !important;
+  min-height: 100% !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(237, 201, 166, .20), transparent 36%),
+    linear-gradient(145deg, #26231f 0%, #3a3028 100%) !important;
+  color: #fffaf4 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child h3 {
+  max-width: 430px !important;
+  margin-bottom: 18px !important;
+  color: #fffaf4 !important;
+  font-size: clamp(1.75rem, 2.8vw, 2.55rem) !important;
+  line-height: 1.04 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child h3::before {
+  content: "02 / Décision" !important;
+  display: block !important;
+  margin-bottom: 16px !important;
+  color: #edc9a6 !important;
+  font-family: var(--font-sans, Arial, sans-serif) !important;
+  font-size: .72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child p {
+  max-width: 460px !important;
+  color: rgba(255, 250, 244, .78) !important;
+  font-size: 1rem !important;
+  line-height: 1.76 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child .actions {
+  margin-top: 28px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child .button {
+  background: #fffaf4 !important;
+  color: #26231f !important;
+  border-color: #fffaf4 !important;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .22) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child .button:hover {
+  transform: translateY(-2px) !important;
+  background: #edc9a6 !important;
+  border-color: #edc9a6 !important;
+}
+
+@media (max-width: 900px) {
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band {
+    grid-template-columns: 1fr !important;
+    border-radius: 26px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band::before {
+    position: static !important;
+    width: fit-content !important;
+    margin: 22px 24px -4px auto !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div {
+    padding: 28px 24px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .criteria-row {
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:first-child h3 {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band > div:last-child .actions {
+    justify-content: center !important;
+  }
+}
