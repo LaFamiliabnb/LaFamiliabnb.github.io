@@ -31,7 +31,7 @@ body.homepage main#contenu > section:nth-of-type(12) {
   pointer-events: none !important;
 
   /* Position réelle : la section arrive juste après le market-box ;
-     on la remonte jusque dans la partie droite blanche du cadre, sous le paragraphe Notre rôle. */
+     on la remonte dans la partie droite blanche du cadre. */
   margin-top: clamp(-860px, -53vw, -700px) !important;
   margin-bottom: clamp(140px, 11vw, 190px) !important;
 }
@@ -60,11 +60,14 @@ body.homepage main#contenu > section:nth-of-type(12) .section-intro {
 body.homepage main#contenu > section:nth-of-type(12) .link-grid {
   width: min(470px, calc(50% - 34px)) !important;
   margin: 0 0 0 calc(50% + 30px) !important;
+  padding-top: clamp(126px, 10vw, 170px) !important;
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: flex-start !important;
   align-items: center !important;
   gap: 9px !important;
+  background: transparent !important;
+  box-shadow: none !important;
   pointer-events: auto !important;
 }
 
@@ -140,6 +143,7 @@ body.homepage main#contenu > section:nth-of-type(14) { order: 14 !important; }
   body.homepage main#contenu > section:nth-of-type(12) .link-grid {
     width: 100% !important;
     margin-left: 0 !important;
+    padding-top: 0 !important;
     justify-content: center !important;
   }
 
