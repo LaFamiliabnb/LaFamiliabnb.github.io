@@ -1,6 +1,5 @@
-/* Services : afficher uniquement les bulles sous le paragraphe “Notre rôle”.
-   On garde la section Explorer pour le SEO, mais seule sa grille de liens est visible.
-   La grille est remontée dans la colonne droite du cadre marché, sans fond ni superposition large. */
+/* Services : afficher les bulles dans la zone "Notre rôle" sans masquer le tableau.
+   Le haut de la market-box reste visible ; seule la grille de liens est remontée visuellement. */
 
 body.homepage main#contenu > section:nth-of-type(5) {
   position: relative !important;
@@ -9,14 +8,14 @@ body.homepage main#contenu > section:nth-of-type(5) {
 body.homepage main#contenu > section:nth-of-type(5) .market-box {
   position: relative !important;
   overflow: visible !important;
-  padding-bottom: clamp(38px, 4vw, 68px) !important;
+  padding-bottom: clamp(96px, 8vw, 140px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(5) .market-box > div:last-child .actions {
   display: none !important;
 }
 
-/* La section Explorer devient une enveloppe invisible, sans fond, sans hauteur propre. */
+/* La section Explorer reste dans le HTML pour les liens, mais devient neutre visuellement. */
 body.homepage main#contenu > section:nth-of-type(12) {
   order: 9 !important;
   position: relative !important;
@@ -29,11 +28,8 @@ body.homepage main#contenu > section:nth-of-type(12) {
   background: transparent !important;
   color: #26231f !important;
   pointer-events: none !important;
-
-  /* Position réelle : la section arrive juste après le market-box ;
-     on la remonte dans la partie droite blanche du cadre. */
-  margin-top: clamp(-860px, -53vw, -700px) !important;
-  margin-bottom: clamp(140px, 11vw, 190px) !important;
+  margin-top: clamp(-650px, -40vw, -520px) !important;
+  margin-bottom: clamp(150px, 12vw, 210px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(12) .container {
@@ -56,11 +52,10 @@ body.homepage main#contenu > section:nth-of-type(12) .section-intro {
   white-space: nowrap !important;
 }
 
-/* Grille réellement visible : uniquement les bulles, dans la colonne Notre rôle. */
 body.homepage main#contenu > section:nth-of-type(12) .link-grid {
   width: min(470px, calc(50% - 34px)) !important;
   margin: 0 0 0 calc(50% + 30px) !important;
-  padding-top: clamp(126px, 10vw, 170px) !important;
+  padding-top: clamp(96px, 7vw, 130px) !important;
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: flex-start !important;
@@ -118,7 +113,6 @@ body.homepage main#contenu > section:nth-of-type(12) .link-grid a:hover {
   box-shadow: 0 15px 38px rgba(54, 38, 24, .09) !important;
 }
 
-/* Réordonner la suite après l’insertion compacte des bulles. */
 body.homepage main#contenu > section:nth-of-type(7) { order: 10 !important; }
 body.homepage main#contenu > section:nth-of-type(8) { order: 11 !important; }
 body.homepage main#contenu > section:nth-of-type(11) { order: 12 !important; }
