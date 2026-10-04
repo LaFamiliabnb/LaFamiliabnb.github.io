@@ -9,7 +9,7 @@ body.homepage main#contenu > section:nth-of-type(5) {
 body.homepage main#contenu > section:nth-of-type(5) .market-box {
   position: relative !important;
   overflow: visible !important;
-  padding-bottom: clamp(190px, 14vw, 255px) !important;
+  padding-bottom: clamp(38px, 4vw, 68px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(5) .market-box > div:last-child .actions {
@@ -31,9 +31,9 @@ body.homepage main#contenu > section:nth-of-type(12) {
   pointer-events: none !important;
 
   /* Position réelle : la section arrive juste après le market-box ;
-     on la remonte donc dans la partie droite blanche du cadre. */
-  margin-top: clamp(-560px, -34vw, -420px) !important;
-  margin-bottom: clamp(120px, 10vw, 170px) !important;
+     on la remonte jusque dans la partie droite blanche du cadre, sous le paragraphe Notre rôle. */
+  margin-top: clamp(-860px, -53vw, -700px) !important;
+  margin-bottom: clamp(140px, 11vw, 190px) !important;
 }
 
 body.homepage main#contenu > section:nth-of-type(12) .container {
