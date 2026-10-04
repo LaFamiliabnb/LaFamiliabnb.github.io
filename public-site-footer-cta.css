@@ -1,0 +1,167 @@
+/* CTA final homepage : déplacer le bloc propriétaire après la FAQ et lui donner un rendu premium.
+   Section ciblée : nth-of-type(11) = “Vous avez un logement à Aix-en-Provence ?”. */
+
+body.homepage main#contenu {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* La FAQ reste juste avant le CTA final. */
+body.homepage main#contenu > section:nth-of-type(14) {
+  order: 98 !important;
+}
+
+/* Le CTA propriétaire devient le dernier bloc avant le footer. */
+body.homepage main#contenu > section:nth-of-type(11) {
+  order: 99 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: clamp(72px, 8vw, 116px) 6% clamp(82px, 9vw, 126px) !important;
+  background: linear-gradient(180deg, #fffaf4 0%, #f5eadf 100%) !important;
+  color: #26231f !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .container {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  min-height: clamp(330px, 34vw, 455px) !important;
+  align-items: center !important;
+  justify-items: center !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: clamp(52px, 7vw, 92px) clamp(28px, 6vw, 76px) !important;
+  border: 1px solid rgba(184, 107, 61, .13) !important;
+  border-radius: clamp(28px, 4vw, 42px) !important;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(184, 107, 61, .10), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,250,244,.92)) !important;
+  box-shadow: 0 42px 110px rgba(54, 38, 24, .13) !important;
+  text-align: center !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band::before {
+  content: "" !important;
+  position: absolute !important;
+  left: clamp(-90px, -5vw, -40px) !important;
+  bottom: clamp(-96px, -7vw, -42px) !important;
+  width: clamp(330px, 38vw, 560px) !important;
+  height: clamp(330px, 38vw, 560px) !important;
+  background-image: url("/img/LogoLF__3_-removebg-preview.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: .055 !important;
+  filter: saturate(.35) contrast(.8) !important;
+  pointer-events: none !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band::after {
+  content: "Estimation gratuite · réponse sous 24 h" !important;
+  position: absolute !important;
+  top: clamp(22px, 3vw, 34px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 9px 14px !important;
+  border: 1px solid rgba(184, 107, 61, .18) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 250, 244, .82) !important;
+  color: #8f4d2f !important;
+  font-size: .74rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band > div:first-child {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 930px !important;
+  margin: 0 auto !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band h2 {
+  max-width: 980px !important;
+  margin: 0 auto 20px !important;
+  color: #26231f !important;
+  -webkit-text-fill-color: #26231f !important;
+  font-family: "PlayfairDisplay", Georgia, serif !important;
+  font-size: clamp(2.45rem, 6vw, 5.4rem) !important;
+  line-height: .92 !important;
+  letter-spacing: -.055em !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band p {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+  color: #5c5047 !important;
+  -webkit-text-fill-color: #5c5047 !important;
+  font-size: clamp(1rem, 1.25vw, 1.16rem) !important;
+  line-height: 1.75 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band .actions {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin: clamp(28px, 4vw, 42px) 0 0 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band .button {
+  min-width: min(100%, 260px) !important;
+  min-height: 56px !important;
+  padding: 16px 28px !important;
+  border-radius: 999px !important;
+  background: #b86b3d !important;
+  border-color: #b86b3d !important;
+  color: #fffaf4 !important;
+  -webkit-text-fill-color: #fffaf4 !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  box-shadow: 0 18px 42px rgba(184, 107, 61, .28) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band .button:hover {
+  transform: translateY(-2px) !important;
+  background: #8f4d2f !important;
+  border-color: #8f4d2f !important;
+  box-shadow: 0 24px 52px rgba(143, 77, 47, .30) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band .button.booking {
+  display: none !important;
+}
+
+@media (max-width: 780px) {
+  body.homepage main#contenu > section:nth-of-type(11) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(11) .cta-band {
+    min-height: 0 !important;
+    padding-top: 82px !important;
+    padding-bottom: 56px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(11) .cta-band::after {
+    width: max-content !important;
+    max-width: calc(100% - 36px) !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+  }
+}
