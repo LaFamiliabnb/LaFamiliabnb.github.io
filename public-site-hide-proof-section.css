@@ -1,0 +1,6 @@
+/* Suppression visuelle de la section "Des preuves concrètes pour décider en confiance".
+   La section correspond au 8e bloc de la homepage dans le HTML actuel et contient .proof-layout. */
+
+body.homepage main#contenu > section:nth-of-type(8) {
+  display: none !important;
+}
