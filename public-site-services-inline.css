@@ -1,0 +1,145 @@
+/* Surcouche : intégrer les liens de services dans la partie marché / rôle, sans créer une section autonome. */
+
+/* Ordre : méthode -> marché local -> bulles services -> estimation/preuves -> CTA. */
+body.homepage main#contenu > section:nth-of-type(12) {
+  order: 9 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) {
+  order: 10 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(8) {
+  order: 11 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) {
+  order: 12 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) {
+  order: 13 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(14) {
+  order: 14 !important;
+}
+
+/* La section Explorer disparaît comme section autonome : elle devient une rangée de liens intégrée au bloc précédent. */
+body.homepage main#contenu > section:nth-of-type(12) {
+  background: #fffaf4 !important;
+  color: #26231f !important;
+  padding-top: 0 !important;
+  padding-bottom: clamp(34px, 4vw, 54px) !important;
+  margin-top: clamp(-42px, -3vw, -22px) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .container {
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) h2,
+body.homepage main#contenu > section:nth-of-type(12) .section-intro {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .link-grid {
+  width: min(520px, 100%) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .link-grid::before {
+  content: "Nos services";
+  display: block;
+  flex: 0 0 100%;
+  margin: 0 0 6px;
+  color: #8f4d2f;
+  font-family: "PlayfairDisplay", Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .link-grid a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  padding: 11px 16px !important;
+  border: 1px solid rgba(184, 107, 61, .22) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .78) !important;
+  color: #26231f !important;
+  font-size: .92rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  box-shadow: 0 12px 32px rgba(54, 38, 24, .055) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .link-grid a::after {
+  content: "↗";
+  margin-left: 9px;
+  color: #b86b3d;
+  font-size: .9rem;
+  line-height: 1;
+}
+
+body.homepage main#contenu > section:nth-of-type(12) .link-grid a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 107, 61, .42) !important;
+  box-shadow: 0 16px 42px rgba(54, 38, 24, .095) !important;
+}
+
+/* Donner l'impression que les services appartiennent au tableau marché / Notre rôle. */
+body.homepage main#contenu > section:nth-of-type(5) {
+  padding-bottom: clamp(52px, 5vw, 82px) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(5) .market-box {
+  margin-bottom: 0 !important;
+}
+
+/* Le bloc final reprend directement après, sans répéter les services. */
+body.homepage main#contenu > section:nth-of-type(11) {
+  padding-top: clamp(48px, 5vw, 78px) !important;
+}
+
+@media (min-width: 981px) {
+  body.homepage main#contenu > section:nth-of-type(12) .container {
+    padding-left: clamp(34px, 5vw, 56px) !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body.homepage main#contenu > section:nth-of-type(12) {
+    margin-top: -20px !important;
+    padding-bottom: 34px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(12) .link-grid {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(12) .link-grid::before {
+    text-align: center;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(12) .link-grid a {
+    width: 100% !important;
+  }
+}
