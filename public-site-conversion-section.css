@@ -1,0 +1,160 @@
+/* Fusion conversion : regrouper estimation, CTA propriétaire et secteurs d’intervention.
+   Les trois sections restent dans le HTML pour le SEO, mais forment visuellement un seul bloc fluide. */
+
+body.homepage main#contenu {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ordre du groupe fusionné : estimation -> CTA -> zones. */
+body.homepage main#contenu > section:nth-of-type(7) {
+  order: 9 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) {
+  order: 10 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) {
+  order: 11 !important;
+}
+
+/* Les preuves passent après le bloc fusionné. */
+body.homepage main#contenu > section:nth-of-type(8) {
+  order: 12 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(14) {
+  order: 14 !important;
+}
+
+/* Même univers graphique pour créer une seule section. */
+body.homepage main#contenu > section:nth-of-type(7),
+body.homepage main#contenu > section:nth-of-type(11),
+body.homepage main#contenu > section:nth-of-type(13) {
+  background: linear-gradient(180deg, #fffaf4 0%, #f8efe5 100%) !important;
+}
+
+/* Début de la section unique. */
+body.homepage main#contenu > section:nth-of-type(7) {
+  padding-top: clamp(58px, 7vw, 96px) !important;
+  padding-bottom: 0 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .container {
+  max-width: 1120px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) h2 {
+  max-width: 840px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .section-intro {
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(7) .estimate-band {
+  margin-top: clamp(28px, 4vw, 46px) !important;
+  border-radius: 32px 32px 0 0 !important;
+  border-bottom: 0 !important;
+  background: rgba(255,255,255,.9) !important;
+  box-shadow: 0 26px 80px rgba(54,38,24,.10) !important;
+}
+
+/* Milieu : CTA propriétaire intégré dans la même carte. */
+body.homepage main#contenu > section:nth-of-type(11) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .container {
+  max-width: 1120px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band {
+  margin: 0 !important;
+  padding: clamp(26px, 4vw, 42px) clamp(28px, 4vw, 54px) !important;
+  border-top: 1px solid rgba(184,107,61,.14) !important;
+  border-right: 1px solid rgba(184,107,61,.12) !important;
+  border-left: 1px solid rgba(184,107,61,.12) !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  background: rgba(255,255,255,.9) !important;
+  box-shadow: 0 26px 80px rgba(54,38,24,.10) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band h2 {
+  font-size: clamp(1.75rem, 3vw, 2.7rem) !important;
+  margin-bottom: 10px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(11) .cta-band p {
+  max-width: 610px !important;
+}
+
+/* Fin : zones d’intervention comme bas de carte. */
+body.homepage main#contenu > section:nth-of-type(13) {
+  padding-top: 0 !important;
+  padding-bottom: clamp(58px, 7vw, 96px) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) .container {
+  max-width: 1120px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) .cta-band {
+  margin: 0 !important;
+  padding: clamp(24px, 3.6vw, 38px) clamp(28px, 4vw, 54px) !important;
+  border: 1px solid rgba(184,107,61,.12) !important;
+  border-top-color: rgba(184,107,61,.14) !important;
+  border-radius: 0 0 32px 32px !important;
+  background: rgba(255,255,255,.9) !important;
+  box-shadow: 0 34px 90px rgba(54,38,24,.12) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) .cta-band h2 {
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem) !important;
+  margin-bottom: 8px !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(13) .cta-band p {
+  max-width: 560px !important;
+}
+
+/* La section preuves reprend ensuite avec une vraie respiration. */
+body.homepage main#contenu > section:nth-of-type(8) {
+  padding-top: clamp(56px, 7vw, 92px) !important;
+}
+
+@media (max-width: 900px) {
+  body.homepage main#contenu > section:nth-of-type(7) .estimate-band,
+  body.homepage main#contenu > section:nth-of-type(11) .cta-band,
+  body.homepage main#contenu > section:nth-of-type(13) .cta-band {
+    border-radius: 24px !important;
+    border: 1px solid rgba(184,107,61,.12) !important;
+    margin-bottom: 16px !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(7),
+  body.homepage main#contenu > section:nth-of-type(11),
+  body.homepage main#contenu > section:nth-of-type(13) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(11) .cta-band,
+  body.homepage main#contenu > section:nth-of-type(13) .cta-band {
+    text-align: center !important;
+  }
+
+  body.homepage main#contenu > section:nth-of-type(11) .actions,
+  body.homepage main#contenu > section:nth-of-type(13) .actions {
+    justify-content: center !important;
+  }
+}
