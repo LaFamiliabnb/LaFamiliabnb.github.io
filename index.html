@@ -120,16 +120,9 @@
     }
 
     .homepage #services .section-intro {
-      max-width: 780px;
+      max-width: 840px;
       font-size: 1.08rem;
       line-height: 1.8;
-    }
-
-    .homepage #services .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 44px;
     }
 
     .homepage #services .why-card {
@@ -193,6 +186,134 @@
       border-color: #26231f;
     }
 
+    .why-premium-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        "local management revenue"
+        "local experience proof";
+      gap: 24px;
+      max-width: 1180px;
+      margin: 48px auto 0;
+      text-align: left;
+    }
+
+    .why-premium-layout .why-card {
+      position: relative;
+      min-height: 100%;
+      padding: clamp(28px, 3.2vw, 44px);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .88);
+      border: 1px solid rgba(184, 107, 61, .12);
+      box-shadow: 0 28px 70px rgba(54, 38, 24, .10);
+    }
+
+    .why-premium-layout .why-card i {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 22px;
+      background: #f2ddca;
+      color: #b86b3d;
+    }
+
+    .why-premium-layout .why-card h3 {
+      max-width: 520px;
+      font-size: clamp(1.45rem, 2vw, 2.15rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .why-premium-layout .why-card p {
+      color: #332f2a;
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    .why-card-local {
+      grid-area: local;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, #fffaf4 0%, #f3e1cf 100%) !important;
+      border-color: rgba(184, 107, 61, .32) !important;
+      box-shadow: 0 34px 90px rgba(54, 38, 24, .16) !important;
+    }
+
+    .why-card-management { grid-area: management; }
+    .why-card-revenue { grid-area: revenue; }
+    .why-card-experience { grid-area: experience; }
+
+    .why-card-kicker {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 24px;
+      color: #9d5a34;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      font-weight: 900;
+    }
+
+    .why-card-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(184, 107, 61, .22);
+      color: #26231f;
+      font-weight: 900;
+    }
+
+    .why-card-proof span,
+    .why-google-band .google-stars {
+      color: #f6b92f;
+      letter-spacing: .05em;
+      white-space: nowrap;
+    }
+
+    .why-premium-layout .google-link {
+      margin-top: 24px;
+      border-bottom: 0;
+      color: #8f4d2f;
+      font-weight: 900;
+    }
+
+    .why-premium-layout .google-link i {
+      width: 38px !important;
+      height: 38px !important;
+      margin: 0 !important;
+      background: #f2ddca !important;
+    }
+
+    .why-google-band {
+      grid-area: proof;
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+      padding: clamp(24px, 3vw, 38px);
+      border: 1px solid rgba(184, 107, 61, .20);
+      border-radius: 26px;
+      background: #26231f;
+      color: #fffaf4;
+      text-decoration: none;
+      box-shadow: 0 28px 70px rgba(54, 38, 24, .16);
+    }
+
+    .why-google-band strong {
+      color: #fffaf4;
+      font-size: 1.25rem;
+    }
+
+    .why-google-band em {
+      color: rgba(255, 250, 244, .72);
+      font-style: normal;
+      line-height: 1.55;
+    }
+
     .hero-google-review {
       display: inline-flex;
       flex-direction: column;
@@ -241,10 +362,39 @@
     }
 
     @media (max-width: 1100px) {
-      .homepage #services .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .why-premium-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+          "local local"
+          "management revenue"
+          "experience proof";
+      }
     }
 
     @media (max-width: 980px) {
+      .why-premium-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "local"
+          "management"
+          "revenue"
+          "experience"
+          "proof";
+        max-width: 680px;
+      }
+
+      .why-premium-layout .why-card,
+      .why-google-band {
+        text-align: center;
+        align-items: center;
+      }
+
+      .why-card-kicker,
+      .why-card-proof {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .hero-review-mobile {
         display: inline-flex;
         width: min(280px, 86vw);
@@ -267,7 +417,6 @@
     }
 
     @media (max-width: 680px) {
-      .homepage #services .why-grid { grid-template-columns: 1fr; }
       .homepage #services .why-card { min-height: 0; text-align: center; }
     }
   </style>
@@ -503,19 +652,43 @@
       </div>
     </section>
 
-    <section class="section alt compact-bottom" id="services">
+    <section class="section alt compact-bottom why-premium-section" id="services">
       <div class="container">
         <span class="home-kicker">Notre différence</span>
-        <h2>Pourquoi choisir La Familia ?</h2>
+        <h2>Pourquoi les propriétaires nous confient leur logement ?</h2>
         <p class="section-intro">
-          Une conciergerie implantée au cœur d’Aix-en-Provence, avec une équipe locale, une gestion complète et un suivi clair pour chaque propriétaire.
+          Une conciergerie locale, située au 6 rue Gibelin à Aix-en-Provence, qui combine présence terrain, gestion complète et suivi clair des performances.
         </p>
 
-        <div class="grid four why-grid">
-          <article class="card why-card why-card-featured"><div><i class="fas fa-map-marker-alt"></i><h3>Conciergerie locale</h3><p>Nous sommes situés au 6 rue Gibelin, 13100 Aix-en-Provence, à proximité immédiate des logements que nous gérons.</p><a class="google-link" href="https://g.page/r/CY1FbkZ1_yF_EBM" target="_blank" rel="noopener">Voir notre fiche Google <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></article>
-          <article class="card why-card"><div><i class="fas fa-concierge-bell"></i><h3>Gestion complète</h3><p>Annonces, voyageurs, ménage, linge, arrivées, départs, prix et suivi propriétaire sont coordonnés dans un même process.</p></div></article>
-          <article class="card why-card"><div><i class="fas fa-star"></i><h3>Expérience voyageurs</h3><p>Un logement bien préparé, des informations claires et une attention portée aux détails qui influencent les avis.</p></div></article>
-          <article class="card why-card"><div><i class="fas fa-chart-line"></i><h3>Revenus optimisés</h3><p>Des tarifs ajustés selon la saison, la demande, les événements locaux et le potentiel réel du bien.</p></div></article>
+        <div class="why-premium-layout" aria-label="Raisons de choisir La Familia">
+          <article class="card why-card why-card-featured why-card-local">
+            <div>
+              <span class="why-card-kicker">Présence locale réelle</span>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <h3>Une vraie présence à Aix-en-Provence</h3>
+              <p>Situés au <strong>6 rue Gibelin, 13100 Aix-en-Provence</strong>, nous sommes proches des logements que nous gérons. Cela nous permet de coordonner les ménages, les arrivées, les imprévus et la qualité terrain avec réactivité.</p>
+              <a class="google-link" href="https://g.page/r/CY1FbkZ1_yF_EBM" target="_blank" rel="noopener">Voir notre fiche Google <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="why-card-proof"><span>★★★★★</span><strong>5/5 · 42 avis Google</strong></div>
+          </article>
+
+          <article class="card why-card why-card-management">
+            <div><i class="fas fa-concierge-bell" aria-hidden="true"></i><h3>Une gestion complète, sans charge mentale</h3><p>Annonce, messages voyageurs, arrivées, départs, ménage, linge, réassort, prix et suivi propriétaire : vous déléguez l’exploitation quotidienne, nous gardons le cap opérationnel.</p></div>
+          </article>
+
+          <article class="card why-card why-card-revenue">
+            <div><i class="fas fa-chart-line" aria-hidden="true"></i><h3>Des revenus pilotés, pas subis</h3><p>Nous ajustons les prix selon la saison, la demande, les événements locaux, le taux d’occupation et le potentiel réel du logement, avec une stratégie adaptée à chaque bien.</p></div>
+          </article>
+
+          <article class="card why-card why-card-experience">
+            <div><i class="fas fa-star" aria-hidden="true"></i><h3>Une expérience voyageur qui protège vos avis</h3><p>Un logement propre, bien préparé, des consignes claires et une assistance réactive : chaque détail compte pour obtenir de meilleurs avis et fidéliser la performance du bien.</p></div>
+          </article>
+
+          <a class="why-google-band" href="https://g.page/r/CY1FbkZ1_yF_EBM" target="_blank" rel="noopener" aria-label="Voir les avis Google La Familia">
+            <span class="google-stars">★★★★★</span>
+            <strong>5/5 · 42 avis Google</strong>
+            <em>Estimation gratuite et sans engagement · réponse sous 24 h</em>
+          </a>
         </div>
       </div>
     </section>
