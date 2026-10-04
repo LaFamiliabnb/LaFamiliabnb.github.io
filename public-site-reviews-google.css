@@ -1,4 +1,4 @@
-/* Avis Google : présentation inspirée des cartes Manasteos, avec noms réels et lecture plus crédible. */
+/* Avis Google : présentation inspirée des cartes Manasteos, avec vrais avis Google La Familia. */
 
 body.homepage #avis {
   background: linear-gradient(180deg, #fffaf4 0%, #f7ecdf 100%) !important;
@@ -31,7 +31,7 @@ body.homepage #avis .reviews {
 
 body.homepage #avis .review-card {
   position: relative !important;
-  min-height: 230px !important;
+  min-height: 250px !important;
   padding: 94px 24px 26px !important;
   border: 1px solid rgba(54, 38, 24, .08) !important;
   border-radius: 18px !important;
@@ -57,22 +57,22 @@ body.homepage #avis .review-card::before {
 }
 
 body.homepage #avis .review-card:nth-child(1)::before {
-  content: "" !important;
-  background:
-    radial-gradient(circle at 32% 34%, #5a8f42 0 16%, transparent 17%),
-    radial-gradient(circle at 65% 38%, #2f6f35 0 18%, transparent 19%),
-    radial-gradient(circle at 48% 70%, #9dbb78 0 22%, transparent 23%),
-    #dbe9cf !important;
+  content: "C" !important;
+  background: #7a57c8 !important;
 }
 
 body.homepage #avis .review-card:nth-child(2)::before {
   content: "C" !important;
-  background: #8f7566 !important;
+  background:
+    radial-gradient(circle at 35% 30%, #9fb8b0 0 20%, transparent 21%),
+    radial-gradient(circle at 68% 36%, #6f8f84 0 18%, transparent 19%),
+    radial-gradient(circle at 48% 72%, #d7c7aa 0 20%, transparent 21%),
+    #e9eee9 !important;
 }
 
 body.homepage #avis .review-card:nth-child(3)::before {
-  content: "M" !important;
-  background: #0b5f9e !important;
+  content: "T" !important;
+  background: #6cab3c !important;
 }
 
 body.homepage #avis .review-card::after {
@@ -117,12 +117,12 @@ body.homepage #avis .review-card .source::after {
   font-weight: 700 !important;
 }
 
-body.homepage #avis .review-card:nth-child(1) .source::before { content: "Christian Voigts" !important; }
-body.homepage #avis .review-card:nth-child(1) .source::after { content: "il y a 4 jours" !important; }
-body.homepage #avis .review-card:nth-child(2) .source::before { content: "Chris Gathercole" !important; }
-body.homepage #avis .review-card:nth-child(2) .source::after { content: "il y a 1 semaine" !important; }
-body.homepage #avis .review-card:nth-child(3) .source::before { content: "Matthias Oberholzer" !important; }
-body.homepage #avis .review-card:nth-child(3) .source::after { content: "il y a 3 semaines" !important; }
+body.homepage #avis .review-card:nth-child(1) .source::before { content: "Chloé Picard" !important; }
+body.homepage #avis .review-card:nth-child(1) .source::after { content: "il y a 2 mois · avis Google" !important; }
+body.homepage #avis .review-card:nth-child(2) .source::before { content: "Catherine Dufort" !important; }
+body.homepage #avis .review-card:nth-child(2) .source::after { content: "il y a 2 ans · avis Google" !important; }
+body.homepage #avis .review-card:nth-child(3) .source::before { content: "The Evil Girls" !important; }
+body.homepage #avis .review-card:nth-child(3) .source::after { content: "il y a 2 ans · avis Google" !important; }
 
 body.homepage #avis .review-card .stars {
   margin: 0 0 14px !important;
@@ -151,15 +151,15 @@ body.homepage #avis .review-card p::before {
 }
 
 body.homepage #avis .review-card:nth-child(1) p::before {
-  content: "alle sehr angenehm !!" !important;
+  content: "Logement très propre, nettoyé et préparé avec soin pour notre arrivée. Tout était parfait pour notre séjour. Je recommande !" !important;
 }
 
 body.homepage #avis .review-card:nth-child(2) p::before {
-  content: "Very lovely, comfortable, clean apartment. Great responsive hosts. Lovely location with great views across Monaco." !important;
+  content: "Très bonne réactivité, explications au top. Préparation du logement TB. Suivi lors du séjour TB." !important;
 }
 
 body.homepage #avis .review-card:nth-child(3) p::before {
-  content: "Great" !important;
+  content: "J’ai eu à louer deux Airbnb, ils étaient en parfait état, le ménage 10/10, on s’y sent comme chez soi et le check-in est simple et efficace. Aurore a été très gentille. Je recommande." !important;
 }
 
 body.homepage #avis .actions {
