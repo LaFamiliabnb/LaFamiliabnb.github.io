@@ -1,46 +1,11 @@
-@import url("/public-site-base.css");
-
-/* Ajustements du bloc « La Familia en chiffres » */
-.key-figures {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 24px 6% 58px !important;
-}
-
-.key-figures-heading {
-  max-width: 1180px !important;
-  margin: 0 auto 30px !important;
-}
-
-.key-figures-heading .eyebrow {
-  display: none !important;
-}
-
-.key-figures-heading h2 {
-  margin-top: 0 !important;
-}
-
-.key-figures .trust-strip {
-  max-width: 1180px !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-}
-
-.key-figures .trust-item {
-  min-width: 0;
-  align-items: center;
-  padding: 28px 20px !important;
-}
-
-.key-figures .trust-item strong {
-  white-space: nowrap;
-}
-
-.key-figures .trust-item:last-child strong {
-  font-size: clamp(1.65rem, 2.1vw, 2.35rem) !important;
-}
-
-.key-figures-note {
-  max-width: 1180px !important;
-}
+@import url("/public-site-current.css");
+@import url("/public-site-fusions.css");
+@import url("/public-site-final-order.css");
+@import url("/public-site-role-services.css");
+@import url("/public-site-conversion-section.css");
+@import url("/public-site-estimate-redesign.css");
+@import url("/public-site-zones-redesign.css");
+@import url("/public-site-hide-proof-section.css");
+@import url("/public-site-footer-cta.css");
+@import url("/public-site-reviews-google.css");
+@import url("/public-site-whatsapp-floating.css");

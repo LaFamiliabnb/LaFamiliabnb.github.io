@@ -1,0 +1,111 @@
+/* Surcouche finale : ordre exact des sections homepage.
+   Objectif :
+   Pourquoi les propriétaires nous confient leur logement ?
+   -> Une gestion humaine, portée par une vraie présence locale
+   -> Faites partie des propriétaires qui nous font confiance
+   -> Une méthode simple pour déléguer sereinement
+*/
+
+body.homepage main#contenu {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ordre natif du HTML :
+   1 hero
+   2 chiffres
+   3 offres
+   4 pourquoi nous confier
+   5 pourquoi louer en courte durée
+   6 méthode
+   7 estimation
+   8 preuves
+   9 équipe
+   10 avis
+   11 CTA estimation
+   12 services
+   13 zones
+   14 FAQ
+*/
+body.homepage main#contenu > section:nth-of-type(1) { order: 1 !important; }
+body.homepage main#contenu > section:nth-of-type(2) { order: 2 !important; }
+body.homepage main#contenu > section:nth-of-type(3) { order: 3 !important; }
+body.homepage main#contenu > section:nth-of-type(4) { order: 4 !important; }
+
+/* Bloc confiance demandé. */
+body.homepage main#contenu > section:nth-of-type(9),
+body.homepage main#contenu > #equipe {
+  order: 5 !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(10),
+body.homepage main#contenu > #avis {
+  order: 6 !important;
+}
+
+/* La méthode arrive juste après les avis. */
+body.homepage main#contenu > section:nth-of-type(6) { order: 7 !important; }
+
+/* Le marché local passe dans la suite éditoriale, après la méthode. */
+body.homepage main#contenu > section:nth-of-type(5) { order: 8 !important; }
+body.homepage main#contenu > section:nth-of-type(7) { order: 9 !important; }
+body.homepage main#contenu > section:nth-of-type(8) { order: 10 !important; }
+body.homepage main#contenu > section:nth-of-type(11) { order: 11 !important; }
+body.homepage main#contenu > section:nth-of-type(12) { order: 12 !important; }
+body.homepage main#contenu > section:nth-of-type(13) { order: 13 !important; }
+body.homepage main#contenu > section:nth-of-type(14) { order: 14 !important; }
+
+/* Liaisons visuelles entre les trois sections de confiance. */
+body.homepage main#contenu > section:nth-of-type(4) {
+  padding-bottom: clamp(42px, 5vw, 72px) !important;
+}
+
+body.homepage #equipe {
+  background: linear-gradient(180deg, #f5eadf 0%, #fffaf4 100%) !important;
+  padding-top: clamp(42px, 5vw, 74px) !important;
+  padding-bottom: clamp(48px, 5vw, 78px) !important;
+}
+
+body.homepage #avis {
+  background: #fff !important;
+  padding-top: clamp(54px, 6vw, 86px) !important;
+  padding-bottom: clamp(54px, 6vw, 86px) !important;
+}
+
+body.homepage #avis h2::before {
+  content: "Faites partie des propriétaires qui nous font confiance" !important;
+}
+
+/* La méthode reprend immédiatement après les avis avec une rupture élégante. */
+body.homepage main#contenu > section:nth-of-type(6) {
+  background: #26231f !important;
+  padding-top: clamp(54px, 6vw, 86px) !important;
+  padding-bottom: clamp(54px, 6vw, 86px) !important;
+}
+
+/* La section marché reste utile SEO, mais plus compacte après la méthode. */
+body.homepage main#contenu > section:nth-of-type(5) {
+  background: #fffaf4 !important;
+  padding-top: clamp(46px, 5vw, 72px) !important;
+  padding-bottom: clamp(42px, 5vw, 68px) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(5) h2 {
+  font-size: clamp(1.9rem, 3.5vw, 3.4rem) !important;
+}
+
+body.homepage main#contenu > section:nth-of-type(5) .market-box {
+  margin-top: 28px !important;
+  border-radius: 28px !important;
+  box-shadow: 0 22px 65px rgba(54, 38, 24, .08) !important;
+}
+
+@media (max-width: 980px) {
+  body.homepage #equipe,
+  body.homepage #avis,
+  body.homepage main#contenu > section:nth-of-type(6),
+  body.homepage main#contenu > section:nth-of-type(5) {
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
+  }
+}
